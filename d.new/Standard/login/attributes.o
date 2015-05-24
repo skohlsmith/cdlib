@@ -1,0 +1,5 @@
+obj_items 0
+obj_cmd_items 0
+obj_commands 0
+obj_state 0
+attrib ({({"GENERAL",3,({"well-dressed","smelling","angry","drooling","stupid","naked",}),}),({"COMPLEXION",3,({"blue-furred","red-skinned","grey-scaled","transparent","scaly","slimy",}),}),({"FACE",3,({"read-faced","pale","big-nosed","four-eyed","pink-eyed","red-nosed",}),}),({"ARMS",3,({"eight-armed","six-armed","two-armed","short-armed","one-armed","long-armed",}),}),({"LEGS",3,({"three-legged","one-legged","short-legged","long-legged","bandy-legged","six-legged",}),}),({"TEMP",3,({"hot","cold","steaming","dripping","quivering","crawling",}),}),})
