@@ -22,6 +22,8 @@
 #include <stdproperties.h>
 #include <time.h>
 
+#include "/config/login/login.h"
+
 /*
  * These are the neccessary variables stored in the save file.
  */
@@ -709,9 +711,9 @@ get_name(string str)
             !(wildmatch("*jr", str) &&
               (SECURITY->query_wiz_rank(extract(str, 0, -3)) >= runlevel)))
         {
-            if (file_size(LOGIN_FILE_RUNLEVEL) > 0)
+            if (file_size(LOGIN_NO_NEW) > 0)
             {
-                cat(LOGIN_FILE_RUNLEVEL);
+                cat(LOGIN_NO_NEW);
             }
 
             remove_alarm(time_out_alarm);
@@ -886,7 +888,7 @@ get_name(string str)
         }
 
         write_socket("\nNew character.\n");
-        cat(LOGIN_FILE_NEWCHAR);
+        cat(LOGIN_FILE_NEW_PLAYER_INFO);
         write_socket("Do you really want to use the name " + capitalize(str) +
             "? y[es], n[o] or q[uit]? ");
         player_file = 0;

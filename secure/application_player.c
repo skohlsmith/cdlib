@@ -135,7 +135,7 @@ enter_game()
 	destruct();
 	return;
     }
-    
+
     data = read_file(APPLICATION_INFO);
     if (!strlen(data))
     {

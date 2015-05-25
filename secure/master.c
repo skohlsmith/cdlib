@@ -312,7 +312,7 @@ get_vbfc_object()
  * Returns      : object - the login object.
  */
 static object
-connect() 
+connect()
 {
     write("\n");
     set_auth(this_object(), "root:root");
@@ -350,7 +350,7 @@ valid_set_auth(object setter, object getting_set, string value)
     {
         return auth;
     }
-    
+
     oldauth = (stringp(auth) ? explode(auth, ":") : ({ "0", "0"}) );
     if (newauth[0] == "#")
     {
@@ -511,7 +511,7 @@ valid_write(string file, mixed writer, string func)
         {
             return (dname != WIZARD_DOMAIN);
         }
-        
+
         /* A Lord and steward can write anywhere in the domain. */
         if ((query_domain_lord(dname) == writer) ||
             (query_domain_steward(dname) == writer))
@@ -2844,7 +2844,7 @@ domain_object(object obj)
     {
         return 0;
     }
-    
+
     str = file_name(obj);
     if (str[0..2] != "/d/")
     {
@@ -2857,9 +2857,9 @@ domain_object(object obj)
 
 /*
  * Function name: load_player
- * Descripton:    This function is called from /std/player_sec 
- *                  when the player object is loaded initially. 
- *                It sets the euid of the player to root for 
+ * Descripton:    This function is called from /std/player_sec
+ *                  when the player object is loaded initially.
+ *                It sets the euid of the player to root for
  *                the duration of the load.
  */
 int
@@ -2898,7 +2898,7 @@ save_player()
     object pobj;
 
     pobj = previous_object();
-    
+
     if ((function_exists("save_player", pobj) != PLAYER_SEC_OBJECT) ||
         !LOGIN_NEW_PLAYER->legal_player(pobj))
     {

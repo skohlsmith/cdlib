@@ -38,11 +38,11 @@ inherit "/std/living";
 #define AUTOLOAD_INTERVAL 0.0
 #define RECOVERY_INTERVAL 0.5
 
-/* 
+/*
  * List of properties that are to be saved in the player object. This list
  * is used at both restore and save since the name of the property itself
  * isn't stored, just the value.
- * 
+ *
  * WARNING: If you add something, add it at the end of the array. Do
  *          NOT insert anything, or all previously stored arrays will
  *          be restored in an incorrect sequence.
@@ -938,7 +938,7 @@ nomask public int
 load_player(string pl_name)
 {
     int ret;
-   
+
     if (!pl_name)
     {
         return 0;

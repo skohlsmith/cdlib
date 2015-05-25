@@ -338,6 +338,18 @@ restore_mail(string name)
 static void
 save_mail(mapping mail, string name)
 {
+    /* Make sure that MAIL_DIR/<first letter>/ exists */
+    string dir = MAIL_DIR + extract(name, 0, 0);
+    switch(file_size(dir))
+    {
+     case -2:
+     break;
+
+     case -1:
+     mkdir(dir);
+     break;
+    }
+
     save_map(mail, FILE_NAME_MAIL(name));
 }
 
@@ -374,6 +386,29 @@ static int
 save_message(mapping message, int date)
 {
     string file = FILE_NAME_MESSAGE(date, HASH_SIZE);
+
+    /* Make sure that MSG_DIR and MSG_DIR/date exist */
+    string dir = MSG_DIR;
+
+    switch(file_size(dir))
+    {
+     case -2:
+     break;
+
+     case -1:
+     mkdir(dir);
+     break;
+    }
+    dir += "d" + (date % HASH_SIZE);
+    switch(file_size(dir))
+    {
+     case -2:
+     break;
+
+     case -1:
+     mkdir(dir);
+     break;
+    }
 
     save_map(message, file);
 

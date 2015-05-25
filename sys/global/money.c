@@ -477,7 +477,7 @@ money_col_text(int *coins, int width = 2)
     {
         return "a strange number of coins";
     }
-    
+
     while (--index >= 0)
     {
         if (coins[index] > 0)

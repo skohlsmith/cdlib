@@ -26,7 +26,7 @@
 #include <state_desc.h>
 
 #ifdef DAY_AND_NIGHT
-#include <mudtime.h>
+#include <time.h>
 #endif
 
 private static int appearance_offset;

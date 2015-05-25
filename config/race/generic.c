@@ -13,14 +13,16 @@
 #pragma save_binary
 
 inherit "/std/player_pub";
-inherit "/d/Genesis/std/mail_stuff";
-inherit "/d/Genesis/std/special_stuff";
+inherit "/d/Standard/std/mail_stuff";
+inherit "/d/Standard/std/special_stuff";
 
 inherit "/std/combat/humunarmed";
 
-#include "/sys/const.h"
-#include "/sys/macros.h"
-#include "/sys/stdproperties.h"
+#include <const.h>
+#include <macros.h>
+#include <std.h>
+#include <ss_types.h>
+#include <stdproperties.h>
 #include "/config/login/login.h"
 
 static	mapping 	com_sounds;
@@ -49,19 +51,31 @@ start_player()
 	this_object()->add_cmdsoul(RACEMISCCMD[this_object()->query_race()]);
     }
 
-    if (!query_prop(CONT_I_WEIGHT))
+    if (query_prop(CONT_I_WEIGHT) <= 1)
     {
 	val = RACEATTR[this_object()->query_race()][1];
-	add_prop(CONT_I_WEIGHT, val *1000);
+	add_prop(CONT_I_WEIGHT, val * 1000);
     }
-    if (!query_prop(CONT_I_VOLUME))
+    if (query_prop(CONT_I_VOLUME) <= 1)
     {
 	val = RACEATTR[this_object()->query_race()][4];
 	add_prop(CONT_I_VOLUME, val * 1000);
     }
+    if (query_prop(CONT_I_HEIGHT) <= 1)
+    {
+	val = RACEATTR[this_object()->query_race()][0];
+	add_prop(CONT_I_HEIGHT, val * 1000);
+    }
     com_sounds = RACESOUND;
 
+    if (!SECURITY->is_funmap(this_object()))
+	SECURITY->do_funmap(this_object());
+
+    start_mail(this_object()->query_def_post());
+
     ::start_player();
+
+    set_this_player(this_object());
 }
 
 query_def_start()
@@ -72,6 +86,11 @@ query_def_start()
 query_orig_stat()
 {
     return RACESTAT[this_object()->query_race()];
+}
+
+query_def_post()
+{
+    return RACEPOST[this_object()->query_race()];
 }
 
 public int
@@ -87,7 +106,12 @@ communicate(string str) /* Must have it here for special with ' */
 
     say(QCTNAME(this_object()) + " @@race_sound:" + file_name(this_object()) +
 	"@@: " + str + "\n");
-    write("Ok.\n");
+
+    if (this_player()->query_get_echo())
+	write("You say: " + str + "\n");
+    else
+        write("Ok.\n");
+
     return 1;
 }
 
@@ -97,7 +121,7 @@ race_sound()
     object pobj;
     string raceto, racefrom;
 
-    pobj = previous_object();
+    pobj = previous_object(-1);
 
     raceto = pobj->query_race();
     if (member_array(raceto, RACES) < 0)
@@ -105,3 +129,6 @@ race_sound()
 
     return com_sounds[raceto][this_object()->query_race()];
 }
+
+
+

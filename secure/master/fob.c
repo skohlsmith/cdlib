@@ -34,7 +34,7 @@ private mapping m_teams;        /* The arch team mapping */
  *
  * [3] - The name of the steward of the domain, if any.
  *
- * [4] - An array holding the names of all members, including the lord and 
+ * [4] - An array holding the names of all members, including the lord and
  *       the steward.
  *
  * [5] - The max number of members the domain wants to accept.
@@ -576,7 +576,7 @@ transform_mortal_into_wizard(string wname, string cmder)
         }
 
         wizard->set_default_start_location(WIZ_ROOM);
-        wizard->save_me(1);        
+        wizard->save_me(1);
     }
     else
     {
@@ -2363,6 +2363,7 @@ query_mage_links()
     index = sizeof(links);
     while(--index >= 0)
         links[index] = "/w/" + links[index] + "/" + WIZARD_LINK;
+
 
     return links;
 }

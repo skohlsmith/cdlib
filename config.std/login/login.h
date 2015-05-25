@@ -1,17 +1,17 @@
 /*
-    
+
   Some constants relevant to the login procedure
 
 */
 
 /*
  * PATH
- * 
+ *
  * The path in which the login rooms reside
  */
 #define PATH "/d/Standard/login/"
 
-/* 
+/*
  * LOGIN_FILE_NEW_PLAYER_INFO
  *
  * This is the names of the files that are written to new users logging in.
@@ -32,22 +32,33 @@
  * RACEATTR
  *
  * This mapping holds the standard attributes for each race. The attributes
- * are: 
+ * are:
  *      standard height         (cm)
  *      standard weight         (kg)
  *      standard opinion        (0-100)
  *      standard appereance     (0-100)
  *      standard volume         (dm^3)
+ *      standard width          (cm)
  */
 #define RACEATTR ([                                \
-		"human"  : ({180, 70, 50, 50, 70 }),   \
-		"vogon"  : ({ 90, 50, 20, 20, 50 }),   \
+		"human"  : ({180, 70, 50, 50, 70, 100 }),   \
+		"vogon"  : ({ 90, 50, 20, 20, 50, 110 }),   \
 		])
 
 /*
  * when m_indexex work on constants: m_indexes(RACEMAP)
  */
 #define RACES ({ "human", "vogon" })
+
+/*
+ * RACES_SHORT
+ *
+ * This mapping contains a short name for each race, abbreviated to exactly
+ * three letters.
+ */
+#define RACES_SHORT ([ \
+        "human" : "hum", \
+        "vogon" : "vog" ])
 
 /*
  * RACESTART
@@ -117,7 +128,7 @@
 				])                              \
 		    ])
 
- 
+
 /*
  * HEIGHTDESC
  */

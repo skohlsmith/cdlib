@@ -1912,21 +1912,21 @@ cb_hit_me(int wcpen, int dt, object attacker, int attack_id, int target_hitloc =
     {
         attack = attacker->query_combat_object()->query_attack(attack_id);
         my_weapons = me->query_weapon(-1);
-        
+
         if (!sizeof(my_weapons))
         {
-            proc_hurt = -1;   /* we dodged */          
+            proc_hurt = -1;   /* we dodged */
         }
         else
-        {    
-            tmp = random(me->query_skill(SS_PARRY) + 
+        {
+            tmp = random(me->query_skill(SS_PARRY) +
                          me->query_skill(SS_DEFENSE));
 
             if (sizeof(attack) && objectp(attack[6]))
             {
                 attacker_weapon = attack[6];
             }
-                
+
             if (tmp < me->query_skill(SS_PARRY) &&
                 attacker_weapon->query_wt() != W_MISSILE)
             {

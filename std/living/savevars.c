@@ -1719,7 +1719,7 @@ set_skill(int skill, int val)
 #endif LOG_SET_SKILL
 
     /* Mudlib skills must be in the range 0 - 100 */
-    if ((skill >= 0) && (skill <= SS_MUDLIB_SKILL_END))
+    if ((skill >= 0) && (skill <= SS_MAX))
         val = max(min(100, val), 0);
 
     skillmap[skill] = val;

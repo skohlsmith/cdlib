@@ -18,7 +18,7 @@
 
 #ifndef SD_AV_TITLES
 #define SD_AV_TITLES    ({ "novice", "beginner", "apprentice", "master" })
-#define SD_AV_LIMITS    ({ 10, 25, 50, 100 })
+#define SD_AV_LEVELS    ({ 10, 25, 50, 100 })
 #endif SD_AV_TITLES
 
 #define SD_STAT_NAMES 	({ "STR", "DEX", "CON", "INT", "WIS", "DIS" })
