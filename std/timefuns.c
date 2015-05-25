@@ -1,7 +1,3 @@
-/*
- * Total rewrite by Draven 23-07-97
- */
-
 /*  Some Macros one may easily use in his Objects/Rooms/Monsters.... :      */
 #include <time.h>
 #include <language.h>
@@ -10,16 +6,13 @@
 int time, year, season, week, day, hour, minute, second, weekday;
 
  string *seasonarray = ({ "Spring", "Summer", "Fall", "Winter" });
-  
- string *quarterarray = ({ "first quarter", "second quarter", "third quarter", 
+
+ string *quarterarray = ({ "first quarter", "second quarter", "third quarter",
                    "fourth quarter" });
-  
+
  string *weekdayarray = ({ "NeverSeen", "Sunday", "Monday", "Tuesday", "Wednesday",
                            "Thursday", "Friday", "Saturday" });
 
-/*
- * Prototypical things
- */
 public nomask string time_get_string(string str);
 public nomask string time_get_description(string str);
 public int time_get_int(string str);
@@ -31,27 +24,12 @@ time_get_int(string str)
 {
  int accum;
 
-  time = time();
-  time = time - START_TIME * MUD_SECONDS_PER_SECOND;
-  time = time * MUD_SECONDS_PER_SECOND;
-  /* time == time since start of time */
+ time = time();
+ time = time - START_TIME * MUD_SECONDS_PER_SECOND;
+ time = time * MUD_SECONDS_PER_SECOND;
+ /* time == time since start of time */
 
-  accum = time;
- /*
-  year = time/S_PER_YEAR;
-  season = ((time-(year*S_PER_YEAR))/S_PER_SEASON);
-  week = (time-(year*S_PER_YEAR) - (season*S_PER_SEASON))/S_PER_WEEK;
-  day = (time-(year*S_PER_YEAR) - (season*S_PER_SEASON) - 
-        (week*S_PER_WEEK))/S_PER_DAY;
-  hour = (time-(year*S_PER_YEAR) - (season*S_PER_SEASON) - 
-         (week*S_PER_WEEK) - (day*S_PER_DAY))/S_PER_HOUR;
-  minute = (time-(year*S_PER_YEAR) - (season*S_PER_SEASON) - (week*S_PER_WEEK) -
-           (day*S_PER_DAY) - (hour*S_PER_HOUR))/SECONDS_PER_MINUTE;
-  second = time-(year*S_PER_YEAR) - (season*S_PER_SEASON) - (week*S_PER_WEEK) -
-           (day*S_PER_DAY) - (hour*S_PER_HOUR) - (minute*SECONDS_PER_MINUTE);
- weekday = (day+season*DAYS_PER_SEASON+year*DAYS_PER_YEAR) - 
-            (((day+season*DAYS_PER_SEASON+year*DAYS_PER_YEAR) / 7) * 7);
-*/
+ accum = time;
 
  year = accum/S_PER_YEAR;
  accum -= year*S_PER_YEAR;
@@ -111,7 +89,7 @@ time_get_description(string str)
 {
  if(!str)
     return "String required!\n";
-  
+
  if(str == "date")
  {
   return "the " + LANG_WORD(WEEK) + " " + weekdayarray[DAY] + " of " +
@@ -120,7 +98,7 @@ time_get_description(string str)
 
  if(str == "time")
  {
-  return "the " + quarterarray[(MINUTE/15)] + " of the " + LANG_WORD(HOUR) + 
+  return "the " + quarterarray[(MINUTE/15)] + " of the " + LANG_WORD(HOUR) +
 	 " hour";
  }
 
@@ -133,7 +111,7 @@ time_get_description(string str)
  {
   return weekdayarray[WEEKDAY];
  }
- return "Bad String\n"; 
+ return "Bad String\n";
 }
 
 
@@ -158,7 +136,7 @@ time_get_string(string str)
  minutestr = ""+minute;
  secondstr = ""+second;
 
- if(day < 10) 
+ if(day < 10)
    daystr="0"+day;
  if(season < 10)
    seasonstr="0"+season;
@@ -188,7 +166,7 @@ time_get_string(string str)
   {
    hour = 12;
    hourstr = ""+hour;
-   temp = "AM"; 
+   temp = "AM";
   }
   else if(hour > 12)
   {
@@ -198,6 +176,7 @@ time_get_string(string str)
   }
   else
     temp = "AM";
+
   retstr = hourstr + ":" + minutestr + ":" + secondstr + " "+temp;
   return retstr;
  }
