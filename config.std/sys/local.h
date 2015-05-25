@@ -132,7 +132,7 @@
  * K{rt barn har m}nga namn...
  */
 #define WIZ_APPRENTICE_SCROLL "/d/Standard/obj/init_scroll"
-#define APPRENTICE_SCROLL_FILE "/d/Standard/obj/init_scroll"
+#define APPRENTICE_SCROLL_FILE "/d/Standard/doc/appr_scroll_file"
 
 /*
  * LOGIN_NEW_PLAYER
