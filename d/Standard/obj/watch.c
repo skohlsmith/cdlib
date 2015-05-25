@@ -1,8 +1,3 @@
-/*
- * Test of /std/timefuns.c
- * By Draven 22-07-97
- */
-
 inherit "/std/object.c";
 
 #include <stdproperties.h>
@@ -20,9 +15,10 @@ void create_object()
 
 string my_long()
 {
- say(({QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n", 
+ /* using catch_msg()'s ({ met_msg, unmet_msg, unseen_mesg }) functionality */
+ say(({QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n",
        QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n",
-       "Someone glances at it's watch.\n"}));
+       ""}));
  return "A glance at your watch tells you that it is " +EXACTTIME+ " on " +DATEDESC+ ".\n";
 }
 

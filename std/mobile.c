@@ -215,7 +215,7 @@ catch_vbfc(mixed str, object from_player = 0)
     {
         return;
     }
- 
+
     if (pointerp(str))
     {
         if (!from_player)
