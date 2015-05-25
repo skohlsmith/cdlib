@@ -1,5 +1,5 @@
 /*
- * leftover.c 
+ * leftover.c
  *
  * Base leftover code.
  *
@@ -72,7 +72,7 @@ leftover_init(string organ, string race)
 	set_pname(LANG_PWORD(organ));
         set_short(race + " " + organ);
 	set_long(long_description);
-	
+
 	if (IN_ARRAY(organ, LD_BONES))
 	{
 	    add_name("bone");
@@ -111,8 +111,8 @@ config_split(int new_num, object orig)
  *                own leftover.
  */
 public nomask void
-create_food() 
-{ 
+create_food()
+{
     simple_names = 0;
     decay_time = 10;
 
@@ -170,8 +170,8 @@ query_organ()
  * Description  : When the leftover is dropped in a room, start the count
  *                down to the decay routine.
  */
-public void 
-enter_env(object dest, object old) 
+public void
+enter_env(object dest, object old)
 {
     ::enter_env(dest, old);
 
@@ -205,7 +205,7 @@ decay_fun()
 }
 
 /*
- * Function name:	consume_them 
+ * Function name:	consume_them
  * Description:		Consumes a number of food item. This function
  *			shadows the ordinary /std/food funcion.
  *			All this to detect cannibals...
@@ -215,7 +215,7 @@ public void
 consume_them(object *arr)
 {
     int il;
-    
+
     for (il = 0; il < sizeof(arr); il++)
     {
         if (arr[il]->query_race() == this_player()->query_race_name())

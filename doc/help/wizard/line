@@ -16,7 +16,7 @@ DESCRIPTION
 	they are not a member of it, they will not hear the reply ;-) All
 	members of a domain are automatically members to that line and no
 	one else can become a member of a domain line.
-	
+
 	If you do not add a message, you will list all members of that
 	particular line, exactly like 'line list <channel>'. The
 	command dtell is an alias to 'line <your domain>'.

@@ -1,4 +1,4 @@
-This file documents some specific details about making monsters. 
+This file documents some specific details about making monsters.
 
 
 Description
@@ -10,7 +10,7 @@ emotions and object manipulation. They are also included among creatures
 that players can be introduced to.
 
 This means that monsters are different from ordinary object with respect
-to their shortdescription. 
+to their shortdescription.
 
 You can of course define your own short() to do this. Normally monsters are
 identified by three things:

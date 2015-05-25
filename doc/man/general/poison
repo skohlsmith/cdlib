@@ -20,10 +20,10 @@ and fatigue may all be reduced by an amount supplied by the wizard. Stats may
 be reduced as well. Stats are only reduced temporarily, and only by one point
 per "hit". A given poison might hit the player quite often, or very rarely,
 depending on the setings. You may also define your own type, but a type must be
-set. 
+set.
 
 The poison types are defined respectively with POISON_HP, POISON_MANA,
-POISON_FATIGUE and POISON_STAT. Or you can use a string for your own type. 
+POISON_FATIGUE and POISON_STAT. Or you can use a string for your own type.
 
 Poison strength cannot exceed 100. A poison of 100 strength is very difficult
 to cure. Be realistic with your poison strengths. Not every poison is going to
@@ -34,7 +34,7 @@ It is hoped that this will cover most common poison situations, but if needed,
 all kinds of effects may be achieved by replacing the damage_player() function.
 For example, the poison can be made quite deadly by actually killing the player
 upon the timeout period expiring (or in the damage_player() routine, if more
-randomness is desired.)  
+randomness is desired.)
 
 The method in which the poison is activated can be widely varied. Possibilities
 include poisoned weapons, poison stings and bites, and poison potions. Multi
@@ -49,7 +49,7 @@ type. To test for poison, one can call query_poison_type(). If this function is
 defined, the object is poison. Type "all" cures all poisons, but its strength
 is reduced by half in it's attempt. Any other poison type must match exactly.
 If you don't set the type of your poison it will be set to "standard". Type
-"standard" should not be used as a type. 
+"standard" should not be used as a type.
 
 Antidotes may also attempt to undo the effect of a particular poison damage.
 For this, the effects POISON_CURE_FATIGUE, POISON_CURE_HP, POISON_CURE_MANA

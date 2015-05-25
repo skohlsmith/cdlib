@@ -300,7 +300,7 @@ clone_ob(string str)
 	notify_fail("No such file: " + str + "\n");
 	return 0;
     }
-    
+
     seteuid(getuid());
     ob = clone_object(str);
     if (!objectp(ob))
@@ -363,39 +363,39 @@ clone(string str)
 	case 0:
 	    write("Ok.\n");
 	    break;
-	    
+
 	case 1:
 	    write("Too heavy for destination.\n");
 	    break;
-	    
+
 	case 2:
 	    write("Can't be dropped.\n");
 	    break;
-	    
+
 	case 3:
 	    write("Can't take it out of it's container.\n");
 	    break;
-	    
+
 	case 4:
 	    write("The object can't be inserted into bags etc.\n");
 	    break;
-	    
+
 	case 5:
 	    write("The destination doesn't allow insertions of objects.\n");
 	    break;
-	    
+
 	case 6:
 	    write("The object can't be picked up.\n");
 	    break;
-	    
+
 	case 7:
 	    write("Other (Error message printed inside move() function).\n");
 	    break;
-	    
+
 	case 8:
 	    write("Too big volume for destination.\n");
 	    break;
-	    
+
 	default:
 	    write("Strange, very strange error in move: " + num + "\n");
 	    break;
@@ -452,7 +452,7 @@ death(string str)
     notify_fail("There are two possible parameters for the command " +
 	"\"death\": \"prevent\" and \"allow\". The first prevents you " +
 	"from dying and the second re-allows you to die again. Currently " +
-	"you are " + 
+	"you are " +
 	((this_interactive()->query_death_protection() == 1) ? "" : "NOT ") +
 	"protected from Death!\n");
     return 0;
@@ -870,7 +870,7 @@ update_ob(string str)
 	{
 	    if (obs[i]->query_default_start_location() == str)
 	    {
-		error = 1;        
+		error = 1;
 		write("Cannot update the start location of "
 		    + capitalize(obs[i]->query_real_name()) + ".\n");
 	    }
@@ -971,12 +971,12 @@ update(string str)
 {
     int i;
     string *dir, *args, path, fpath, name;
-    
+
     /* catch 'update' without args */
 
     if (!strlen(str))
 	return update_ob(str);
-    
+
     /* check if user specifies the -d option */
 
     args = explode(str, " ");
@@ -998,7 +998,7 @@ update(string str)
      */
     path = FPATH(SECURITY->query_wiz_path(name), TPATH(name, str));
 
-    /* read directory */ 
+    /* read directory */
 
     dir = get_dir(path);
 
@@ -1007,14 +1007,14 @@ update(string str)
     args = explode(path, "/");
     args = exclude_array(args, sizeof(args) - 1, sizeof(args));
     path = implode(args, "/");
-  
+
     /* move through all files returned by 'dir' */
 
     for (i = 0; i < sizeof(dir); i++)
     {
 	/* get full filepath to objects */
 	fpath = FPATH(path, TPATH(name, dir[i]));
-	
+
 	/* just update existing objects. skip anything names workroom.c to
 	    avoid accidents */
 	if (find_object(fpath) &&

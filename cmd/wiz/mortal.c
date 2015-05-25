@@ -40,8 +40,8 @@ query_cmdlist()
 {
     return ([ ]);
 }
-    
+
 /* **************************************************************************
- * Here follow the actual functions. Please add new functions in the 
+ * Here follow the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/

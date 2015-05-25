@@ -20,11 +20,11 @@
  */
 #undef DOCMARK /* "/DOCDIR" */
 
-static 	mapping	docdirs;	/* Info on all docdirs currently known. 
+static 	mapping	docdirs;	/* Info on all docdirs currently known.
 				   Each entry on the form:
-				     (["/dir/name/": 
+				     (["/dir/name/":
 				       ({ sdir_sortedlist, ([ subdir:info ]) })
-				     ]) 
+				     ])
     				   There can be many subdir:info for one main
 				   docdir. 'info' is on the form:
 				     "%%function1%%function2%%function3"
@@ -37,7 +37,7 @@ static 	mapping	docdirs;	/* Info on all docdirs currently known.
  * Function name:   valid_docdir
  * Description:     Check if this is a valid documentation directory
  */
-int 
+int
 valid_docdir(string ddir)
 {
 #ifdef DOCMARK
@@ -55,7 +55,7 @@ valid_docdir(string ddir)
  *		    containing all the ([ subdir:info ]) information
  *
  */
-static mapping 
+static mapping
 read_index(string mdir)
 {
     string *files, *sfiles, sdname, info;
@@ -86,11 +86,11 @@ read_index(string mdir)
 	    sfiles = m_indexes(sdir);
 	    for (j = 0; j < sizeof(sfiles); j++)
 	    {
-		res["/" + files[i] + 
+		res["/" + files[i] +
 		    (sfiles[j] == "/" ? "" : sfiles[j])] = sdir[sfiles[j]];
 	    }
 	}
-	else 
+	else
 	    info += files[i] + "%%";
     }
     if (strlen(info) > 2)
@@ -118,7 +118,7 @@ init_docdir(string mdir)
 
     if (!valid_docdir(mdir))
 	return;
-    
+
     if (m_sizeof(docdirs) >= MAXLOCAL_DIRS)
     {
 	stmp = m_indexes(docdirs)[random(m_sizeof(docdirs) - 1) + 1];
@@ -167,13 +167,13 @@ fix_subjlist(string *split, string keyw, int okbef, int okaft)
 
 /*
  * Function name:   get_keywords
- * Description:     Return all possible function names that match a 
+ * Description:     Return all possible function names that match a
  *		    given keyword in one or all subdirs.
  * Arguments:	    mdir    - The main documentation directory
  *		    subdir  - The subdir to search in. (Optional)
  *		    keyword - The keyword to search for.
  * Returns:         An array containing the list of found names in each
- *		    subdir. Each entry is on the form: 
+ *		    subdir. Each entry is on the form:
  *			({ "subdir", ({ "funcname", "funcname" ... }) })
  */
 public mixed *
@@ -186,19 +186,19 @@ get_keywords(string mdir, string sdir, string keyword)
     if (!sizeof(sdlist = get_subdirs(mdir)))
 	return ({ });
 
-    okbef = 0; 
+    okbef = 0;
     okaft = 0;
 
     if (sscanf(keyword, "*%s", st) == 1)
     {
 	keyword = st;
-	okbef = 1; 
+	okbef = 1;
     }
 
     if (sscanf(keyword, "%s*", st) == 1)
     {
 	keyword = st;
-	okaft = 1; 
+	okaft = 1;
     }
 
     if (keyword == "")
@@ -219,7 +219,7 @@ get_keywords(string mdir, string sdir, string keyword)
 	if (sizeof(tmp))
 	    found_arr += ({ ({ sdlist[i], tmp }) });
     }
-    
+
     return found_arr;
 }
 
@@ -230,7 +230,7 @@ get_keywords(string mdir, string sdir, string keyword)
  * Arguments:	    mdir - The main documentation directory
  *		    sdir - The subdir to search in. (Optional)
  * Returns:         An array containing the list of found names in each
- *		    subdir. Each entry is on the form: 
+ *		    subdir. Each entry is on the form:
  *			({ "subdir", ({ "funcname", "funcname" ... }) })
  */
 public mixed *
@@ -239,7 +239,7 @@ get_index(string mdir, string sdir)
     mixed *found_arr, *tmp;
     string *sdlist;
     int i;
-    
+
     if (!sizeof(sdlist = get_subdirs(mdir)))
 	return ({ });
 
@@ -248,7 +248,7 @@ get_index(string mdir, string sdir)
 
     else if (stringp(sdir)) /* No such subdir */
 	return ({});
-    
+
     found_arr = ({});
     for (i = 0; i < sizeof(sdlist); i++)
     {
@@ -257,6 +257,6 @@ get_index(string mdir, string sdir)
 	if (sizeof(tmp))
 	    found_arr += ({ ({ sdlist[i], tmp }) });
     }
-    
+
     return found_arr;
 }

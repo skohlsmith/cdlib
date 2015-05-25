@@ -81,7 +81,7 @@
 /*
  * MAP_ROOMS
  *
- * Mapsymbols and corresponding filenames of terrain rooms 
+ * Mapsymbols and corresponding filenames of terrain rooms
  *
  */
 #define MAP_DEFAULT_ROOM "/d/Standard/terrain/space"
@@ -102,4 +102,4 @@
  		        "star_base",     \
  		        "black_hole",    \
 			})
-				     
+

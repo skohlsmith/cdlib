@@ -6,8 +6,8 @@ SYNOPSIS
 
 DESCRIPTION
 	This function turns on and off automatic calls every 2 seconds to
-	the lfun heart_beat. If 'onflag' is 0 then calls is turned off, 
-	otherwise calling is turned on. 
+	the lfun heart_beat. If 'onflag' is 0 then calls is turned off,
+	otherwise calling is turned on.
 
 NOTA BENE
 	heart_beats are costly. Use them only if neccessary. Especially

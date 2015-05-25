@@ -11,7 +11,7 @@ inherit "/std/room";
 void
 create_room()
 {
- 
+
     set_short("The main post office");
     add_prop(ROOM_I_INSIDE,1); // this room is always lit
 

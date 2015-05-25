@@ -9,7 +9,7 @@ ACCESS LEVEL
 SYNOPSIS
 	purge <name>
 	purge players
-	
+
 DESCRIPTION
 	With this command you can remove a mortal player from the game. When
 	a player is removed, his or her playerfile is removed, the mail-file

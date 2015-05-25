@@ -28,7 +28,7 @@ create_room()
      * Fighting when falling is out of the question :) The ROOM_M_NO_ATTACK
      * prop should see to that. If you set it to 1, then standard messages
      * will be used, but you can also define a message on your own to be
-     * printed if a player tries to attack someone. The 'M' stands for 
+     * printed if a player tries to attack someone. The 'M' stands for
      * Mixed type, the prop can have both an integer setting as well as
      * a string type setting.
      */
@@ -100,7 +100,7 @@ enter_inv(object ob, object from)
 }
 
 /*
- * halfway(), if the obejct is still in this room, then tell people on the 
+ * halfway(), if the obejct is still in this room, then tell people on the
  * trunk of the tree that something fell past them and tell the object, if
  * living, that it's falling rapidly.
  */

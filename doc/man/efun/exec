@@ -16,7 +16,7 @@ DESCRIPTION
 NOTA BENE
 	It is very easy to become confused when writing the code that uses
 	this efun. All the internal variables like `this_player()' or
-	`this_object()' remain unchanged, it is just the user that is 
+	`this_object()' remain unchanged, it is just the user that is
 	switched between the objects.
 
 CAVEAT

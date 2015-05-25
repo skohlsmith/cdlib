@@ -7,5 +7,5 @@ SYNOPSIS
 DESCRIPTION
 	Gives an array of objectpointers to the currently interactive
 	objects. This is most often the playerobjects, unless exec() has
-	been run to swap a players interactivity into another object.	
+	been run to swap a players interactivity into another object.
 

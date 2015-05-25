@@ -13,7 +13,7 @@ DESCRIPTION
 	The information is available with the use of the finger command, and
 	can be seen only by the administration of the realms and the Liege of
 	the domain you are a member of.
- 
+
 ARGUMENTS
 	list   - List your registered seconds.
 	<name> - The name of the second to add.

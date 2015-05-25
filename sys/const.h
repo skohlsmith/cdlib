@@ -1,4 +1,4 @@
-/* 
+/*
  * /sys/const.h
  *
  * Useful constants.

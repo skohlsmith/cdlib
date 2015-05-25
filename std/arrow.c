@@ -44,7 +44,7 @@ create_arrow()
 string
 get_projectile_long(string str, object for_obj, int num)
 {
-    return "The arrow" + 
+    return "The arrow" +
         ((num == 1) ? " is" : "s are") + " unusually plain.\n";
 }
 

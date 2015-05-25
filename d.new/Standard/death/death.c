@@ -9,7 +9,7 @@ inherit "/std/monster";
  * Function name: init
  * Description:   Init Death
  */
-init() 
+init()
 {
     ::init();
     add_action("take_it", "take");
@@ -20,7 +20,7 @@ init()
  * Description:   Reset Death
  */
 void
-create_monster() 
+create_monster()
 {
     set_name("figure");
     set_name("moot");
@@ -37,7 +37,7 @@ create_monster()
  */
 long(str)
 {
-    
+
     if (str == "death" || str == "moot")
     {
 	return
@@ -47,7 +47,7 @@ long(str)
 "something about his eyes as well, or maybe the lack of eyes, that you \n" +
 "feel you'd better not investigate too closely.\n";
     }
-    
+
     if (str == "scythe")
     {
 	return
@@ -56,7 +56,7 @@ long(str)
 "blade. It does strange things with light as well as unlucky photons split into\n" +
 "their sub-components when they hit the blade.\n";
     }
-    
+
     if (str == "robe")
     {
 	return
@@ -82,13 +82,13 @@ id(str)
  */
 take_it(str)
 {
-    
+
     string name;
     int extra;
-    
+
     name = capitalize(this_player()->query_real_name());
     extra = random(900) + 10;
-    
+
     if (str == "scythe" || str == "robe")
     {
 	write(

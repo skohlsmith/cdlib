@@ -20,4 +20,4 @@ no_shadow	The file cannot be shadowed. This includes the inability to
 		call static functions by inheriting objects.
 
 resident	The object will never be swapped to disk.
-		
+

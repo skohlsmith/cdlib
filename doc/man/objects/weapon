@@ -14,7 +14,7 @@ inherit "/std/weapon.c";
 #include "/sys/ss_types.h"
 #include "/sys/formulas.h"
 
-I will also make a few simple definitions to make life easier and 
+I will also make a few simple definitions to make life easier and
 the text easier to read.
 
 #define BS(message)	break_string(message, 75)
@@ -61,7 +61,7 @@ create_weapon()
      */
     update_prop_settings();
 
-    /* 
+    /*
      * This essentially is enough to get the weapon working. However,
      * there are are always extra features to be added :) In this case
      * add some nice wield/unwield actions.

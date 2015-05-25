@@ -16,12 +16,12 @@ or what?
 In 3.0 the concept of races is introduced for the players. In earlier versions
 race has only been an NPC attribute. All players have been human, if anything.
 The race of a character is assumed directly visible, this might not be true
-in every concievable case, it is a simplification, although a much better one 
+in every concievable case, it is a simplification, although a much better one
 than that everyones name is always known.
 
 If however I meet a character, and we exchange names, we have been introduced.
 When I meet him next time I will most likely recognise him and therefor I will
-know his name. 
+know his name.
 
 
 Characters met, introduced and remembered
@@ -37,7 +37,7 @@ how it is stored in 3.0:
 
 The maximum size of both lists depend on your 'INT' stat. When you log out
 only the 'remember'-list is saved. Wizards do not have such lists, they always
-know the name of all players. 
+know the name of all players.
 
 When you meet a character you can introduce yourself and be stored in that
 characters 'introduce'-list. Only if he chooses to remember you and gives the
@@ -118,8 +118,8 @@ To use the above macros you must do:
 
     #include "/sys/macros.h"
 
-For details of how 'value by function call' works, look at the function 
-'check_call' in /std/object. 
+For details of how 'value by function call' works, look at the function
+'check_call' in /std/object.
 
 
 For more extensions to the simulated efun say see 'sman say'.

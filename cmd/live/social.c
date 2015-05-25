@@ -58,7 +58,7 @@ varargs int team(string str);
 void
 create()
 {
-    seteuid(getuid(this_object())); 
+    seteuid(getuid(this_object()));
 }
 
 /* **************************************************************************
@@ -126,13 +126,13 @@ query_cmdlist()
  *                sublocations responsible for extra descriptions of the
  *                living object.
  */
-public void 
+public void
 using_soul(object live)
 {
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -153,7 +153,7 @@ aggressive(string str)
 /*
  * assist - Help a friend to kill someone else
  */
-int 
+int
 assist(string str)
 {
     object *obs;
@@ -482,7 +482,7 @@ intro_live(string str)
             notify_fail("It is way too dark for you to see here.\n");
             return 0;
         }
- 
+
         all_targets = livings;
         vis_targets = FILTER_CAN_SEE(all_targets, this_player());
     }
@@ -534,7 +534,7 @@ intro_live(string str)
     {
         introducee->catch_msg(break_string(
             this_player()->query_The_name(introducee) +
-            " introduces you to " + 
+            " introduces you to " +
             FO_COMPOSITE_ALL_LIVE(vis_targets, introducee) + ".", 75) + "\n");
     }
 
@@ -566,7 +566,7 @@ introduced_list(string str)
 {
     object ob;
     mapping tmp;
-    
+
     tmp = this_player()->query_introduced();
     if (mappingp(tmp))
     {
@@ -595,7 +595,7 @@ invite(string str)
 /*
  * join - Join someones team
  */
-varargs int 
+varargs int
 join(string str)
 {
     return team("join" + (strlen(str) ? (" " + str) : ""));
@@ -604,7 +604,7 @@ join(string str)
 /*
  * kill - Start attacking someone with the purpose to kill
  */
-varargs int 
+varargs int
 kill(string str)
 {
     object ob;
@@ -650,7 +650,7 @@ kill(string str)
        write(capitalize(LANG_THESHORT(ob)) + " isn't alive!\n");
        return 1;
     }
- 
+
     if (ob->query_ghost())
     {
         write(ob->query_The_name(this_player()) + " is already dead!\n");
@@ -847,14 +847,14 @@ last(string str)
 /*
  * leave - Leave a team or force someone to leave a team
  */
-int 
+int
 leave(string str)
 {
     if (str == "team")
     {
         return team("leave");
     }
-    
+
     notify_fail("Leave what? Your team?\n");
     return 0;
 }
@@ -868,7 +868,7 @@ remember_live(string str)
     object ob;
     mapping tmp;
     int num;
-    
+
     if (!stringp(str) ||
         query_verb() == "remembered")
     {
@@ -902,7 +902,7 @@ remember_live(string str)
         }
     }
 
-    str = lower_case(str);    
+    str = lower_case(str);
 
     /* Silly people remembering themselves can get problems with 'who'. */
     if (this_player()->query_real_name() == str)
@@ -914,7 +914,7 @@ remember_live(string str)
 
     if (objectp(ob = find_living(str)) &&
         (ob->query_prop(LIVE_I_NON_REMEMBER)))
-    {   
+    {
         notify_fail("Remember " + ob->query_objective() + "? Never!\n");
         return 0;
     }
@@ -931,7 +931,7 @@ remember_live(string str)
         write("You refresh your memory of " + capitalize(str) + ".\n");
         return 1;
     default:
-        notify_fail("You can't remember having been introduced to " + 
+        notify_fail("You can't remember having been introduced to " +
                     capitalize(str) + ".\n");
         return 0;
     }
@@ -1247,14 +1247,14 @@ team_join(object leader)
         write("You fail to join your leader.\n");
         return 1;
     }
- 
+
     if (!this_player()->query_option(OPT_BRIEF))
     {
         write("As you enter the team, you switch to brief mode.\n");
         this_player()->add_prop(TEMP_BACKUP_BRIEF_OPTION, 1);
         this_player()->set_option(OPT_BRIEF, 1);
     }
- 
+
     write("Your leader is now " + leader->short() + ".\n");
     say(QCTNAME(this_player()) + " joins the team of " +
         QTNAME(leader) + ".\n", ({ leader, this_player() }));
@@ -1305,7 +1305,7 @@ team(string str)
         oblist = parse_this(arg, "[the] %l");
         size = sizeof(oblist);
     }
-    
+
     switch(str)
     {
     case "disband":
@@ -1319,7 +1319,7 @@ team(string str)
 
         map(members, &team_leave(, this_player(), 1));
         return 1;
-    
+
     case "invite":
         FAIL_IF_LEADER("invite anyone");
         if (!size)
@@ -1407,7 +1407,7 @@ team(string str)
         {
             leader->team_join(ob);
         }
-    
+
         done = this_player()->query_option(OPT_BRIEF);
         write("You make " + leader->query_the_name(this_player()) +
             " the leader of your team" +
@@ -1530,11 +1530,11 @@ team(string str)
                 " already is the rearguard of the team.\n");
             return 1;
         }
-    
+
         this_player()->team_leave(rear);
         this_player()->team_join(rear);
         members -= ({ rear });
-    
+
         write("You alter the formation of the team, placing "+
             rear->query_the_name(this_player()) + " at the rearguard.\n");
         all2actbb(" alters the formation of " + this_player()->query_possessive() +
@@ -1704,7 +1704,7 @@ print_who(string opts, object *list, int size)
  * Arguments    : object a - the playerobject to player a.
  *                object b - the playerobject to player b.
  * Returns      : int -1 - name of player a comes before that of player b.
- *                     1 - name of player b comes before that of player a. 
+ *                     1 - name of player b comes before that of player a.
  */
 nomask int
 sort_name(object a, object b)

@@ -5,7 +5,7 @@ SYNOPSYS
 	sneer
 	sneer <adverb>
 	sneer [at] <target>
-	sneer <adverb> [at] <target>	
+	sneer <adverb> [at] <target>
 
 OPTIONS
 	<adverb> - any adverb from the available set or a period . to not

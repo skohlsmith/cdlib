@@ -24,15 +24,15 @@ inherit "/std/combat/cplain";
 public void cb_remove_arm(object wep);
 static void adjust_ac(int hid, object arm, int rm);
 
-/* 
+/*
    NOTE
- 
+
      There is a limited number of tool slots and one slot can only be
      occupied by one object at a time. One object may occupy many slots though.
-    
+
      Armours can protect one or more hit locations. What hit locations
      a given armour protects is given by the function 'query_protects' in
-     the armour. 
+     the armour.
 
      Weapons can only aid one attack. The attack id is given by the
      function 'query_attack_id' in the weapon.
@@ -49,7 +49,7 @@ static void adjust_ac(int hid, object arm, int rm);
      /std/armour.c and /std/weapon.c
 
      Tool slots are made as defined by the objects. The only thing that the
-     combat system does is to ensure that two tools do not use the same 
+     combat system does is to ensure that two tools do not use the same
      slot.
 
    MAGICAL armours
@@ -64,7 +64,7 @@ static void adjust_ac(int hid, object arm, int rm);
      Magical weapons work just like normal weapons. A magical 'weapon' that
      allocates no combat slot is not a 'weapon' it is an independant magic
      object and must cause damage onto the enemy on its own. Such magic
-     attacks are not supported in the combat system. 
+     attacks are not supported in the combat system.
 
 */
 
@@ -105,7 +105,7 @@ cb_wield_weapon(object wep)
         return "It doesn't seem to fit your body very well.\n";
     }
 
-    add_attack(wep->query_hit(), wep->query_modified_pen(), wep->query_dt(), 
+    add_attack(wep->query_hit(), wep->query_modified_pen(), wep->query_dt(),
                wep->query_procuse(), aid, 0, wep);
 
     /*
@@ -168,7 +168,7 @@ adjust_ac(int hid, object arm, int rm)
     {
         am[il] += ac;
     }
-    
+
     oldloc = query_hitloc(hid);
 
     for (il = 0; il < sizeof(am) && il < sizeof(oldloc[HIT_AC]); il++)
@@ -234,7 +234,7 @@ cb_wear_arm(object arm)
  * Arguments:     arm - The armour.
  */
 public void
-cb_remove_arm(object arm) 
+cb_remove_arm(object arm)
 {
     int i, *hids, size;
 
@@ -284,7 +284,7 @@ cb_attack_desc(int aid)
  * Function name: cb_try_hit
  * Description:   Decide if a certain attack fails because of something
  *                related to the attack itself, ie specific weapon that only
- *                works some of the time. 
+ *                works some of the time.
  * Arguments:     aid:   The attack id
  * Returns:       True if hit, otherwise 0.
  */
@@ -300,7 +300,7 @@ cb_try_hit(int aid)
 /*
  * Function name: cb_did_hit
  * Description:   Tells us that we hit something. Should produce combat
- *                messages to all relevant parties. 
+ *                messages to all relevant parties.
  * Arguments:     aid:   The attack id
  *                hdesc: The hitlocation description
  *                hid:   The hitlocation id
@@ -322,7 +322,7 @@ cb_did_hit(int aid, string hdesc, int hid, int phurt, object enemy, int dt,
     }
 
     wep = query_attack(aid)[ATT_OBJ];
-    
+
     if (wep)
     {
         if (wep->did_hit(aid, hdesc, phurt, enemy, dt, phit, dam, hid))
@@ -353,7 +353,7 @@ cb_got_hit(int hid, int ph, object att, int aid, int dt, int dam)
     int il, size;
     object *arms;
 
-    /* 
+    /*
      * Many armours may help to cover the specific bodypart: hid
      */
     arms = query_hitloc(hid)[HIT_ARMOURS];
@@ -394,7 +394,7 @@ cb_update_armour(object obj)
         }
     }
 }
-            
+
 /*
  * Function namn: cb_update_weapon
  * Description:   Call this function when something has caused the weapon

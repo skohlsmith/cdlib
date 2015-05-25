@@ -77,7 +77,7 @@ query_def_start()
  *                player objects.
  */
 public int *
-query_orig_stat() 
+query_orig_stat()
 {
     int i, *list;
 
@@ -97,7 +97,7 @@ query_orig_stat()
  *                player objects.
  */
 public int *
-query_orig_learn() 
+query_orig_learn()
 {
     int i, *list;
 
@@ -225,7 +225,7 @@ decay_skills()
     mixed otmp;
     int *skills, i, sz;
     string str, tmp;
-    
+
     /* Only do this on the proper interval, and wizards pass by, of course */
     if ((query_decay_time() < SKILL_DECAY_INTERVAL) ||
         query_wiz_level())
@@ -234,7 +234,7 @@ decay_skills()
     }
 
     set_this_player(this_object());
-    
+
     /* Reset the time for next call. */
     reset_decay_time();
 
@@ -249,7 +249,7 @@ decay_skills()
     otmp = this_object()->query_guild_trainer_craft();
     obs += pointerp(otmp) ? otmp : ({ otmp });
     obs -= ({ 0 });
-    
+
     /* Filter all relevant skills */
     skills = filter(query_all_skill_types(), &operator(>)(99999));
 
@@ -263,7 +263,7 @@ decay_skills()
             ((tmp = this_object()->query_guild_name_lay()) ? tmp : "") + ", " +
 	    ((tmp = this_object()->query_guild_name_craft()) ? tmp : "") + ", " +
             ((tmp = this_object()->query_guild_name_race()) ? tmp : "");
-        
+
         str = sprintf("%s\t\t%s\n%s\t\t", this_object()->query_name(), tmp,
             ctime(time()));
 
@@ -683,10 +683,10 @@ setup_player(string pl_name)
     {
         m_alias_list = ([ ]);
     }
-    if (!m_nick_list)               
-    { 
-        m_nick_list = ([ ]);   
-    } 
+    if (!m_nick_list)
+    {
+        m_nick_list = ([ ]);
+    }
 
     /* Get the autoloading shadows and the autoloading objects. Start the
      * recovery with a little alarm to make it safe. */
@@ -720,7 +720,7 @@ change_player_object(object old_plob)
     if (MASTER_OB(previous_object()) != CHANGE_PLAYEROB_OBJECT)
     {
         return 0;
-    }    
+    }
 
     set_name(old_plob->query_real_name());
 
@@ -804,7 +804,7 @@ enter_game(string pl_name, string pwd)
     if (!environment())
     {
         if (!query_default_start_location() ||
-            (!query_wiz_level() && 
+            (!query_wiz_level() &&
              (SECURITY->check_def_start_loc(query_default_start_location()) < 0)))
         {
             set_default_start_location(query_def_start());
@@ -974,7 +974,7 @@ actual_linkdeath()
 #ifdef STATUE_WHEN_LINKDEAD
 #ifdef OWN_STATUE
     OWN_STATUE->linkdie(this_object());
-#else   
+#else
     tell_room(environment(), LD_STATUE_TURN(this_object()), ({ }) );
 #endif OWN_STATUE
 #endif STATUE_WHEN_LINKDEAD
@@ -1059,7 +1059,7 @@ revive()
 
     tell_object(this_object(), "You sense that you have " +
         MAIL_FLAGS[MAIL_CHECKER->query_mail(query_real_name())] + ".\n\n");
- 
+
     /* If the player is not in combat, revive him. Else, just give a
      * a message about the fact that the player reconnected.
      */
@@ -1069,7 +1069,7 @@ revive()
 
 #ifdef OWN_STATUE
         OWN_STATUE->revive(this_object());
-#else   
+#else
         tell_room(environment(), QCTNAME(this_object()) + " " +
             STATUE_TURNS_ALIVE + ".\n", ({ this_object() }) );
 #endif OWN_STATUE
@@ -1240,8 +1240,8 @@ id(string str)
  *                    lower case name of the person.
  */
 public string *
-parse_command_id_list()         
-{ 
+parse_command_id_list()
+{
     string *ids;
 
     ids = ::parse_command_id_list();

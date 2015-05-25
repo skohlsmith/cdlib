@@ -1,6 +1,6 @@
 /*
    /std/drink.c
-   
+
    This is the standard object used for any form of drinkable stuff.
 
  Usage:
@@ -19,7 +19,7 @@
         }
 
         An imperial pint is 540 millilitres.
-        
+
     If you want any special effect in your drink you can define
     special_effect() which is called when drinking it.
     The number of drinks you drank is passed as argument to special_effect();
@@ -219,7 +219,7 @@ command_drink()
             return 1;
         }
     }
-    
+
     this_object()->special_effect(num);
 
     return 1;
@@ -237,7 +237,7 @@ remove_drink()
         remove_object();
     }
 }
-    
+
 /*
  * Function name: config_split
  * Description  : This is called before inserting this heap into the game.

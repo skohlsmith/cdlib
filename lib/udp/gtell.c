@@ -26,7 +26,7 @@ public int
 send_gtell(string mud, string wiz_from, string wiz_to, string msg)
 {
     mapping minfo;
-    
+
     minfo = TO->query_mud_info(mud);
 
     if (!mappingp(minfo))
@@ -37,7 +37,7 @@ send_gtell(string mud, string wiz_from, string wiz_to, string msg)
 
     if (stringp(minfo["HOSTADDRESS"]) && atoi(minfo["PORTUDP"]))
     {
-	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]), 
+	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]),
 		     "@@@" + UDP_GTELL +
 		     "||NAME:" + TO->query_my_name() +
 		     "||PORTUDP:" + TO->query_my_udpport() +
@@ -63,7 +63,7 @@ gtell(mapping p)
     mapping minfo;
     int busy;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -71,7 +71,7 @@ gtell(mapping p)
 
 	minfo = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info.
 	*/
@@ -80,7 +80,7 @@ gtell(mapping p)
 
 	if (!stringp(p["WIZFROM"]) || !stringp(p["WIZTO"]))
 	    return 0;
-	
+
 	tmsg = p["WIZFROM"] + "@" + p["NAME"];
 	rect = p["WIZTO"] + " : " + p["MSG"];
 
@@ -123,7 +123,7 @@ gtell(mapping p)
 	return 1;
     }
     return 0;
-}    
+}
 
 /*
  * Function name: cmd_gtell

@@ -40,9 +40,9 @@ string
 long_desc()
 {
     if(poison_used)
-        return "You see nothing special about the dagger.\n"; 
+        return "You see nothing special about the dagger.\n";
     else
-        return "You percieve a sheen of liquid on the blade.\n"; 
+        return "You percieve a sheen of liquid on the blade.\n";
 }
 
 /*
@@ -57,7 +57,7 @@ phit)
     object poison;
 /*
  * Now we create the poison.  For fun we will make it an anti-mage
- * poison.  After we clone it, we move it to the consuming living, 
+ * poison.  After we clone it, we move it to the consuming living,
  * then call the activating function, start_poison()
  */
     if(!poison_used && !random(5))
@@ -74,8 +74,8 @@ phit)
             poison->start_poison();
             return 0;
         }
-        else 
-            write("Failed to load poison for some reason.\n"); 
+        else
+            write("Failed to load poison for some reason.\n");
     }
     return 0;
 }

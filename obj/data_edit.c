@@ -274,7 +274,7 @@ data_add(string str)
     default:
 	add = "data[\"" + var + "\"]" + indices + "[.." + (index - 1) +
 	    "] + ({ " + expr + " }) + data[\"" + var + "\"]" + indices +
-	    "[" + index + "..]"; 
+	    "[" + index + "..]";
 	break;
     }
 

@@ -67,7 +67,7 @@ abort(string str)
     notify_fail("You aren't casting a spell, though.\n");
     return 0;
 }
-    
+
 /*
  * Function name: cast
  * Description:   The "cast" command.
@@ -92,7 +92,7 @@ cast(string str)
     }
 
     if (ob = this_player()->find_spell(spell))
-    {    
+    {
         this_player()->start_spell(spell, arg, ob);
         return 1;
     }

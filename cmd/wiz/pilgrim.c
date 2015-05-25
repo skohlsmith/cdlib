@@ -23,7 +23,7 @@ inherit "/cmd/std/command_driver";
 nomask string *
 get_soul_list()
 {
-    return ({ WIZ_CMD_PILGRIM, 
+    return ({ WIZ_CMD_PILGRIM,
 	      WIZ_CMD_APPRENTICE,
 	      MBS_SOUL });
 }
@@ -50,7 +50,7 @@ query_cmdlist()
 
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -65,7 +65,7 @@ query_cmdlist()
 nomask int
 pingmud(string arg)
 {
-#ifdef UDP_MANAGER    
+#ifdef UDP_MANAGER
     string a, b, *ix;
     int port;
     mapping p;

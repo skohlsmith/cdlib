@@ -35,7 +35,7 @@ show_worn(object for_obj)
 {
     object *worn = query_clothing(-1);
     string str;
-    
+
     if (!sizeof(worn))
         return "";
 
@@ -48,8 +48,8 @@ show_worn(object for_obj)
     }
     else
     {
-        str = ((for_obj == this_object()) ? "You are" : 
-            capitalize(query_pronoun()) + " is") + " wearing " +  
+        str = ((for_obj == this_object()) ? "You are" :
+            capitalize(query_pronoun()) + " is") + " wearing " +
             FO_COMPOSITE_ALL_DEAD(worn, for_obj) + ".";
         return HANGING_INDENT(str, 2, 0);
     }
@@ -78,7 +78,7 @@ occupy_clothing_slots(object ob)
     return 1;
 }
 
-/* 
+/*
  * Function name: clear_clothing_slots
  * Description:   remove a piece of clothing from the slots where it is worn
  * Arguments:     the clothing object being removed
@@ -238,7 +238,7 @@ check_armour_object(object arm)
  *                object * - all armours when -1 is given.
  */
 varargs public mixed
-query_armour(int which) 
+query_armour(int which)
 {
     object arm;
 

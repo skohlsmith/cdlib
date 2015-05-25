@@ -109,7 +109,7 @@ spell_attack(object attacker, object target)
     attacker->catch_msg("You blast " + QTNAME(target) + how + ".\n");
     target->catch_msg(QCTNAME(attacker) + " blasts you" + how +
         " with an energy spell.\n");
-    tell_watcher(QCTNAME(attacker) + " blasts " + QTNAME(target) + how + 
+    tell_watcher(QCTNAME(attacker) + " blasts " + QTNAME(target) + how +
 	" with an energy spell.\n", attacker, target);
 
     if (target->query_hp() <= 0)

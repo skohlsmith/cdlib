@@ -124,7 +124,7 @@ set_guild_long_name(string short_name, string long_name)
 
 /*
  * Function name: query_guild_long_name
- * Description  : Query the long name of a particular guild. 
+ * Description  : Query the long name of a particular guild.
  * Arguments    : string short_name - the short name of the guild.
  * Returns      : string - the long name of the guild, else 0.
  */
@@ -156,7 +156,7 @@ set_guild_style(string short_name, string style)
 
 /*
  * Function name: query_guild_style
- * Description  : Query the style of a particular guild. 
+ * Description  : Query the style of a particular guild.
  * Arguments    : string short_name - the short name of the guild.
  * Returns      : string - the style of the guild, else 0.
  */
@@ -191,7 +191,7 @@ set_guild_phase(string short_name, string phase)
 
 /*
  * Function name: query_guild_phase
- * Description  : Query the phase of a particular guild. 
+ * Description  : Query the phase of a particular guild.
  * Arguments    : string short_name - the short name of the guild.
  * Returns      : string - the phase of the guild, else 0.
  */
@@ -407,7 +407,7 @@ remove_guild_master(string short_name, string master)
 
 /*
  * Function name: query_guild_masters
- * Description  : Query the registered guildmasters of a particular guild. 
+ * Description  : Query the registered guildmasters of a particular guild.
  *                The answer will be sorted.
  * Arguments    : string short_name - the short name of the guild.
  * Returns      : string * - the guildmasters of the guild, or ({ }).
@@ -573,7 +573,7 @@ guild_command(string str)
 		    "to the AoD for consideration.\n");
 		return 0;
 	    }
-	
+
 	    domain = query_wiz_dom(wname);
 	    break;
 
@@ -1002,7 +1002,7 @@ guild_command(string str)
 		m_delkey(guilds, guild);
 		save_master();
                 update_guild_cache();
-                
+
 #ifdef GUILD_CMD_LOG
                 this_object()->log_syslog(GUILD_CMD_LOG, ctime(time()) +
 		    sprintf(" %-11s removes %s.\n", capitalize(wname),

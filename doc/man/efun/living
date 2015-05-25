@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	This function returns 1 if the specified object `ob' is
 	living and 0 otherwise.
-	
+
 	If the given argument is an integer, 0 is returned.
 
 SEE ALSO

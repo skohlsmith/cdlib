@@ -23,7 +23,7 @@ int query_wiz_level(string name); /* from fob */
  * Function name: find_flag_owner
  * Description:   Return the owner of a specified flag.
  */
-string 
+string
 find_flag_owner(int nr)
 {
     return WizName(nr);
@@ -55,14 +55,14 @@ find_flag_owner(int nr)
 
 */
 
-static int 
+static int
 find_flag()
 {
     write("First free flag: " + NextFreeBit() + "\n");
     return 1;
 }
 
-static int 
+static int
 allocate_flag(string arg)
 {
 
@@ -88,11 +88,11 @@ allocate_flag(string arg)
 
     if (!AcquireBit(flag, list[1]))
 	write("Couldn't allocate flag #:" + flag + ".\n");
-    
+
     return 1;
 }
 
-static int 
+static int
 free_flag(string flag)
 {
     string          name;
@@ -109,7 +109,7 @@ free_flag(string flag)
     return 1;
 }
 
-static int 
+static int
 owner_flag(string flag)
 {
     int             the_flag;
@@ -118,12 +118,12 @@ owner_flag(string flag)
 	notify_fail("Syntax: flag owner #\n");
 	return 0;
     }
-    
+
     write("Owner of flag #" + the_flag + " : " + WizName(the_flag) + "\n");
     return 1;
 }
 
-static int 
+static int
 list_flags(string who)
 {
     int nr, i;
@@ -155,7 +155,7 @@ list_flags(string who)
     return 1;
 }
 
-static string 
+static string
 WizName(int bit)
 {
     string *wizarr;
@@ -173,7 +173,7 @@ WizName(int bit)
     return wizarr[bit];
 }
 
-static int 
+static int
 NextFreeBit()
 {
     int cnt;
@@ -194,7 +194,7 @@ NextFreeBit()
     return sizeof(wizarr);
 }
 
-static int 
+static int
 AcquireBit(int bit, string wiz)
 {
     int cnt;
@@ -238,7 +238,7 @@ AcquireBit(int bit, string wiz)
 	return 0;
 }
 
-static int 
+static int
 FreeBit(int bit)
 {
     int cnt;
@@ -266,7 +266,7 @@ FreeBit(int bit)
  * Function name: look_flag
  * Description:   Commands for looking at flags.
  */
-int 
+int
 look_flag(string arg)
 {
     int i;

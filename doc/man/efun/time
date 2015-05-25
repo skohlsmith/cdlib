@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	Gives the current time in number of seconds passed since January 1970,
-	something. 
+	something.
 
 SEE ALSO
 	ctime, file_time, gettimeofday, object_time

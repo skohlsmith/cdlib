@@ -8,7 +8,7 @@ DESCRIPTION
 	Front-end to the "options" command. See options.
 
 ARGUMENTS
-	autopwd <on/off>     - Automatic display of the current working 
+	autopwd <on/off>     - Automatic display of the current working
         [pwd on/off]           directory when you change it.
 
 	autolinecmd <on/off> - Automatically insert line commands into

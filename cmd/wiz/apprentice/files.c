@@ -761,7 +761,7 @@ tail_file(string path)
     /* Add the relevant information to the player in properties. */
     this_interactive()->add_prop(WIZARD_S_TAIL_PATH, path);
     this_interactive()->add_prop(WIZARD_I_TAIL_LIMIT, size);
-    tail_lines();    
+    tail_lines();
     return 1;
 }
 

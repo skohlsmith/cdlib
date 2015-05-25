@@ -3,7 +3,7 @@ Macro   : MONEY_CONDENSE(obj)
 
 Purpose : This macro will take the real coins inside the object 'obj' and
           condense them into a single property value, using the array form of
-          the OBJ_M_HAS_MONEY property.          
+          the OBJ_M_HAS_MONEY property.
 
 Argument: (object) obj - the object to take all real coin objects from and
           store their composite values in the property.

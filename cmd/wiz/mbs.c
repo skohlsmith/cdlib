@@ -35,10 +35,10 @@ string		*Groups,		// Privately defined groups
 int		GcCheck;		// Last time GC was checked.
 
 /*
- * BdMap: ([ "save path" : 
+ * BdMap: ([ "save path" :
  *		({ "cath", "domain", "group", "board",
  *			"save path", "last read note"}) ])
- * 
+ *
  * SbMap : ([ "selection item" :
  *		({ List of above lists }) ])
  */
@@ -47,7 +47,7 @@ int		GcCheck;		// Last time GC was checked.
  * Non-stored globals
  */
 static string	*ErrArgs;		// Error arguments
-static string	*NoNews;		// No news messages 
+static string	*NoNews;		// No news messages
 static int	NoNewsNum;		// The number of messages
 /*
  * Some prototypes.
@@ -153,9 +153,9 @@ get_soul_id()
  * This is a command soul.
  */
 public nomask int
-query_cmd_soul() 
-{ 
-    return 1; 
+query_cmd_soul()
+{
+    return 1;
 }
 
 /* **************************************************************************
@@ -172,7 +172,7 @@ query_cmdlist()
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  */
 
@@ -194,7 +194,7 @@ mbm_cmd(string arg)
 
     admin = MC->query_admin(TI->query_real_name());
     lvl = WIZ_CHECK;
-    
+
     if (!strlen(arg))
     {
 	arg = "";
@@ -261,7 +261,7 @@ mbm_cmd(string arg)
 	else
 	    mbm_error(MC->list_boards(Selection, 0, ""));
 	break;
-	
+
     case "r": /* Rename board */
 	LORD_CHECK(admin, lvl)
 	MBM_ARG_CHECK(args, 3)
@@ -294,7 +294,7 @@ mbm_cmd(string arg)
 	LORD_CHECK(admin, lvl)
 	mbm_error(MC->list_categories(1));
 	break;
-	
+
     case "rc": /* Rename a category */
 	ADM_CHECK(admin)
 	MBM_ARG_CHECK(args, 2)
@@ -408,7 +408,7 @@ mbs_cmd(string arg)
 	args += ({ "", "" });
 	mbs_error(select_board(0, 0, first, args[1]));
 	break;
-	
+
     case "c": /* Catchup this board */
 	mbs_error(catch_up(0, 0));
 	break;
@@ -447,7 +447,7 @@ mbs_cmd(string arg)
 	args += ({ "", "" });
 	mbs_error(select_board(1, 1, first, args[1]));
 	break;
-	
+
     case "l": /* List subscribed boards */
 	list_subscribed(0, 0);
 	break;
@@ -460,7 +460,7 @@ mbs_cmd(string arg)
     case "lua": /* List ALL unread boards with news */
 	list_subscribed(1, 1);
 	break;
-	
+
     case "L": /* List unsubscribed boards */
 	mbs_error(list_boards(0, first));
 	break;
@@ -523,9 +523,9 @@ mbs_cmd(string arg)
 	break;
 
     case "ls": /* List the scrap boards */
-	mbs_error(list_scrap());	
+	mbs_error(list_scrap());
 	break;
-	
+
     /*
      * Group admin
      */
@@ -534,13 +534,13 @@ mbs_cmd(string arg)
 	err_args(first);
 	mbs_error(add_newsgroup(first));
 	break;
-	
+
     case "dn": /* Delete a newsgroup */
 	MBS_ARG_CHECK(args, 1);
 	err_args(first);
 	mbs_error(delete_newsgroup(first));
 	break;
-	
+
     case "ln": /* List all newsgroups */
 	mbs_error(list_newsgroups());
 	break;
@@ -557,7 +557,7 @@ mbs_cmd(string arg)
 	select_nur(1);
 	mbs_error(select_board(0, 1, "", ""));
 	break;
-	   
+
     case "ss": /* Set the selection */
 	mbs_error(set_selection(first));
 	break;
@@ -595,7 +595,7 @@ mbs_cmd(string arg)
 	    mbm_error(MC->generate_report(4));
 
 	break;
-	
+
     /*
      * End of story
      */
@@ -624,7 +624,7 @@ catch_up(int what, int uncatch)
 	tm = "b0";
     else
 	tm = "b" + time();
-    
+
     switch (what)
     {
     case 1: /* Current selection */
@@ -634,11 +634,11 @@ catch_up(int what, int uncatch)
 	case ORDER_CAT:
 	    ind = filt_bdata(CurrItem[Selection], ind, SB_CAT);
 	    break;
-	    
+
 	case ORDER_DOMAIN:
 	    ind = filt_bdata(CurrItem[Selection], ind, SB_DOMAIN);
 	    break;
-	    
+
 	case ORDER_GROUP:
 	    /* FALLTHROUGH */
 	default:
@@ -647,12 +647,12 @@ catch_up(int what, int uncatch)
 	}
 	map(ind, &set_time(tm, ) @ &operator([])(, SB_SPATH));
 	break;
-	
+
     case 2: /* All boards */
 	ind = m_indexes(BdMap);
 	map(ind, &set_time(tm, ));
 	break;
-	
+
     case 0: /* Current board */
 	/* FALLTHROUGH */
     default:
@@ -687,7 +687,7 @@ list_subscribed(int unread, int all)
     string header, h2;
     mixed  blist, olist, plist;
     int	   i, sz, first = 1, news = 0;
-    
+
     if (!m_sizeof(BdMap))
     {
 	write("No subscribed boards.\n");
@@ -703,7 +703,7 @@ list_subscribed(int unread, int all)
 	header += "None";
 	return;
     }
-    
+
     header += sprintf("\n\n%-12s", " Board");
     if (Selection != ORDER_CAT)
 	header += sprintf("%-11s", "Category");
@@ -755,7 +755,7 @@ list_subscribed(int unread, int all)
 	    }
 	}
     }
-    
+
     /* Now print the actual boards */
     blist = SbMap[CurrItem[Selection]];
 
@@ -772,7 +772,7 @@ list_subscribed(int unread, int all)
 
 	    if (unread)
 		plist = filter(plist, filt_unread_news);
-	    
+
 	    if (sizeof(plist))
 	    {
 		if (first)
@@ -801,7 +801,7 @@ list_subscribed(int unread, int all)
 
 	    if (unread)
 		plist = filter(plist, filt_unread_news);
-	    
+
 	    if (sizeof(plist))
 	    {
 		if (first)
@@ -860,7 +860,7 @@ list_boards(int which, string rest)
 	    write("No new boards registered in '" + rest + "'.\n");
 	return MBS_NO_ERR;
     }
-    
+
     write(sprintf("%-11s%-11s%-11s%-31s%s\n", "Board", "Category", "Domain", "Description", "Access"));
     write(sprintf("%-11s%-11s%-11s%-31s%s\n", "-----", "--------", "------", "-----------", "------"));
     if (Selection == ORDER_DOMAIN)
@@ -997,7 +997,7 @@ post_article(string header)
 	return MBS_NO_CURR;
     if (!strlen(header))
 	return MBS_NO_HEADER;
- 
+
     err_args(CurrBoard, BdMap[CurrBoard][SB_CAT]);
 
     write("Posting on board '" + BdMap[CurrBoard][SB_BOARD] + "' in the " +
@@ -1075,7 +1075,7 @@ select_board(int what, int headers, string board, string item)
 	    else
 		return MBS_BAD_CAT;
 	    break;
-	    
+
 	case ORDER_DOMAIN:
 	    err_args(item);
 	    if (member_array(item, SECURITY->query_domain_list()) >= 0)
@@ -1095,7 +1095,7 @@ select_board(int what, int headers, string board, string item)
 	    else
 		return MBS_BAD_DOMAIN;
 	    break;
-	    
+
 	case ORDER_GROUP:
 	    /* FALLTHROUGH */
 	default:
@@ -1126,7 +1126,7 @@ select_board(int what, int headers, string board, string item)
     {
 	blist = filter(SbMap[item], &operator(==)(board) @
 		       &operator([])(, SB_BOARD));
-    
+
 	if (strlen(item))
 	    CurrItem[Selection] = item;
 
@@ -1140,7 +1140,7 @@ select_board(int what, int headers, string board, string item)
 	blist = blist[0];
 	CurrBoard = blist[SB_SPATH];
 	save_mbs();
-    
+
 	write("Selected board '" + board + "' in the " + ({ "category", "domain", "newsgroup" })[Selection] + " '" + CurrItem[Selection] + "'.\n");
     }
     else
@@ -1194,7 +1194,7 @@ subscribe(string board, string item, string group)
 	err_args(item);
 	return MBS_BAD_SEL;
     }
-    
+
     info = MC->query_board_exist(board, item);
 
     if (strlen(group))
@@ -1204,7 +1204,7 @@ subscribe(string board, string item, string group)
 	    err_args(group);
 	    return MBS_GRP_NONE;
 	}
-    }	    
+    }
     else
 	group = CurrItem[ORDER_GROUP];
 
@@ -1254,7 +1254,7 @@ unsubscribe(string board, string item)
 
     board = UC(board);
     item = UC(item);
-    
+
     if (!strlen(item))
     {
 	if (!strlen(board))
@@ -1273,7 +1273,7 @@ unsubscribe(string board, string item)
 		err_args(board, "", "");
 		return MBS_NO_SUB;
 	    }
-	
+
 	    if (sizeof(itemdata) > 1)
 	    {
 		err_args(board, "", "");
@@ -1312,13 +1312,13 @@ unsubscribe(string board, string item)
 
     if (CurrBoard == bdata[SB_SPATH])
 	CurrBoard = "";
-    
+
     save_mbs();
 
     write("You have unsubscribed the board '" + bdata[SB_BOARD] +
 	  "' in the category '" + bdata[SB_CAT] +
 	  "' belonging to the newsgroup '" + bdata[SB_GROUP] + "'.\n");
-	    
+
     return MBS_NO_ERR;
 }
 
@@ -1349,7 +1349,7 @@ subscribe_sel(string sel, string group)
     }
     else
 	group = CurrItem[ORDER_GROUP];
-    
+
     if (member_array(sel, SECURITY->query_domain_list()) >= 0)
 	order = ORDER_DOMAIN;
     else if (member_array(sel, MC->query_categories()) >= 0)
@@ -1376,7 +1376,7 @@ subscribe_sel(string sel, string group)
     }
     shuffle_boards();
     save_mbs();
-    
+
     return MBS_NO_ERR;
 }
 
@@ -1421,18 +1421,18 @@ unsubscribe_sel(string sel)
 	blist = filter(blist, &operator(==)(sel) @ &operator([])(, SB_GROUP));
 	break;
     }
-    
+
     for (i = 0, sz = sizeof(blist) ; i < sz ; i++)
     {
 	if (CurrBoard == blist[i][SB_SPATH])
 	    CurrBoard = "";
-	    
+
 	write("Unsubscribing '" + blist[i][SB_BOARD] + "'.\n");
 	BdMap = m_delete(BdMap, blist[i][SB_SPATH]);
     }
     shuffle_boards();
     save_mbs();
-    
+
     return MBS_NO_ERR;
 }
 
@@ -1452,7 +1452,7 @@ tele_to_board(string board, string sel)
 
     board = UC(board);
     sel = UC(sel);
-    
+
     blist = m_values(BdMap);
 
     if (!strlen(board))
@@ -1506,7 +1506,7 @@ tele_to_board(string board, string sel)
 		 sel);
 	return MBS_NO_SUB;
     }
-    
+
     return (MC->tele_to_board(blist[0][SB_SPATH]));
 }
 
@@ -1528,7 +1528,7 @@ add_newsgroup(string grp)
 	err_args(grp);
 	return MBS_STR_LONG;
     }
-    
+
     Groups += ({ grp });
     Groups = sort_array(Groups);
     CurrItem[ORDER_GROUP] = grp;
@@ -1546,7 +1546,7 @@ static nomask int
 list_newsgroups()
 {
     int i, sz;
-    
+
     if (!(sz = sizeof(Groups)))
 	write("You have no groups currently defined.\n");
     else
@@ -1633,7 +1633,7 @@ rename_newsgroup(string old, string new)
 	err_args(old);
 	return MBS_GRP_NONE;
     }
-    
+
     if (member_array(new, Groups) >= 0)
     {
 	err_args(new);
@@ -1670,13 +1670,13 @@ static nomask int
 set_selection(string selection)
 {
     selection = UC(selection);
-    
+
     if (!strlen(selection))
     {
 	write("Current selection is '" + ({ "Category", "Domain", "Newsgroup" })[Selection] + "' (" + CurrItem[Selection] + ").\n");
 	return MBS_NO_ERR;
     }
-    
+
     switch (selection[0])
     {
     case 'C':
@@ -1714,7 +1714,7 @@ select_selection_item(string item)
 {
     string *list;
     mixed info;
-    
+
     item = UC(item);
 
     switch (Selection)
@@ -1729,7 +1729,7 @@ select_selection_item(string item)
 	    CurrItem[ORDER_CAT] = item;
 	}
 	break;
-	
+
     case ORDER_DOMAIN:
 	if (strlen(item))
 	{
@@ -1774,7 +1774,7 @@ list_scrap()
     int		i, sz, first = 1;
     mixed	blist;
     string	header;
-    
+
     if (!(sz = sizeof(ScrapList)))
 	write("You haven't scrapped any boards.\n");
     else
@@ -1842,7 +1842,7 @@ scrap_board(string board, string item)
     }
 
     return MBS_NO_ERR;
-}    
+}
 
 /* **************************************************************************
  * Service functions
@@ -1959,7 +1959,7 @@ find_nur_insel(int sw)
 		mbs_error(note_info[1]);
 		return ({ 0 });
 	    }
-	    
+
 	    b_ind = (b_ind + 1) < bsz ? (b_ind + 1) : 0;
 	} while (bsval != b_ind);
     }
@@ -1977,7 +1977,7 @@ static nomask void
 print_newboard_info(string *data)
 {
     string st;
-    
+
     st = MC->query_board_access(data[BBP_SPATH]);
     write(sprintf("%-11s%-11s%-11s%-31s%s\n", data[BBP_BOARD], data[BBP_CAT], data[BBP_DOMAIN], data[BBP_DESC], st));
 }
@@ -2049,7 +2049,7 @@ mbm_error(int what)
 	case MBM_NO_AUTH:
 	    write("You are not authorized to perform this command.\n");
 	    break;
-	    
+
 	case MBM_NO_CMD:
 	    write("No such command: '" + ErrArgs[0] + "'.\n");
 	    break;
@@ -2109,7 +2109,7 @@ mbm_error(int what)
 	case MBM_NUM_BOARDS:
 	    write("There are already at least " + MAX_NUM_BOARDS + " boards in your domain.\n");
 	    break;
-	    
+
 	case MBM_BAD_ORDER:
 	    write("You have specified an unknown search/list selection: '" + ErrArgs[0] + "'.\n");
 	    break;
@@ -2125,7 +2125,7 @@ mbm_error(int what)
 	case MBM_ENTRY_USED:
 	    write("A board called '" + ErrArgs[0] + "' in the category '" + ErrArgs[1] + "' is registered with that path.\n");
 	    break;
-	    
+
 	default:
 	    write("Strange error '" + what + "'. I have NO idea of what you've done to cause this. Please report to Mrpr ASAP.\n");
 	    break;
@@ -2156,7 +2156,7 @@ mbs_error(int what)
 	case MBS_NO_AUTH:
 	    write("You are not authorized to perform this command.\n");
 	    break;
-	    
+
 	case MBS_NO_CMD:
 	    write("No such command: '" + ErrArgs[0] + "'.\n");
 	    break;
@@ -2218,7 +2218,7 @@ mbs_error(int what)
 	case MBS_GRP_NONE:
 	    write("The newsgroup '" + ErrArgs[0] + "' does not exist.\n");
 	    break;
-	    
+
 	case MBS_NO_CURR:
 	    write("You haven't selected any board.\n");
 	    break;
@@ -2348,7 +2348,7 @@ shuffle_boards()
 
     if (!m_sizeof(BdMap))
 	return;
-    
+
     /* Start by concatting the list of boards */
     blist = m_values(BdMap);
 
@@ -2428,7 +2428,7 @@ set_time(string tm, string spath)
  * Function name: sort_cath_boards
  * Description:	  Sort function for category listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_cath_boards(string *item1, string *item2)
@@ -2448,7 +2448,7 @@ sort_cath_boards(string *item1, string *item2)
  * Function name: sort_dom_boards
  * Description:	  Sort function for domain listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_dom_boards(string *item1, string *item2)
@@ -2473,7 +2473,7 @@ check_gc()
 {
     int		i, sz;
     mixed	list, blist;
-    
+
     if (MC->query_gc_time() > GcCheck)
     {
 	write("A global change has taken place, syncing mbs.\n");
@@ -2509,7 +2509,7 @@ check_gc()
 		BdMap = m_delete(BdMap, list[i]);
 	    }
 	}
-	
+
 	shuffle_boards();
 	save_mbs();
     }
@@ -2525,7 +2525,7 @@ debug_out(string str)
 }
 
 /*
- * Function name: 
+ * Function name:
  * Description:
  * Arguments:
  * Returns:

@@ -6,7 +6,7 @@ Purpose : This macro will check the OBJ_M_HAS_MONEY property in the object
           to real coin objects. If the property is in array-form, it will
           expand exactly that amount of coins per type. If the property is in
           the form of a single integer, a little random is used to create the
-          coins.          
+          coins.
 
 Argument: (object) obj - the object to check the OBJ_M_HAS_MONEY property in
           and expand it into real coins if it exists.

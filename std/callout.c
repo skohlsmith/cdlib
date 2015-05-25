@@ -12,7 +12,7 @@ find_call_out(string func)
 {
     mixed *calls = get_all_alarms();
     int i;
-    
+
     for (i = 0; i < sizeof(calls); i++)
 	if (calls[i][1] == func)
 	    return ftoi(calls[i][2]);
@@ -31,7 +31,7 @@ remove_call_out(string func)
 {
     mixed *calls = get_all_alarms();
     int i;
-    
+
     for (i = 0; i < sizeof(calls); i++)
 	if (calls[i][1] == func)
 	{

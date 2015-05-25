@@ -18,7 +18,7 @@ OPTIONS
 	By typing 'pushd' without any arguments you change the current
 	directory and the first stored directory on the stack. I.e. if
 	the stack looks like this:
-	
+
 	e.g. / /d /d/Genesis
 
 	when you perform the command 'pushd', with '/' being the current

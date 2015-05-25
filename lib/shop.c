@@ -106,7 +106,7 @@ shop_hook_sell_no_value(object ob)
 
 /*
  * Function name: shop_hook_sell_worn_or_wielded
- * Description:   If object is worn or wielded and player has not said he 
+ * Description:   If object is worn or wielded and player has not said he
  *		  wants to sell such an item
  * Arguments:	  ob - The object
  */
@@ -295,7 +295,7 @@ shop_hook_value_held(object ob, string text)
 /*
  * Function name: shop_hook_value_store
  * Description:   Player values object in store
- * Arguments:     ob   - The object 
+ * Arguments:     ob   - The object
  *		  text - The value in text form
  */
 void
@@ -396,7 +396,7 @@ shop_hook_list_object(object ob, int price)
     }
 }
 
-/*    
+/*
  * Function name: query_buy_price
  * Description:   What price should the player pay
  * Arguments:     ob - The object to test
@@ -413,7 +413,7 @@ query_buy_price(object ob)
 	random(15, seed)) / 100;
 }
 
-/*    
+/*
  * Function name: query_sell_price
  * Description:   What price will the player get when selling an object?
  * Arguments:	  ob - The object
@@ -426,7 +426,7 @@ query_sell_price(object ob)
 
     sscanf(OB_NUM(ob), "%d", seed);
     return ob->query_prop(OBJ_I_VALUE) * 100 / (query_money_greed_sell() +
-	15 - this_player()->query_skill(SS_TRADING) / 3 + 
+	15 - this_player()->query_skill(SS_TRADING) / 3 +
 	random(15, seed + 1)); /* Use another seed than on buying */
 }
 
@@ -574,7 +574,7 @@ do_read(string str)
  * Returns:	  An array with the objects sold
  */
 object *
-sell_it(object *ob, string str, int check) 
+sell_it(object *ob, string str, int check)
 {
     int price, i, j, k, *tmp_arr, *null, *value_arr, *null_arr, err;
     object *sold;
@@ -602,7 +602,7 @@ sell_it(object *ob, string str, int check)
 	    shop_hook_sell_worn_or_wielded(ob[i]);
 	    continue;
         }
-    
+
 	if (tmp = ob[i]->query_prop(OBJ_M_NO_SELL))
 	{
 	    shop_hook_sell_no_sell(ob[i], tmp);
@@ -719,7 +719,7 @@ do_sell(string str)
  * Returns:       1 on sucess
  */
 object *
-buy_it(object *ob, string str2, string str3) 
+buy_it(object *ob, string str2, string str3)
 {
     int price, i, j, k, *value_arr, *arr, error, num, err;
     object *bought;
@@ -821,7 +821,7 @@ do_buy(string str)
 	notify_fail("Buy what?\n");
 	return 0;
     }
- 
+
     /*  Did the player specify payment and change? */
     if (sscanf(str, "%s for %s and get %s", str1, str2, str3) != 3)
     {
@@ -881,7 +881,7 @@ do_value(string str)
     {
 	if (!shop_hook_allow_sell(item[i]) ||
 	    !item[i]->query_prop(OBJ_I_VALUE) ||
-	    item[i]->query_prop(OBJ_M_NO_SELL)) 
+	    item[i]->query_prop(OBJ_M_NO_SELL))
 	{
 	    shop_hook_value_not_interesting(item[i]);
 	    continue;
@@ -907,7 +907,7 @@ do_value(string str)
 	arr = split_values(price); /* A price with few coins possible */
 	shop_hook_value_store(item[i], text(arr));
 	j++;
-    }	
+    }
 
     shop_hook_value_asking(str);
     if (j > 0)
@@ -957,7 +957,7 @@ do_list(string str)
 
     if (sizeof(item_arr) < 1)
 	return shop_hook_list_no_match(str);
- 
+
     max = MIN(MAXLIST, sizeof(item_arr));
     for (i = 0; i < max; i++)
     {

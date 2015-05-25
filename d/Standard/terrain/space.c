@@ -13,7 +13,7 @@ void create_random_encounter() {
 void create_mapsquare(int wlx, int wly, int slx,int sly)
 {
     ::create_mapsquare(wlx, wly, slx, sly);
-	
+
 	set_short("Space");
 
 	if(query_random_encounter())
@@ -31,7 +31,7 @@ void enter_inv(object ob, object from) {
 }
 
 int get_map(string str) {
-	 if(str != "map") 
+	 if(str != "map")
      return 0;
 
      /* This is not implemented yet so we give a debug message instead
@@ -39,4 +39,4 @@ int get_map(string str) {
       */
      write("You got the map and the encounter was moved\n");
  }
-	
+

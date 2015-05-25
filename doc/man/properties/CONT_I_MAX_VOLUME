@@ -1,7 +1,7 @@
 Property   : CONT_I_MAX_VOLUME
- 
+
 Defined    : <stdproperties.h>
- 
+
 Description: This property keeps the maximum volume of the container, being
              the maximum contents of the container plus the volume of the
              empty container.

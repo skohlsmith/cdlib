@@ -3,9 +3,9 @@
 
     JnA 920111
 
-    A sample creature 
+    A sample creature
 
-       This creature uses no tools for fighting. 
+       This creature uses no tools for fighting.
        It inherits the routines for unarmed combat.
 
     This is a rather tough beast. You need on average 30 or more in your
@@ -36,7 +36,7 @@ inherit "/std/act/action"; /* Include this if you want your creature to act */
 
 create_creature()
 {
-    set_name("tiger"); 
+    set_name("tiger");
     set_race_name("tiger");
     set_short("white tiger");
     set_adj(({"white", "vicious" }));
@@ -54,7 +54,7 @@ create_creature()
     set_attack_unarmed(A_BITE,  20, 30, W_IMPALE, 40, "jaws");
     set_attack_unarmed(A_LCLAW, 40, 20, W_SLASH,  30, "left paw");
     set_attack_unarmed(A_RCLAW, 40, 20, W_SLASH,  30, "right paw");
-   
+
     set_hitloc_unarmed(H_HEAD, ({ 15, 25, 20, 20 }), 20, "head");
     set_hitloc_unarmed(H_BODY, ({ 10, 15, 30, 20 }), 80, "body");
 }
@@ -103,17 +103,17 @@ special_attack(object enemy)
 	how = " hard";
     if (hitresult[0] > 20)
 	how = " very hard";
-    
+
     me->catch_msg("You leap into your opponent's throut!\n" +
-		  capitalize(enemy->query_pronoun()) + " is hit" + 
+		  capitalize(enemy->query_pronoun()) + " is hit" +
 		  how + ".\n");
     enemy->catch_msg(QCTNAME(me) + " leaps into your throut!\n"+
 		     "You are hit" + how + ".\n");
     tell_watcher(QCTNAME(me)+" leaps into "+QTNAME(enemy)+"!\n"+
-		 capitalize(enemy->query_pronoun()) + " is hit" + 
+		 capitalize(enemy->query_pronoun()) + " is hit" +
 		 how + ".\n", enemy);
     if(enemy->query_hp() <= 0)
 	enemy->do_die(me);
-    
+
     return 1; /*  Important! Should not have two attacks in a round. */
 }

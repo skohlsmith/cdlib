@@ -122,7 +122,7 @@ r*      Match any number (0 or more) of the regular expression
              TTT, and nothing, too.
 [...]	Match any one of the characters inside the brackets. [abc]
         matches `a', `b', or `c'. The hyphen `-' can be used to denote
-        a range, e.g., [a-z] matches any lowercase letter, [0-9] 
+        a range, e.g., [a-z] matches any lowercase letter, [0-9]
         matches any digit.
 (r)     Group the regular expression r. In this way you can apply
         some of the other meta-characters to r, e.g., ([abc])* will
@@ -188,9 +188,9 @@ To see what this means, consider line 4 from the above example:
 
 Suppose we want to replace `court' with `hug' using a regexp. We might
 think that
-	4s/c.*t/hug/p 
+	4s/c.*t/hug/p
 would work fine. But executing it results in:
-4	Who when we hug go!''  
+4	Who when we hug go!''
 because we told ed to search for the longest sequence of characters
 that started with a `c' and ended with a `t'. This happens to be the
 substring `court and kiss, she cries: ``Forsooth, let'. So be aware

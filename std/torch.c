@@ -8,7 +8,7 @@
 #pragma strict_types
 
 inherit "/std/object";
- 
+
 #include <cmdparse.h>
 #include <composite.h>
 #include <files.h>
@@ -16,7 +16,7 @@ inherit "/std/object";
 #include <stdproperties.h>
 
 #define DECAY_TIME (300.0)
- 
+
 /*
  * Prototypes:
  */
@@ -115,7 +115,7 @@ torch_value()
 
     return (v * (Torch_Value - 5)) / Max_Time + 5;
 }
- 
+
 /*
  * Function name: short, pshort, long
  * Description:   We change the short, plural short and long description of
@@ -126,7 +126,7 @@ public varargs string
 short(object for_obj)
 {
     string tmp = ::short(for_obj);
-   
+
     if (Burn_Alarm)
     {
 	return "burning " + tmp;
@@ -176,7 +176,7 @@ public varargs string
 long(object for_obj)
 {
     string tmp = ::long(for_obj);
-    
+
     if (Burn_Alarm)
     {
 	return tmp + "It is lit.\n";
@@ -344,7 +344,7 @@ query_light_fail()
     {
 	return "You are currently submerged.\n";
     }
- 
+
     if (!Time_Left)
     {
         return "You try to light the " + short() + ", but fail... " +

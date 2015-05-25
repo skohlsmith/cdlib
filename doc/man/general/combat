@@ -9,7 +9,7 @@ Basics
 Combat is managed automatically when initialized by a 'kill' command. As long
 as the parties engaged in combat is in the same location the fight continues.
 If one part leaves the other will attack the 'fleer' on sight, ie next time
-they are in the same location. 
+they are in the same location.
 
 I may choose any object in the game as an enemy by attacking it. Animate ones
 will fight back and inanimate will very likely take no notice. It is possible
@@ -26,10 +26,10 @@ There are two generic elements for all combat:
 
 	- Attacks
                Each heartbeat an animate object can make a certain number
-	       of attacks on its current enemy. 
+	       of attacks on its current enemy.
 	- Hitlocations
                An object can be divided into hitlocations with independant
-	       vulnerability. 
+	       vulnerability.
 
 For more complicated creatures there is also a concept of combat tools. Each
 tool occupies a so called, 'tool slot'. A creature can only have one tool for
@@ -48,9 +48,9 @@ Note that both weapons and armours compete for the 'tool slots'. This means
 for example that if a knife takes the 'right hand'-slot then a shield meant
 to be held in the right hand can not be used.
 
-For most creatures, these attack lists and hitlocation lists can be configured 
+For most creatures, these attack lists and hitlocation lists can be configured
 almost arbitrarily.  For humanoid creatures such as players and npc's, there
-is a specific set of attacks and hitlocations predefined. In addition, for 
+is a specific set of attacks and hitlocations predefined. In addition, for
 players and player emulating monsters it is not possible to add any more
 attacks or hitlocations.
 
@@ -72,7 +72,7 @@ The specific details for configuring humanoids and creatures are given in
 The generic combat as implemented in /std/combat/cbase is described below:
 
    Attacks (attacks are kept in a list of maximum 10 elements)
-	
+
 	Each attack is characterized by five values:
 
 	      att_id:    Specific id, for humanoids W_RIGHT etc
@@ -86,20 +86,20 @@ The generic combat as implemented in /std/combat/cbase is described below:
 	 is however predefined to be hands and feet (see /sys/wa_types.h).
 
          wchit, wcpen and damage type are parameters documented in 'weapon'.
-	 
+
          The %use is a parameter that gives the chance that the living object
 	 will use this attack a specific round. This can be used to let for
 	 example a dragon attack with 'breath' one time out of five (%use = 20)
 
    Hitlocations (hitlocations are kept in a list of maximum 10 elements)
-	
+
 	Each hitlocation is characterized by four values:
-	
+
               hit_id:    Specific id, for humanoids, A_TORSO, A_HEAD etc
 	      ac:        The ac's for each damagetype
 	      %hit:      The chance that a hit will hit this location
 	      desc:      String describing this hitlocation, ie "head", "tail"
- 
+
          The hitloc. id is essentially only a label. It is used to reference
 	 a specific hitlocation and can be any integer value. For humanoids it
 	 is however predefined to be the humanoid body parts. (/sys/wa_types.h)
@@ -109,7 +109,7 @@ The generic combat as implemented in /std/combat/cbase is described below:
 
 	 The sum of %hit for all hitlocations should be 100. %hit is used
          to determine the chance that a specific hit on the object will hit
-	 a given location. 
+	 a given location.
 
 	 The hitdescription is a string describing the hitlocation. This
 	 string is sent to the combat message generator in the attacker or
@@ -119,7 +119,7 @@ The generic combat as implemented in /std/combat/cbase is described below:
 One round of fighting  (found in heart_beat() in /std/combat/cbase.c)
 ---------------------
 
-This is a short description of the combat 'protocol'. Note that this is 
+This is a short description of the combat 'protocol'. Note that this is
 initialized from the heart_beat in the combat object, not the living object.
 This will ensure that combat continues even if the heart_beat in a living
 object for some reason ceases to work.
@@ -154,7 +154,7 @@ object for some reason ceases to work.
 		  If the enemy has no hitpoints left then call:
 **			enemy->do_die(myself)
 		  and break of the round of attacks.
-	       
+
 	3) Decrease our fatigue with one. If we are too tired then decrease
 	   our hit points.
 
@@ -165,7 +165,7 @@ Note that all cb_ calls are internal to the combat object.
 For specific hooks see 'humanoid_combat' and  'creature_combat'
 
 Note the '**'. To make an object which it is possible to 'fight', you need
-these four functions: 
+these four functions:
 
 	- hit_me(), should return ({  %hurt, "hitloc description" })
 	- query_hp(), should return 0 if the object is 'dead'
@@ -175,17 +175,17 @@ these four functions:
 
 Note also that the normal 'kill name' will not start combat with a nonliving
 object. To initialize combat the object must call:
-	
+
 	- player->attack_object(this_object())
 
 This could simply be done in a normal 'add_action' routine as a result from,
-say the command 'bash door'. 
+say the command 'bash door'.
 
 
 Interesting properties
 =====================
 
-LIVE_AS_ATTACK_FUMBLE	- If you use this prop the fighting living will 
+LIVE_AS_ATTACK_FUMBLE	- If you use this prop the fighting living will
 			  fumble its attacks.
 
 LIVE_I_ATTACK_DELAY	- Delay an attack xx rounds

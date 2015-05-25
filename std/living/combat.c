@@ -84,11 +84,11 @@ combat_reload()
 
     combat_extern->cb_link(); /* Link me to the combat object */
 
-    /* 
+    /*
      * Configure this living object. For humanoids this includes adding
      * the hand attacks and head, torso etc hitlocations.
      */
-    combat_extern->cb_configure(); 
+    combat_extern->cb_configure();
 }
 
 /*
@@ -160,7 +160,7 @@ combat_reward(object attacker, int dam, int kill)
      */
     attacker->add_panic(-10);
     team->add_panic(-15);
-    team2 = (object*)this_object()->query_team_others() & 
+    team2 = (object*)this_object()->query_team_others() &
         all_inventory(environment());
     team2->add_panic(25);
 
@@ -201,18 +201,18 @@ combat_reward(object attacker, int dam, int kill)
 public void
 notify_death(object killer)
 {
-    tell_room(environment(this_object()), 
+    tell_room(environment(this_object()),
         QCTNAME(this_object()) + " died.\n", this_object());
 
     if (!living(killer))
     {
         return;
     }
- 
+
     /*
      * Give specific information about who killed this poor soul.
      */
-    tell_object(killer, 
+    tell_object(killer,
         "You killed " + this_object()->query_the_name(killer) + ".\n");
     tell_room(environment(this_object()),  QCTNAME(killer) + " killed " +
         this_object()->query_objective() + ".\n", ({ this_object(), killer }));
@@ -236,7 +236,7 @@ notify_pseudo_death(object killer)
 
 /*
  * Function name: log_player_death
- * Description  : This function is called when 
+ * Description  : This function is called when
  * Arguments    : object killer - the object responsible for our death.
  */
 static void
@@ -376,7 +376,7 @@ do_die(object killer)
         corpse->move(environment(this_object()), 1);
         move_all_to(corpse);
     }
-    
+
     set_ghost(GP_DEAD);
 
     if (!this_object()->second_life(killer))
@@ -603,7 +603,7 @@ query_team()
  * Description  : Someone leaves my team.
  * Arguments    : object member - the member leaving my team.
  */
-public void 
+public void
 team_leave(object member)
 {
     member->set_leader(0);
@@ -637,7 +637,7 @@ query_team_others()
 
 
 /************************************************************
- * 
+ *
  * Redirected functions to the external combat object
  *
  */
@@ -651,8 +651,8 @@ query_team_others()
  *                  dt            - damagetype, use MAGIC_DT if ac will not
  *                                  help against this attack.
  *                  attacker      - Object hurting us
- *                  attack_id     - Special id saying what attack hit us. If 
- *                                  you have made a special attack, let the 
+ *                  attack_id     - Special id saying what attack hit us. If
+ *                                  you have made a special attack, let the
  *                                  id be -1
  *                  target_hitloc - Optional argument specifying a hitloc
  *                                  to damage.  If not specified or an
@@ -672,7 +672,7 @@ hit_me(int wcpen, int dt, object attacker, int attack_id, int target_hitloc = -1
     start_heart();
 
     CEX;
-    hres = (mixed)combat_extern->cb_hit_me(wcpen, dt, attacker, 
+    hres = (mixed)combat_extern->cb_hit_me(wcpen, dt, attacker,
                                            attack_id, target_hitloc);
 
     if (!(wi = query_whimpy()))
@@ -801,8 +801,8 @@ stop_fight(mixed elist)
     CEX; combat_extern->cb_stop_fight(elist);
 }
 
-/* 
- * Function name: query_enemy 
+/*
+ * Function name: query_enemy
  * Description  : Gives information of recorded enemies. If you want to know
  *                the currently fought enemy (if any) call query_attack().
  * Arguments    : See "sman cb_query_enemy"
@@ -813,7 +813,7 @@ query_enemy(int arg)
 {
     CEX; return combat_extern->cb_query_enemy(arg);
 }
- 
+
 /*
  * Function name: update_combat_time
  * Description  : Mark that on this moment a hit was made, either by us or on
@@ -873,7 +873,7 @@ query_attack()
 
 /*******************************************
  *
- * Weapon and Armour routines. 
+ * Weapon and Armour routines.
  *
  * These are merely registration routines for objects used in combat.
  * The actual management of their function is done in the external combat
@@ -885,7 +885,7 @@ query_attack()
  * Function name: update_weapon
  * Description:   Call this function if the stats or skills of a weapon has
  *                changed.
- * Arguments:     wep - the weapon 
+ * Arguments:     wep - the weapon
  */
 public void
 update_weapon(object wep)
@@ -920,7 +920,7 @@ adjust_combat_on_move(int leave)
  * Function name:   adjust_combat_on_intox
  * Description:     Called to let intoxication affect combat. This
  *                  is used to do nasty drunk type things *laugh*
- * Arguments:       pintox: %intoxicated      
+ * Arguments:       pintox: %intoxicated
  */
 public void
 adjust_combat_on_intox(int pintox)
@@ -956,9 +956,9 @@ query_panic()
  * Returns:         Description as string
  */
 public string
-combat_status() 
+combat_status()
 {
-    CEX; return combat_extern->cb_status(); 
+    CEX; return combat_extern->cb_status();
 }
 
 /*
@@ -1230,7 +1230,7 @@ hook_stop_fighting_offer(object attacker)
 /*
  * Function Name: query_speed
  * Description  : Returns the given speed modified by the quickness
- *                of the living. 
+ *                of the living.
  * Arguments    : int / float - the base time to modify.
  * Returns      : float       - the modified speed
  */
@@ -1239,6 +1239,6 @@ query_speed(mixed speed)
 {
     if (intp(speed))
         speed = itof(speed);
-    
+
     return speed * max(F_SPEED_MOD(this_object()->query_prop(LIVE_I_QUICKNESS)), 0.4);
 }

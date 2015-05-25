@@ -87,7 +87,7 @@ query_cmdlist()
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -290,7 +290,7 @@ limit(string str)
 	    notify_fail("Syntax: limit <domain> <maximum>\n");
 	    return 0;
 	}
-    
+
 	dname = capitalize(dname);
 	if (SECURITY->query_dom_num(dname) == -1)
 	{
@@ -345,7 +345,7 @@ mentor_fun(string arg)
 
     if (!strlen(arg))
     {
-	wlist = sort_array(filter(SECURITY->query_wiz_list(-1), 
+	wlist = sort_array(filter(SECURITY->query_wiz_list(-1),
 				  &operator(!=)(0) @ sizeof @ SECURITY->query_students));
 	for (i = 0, sz = sizeof(wlist) ; i < sz ; i++)
 	    write(sprintf("%-11s%-11s- ", capitalize(wlist[i]), SECURITY->query_wiz_dom(wlist[i])) + COMPOSITE_WORDS(map(sort_array(SECURITY->query_students(wlist[i])), capitalize)) + ".\n");
@@ -677,7 +677,7 @@ startloc(string str)
 	    what == 3)
 	{
 	    write("Default start locations:\n");
-	    write(sprintf("%-*#s\n", 76, 
+	    write(sprintf("%-*#s\n", 76,
                 implode(sort_array(SECURITY->query_list_def_start(str)),
                 "\n")) + "\n");
 	}
@@ -686,12 +686,12 @@ startloc(string str)
 	    what == 3)
 	{
 	    write("Temporary start locations:\n");
-	    write(sprintf("%-*#s\n", 76, 
+	    write(sprintf("%-*#s\n", 76,
                 implode(sort_array(SECURITY->query_list_temp_start(str)),
                 "\n")) + "\n");
 	}
 	break;
-	
+
     case "add":
 	if (sizeof(sstr) < 3)
 	{

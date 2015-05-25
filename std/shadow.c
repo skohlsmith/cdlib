@@ -48,15 +48,15 @@ shadow_double(string fname, object ob)
     }
 
     return 0;
-}    
+}
 
 /*
  * Fucntion   : remove_object
  * Description: Ensure that we remove the shadow object too
  */
-public void 
-remove_object() 
-{ 
+public void
+remove_object()
+{
     if (objectp(shadow_who))
     {
         shadow_who->remove_object();
@@ -69,7 +69,7 @@ remove_object()
  * Function   : remove_shadow
  * Description: Removes the shadow without removing the shadowed object.
  */
-public void 
+public void
 remove_shadow()
 {
     destruct();
@@ -89,7 +89,7 @@ shadow_me(mixed to_shadow)
     {
 	to_shadow = find_player(to_shadow);
     }
-    
+
     if (!objectp(to_shadow))
     {
 	to_shadow = previous_object();
@@ -110,7 +110,7 @@ shadow_me(mixed to_shadow)
 /*
  * Function name: query_shadow_who
  * Description  : Returns the object that we are shadowing.
- * Returns      : object - the object we are shadowing. 
+ * Returns      : object - the object we are shadowing.
  */
 public object
 query_shadow_who()

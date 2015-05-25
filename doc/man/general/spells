@@ -61,7 +61,7 @@ The spell object, the object that holds the spells, must inherit the
 file /std/spells.c in order to work. In that object you can find a
 description telling you which functions to call and for what reason.
 
-You must also make a directory called "SPELLS" in your domain open 
+You must also make a directory called "SPELLS" in your domain open
 directory. In that directory you must put a file with the name of the
 spell-verb of your spell where you put information about the spell
 according to the file /doc/man/general/spell_form.
@@ -79,7 +79,7 @@ your lord will probably be demoted a level or two.
 
 The player will at all times be able to type "spells" and get a list
 of the spells he has active, providing that you have followed the
-instructions above. 
+instructions above.
 
 Resistance properties
 =====================
@@ -112,7 +112,7 @@ that would make for too radical protection changes by just adding a
 few objects. The algorithm works like this:
 
 If you have n objects that provide protection:
-Protection = (1 - MUL(1 -> n)[1 - objres(n)]) * 100 %                     
+Protection = (1 - MUL(1 -> n)[1 - objres(n)]) * 100 %
 
 For example, if you have a 30%, a 20% and a 45% additive resistance
 object on you, the result would be (1 - (1-0.3)*(1-0.2)*(1-0.45)) *
@@ -120,7 +120,7 @@ object on you, the result would be (1 - (1-0.3)*(1-0.2)*(1-0.45)) *
 with simple addition.
 
 There are custom routines in the living object for returning the
-total resistance of that object for a given property. Just call the 
+total resistance of that object for a given property. Just call the
 function query_magic_res(RES_PROP); to get the total resistance of
 the specified property.
 
@@ -148,9 +148,9 @@ so on. Use common sense when setting up the spellists and you will
 have no trouble. Ignore common sense and rules, and you'll find
 yourself outside the game as soon as it is discovered.
 
-The text following here is a very temporary thing. It will probably 
+The text following here is a very temporary thing. It will probably
 have to be replaced by something more detailed later, but you can use
-it as a guideline when you design your spells. 
+it as a guideline when you design your spells.
 
 Let's measure the proficiency of a player in the game or in a guild
 in 10 levels. A level 10 player in the game is just about to become
@@ -199,7 +199,7 @@ Timing of combat spells
 =======================
 
 Spells used to inflict damage on enemies should do so as an integral part
-of the combatsystem. It should NOT inflict damage instantly upon a given 
+of the combatsystem. It should NOT inflict damage instantly upon a given
 command. This is so that wizards can code their NPC's to avoid all forms
 of attacks, if that is somehow logical.
 
@@ -217,12 +217,12 @@ attack that is controlled by the combat system.
 Typical example:
 	{
 	    ..... in your spell code ....
- 	
-	    /* The spellcaster is to activate a prepared combatspell 
+
+	    /* The spellcaster is to activate a prepared combatspell
 	     */
 	    spellcaster->attack_object(enemy);
 	    spellcaster->add_prop(LIVE_O_SPELL_ATTACK, this_object())
- 
+
 	    ........
 	}
 

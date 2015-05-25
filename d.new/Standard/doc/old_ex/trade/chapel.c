@@ -1,12 +1,12 @@
 inherit "/std/room";
-inherit "/lib/guild_support"; 
+inherit "/lib/guild_support";
 
 #include <macros.h>
 #include <stdproperties.h>
 
 void
 create_room()
-{ 
+{
     set_short("The chapel");
     set_long(break_string("" +
 	"You are in the Chapel devoted to Paladine. There is a small altar " +

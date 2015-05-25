@@ -14,7 +14,7 @@ public int object_visible(object ob, object fob);
 
 /*
  * Show a default sublocation
- * 
+ *
  * Returns: 	string - Description of inventory of sublocation
  *		0 -	 Unsupported sublocation
  *		1 -	 Empty sublocation.
@@ -43,7 +43,7 @@ show_subloc(mixed sloc, object cont, object for_obj)
     {
 	pron = " you: ";
 	defprep = "carried by";
-    }	
+    }
 
     if (sloc == 0)
 	p = defprep;
@@ -81,7 +81,7 @@ object_visible(object ob, object fob)
     if (fob->query_wiz_level())
 	return 1;
 
-    if (ob->query_prop(OBJ_I_INVIS) <= 
+    if (ob->query_prop(OBJ_I_INVIS) <=
 	fob->query_prop(LIVE_I_SEE_INVIS))
 	return 1;
     else
@@ -97,7 +97,7 @@ obshorts(object ob, object fobj)
 	return 0;
 }
 
-/* 
+/*
  * Function name: subloc_access
  * Description:   Check if a sublocation can be accessed or not.
  *		  This is called from /std/container to manage sublocations

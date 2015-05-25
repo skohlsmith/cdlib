@@ -16,7 +16,7 @@ clean_up()
 	    Alarm = set_alarm(itof(Timeout), 0.0, clean_up);
 	    return;
 	}
-    } 
+    }
 
     for (i = 0 ; i < sizeof(ob) ; i++)
 	Master_ob->dispose_of(ob[i]);

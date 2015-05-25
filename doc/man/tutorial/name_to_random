@@ -41,7 +41,7 @@ Let's assume that we want to make a simple quest where we want a player to
 fetch a birthday present for someone who does not have time to go shopping
 himself. We have a shop that sells all different kinds of coffee mugs and we
 want the player to go buy the proper mug. Now, to make it a little more
-difficult, we do not sell just one type of coffee mug, but we sell it in 
+difficult, we do not sell just one type of coffee mug, but we sell it in
 three types (mug, cup&saucer and glass) and five colours (black, red, blue,
 white and green).
 

@@ -8,10 +8,10 @@ DESCRIPTION
 	This function destroys the indicated object.
 
 NOTA BENE
-	It is usually better to call the `remove()' function provided 
+	It is usually better to call the `remove()' function provided
 	in the mudlib object code than to use this efun. The mudlib code
 	will handle such things as light, weight and volume-updating
-	when called, something that this efun will ignore completly. 
+	when called, something that this efun will ignore completly.
 
 	Use this function as a last-resort method of getting rid of
 	otherwise indestructable objects.

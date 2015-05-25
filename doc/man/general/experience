@@ -26,12 +26,12 @@ ratio of the player. This is the so called 'brute factor'.
 
 This means that a player who only gains xp from combat will find himself
 getting less and less for each fight. To truly learn more and get more
-experienced he will have to go questing. 
+experienced he will have to go questing.
 
 Note that xp gained from quests are not reduced by the 'brute factor'. Note
 also that after some quest xp is gained, it can be rewarding to fight again.
 
-This removes the explicit demand to solve a certain number of quests. 
+This removes the explicit demand to solve a certain number of quests.
 
 
 Stats instead of levels, learning instead of buying
@@ -41,7 +41,7 @@ The second problem was the artificial system of buying levels. The levelsystem
 is replaced by a number of stats in 3.0. These stats reflects the players
 experience and matureness in for example: Strength, Wisdom, Disciplin
 
-These stats are not bought, a player can 'meditate' before adventuring and 
+These stats are not bought, a player can 'meditate' before adventuring and
 thereby telling himself which stats he will concentrate in learning (raising).
 When xp is gained the stats are raised reflecting these 'mental settings'.
 

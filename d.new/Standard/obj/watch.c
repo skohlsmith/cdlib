@@ -15,7 +15,7 @@ void create_object()
 
 string my_long()
 {
- say(({QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n", 
+ say(({QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n",
        QCTNAME(this_player()) + " glances at " + this_player()->query_possessive() + " watch.\n",
        "Someone glances at "+ this_player()->query_possessive() + " watch.\n"}));
  return "A glance at your watch tells you that it is " +EXACTTIME+ " on " +DATEDESC+ ".\n";

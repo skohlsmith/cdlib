@@ -11,5 +11,5 @@ DESCRIPTION
 	objects in the game.
 
 	If a filename has no instance number it is the 'master object' and
-	not a 'cloned copy'. 
+	not a 'cloned copy'.
 

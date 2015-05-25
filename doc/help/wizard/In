@@ -17,7 +17,7 @@ ARGUMENTS
 	<cmd>    - the command to perform
 
 EXAMPLES
-	In /d/Genesis/wiz/discuss exa board 
+	In /d/Genesis/wiz/discuss exa board
 		Will let you look at the board in the discussion room.
 	In *mercade:^ look
 		Take a general look in the room Mercade is in.

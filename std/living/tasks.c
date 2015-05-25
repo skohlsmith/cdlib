@@ -5,7 +5,7 @@
  *
  * One public function is defined:
  *
- * nomask varargs int * resolve_task(int difficulty, int *skill_list, 
+ * nomask varargs int * resolve_task(int difficulty, int *skill_list,
  *     object opponent, int * opp_skill_list)
  *
  * This should be called to determine the success of a given task.
@@ -35,13 +35,13 @@ find_listval(mixed member)
 	return 0;
 
 /*
- * Kludge to figure out which stat.  This depends on the constants in tasks.h 
+ * Kludge to figure out which stat.  This depends on the constants in tasks.h
  * -1 -> 0    (TS_STR    -> SS_STR) until
  * -10 -> 9   (TS_CRAFT -> SS_CRAFT)
  */
     else if (member < 0 && member > -11)
 	return this_object()->query_stat((-member) - 1);
-    
+
     else
 	return this_object()->query_skill(member);
 }
@@ -50,7 +50,7 @@ find_listval(mixed member)
  * Function: find_drm
  * Description: Finds the die roll modifiers for a this living, given the
  *              list of applicable skills, stats and modifiers.
- * Arguments: 
+ * Arguments:
  *            'skill_list' is a list of integers or VBFC's, as described above.
  * Returns: a positive integer containing the total die roll modifier (drm)
  *          (Zero on error)
@@ -63,7 +63,7 @@ find_drm(mixed *skill_list)
     n = sizeof(skill_list);
     i = 0;
     weight = 100;
-    while(i < n) 
+    while(i < n)
     {
         if (mod != 0)
             weight = 100;
@@ -78,7 +78,7 @@ find_drm(mixed *skill_list)
         }
         else
         {
- 	    switch (skill_list[i]) 
+ 	    switch (skill_list[i])
             {
 
                 case SKILL_MIN:
@@ -88,8 +88,8 @@ find_drm(mixed *skill_list)
 	            else
 		        mod = 0;
 
-                    for(; i < n && skill_list[i] != SKILL_END; i++) 
-                    {  
+                    for(; i < n && skill_list[i] != SKILL_END; i++)
+                    {
 		        tmod = find_listval(skill_list[i]);
 		        mod = MIN(tmod, mod);
                     }
@@ -103,7 +103,7 @@ find_drm(mixed *skill_list)
 	            else
 		        mod = 0;
 
-                    for(; i < n && skill_list[i] != SKILL_END; i++) 
+                    for(; i < n && skill_list[i] != SKILL_END; i++)
                     {
 		        tmod = find_listval(skill_list[i]);
 		        mod = MAX(tmod, mod);
@@ -124,7 +124,7 @@ find_drm(mixed *skill_list)
 		        mod = 0;
 		        count = 0;
 	            }
-                    for(; skill_list[i] != SKILL_END; i++) 
+                    for(; skill_list[i] != SKILL_END; i++)
                     {
 		        mod += find_listval(skill_list[i]);
                         count++;
@@ -172,7 +172,7 @@ find_drm(mixed *skill_list)
  *              Negative implies failure, positive implies success.
  */
 nomask varargs int
-resolve_task(int difficulty, mixed *skill_list, 
+resolve_task(int difficulty, mixed *skill_list,
     object opponent, mixed * opp_skill_list)
 {
     int dr, drm;

@@ -4,7 +4,7 @@ Defined in : <macros.h>
 
 Description: Tries to load/compile a file. It uses catch() internally to
              find out whether the file loads or not without throwing an
-	     error to the player. 
+	     error to the player.
 
 	     Can be used in an if-statement such as:
 	       if (LOAD_ERR(filename)) { /* handle exception */ }

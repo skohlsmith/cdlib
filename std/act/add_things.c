@@ -2,11 +2,11 @@
  *
  * This is a file inherited into monster.c that enables the player to
  * add weapons and armour to the monster in a very convinient way. The
- * monster will automaticly wield/wear the things. 
+ * monster will automaticly wield/wear the things.
  *
  * just do add_armour(string filename);        or
- *         add_weapon(string filename); 
- * 
+ *         add_weapon(string filename);
+ *
  * and the monster will clone, move and wield/wear the things.
  *      (The functions return the objects)
  *
@@ -80,7 +80,7 @@ public object
 add_armour(string file)
 {
     object armour;
-  
+
     if (!file)
     	return 0;
 

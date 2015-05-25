@@ -1,4 +1,4 @@
-/* 
+/*
  * /lib/keep.c
  *
  * This small module will enable the object it is inherited into to become
@@ -49,7 +49,7 @@
 /* Prototype */
 public int query_unsellable();
 
-/* 
+/*
  * Function name: query_keepable
  * Description  : This function will always return true to signal that the
  *                object it is called in is indeed keepable. Notice that this
@@ -115,7 +115,7 @@ remove_keep()
     set_keep(0);
 }
 
-/* 
+/*
  * Function name: query_keep
  * Description  : Call this function to query the current 'keep' status of
  *                this object.

@@ -21,7 +21,7 @@ create_room()
     set_long("You are in an a small room. In the middle of the room\n" +
 	     "there is some large machinery. How about taking a look\n" +
 	     "at it?\n");
-    
+
     add_item( ({"machine", "machinery" }),
 	     "This machine has three dials labled alpha, beta and gamma.\n" +
 	     "There is also a green button. Above there is a sign saying:\n" +
@@ -55,12 +55,12 @@ public varargs mixed
 long(string arg)
 {
     mixed str, *a;
-    
+
     str = ::long(arg);
 
     if (arg)
 	return str;
-    
+
     a = this_player()->query_adj(1);
     if (sizeof(a) < 2 || a[0] == "" || a[1] == "")
     	str += "\nYou are still rather featureless. " +
@@ -68,7 +68,7 @@ long(string arg)
     else
 	str += "\nYou suspect that you can do nothing more here.\n" +
 	    "Maybe you should leave through the teleporter.\n";
-    
+
     return str;
 }
 
@@ -78,12 +78,12 @@ long(string arg)
  *                and throw all the others away
  */
 
-public void 
+public void
 enter_cmd(string str)
 {
     object player, ob;
     string tmp, *a;
-    
+
     if (!str || !strlen(str))
     {
 	write("Enter what?\n");
@@ -120,7 +120,7 @@ enter_cmd(string str)
 	return;
     }
     write("You find no " + str + " to enter.\n");
-    
+
     return;
 }
 

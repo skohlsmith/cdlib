@@ -10,7 +10,7 @@
    If you insert changes you are recommended to copy /sys/formulas.h
    to here and make changes. It is important that the below define is
    defined afterwards:
-  
+
 #ifndef F_FORMULAS
 #define F_FORMULAS
 #endif

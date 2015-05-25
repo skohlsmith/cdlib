@@ -21,18 +21,18 @@
  *				main object allowed.
  *		  mixed alt   - May be a string path, an array of string
  *				paths, or an array of arrays, each
- *				containing a string chance and an int. 
+ *				containing a string chance and an int.
  *		  int  always - If 'alt' is an array, always try to
  *				to pick an element from it.
  *		  int  chance - The chance of the main item to be cloned
  *				and checked for.
  *
- * Notes	: For details on usage, see the associated man page 
+ * Notes	: For details on usage, see the associated man page
  *		  for this function and examples on how to
  *		  correctly use it.
  */
 public varargs object
-clone_unique(string file, int num = 1, mixed alt = 0, 
+clone_unique(string file, int num = 1, mixed alt = 0,
 		int always = 0, int chance = F_DEFAULT_CLONE_UNIQUE_CHANCE)
 {
     object ob;
@@ -46,7 +46,7 @@ clone_unique(string file, int num = 1, mixed alt = 0,
     }
 
     /* Make sure we have the correct permissions. */
-    setuid(); 
+    setuid();
     seteuid(getuid());
 
     /* We won't always clone the special item first. */
@@ -63,7 +63,7 @@ clone_unique(string file, int num = 1, mixed alt = 0,
 	{
 	/* Filter out broken and wizard-held objects */
 	    tmp = filter(tmp, &not() @ &->query_prop(OBJ_I_BROKEN));
-	    tmp = filter(tmp, &not() @ &->query_wiz_level() @ 
+	    tmp = filter(tmp, &not() @ &->query_wiz_level() @
 			&environment());
 	    sz  = sizeof(tmp);
 	}
@@ -127,7 +127,7 @@ clone_unique(string file, int num = 1, mixed alt = 0,
 	if (always && !objectp(ob))
 	{
 	    tmp = one_of_list(alt);
-	    
+
 	    if (stringp(tmp))
 	    {
 		ob = clone_object(tmp);

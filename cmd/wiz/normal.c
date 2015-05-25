@@ -196,9 +196,9 @@ query_cmdlist()
              "vis":"vis",
              ]);
 }
- 
+
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -230,7 +230,7 @@ banish(string arg)
         what = "-i";
         name = argv[0];
     }
-    
+
     if (SECURITY->exist_player(name))
     {
         notify_fail(capitalize(name) + " is a player in the game.\n");
@@ -247,7 +247,7 @@ banish(string arg)
          */
         if (wtype < WIZ_ARCH)
         {
-            if (function_exists("create_workroom", 
+            if (function_exists("create_workroom",
                 environment(this_interactive())) != ADMIN_HOME)
             {
                 notify_fail("You can only banish names in the " +
@@ -256,20 +256,20 @@ banish(string arg)
                 return 0;
             }
         }
-            
+
         /*
          * Try to banish.
          */
         rval = SECURITY->banish(name, 2);
-        
+
         if (sizeof(rval) != 0)
-            write(capitalize(name) + " was banished by " + 
+            write(capitalize(name) + " was banished by " +
                   capitalize(rval[0]) + " at " + ctime(rval[1]) + ".\n");
         else
             write("You have banished: " + capitalize(name) + ".\n");
-        
+
         break;
-        
+
     case "-i":
     case "-info":
         /*
@@ -277,12 +277,12 @@ banish(string arg)
          */
         rval = SECURITY->banish(name, 0);
         if (sizeof(rval) != 0)
-            write(capitalize(name) + " was banished by " + 
+            write(capitalize(name) + " was banished by " +
                   capitalize(rval[0]) + " at " + ctime(rval[1]) + ".\n");
         else
             write(capitalize(name) + " has not been banished.\n");
         break;
-        
+
     case "-r":
     case "-remove":
         /*
@@ -295,7 +295,7 @@ banish(string arg)
             {
                 if (rval[0] != this_interactive()->query_real_name())
                 {
-                    notify_fail("You have not banished " + 
+                    notify_fail("You have not banished " +
                                 capitalize(name) + ".\n");
                     return 0;
                 }
@@ -310,14 +310,14 @@ banish(string arg)
         rval = SECURITY->banish(name, 1);
         if (sizeof(rval) != 0)
         {
-            write(capitalize(name) + " was banished by " + 
+            write(capitalize(name) + " was banished by " +
                   capitalize(rval[0]) + " at " + ctime(rval[1]) + ".\n");
-            write("You have removed the banishment of " + 
+            write("You have removed the banishment of " +
                   capitalize(name) + ".\n");
         }
 
         break;
-        
+
     default:
         break;
     }
@@ -328,9 +328,9 @@ banish(string arg)
  * buglog - list a buglog
  */
 nomask int
-buglog(string str) 
-{ 
-    return somelog(str, "bug log", "/bugs"); 
+buglog(string str)
+{
+    return somelog(str, "bug log", "/bugs");
 }
 
 /* **************************************************************************
@@ -480,9 +480,9 @@ control(string npc)
  * donelog - list donelog
  */
 nomask int
-donelog(string str) 
-{ 
-    return somelog(str, "done log", "/done"); 
+donelog(string str)
+{
+    return somelog(str, "done log", "/done");
 }
 
 /* **************************************************************************
@@ -597,9 +597,9 @@ echo_to(string str)
  * errlog - list an error log
  */
 nomask int
-errlog(string str) 
-{ 
-    return somelog(str, "error log", "/errors"); 
+errlog(string str)
+{
+    return somelog(str, "error log", "/errors");
 }
 
 /* **************************************************************************
@@ -661,9 +661,9 @@ force(string str)
  * idealog - read the idea log
  */
 nomask int
-idealog(string str) 
-{ 
-    return somelog(str, "idea log", "/ideas"); 
+idealog(string str)
+{
+    return somelog(str, "idea log", "/ideas");
 }
 
 /* **************************************************************************
@@ -700,7 +700,7 @@ leave(string str)
 
     if (str != "domain")
     {
-        notify_fail("Syntax: leave domain\n");  
+        notify_fail("Syntax: leave domain\n");
         return 0;
     }
 
@@ -868,7 +868,7 @@ money(string str)
         write(sprintf("%-11s: %6d\n", capitalize(MONEY_TYPES[index]),
             coins[index]));
     }
-        
+
     write(sprintf("%11s: %6d\n", "Total value", MONEY_MERGE(coins)));
     return 1;
 }
@@ -930,7 +930,7 @@ msecond(string str)
         {
             return 0;
         }
-	
+
 	write("Removed second " + capitalize(args[1]) + " from " + capitalize(args[3]) + ".\n");
 	return msecond(args[3]);
 
@@ -1043,7 +1043,7 @@ possess(string arg)
         v_name = lower_case(argv[1]);
 
     victim = present(v_name, environment(this_interactive()));
-        
+
     if (!victim)
         victim = find_living(v_name);
 
@@ -1197,9 +1197,9 @@ valid_possess(object demon, object possessed)
  * praiselog - list your praise log
  */
 nomask int
-praiselog(string str) 
-{ 
-    return somelog(str, "praise log", "/praise"); 
+praiselog(string str)
+{
+    return somelog(str, "praise log", "/praise");
 }
 
 /* **************************************************************************
@@ -1251,7 +1251,7 @@ restrict(string str)
 
     if (args[0] == "list")
     {
-        wlist = sort_array(filter(SECURITY->query_wiz_list(-1), 
+        wlist = sort_array(filter(SECURITY->query_wiz_list(-1),
                                   &operator(!=)(0) @ SECURITY->query_restrict));
         if (SECURITY->query_wiz_rank(who) == WIZ_LORD ||
             SECURITY->query_wiz_rank(who) == WIZ_STEWARD)
@@ -1346,7 +1346,7 @@ restrict(string str)
             notify_fail("restrict: Unknown restriction.\n");
             return 0;
         }
-            
+
         if ((res & setres) == 0 &&
             SECURITY->query_wiz_rank(args[0]) > WIZ_MAGE)
         {
@@ -1423,7 +1423,7 @@ sdoc(string str)
         return 0;
     }
 
-    argv = explode(str, " "); 
+    argv = explode(str, " ");
     argc = sizeof(argv);
 
     switch (argv[0])
@@ -1467,16 +1467,16 @@ sdoc(string str)
             {
                 path = "/" + implode(parts[0..sizeof(parts) - 2], "/") + "/";
             }
-            else 
+            else
                 path = "/";
         }
-        
+
         if (!sizeof(files))
         {
             notify_fail("No such file(s): " + argv[1] + "\n");
             return 0;
         }
-                
+
         write("The Docscribe will be told of your request.\n");
 
         for (i = 0; i < sizeof(files); i++)
@@ -1487,7 +1487,7 @@ sdoc(string str)
                 write(path + files[i] + " is a directory.\n");
         }
         return 1;
-        
+
         break;
     }
 }
@@ -1500,7 +1500,7 @@ shutdown_game(string str)
 {
     string *argv;
     int     grace;
-    
+
     CHECK_SO_WIZ;
 
     if (!stringp(str))
@@ -1731,7 +1731,7 @@ stat(string str)
     else if (ob = parse_list(str))
     {
         if (IS_PLAYER_OBJECT(ob))
-        {        
+        {
              flags = STAT_PLAYER | STAT_LIVING;
         }
         else if (living(ob))
@@ -1915,7 +1915,7 @@ tellall(string str)
         }
         else
         {
-            tell_object(list[index], "An apparition of " + 
+            tell_object(list[index], "An apparition of " +
                 this_player()->query_art_name(list[index]) +
                 " appears to you.\n" +
                 capitalize(this_player()->query_pronoun()) +
@@ -2018,7 +2018,7 @@ trans(string str)
         notify_fail("Trans who?\n");
         return 0;
     }
-    
+
     args = explode(str, " ");
     if (args[0] == "-r")
     {
@@ -2072,7 +2072,7 @@ trans(string str)
                 " back to.\n");
             return 0;
         }
-        
+
         tell_object(ob, "You feel yourself magically transferred.\n");
         if (this_player()->query_option(OPT_ECHO))
         {
@@ -2091,9 +2091,9 @@ trans(string str)
  * typolog - read the typolog
  */
 nomask int
-typolog(string str) 
-{ 
-    return somelog(str, "typo log", "/typos"); 
+typolog(string str)
+{
+    return somelog(str, "typo log", "/typos");
 }
 
 /* **************************************************************************
@@ -2134,7 +2134,7 @@ somelog(string str, string logname, string log)
     {
         str = extract(str, 3);
     }
-    
+
     file = (string)SECURITY->query_wiz_path(str) + "/log";
     if (!strlen(file))
     {

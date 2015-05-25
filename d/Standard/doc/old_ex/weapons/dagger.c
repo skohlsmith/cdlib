@@ -12,7 +12,7 @@ create_weapon()
     set_long("It's small but sharp.\n");
 
     /* Now, a player can refere to this weapon as 'weapon' and 'dagger'. To
-     * distinguish it from other daggers, we want the player to be able to 
+     * distinguish it from other daggers, we want the player to be able to
      * use 'small dagger' as an id too.
      */
     set_adj("small");

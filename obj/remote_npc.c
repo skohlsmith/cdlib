@@ -34,7 +34,7 @@ create_object()
 {
     set_name("wand");
     add_name("remote");
-    add_name("controller"); 
+    add_name("controller");
     add_adj("silver");
 
     set_short("silver wand");
@@ -63,7 +63,7 @@ long_func()
         if (link_monster &&
             (environment(this_object()) == this_player()))
         {
-	    str += "You feel the presence of " + 
+	    str += "You feel the presence of " +
 		link_monster->query_name() + " the " +
 		link_monster->query_race_name() +
 		".\n";
@@ -204,7 +204,7 @@ posstoggle(string str)
 	return 0;
     }
 
-    if (link_toggle) 
+    if (link_toggle)
     {
 	link_toggle = 0;
 	write("Toggled control of " +
@@ -250,7 +250,7 @@ public void
 leave_env(object old, object dest)
 {
     ::leave_env(old,dest);
-    
+
     link_player = 0;
 }
 

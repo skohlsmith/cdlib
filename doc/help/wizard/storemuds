@@ -1,6 +1,6 @@
 NAME
 	storemuds - Store the mudlist currently in the manager
-	
+
 SYNOPSIS
 	storemuds
 
@@ -8,10 +8,10 @@ SYNOPSIS
 DESCRIPTION
 	Stores the information in the UDP managers mudlist in /secure/master
 	This means that the list will remain after reboot.
-	
+
 NOTA BENE
 	Only arches and keepers can execute this command
-	
+
 SEE ALSO
 	gwiz, mudlist, pingmud
 

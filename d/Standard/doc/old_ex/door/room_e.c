@@ -1,6 +1,6 @@
 /*
  * Examples on doors made by Nick
- * 
+ *
  * There is no key to fit this door, but you can pick the lock. However there
  * is a poisoned needle trap in the lock *shiver*
  *
@@ -98,7 +98,7 @@ search(object player, string str)
 
     /* In this rooms the only special thing to search is the door */
     if (item != "door" && item != "stone door" && item != "lock")
-	return ""; 
+	return "";
 
     /* If the trap has already been disarmed it's not there */
     if (!trap)
@@ -175,7 +175,7 @@ disarm(string str)
 	this_player()->remove_prop(FOUND_MY_TRAP);
 	trap = 0;
 	(door->query_other_room())->set_trap(0);
-    } 
+    }
     else if (result < -5)
     {
 	write("Oh, oh. You fouled up and sprung the trap!!!!\n");

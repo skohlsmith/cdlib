@@ -60,13 +60,13 @@ query_met(mixed name)
 	else
 	    return 0; /* Unless they have said they don't want to. */
     }
-    
+
     if (str == query_real_name()) /* I always know myself */
 	return 1;
 
     if (query_introduced(str) || query_remembered(str))
 	return 1;
-    
+
     return 0;
 #endif MET_ACTIVE
 }
@@ -81,10 +81,10 @@ add_introduced(string str)
 {
     if (query_met(str))
         return;  /* Don't add if already present */
-    
+
     if (!mappingp(introduced_name))
 	introduced_name = ([ ]);
-    
+
     introduced_name[str] = 1;
 }
 
@@ -98,10 +98,10 @@ remove_introduced(string str)
 {
     if (!mappingp(introduced_name))
         introduced_name = ([ ]);
-    
+
     if (!introduced_name[str])
         return 0;
-    
+
     m_delkey(introduced_name, str);
     return 1;
 }
@@ -120,7 +120,7 @@ query_introduced(mixed name)
 
     if (name)
         return introduced_name[name];
-    
+
     return ([ ]) + introduced_name;
 }
 

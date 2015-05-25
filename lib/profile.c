@@ -67,11 +67,11 @@ print_profile(int max_values)
  * building the heap and restoring the heap during the sort.  Pass 0
  * builds the heap, pass 1 does the sort.
  *
- * The while loop contains the main "make_heap" code.  
+ * The while loop contains the main "make_heap" code.
  *
  * The algorithm is much simpler than this implementation, but this
  * is done without benefit of recursion, global variables, or in/out
- * parameter passing.  
+ * parameter passing.
  */
 
     for( pass = 0; pass <= 1; pass++)
@@ -99,14 +99,14 @@ print_profile(int max_values)
              */
 
 	    while ((k < (j+1) / 2 - 1)
-		&& ((values[2*k+1] < values[k]) 
+		&& ((values[2*k+1] < values[k])
 		|| (values[2*k+2] < values[k])))
 	    {
 		/* Find the son which is lowest. */
 		if (values[2*k+1] > values[2*k+2])
-                    newk = 2*k+2; 
+                    newk = 2*k+2;
                 else
-                    newk = 2*k+1; 
+                    newk = 2*k+1;
 
 		/* Interchange parent and son */
 		temp = funcs[newk];

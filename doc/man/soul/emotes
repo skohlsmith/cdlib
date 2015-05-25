@@ -27,7 +27,7 @@ Adverbs can be used separately and on a target. The only adverbs regonized by
 the system are the adverbs that are accepted as defined in /sys/adverbs.h and
 adverbs always consist of only one word. This system does not allow free
 emotes by players.
-The system allows players to specify the adverb only partial. 'help adverbs' 
+The system allows players to specify the adverb only partial. 'help adverbs'
 will give you more information on adverbs in general.
 
 string check_adverb_with_space(string str, string default_adverb)
@@ -88,7 +88,7 @@ players to specify 'the dwarf' and don't forget to allow people to use
 additional prepositions if the emotions could be used with them.
 The function allows you to specify the following examplary descriptions (when
 the search pattern is "[at] [the] %l"):
-"mercade", "at Mercade", "the dwarf", "friendly dwarfs", "at dwarf" ... 
+"mercade", "at Mercade", "the dwarf", "friendly dwarfs", "at dwarf" ...
 
 object *parse_this(string str, string pattern)
 

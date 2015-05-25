@@ -1,9 +1,9 @@
 LFUN's
 ======
 
-In this man chapter some special functions within objects are commented. 
+In this man chapter some special functions within objects are commented.
 
-These so called lfuns are functions that are special in some sense. For 
+These so called lfuns are functions that are special in some sense. For
 information on the broad range of functions within objects in the standard
 mudlib, i.e. files under /std /sys /cmd and /secure you are referred to
 /doc/sman and the 'sman' command.

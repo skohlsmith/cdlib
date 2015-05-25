@@ -6,8 +6,8 @@ SYNOPSIS
 
 DESCRIPTION
 	Gives the time in seconds since whatever 1970, when the file was last
-	modified. 
-	
+	modified.
+
 SEE ALSO
 	time, ctime, object_time, file_size, file_name
 

@@ -5,7 +5,7 @@ SYNOPSYS
 	frown
 	frown <adverb>
 	frown [at] <target>
-	frown <adverb> [at] <target>	
+	frown <adverb> [at] <target>
 
 OPTIONS
 	<adverb> - any adverb from the available set or a period . to not

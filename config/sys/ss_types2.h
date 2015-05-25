@@ -14,7 +14,7 @@
 #define SS_WEP_PSI		SS_WEP_FIRST + 1  /* W_PSI */
 #define SS_WEP_MISSILE		SS_WEP_FIRST + 2  /* W_MISSILE */
 #define SS_WEP_KNIFE		SS_WEP_FIRST + 3  /* W_KNIFE */
- 
+
 #define SS_PILOT                121               /* PILOT */
 
 				     /*   Description     Costfactor(0-100) */

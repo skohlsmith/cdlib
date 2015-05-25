@@ -255,7 +255,7 @@ query_author(int note)
 /*
  * Function name: query_stats
  * Description  : Return an array with the current statistics
- * Returns      : An array of stats, read & write 
+ * Returns      : An array of stats, read & write
  */
 nomask public int *
 query_stats()
@@ -500,7 +500,7 @@ reset_board()
     if (!random(5))
 	tell_room(environment(),
 		  "A small gnome appears and secures some notes on the " +
-		  short() + 
+		  short() +
 		  " that were loose.\nThe gnome then leaves again.\n");
 }
 
@@ -994,13 +994,13 @@ create_note(string header, string author, string body)
 	(SECURITY->exist_player(author)))
 	return 0;
 
-    if (!find_player(author) || 
+    if (!find_player(author) ||
 	find_player(author) != this_interactive())
     {
 	SECURITY->log_syslog("BOARD", ctime(time()) + ": " +
-            capitalize(this_interactive()->query_real_name()) + 
-            " posted on the board '" + 
-            query_board_name() + 
+            capitalize(this_interactive()->query_real_name()) +
+            " posted on the board '" +
+            query_board_name() +
             "' as '" + author + "'.\n");
     }
 
@@ -1171,12 +1171,12 @@ remove_msg(string what_msg)
             headers[note][0] + "\n");
 
     SECURITY->log_syslog("BOARD", ctime(time()) + ": " +
-        capitalize(this_interactive()->query_real_name()) + 
+        capitalize(this_interactive()->query_real_name()) +
         " removed a note on: " + query_board_name() +
         "\n                          " + headers[note][0] + "\n");
-        
+
     discard_message(headers[note][1]);
-    
+
     headers = exclude_array(headers, note, note);
     msg_num--;
 

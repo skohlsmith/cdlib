@@ -1,4 +1,4 @@
-/* 
+/*
     drink_eat.h
 
     Formulas and constants related to food and drinks

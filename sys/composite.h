@@ -54,16 +54,16 @@
  * Function:    composite/fo_composite
  * Description: Creates a composite description of objects
  * Arguments:   x:          Array of the objects to describe
- *              sf:         Name of function to call in objects to get its 
+ *              sf:         Name of function to call in objects to get its
  *                          <name> objects with the same <names> are described
  *                          together.
  *              df:         Function to call to get the actual description of
  *                          a group of 'same objects' i.e objects whose
  *                          'sf' returned the same value.
  *		for_ob:     Who want this description?
- * 
+ *
  * Returns:     A description string on the format:
- *              <desc>, <desc> and <desc> 
+ *              <desc>, <desc> and <desc>
  *              Where <desc> is what ob->df() returns
  *
 */
@@ -80,7 +80,7 @@
  *              sepfnc:     Function to call in objects to get its <name>
  *                          Objects with the same <names> are sorted
  *                          together.
- * 
+ *
  * Returns:     0 or the array sorted
  *
 */

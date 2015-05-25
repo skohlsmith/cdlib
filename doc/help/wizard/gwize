@@ -15,7 +15,7 @@ DESCRIPTION
 
 OPTIONS
 	-c	If you want a list of the muds the message was sent to.
-	
+
 SEE ALSO
 	wiz, busy, mudlist, gwiz, gtell, rwho
 

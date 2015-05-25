@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	Returns the number of seconds that an interactive player has been
-	idle, ie the time since the last command was issued.	
+	idle, ie the time since the last command was issued.
 
 NOTA BENE
 	This is only relevant to interactive players and is not implemented

@@ -2,7 +2,7 @@
    docmake.c
 
 ----------------------------------------------------------------------------
-               THIS FILE MISUSES READ_FILE IN A MAJOR WAY. 
+               THIS FILE MISUSES READ_FILE IN A MAJOR WAY.
 
     DO NOT DO ANYTHING EVEN REMOTELY LIKE THIS ANYWHERE ELSE IN THE MUD
 ----------------------------------------------------------------------------
@@ -26,7 +26,7 @@
         doc_file(string docdir, string file)
 
    This object is also used directly by 'sman' and 'lman' when the
-   sourcefiles are newer than the documentation files. 
+   sourcefiles are newer than the documentation files.
 
    Mainfile is the name of the file to document and also the name in
    the documentation directory. If the mainfile includes other ".c" files
@@ -43,11 +43,11 @@
 		    docdir           mainfile
 
 	 will end up under /d/Genesis/doc/obj/knife and
-         NOT: /d/Genesis/doc/d/Genesis/obj/knife 
+         NOT: /d/Genesis/doc/d/Genesis/obj/knife
 
    Example:  To document "/std/npc.c" which includes "/std/seqaction.c" and
              "/std/trigaction.c" in /doc/sman we would do:
-    
+
 	  doc_file("/doc/sman", "/std/npc")
 
    This would give us the subdir entry "/doc/sman/std/npc".
@@ -70,7 +70,7 @@
 #define READ_CHUNK 100                 /* Lines / read when funcsearching */
 #define FIND_TRIES 10                  /* Number of tries to find funcs */
 #define WRITE_CHUNK 8                  /* Number of files to write / turn */
-#define MAX_FUNHEAD_LINES 4	       /* Max lines in a function head */ 
+#define MAX_FUNHEAD_LINES 4	       /* Max lines in a function head */
 
 #define DOC_TRIG "/*"
 
@@ -104,7 +104,7 @@ public void doc_next();
 void
 create()
 {
-    acc_func = 0; 
+    acc_func = 0;
     order_stack = ({});
 }
 
@@ -154,7 +154,7 @@ doc_reset()
 	    if (player && this_interactive())
 		tell_object(player,
 			    "Docscribe tells you: Documentation of: " +
-			    mainobfile + " aborted by " + 
+			    mainobfile + " aborted by " +
 			    this_interactive()->query_real_name() + "\n");
 	}
     }
@@ -164,7 +164,7 @@ doc_reset()
 	    calls[i][1] == "doc_next" ||
 	    calls[i][1] == "doc_create")
 	    remove_alarm(calls[i][0]);
-    
+
     acc_func = 0;
     order_stack = ({});
 }
@@ -184,7 +184,7 @@ doc_file(string docdir, string mainfile)
     {
 	if (order_stack[i][0] == docdir &&
 	    order_stack[i][1] == mainfile)
-	{	    
+	{
 	    order_stack[i][2] += ({ this_player()->query_real_name() });
 	    return;
 	}
@@ -192,7 +192,7 @@ doc_file(string docdir, string mainfile)
 
     if (!pointerp(order_stack))
 	order_stack = ({});
-    order_stack += 
+    order_stack +=
 	({ ({ docdir, mainfile, ({ this_player()->query_real_name() }) }) });
 
     if (!pointerp(acc_func))
@@ -247,7 +247,7 @@ doc_next()
 	player = find_player(who_told_us[i]);
 	if (player)
 	    tell_object(player,msg);
-			
+
 	if (!okeffuser &&
 	    SECURITY->valid_write(mainpath, who_told_us[i], "write_file") &&
 	    SECURITY->valid_read(file, who_told_us[i], "read_file"))
@@ -296,7 +296,7 @@ find_funcs(string file, function call_back_fun, string call_back_arg)
 }
 
 /*
- * Description:   Accumulates functions  
+ * Description:   Accumulates functions
  * Arguments:
  *       arg_arr[0] == The file to document
  *       arg_arr[1] == The callback function
@@ -309,7 +309,7 @@ accumul_funcs(string file, function fun, int line, mixed arg)
     string 	*lines, data, *find, str, a, b;
     int		i, lin, start, numtries, numleft;
     object	player;
-    
+
     /* The docmaker has been reset, we assume the reset took care of
        starting up for the next file
     */
@@ -317,16 +317,16 @@ accumul_funcs(string file, function fun, int line, mixed arg)
 	return;
 
     numtries = 0; start = line;
-    
+
     while (numtries < FIND_TRIES)
     {
 	data = read_file(file, start, READ_CHUNK);
 
 	start += READ_CHUNK;
 
-	/* If we are ready, tell the callback function 
+	/* If we are ready, tell the callback function
 	 */
-	if (!data) 
+	if (!data)
 	{
 	    fun(acc_func, arg);
 	    return;
@@ -353,7 +353,7 @@ accumul_funcs(string file, function fun, int line, mixed arg)
 	}
 
 	find = explode(" " + data + " ", DOC_TRIG);
-	
+
 	if (sizeof(find) > 1)
 	    break;
 
@@ -361,7 +361,7 @@ accumul_funcs(string file, function fun, int line, mixed arg)
     }
 
     set_alarm(1.0, 0.0, &accumul_funcs(file, fun, start, arg));
-	
+
     if (numtries == FIND_TRIES)
 	return;
 
@@ -372,7 +372,7 @@ accumul_funcs(string file, function fun, int line, mixed arg)
     for (lin = 0; lin < sizeof(lines); lin++)
     {
 	if (extract(lines[lin], 0, 1) == "/*")
-	    lin = check_comment(lines, lin, 
+	    lin = check_comment(lines, lin,
 				start - READ_CHUNK - numleft, file);
     }
     return;
@@ -382,7 +382,7 @@ accumul_funcs(string file, function fun, int line, mixed arg)
  * Description: Find the end of a comment
  * Returns:     The last line looked at
  */
-int 
+int
 check_comment(string *lines, int lin, int start, string src)
 {
     int il;
@@ -403,7 +403,7 @@ check_comment(string *lines, int lin, int start, string src)
 
 
 /*
- * Description: Try to parse a function trailing a comment. If the comment is 
+ * Description: Try to parse a function trailing a comment. If the comment is
  *              incomplete its first part is stored in 'left_lines' and is
  *		then added first on the next readchunk (in accumul_funcs).
  * Arguments:
@@ -413,11 +413,11 @@ check_comment(string *lines, int lin, int start, string src)
  *             start - Line number in file of lines[0]
  *             cmt   - The comment as one string
  *             src   - The filename of the file under scrutiny
- * Returns: 
+ * Returns:
  *             The last line in lines looked at
  */
-int 
-potential_func(string *lines, int flin, int clin, 
+int
+potential_func(string *lines, int flin, int clin,
 	       int start, string cmt, string src)
 {
     int il, max;
@@ -473,15 +473,15 @@ potential_func(string *lines, int flin, int clin,
 	max--;
 
     return max;
-}    
+}
 
 
 /*
  * Description: Handle a batch of accumulated functions.
- *		
+ *
  * Arguments:  arr: All the accumulated functions. Each on the form:
  *              ({ type, name, args, startlin in file, comment text, srcfile })
- *             mainpath: The path to the dir where the documentation should be 
+ *             mainpath: The path to the dir where the documentation should be
  *                       put.
  */
 void
@@ -501,7 +501,7 @@ doc_found(mixed *arr, string mainpath)
 	set_alarm(1.0, 0.0, &accumul_funcs(files_left[0], doc_found, 0, mainpath));
 	files_left = slice_array(files_left, 1, sizeof(files_left));
 	left_lines = ({});
-	
+
 	return;
     }
 
@@ -514,7 +514,7 @@ doc_found(mixed *arr, string mainpath)
 	il += WRITE_CHUNK;
 	pause+=1.0;
     }
-    
+
     for (il = 0, files = ({}); il < sizeof(arr); il++)
 	files += ({ arr[il][1] });
 
@@ -524,12 +524,12 @@ doc_found(mixed *arr, string mainpath)
     {
 	player = find_player(who_told_us[il]);
 	if (player)
-	    tell_object(player, 
+	    tell_object(player,
 			break_string("Docscribe tells you: " +
 				     "Documentation of: " +
 				     mainobfile + ", " + sizeof(arr) +
 				     " documentation files will " +
-				     "be created under: " + 
+				     "be created under: " +
 				     mainpath, 76) + "\n");
     }
     seteuid(0);
@@ -546,7 +546,7 @@ int doc_makepath(string path)
     int il;
 
     split = explode(path + "/", "/");
-    
+
     for (file = "", il = 1; il < sizeof(split); il++)
     {
 	file += "/" + split[il];
@@ -565,10 +565,10 @@ int doc_makepath(string path)
  * Arguments:  argarr
  *		[0]: All the accumulated functions. Each on the form:
  *              ({ type, name, args, startlin in file, comment text, srcfile })
- *		  
- *              [1]: The path to the dir where the documentation should be 
+ *
+ *              [1]: The path to the dir where the documentation should be
  *                   put.
- *              [2]: euid 
+ *              [2]: euid
  */
 void
 doc_create(mixed *arr, string path, string new_euid)
@@ -591,7 +591,7 @@ doc_create(mixed *arr, string path, string new_euid)
 		player = find_player(who_told_us[il]);
 		if (player)
 		    tell_object(player, "Docscribe tells you: " +
-				"I can't use the path: " + path + 
+				"I can't use the path: " + path +
 				" using the euid: " + geteuid(this_object()) +
 				"\n");
 	    }
@@ -637,10 +637,10 @@ doc_create(mixed *arr, string path, string new_euid)
  * Arguments:  		argarr
  *			  [0]: All the accumulated functions.
  *              	     ({ fun1, fun2, fun3 .... funN })
- *		  
+ *
  *              	  [1]: The path to the dir where the
  *			       documentation has been put.
- *              	  [2]: euid 
+ *              	  [2]: euid
  */
 void
 doc_clean_obsolete(string *functions, string path, string new_euid)
@@ -668,7 +668,7 @@ doc_clean_obsolete(string *functions, string path, string new_euid)
 
 	    for (il = 0; il < sizeof(dfiles); il++)
 	    {
-		rename(path + "/" + dfiles[il], 
+		rename(path + "/" + dfiles[il],
 		       path + "/.obsolete/" + dfiles[il]);
 	    }
 	}
@@ -678,7 +678,7 @@ doc_clean_obsolete(string *functions, string path, string new_euid)
     {
 	player = find_player(who_told_us[il]);
 	if (player)
-	    tell_object(player, "Docscribe tells you: Done!\n"); 
+	    tell_object(player, "Docscribe tells you: Done!\n");
     }
 
     calls = get_all_alarms();

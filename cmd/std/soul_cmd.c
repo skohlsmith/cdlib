@@ -1237,7 +1237,7 @@ caress(string str)
     actor("You caress", oblist, how[1] + ".");
     all2act(" caresses", oblist, how[1] + ".", how[1],
         ACTION_CONTACT | ACTION_INTIMATE | ACTION_VISUAL | ACTION_LACTIVITY);
-    target(" caresses you" + how[1] + ".", oblist, how[1], 
+    target(" caresses you" + how[1] + ".", oblist, how[1],
         ACTION_CONTACT | ACTION_INTIMATE | ACTION_VISUAL | ACTION_LACTIVITY);
     return 1;
 }
@@ -2153,13 +2153,13 @@ int
 fidget(string str)
 {
     str = check_adverb_with_space(str, "like a squirrel");
-    
-    if (str == NO_ADVERB_WITH_SPACE) 
-    {   
+
+    if (str == NO_ADVERB_WITH_SPACE)
+    {
         notify_fail("Fidget how?\n");
         return 0;
     }
-    
+
     SOULDESC("fidgetting" + str);
     write("You fidget" + str + ".\n");
     all(" fidgets" + str + ".", str, ACTION_AURAL | ACTION_VISUAL);
@@ -2814,7 +2814,7 @@ hold(string str)
         notify_fail("To hold all people, use \"hold all close\".\n");
         return 0;
     }
- 
+
     oblist = parse_this(str, "[the] %l [close]", ACTION_CONTACT);
 
     if (!sizeof(oblist))
@@ -3471,7 +3471,7 @@ mumble(string str)
         " and it probably is a good thing you cannot understand it.");
     target(" mumbles about you and it probably is a good thing you cannot " +
         "understand it.", oblist);
-    return 1;    
+    return 1;
 }
 
 int
@@ -4010,7 +4010,7 @@ ponder(string str)
     actor("You ponder about the proposal of", oblist);
     all2act(" ponders about the proposal of", oblist);
     target(" ponders about your proposal.", oblist);
-    return 1;    
+    return 1;
 }
 
 int
@@ -4074,7 +4074,7 @@ puke(string str)
         return 1;
     }
 
-    oblist = parse_this(str, "[on] / [over] [the] %i", 
+    oblist = parse_this(str, "[on] / [over] [the] %i",
         ACTION_PROXIMATE | ACTION_OFFENSIVE);
 
     if (!sizeof(oblist))

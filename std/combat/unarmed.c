@@ -34,10 +34,10 @@ public void cr_reset_hitloc(int hid);
  *	       dt:    Damage type
  *             puse:  Chance of use each turn
  *	       adesc: A string desc of the attack, ie "right claw" etc
- * 
+ *
  */
 public varargs void
-set_attack_unarmed(int aid, int wchit, int wcpen, int dt, int puse, 
+set_attack_unarmed(int aid, int wchit, int wcpen, int dt, int puse,
 		   string adesc)
 {
     if (!mappingp(ua_attdata))
@@ -105,7 +105,7 @@ query_attackuse() { return ua_attuse; }
  * Description:   Configures basic values for this creature.
  */
 public void
-cr_configure() 
+cr_configure()
 {
     if (mappingp(ua_attdata))
 	map(m_indexes(ua_attdata), cr_reset_attack);
@@ -131,7 +131,7 @@ cr_reset_attack(int aid)
     {
 	ua_attdata = ([]);
     }
-    
+
     att = ua_attdata[aid];
 
     if (sizeof(att) >= 4)
@@ -153,7 +153,7 @@ cr_reset_hitloc(int hid)
 
     if (!mappingp(ua_hitdata))
 	ua_hitdata = ([]);
-    
+
     hloc = ua_hitdata[hid];
 
     if (sizeof(hloc) >= 3)
@@ -180,7 +180,7 @@ public string
 cr_attack_desc(int aid)
 {
     mixed att;
-    
+
     att = ua_attdata[aid];
 
     if (sizeof(att) >= 5)
@@ -207,7 +207,7 @@ cr_got_hit(int hid, int ph, object att, int aid, int dt, int dam)
 
 /*
  * Function name:  cr_attacked_by
- * Description:    This routine is called when we are attacked or when 
+ * Description:    This routine is called when we are attacked or when
  *                 someone we are hunting appears in our location. This
  *		   routine is simply a notification of the fact. The combat
  *		   system will start a fight without us doing anything here.

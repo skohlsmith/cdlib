@@ -14,7 +14,7 @@ DESCRIPTION
 
 	It is possible to move a directory, too, but then the source must
 	be a single directory name as well as the target.
- 
+
 OPTIONS
 	<source> - the source file(s) to move.
 	<target> - the destination to move the file(s) to.

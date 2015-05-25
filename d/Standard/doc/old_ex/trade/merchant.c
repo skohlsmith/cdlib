@@ -241,7 +241,7 @@ sell(string what) {
 	int i;
 	string change;
 
-	if (my_money_merge(result[0 .. NUM - 1]) <= ( tot_price + 
+	if (my_money_merge(result[0 .. NUM - 1]) <= ( tot_price +
 		my_money_merge(result[NUM .. 2 * NUM - 1])))
 	{
 	    item->query_auto_load();
@@ -256,7 +256,7 @@ sell(string what) {
 	    if (change = text(result[NUM .. NUM * 2 - 1]))
 	        write("You give me change, " + change + ".\n");
 	}
-	else 
+	else
 	{
             set_money_give_out(my_what_coins(TO));
 
@@ -273,7 +273,7 @@ sell(string what) {
         say(QCTNAME(TP) + " sells " + TP->query_possessive() + " "
             + item->short() + ".\n");
 
-    } 
+    }
     else if (result[0] == 2 || result[0] == 3)
     {
 	return 0;
@@ -282,7 +282,7 @@ sell(string what) {
     return 1;
 }
 
-/* 
+/*
     Value
 */
 
@@ -326,7 +326,7 @@ value(string str)
 	        if (change = text(arr[NUM .. 2 * NUM - 1]))
 	            write("You give me change, " + change + ".\n");
 	    }
-	    else 
+	    else
 	    {
                 set_money_give_out(my_what_coins(TO));
 
@@ -336,12 +336,12 @@ value(string str)
                     text(arr[NUM .. 2 * NUM - 1]) + ".\n"));
 	    }
 
-        } 
-	else if (arr[0] == 2 || arr[0] == 3) 
+        }
+	else if (arr[0] == 2 || arr[0] == 3)
 	{
   	    NF("I cannot pay that much.\n");
 	    return 0;
-        } 
+        }
 	return 1;
     }
 

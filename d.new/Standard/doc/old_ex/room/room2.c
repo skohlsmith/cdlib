@@ -17,7 +17,7 @@ create_room() {
 	     "You can look at them, but not get them.\n");
     add_exit("/doc/examples/room/room1", "south",0);
     add_exit("/doc/examples/room/room3", "north", 0);
-    add_item( ({ "torch", "torches" }) , 
+    add_item( ({ "torch", "torches" }) ,
 	      "The torches are all lit.\n");
 
 }

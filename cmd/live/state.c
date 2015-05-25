@@ -61,8 +61,8 @@ public int second(string str);
 void
 create()
 {
-    seteuid(getuid(this_object())); 
-    
+    seteuid(getuid(this_object()));
+
     /* These global arrays are created once for all since they are used
        quite often. They should be considered constant, so do not mess
        with them
@@ -145,7 +145,7 @@ query_cmdlist()
  *                  sublocations responsible for extra descriptions of the
  *                  living object.
  */
-public void 
+public void
 using_soul(object live)
 {
     live->add_subloc(SUBLOC_MISCEXTRADESC, file_name(this_object()));
@@ -153,7 +153,7 @@ using_soul(object live)
 }
 
 /* **************************************************************************
- * Here follows some support functions. 
+ * Here follows some support functions.
  * **************************************************************************/
 
 /*
@@ -229,8 +229,8 @@ show_subloc_fights(object on, object for_obj)
     object eob;
 
     eob = (object)on->query_attack();
-    
-    return " fighting " + (eob == for_obj ? "you" : 
+
+    return " fighting " + (eob == for_obj ? "you" :
                            (string)eob->query_the_name(for_obj)) + ".\n";
 }
 
@@ -244,7 +244,7 @@ show_subloc_health(object on, object for_obj)
  * Function name: show_subloc
  * Description:   Shows the specific sublocation description for a living
  */
-public string 
+public string
 show_subloc(string subloc, object on, object for_obj)
 {
     string res, cap_pronoun, cap_pronoun_verb, tmp;
@@ -264,14 +264,14 @@ show_subloc(string subloc, object on, object for_obj)
         cap_pronoun_verb = res;
         cap_pronoun = capitalize(on->query_pronoun()) + " seems to be ";
     }
-    
+
     if (strlen(tmp = show_subloc_size(on, for_obj)))
         res += tmp;
     else
         res = "";
 
     res += show_subloc_looks(on, for_obj);
-    
+
     if (on->query_attack())
         res += cap_pronoun_verb + show_subloc_fights(on, for_obj);
 
@@ -302,7 +302,7 @@ get_proc_text(int proc, mixed maindescs, int turnindex = 0, mixed subdescs = 0)
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -958,7 +958,7 @@ levels(string str)
 
     if (!str)
     {
-        notify_fail("Available level descriptions:\n" + 
+        notify_fail("Available level descriptions:\n" +
                     break_string(COMPOSITE_WORDS(ix) + ".", 70, 3) + "\n");
         return 0;
     }
@@ -966,7 +966,7 @@ levels(string str)
     levs = lev_map[str];
     if (!sizeof(levs))
     {
-        notify_fail("No such level descriptions. Available:\n" + 
+        notify_fail("No such level descriptions. Available:\n" +
                     break_string(COMPOSITE_WORDS(ix) + ".", 70, 3) + "\n");
         return 0;
     }
@@ -1007,7 +1007,7 @@ options(string arg)
 	}
         return 1;
     }
-    
+
     args = explode(arg, " ");
     if (sizeof(args) == 1)
     {
@@ -1046,7 +1046,7 @@ options(string arg)
             else
                 write("Brave'\n");
             break;
-            
+
         case "see":
         case "fights":
             write("See fights:      " +
@@ -1055,25 +1055,25 @@ options(string arg)
             break;
 
         case "unarmed":
-            write("Unarmed combat:  " + 
-                (this_player()->query_option(OPT_UNARMED_OFF) ? 
+            write("Unarmed combat:  " +
+                (this_player()->query_option(OPT_UNARMED_OFF) ?
                 "Off" : "On") + "\n");
             break;
 
         case "gagmisses":
-            write("Gag misses:      " + 
+            write("Gag misses:      " +
                 (this_player()->query_option(OPT_GAG_MISSES) ?
                 "On" : "Off") + "\n");
             break;
 
         case "merciful":
-            write("Merciful combat: " + 
+            write("Merciful combat: " +
                 (this_player()->query_option(OPT_MERCIFUL_COMBAT) ?
                 "On" : "Off") + "\n");
             break;
 
         case "autowrap":
-            write("Auto-wrapping:   " + 
+            write("Auto-wrapping:   " +
                 (this_player()->query_option(OPT_AUTOWRAP) ?
                 "On" : "Off") + "\n");
             break;
@@ -1122,7 +1122,7 @@ options(string arg)
 		break;
 	    }
 	    /* Intentional fallthrough to default if not a wizard. */
-	    
+
 	default:
             return notify_fail("Syntax error: No such option.\n");
             break;
@@ -1164,7 +1164,7 @@ options(string arg)
         }
         options("screenwidth");
         break;
-        
+
     case "brief":
         this_player()->set_option(OPT_BRIEF, (args[1] == "on"));
         options("brief");
@@ -1179,7 +1179,7 @@ options(string arg)
         if (args[1] == "brave")
         {
             this_player()->set_whimpy(0);
-        }            
+        }
         else if (args[1] == "?")
             write("brave, " + implode(health_state, ", ") + "\n");
         else
@@ -1398,7 +1398,7 @@ vitals(string str, object target = this_player())
 
     case "health":
     case "mana":
-        write((self ? "You are" : (name + " is")) + " physically " + 
+        write((self ? "You are" : (name + " is")) + " physically " +
             GET_NUM_DESC(target->query_hp(), target->query_max_hp(), health_state) +
             " and mentally " +
             GET_NUM_DESC(target->query_mana(), target->query_max_mana(), mana_state) +
@@ -1525,7 +1525,7 @@ show_stats(string str)
             a = SD_IMPROVE_MAX;
         else if (a < SD_IMPROVE_MIN)
             a = SD_IMPROVE_MIN;
-        
+
         write(start_have + "made " + GET_NUM_DESC(j, a, improve_fact) +
             " progress since you last logged in.\n");
     }
@@ -1593,14 +1593,14 @@ show_skills(string str)
     case 2:
         /* Player specifies both the person to see and the group to see. */
         if (this_player()->query_wiz_level())
-            player = find_player(words[0]);        
+            player = find_player(words[0]);
         group = words[1];
         break;
     default:
         notify_fail("Too many arguments. Syntax: stats [player] [skill group]\n");
         return 0;
     }
-    
+
     if (!objectp(player))
     {
         notify_fail("No player " + words[0] + " found.\n");

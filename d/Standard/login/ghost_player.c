@@ -6,8 +6,8 @@
 
 
       There can be three different reasons for not having a player_file:
-      
-         1 - If this is a new character, then manage the 
+
+         1 - If this is a new character, then manage the
              creation / conversion / process.
 
          2 - The players racefile is not loadable, a new body must be
@@ -110,8 +110,8 @@ enter_new_player(string name, string pass)
 	    if (pold)
 	    {
 		set_mailaddr(pold->q_mailaddr());
-		
-		/* 
+
+		/*
 		 * Check so that the old password equals what was given
                  */
 		if (pass != pold->q_password())
@@ -126,7 +126,7 @@ enter_new_player(string name, string pass)
 		}
 	    }
 	}
-		
+
 	/*
          * name'jr' is a wizard helper if it is not an old player
          */
@@ -144,7 +144,7 @@ enter_new_player(string name, string pass)
          * Is the mud open to new players ?
          */
 #ifdef LOGIN_NO_NEW
-	if (file_size(LOGIN_NO_NEW) > 0)   
+	if (file_size(LOGIN_NO_NEW) > 0)
 	{
 	    cat(LOGIN_NO_NEW);
 	    log_file("REFUSED_ENTRY", ctime(time()) + ": " + name + "\n");
@@ -282,8 +282,8 @@ ask_player()
 
 /*
  * Function name: end_query
- * Description:   
- * Return:        
+ * Description:
+ * Return:
  */
 static void
 end_query() { ghost_start(); }
@@ -421,7 +421,7 @@ public void update_acc_exp() { ::update_acc_exp(); }
 
 /*
  * Now the configuration is ready, and we want to swap to the correct
- * playerfile. 
+ * playerfile.
  */
 public int
 ghost_ready()
@@ -438,7 +438,7 @@ ghost_ready()
     plfile = RACEMAP[query_race_name()];
     if (!plfile)
     {
-	write("You cannot be a " + query_race_name() + 
+	write("You cannot be a " + query_race_name() +
 	      ", choose a new body!\n");
 	set_ghost(GP_BODY | GP_DEAD);
 	enter_new_player(query_real_name(), query_password());
@@ -448,14 +448,14 @@ ghost_ready()
     ob = clone_object(plfile);
     if (!ob)
     {
-	write(capitalize(query_race_name()) + 
+	write(capitalize(query_race_name()) +
 	      " is a faulty race. Choose a new body!\n");
 	set_ghost(GP_BODY | GP_DEAD);
 	enter_new_player(query_real_name(), query_password());
 	return 0;
-    }	
-    
-    /* 
+    }
+
+    /*
      * Prepare the new player object. We must change:
      *      We should have the correct souls.
      *      We should have the correct playerfile.
@@ -472,7 +472,7 @@ ghost_ready()
     set_this_player(ob);
     if (!ob->enter_game(query_real_name(), ""))
     {
-	write(capitalize(query_race_name()) + 
+	write(capitalize(query_race_name()) +
 	      " is an illegal race. Choose a new body!\n");
 	set_ghost(GP_BODY | GP_DEAD);
 	enter_new_player(query_real_name(), query_password());
@@ -503,8 +503,8 @@ void damn_stubborn_object()
 {
     call_out("damn_stubborn_object",1);
     destruct();
-}    
-    
+}
+
 /*
  * Function name: reincarnate_me
  * Description:   Called by a player object that is a ghost and needs to

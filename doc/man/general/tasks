@@ -2,7 +2,7 @@ INTRODUCTION
 
 The task system is intended to regularise the use of Skills in the CDlib
 based muds.  A task consists of a difficulty and a list of applicable skills
-and stats. Optionally, an opponent and an opponent's skill list may be 
+and stats. Optionally, an opponent and an opponent's skill list may be
 specified.
 
 Task functionality is supported through the function resolve_task() in
@@ -14,17 +14,17 @@ the living object. It has the prototype:
 The wizard coding a task should follow this procedure:
 
 1. Define the task.  What is it exactly that is to be done?
-2. Assign a difficulty. Use the chart in this document to help you in 
+2. Assign a difficulty. Use the chart in this document to help you in
    determining the difficulty.
 3. Make a list of what skills and stats might possibly apply.
-   If the action is done to an opponent, decide what skills and stats 
+   If the action is done to an opponent, decide what skills and stats
    oppose the action. Note that skill defines are of the form SS_<skill>,
    but stat defines in tasks are of the form TS_<stat>, e.g., TS_INT.
 4. Combine the skills and stats if appropriate, using the min, max, and
    average functionality.
 5. Implement it with a function call to resolve_task. Note that resolve_task
    is defined in the living, so the call is usually of the form
-   this_player()->resolve_task(...). Resolve_task() will return a positive 
+   this_player()->resolve_task(...). Resolve_task() will return a positive
    number if the player succeeds; 0 or negative indicates failure.
 
 Example:
@@ -64,13 +64,13 @@ Difficulty : Difficult
 object victim;
 int success;
 
-success = this_player()->resolve_task(TASK_DIFFICULT, 
+success = this_player()->resolve_task(TASK_DIFFICULT,
                                       ({TS_DEX, SS_PICK_POCKET}),
                                       victim, ({TS_WIS, SS_AWARENESS}));
 
 Reminders:
- 1. Success > 0 implies success in both examples.  
- 2. You must use TS_ on stats to get the proper stats.  Otherwise, you 
+ 1. Success > 0 implies success in both examples.
+ 2. You must use TS_ on stats to get the proper stats.  Otherwise, you
     will get the weapon skill with the same number as the stat.
 
 CHOOSING A DIFFICULTY
@@ -96,7 +96,7 @@ results.
 What follows is a chart of the probability of success for a given task for
 the standard difficulties versus the task modifier. The task modifier in
 the basic case is simply the sum of the skills and stats given in the
-2nd argument to resolve_task. Exactly how the task modifier is computed 
+2nd argument to resolve_task. Exactly how the task modifier is computed
 is explained in the next section.
 
 MODIF SIMPLE   ROUTINE  DIFFICULT  FORMIDABLE  IMPOSSIBLE
@@ -150,12 +150,12 @@ modifier equals 200).
 CHOOSING SKILLS AND STATS (TASK MODIFIER)
 
 A 'skill list' consists of a list of the skills and stats which affect the
-task at hand, possibly separated by some constants which tell how the 
+task at hand, possibly separated by some constants which tell how the
 skills should be interpreted.  These constants are:
 
 SKILL_MIN    This signals the beginning of a sublist of skills and stats
-             for which the minimum value is used.  The list is terminated 
-             by SKILL_END.  
+             for which the minimum value is used.  The list is terminated
+             by SKILL_END.
 SKILL_MAX    exactly the same, except that the maximum value is used.
 SKILL_AVG    the average value of the skills and stats listed is used.
 SKILL_WEIGHT the next value (or sublist) is weighted by this factor (percent)
@@ -203,7 +203,7 @@ This table shows the percent chance of success for a ROUTINE task, with a
 varying number of skills, appropriately weighted. That is:
 
 column 1 is the skill.
-column 2 is the probability of success for a call to 
+column 2 is the probability of success for a call to
          resolve_task(TASK_ROUTINE, ({ SKILL, SKILL })). This column is
          identical to the chart above, but recognize that the modifier in
          the first chart is double the skill value here.
@@ -222,23 +222,23 @@ An example of a skill list using SKILL_WEIGHT and SKILL_MIN is:
     /*
      * This yields a modifier of sword + 60*min(str,dex)/100
      */
-    skill_list = ({ SS_SWORD, 
+    skill_list = ({ SS_SWORD,
         SKILL_WEIGHT, 60, SKILL_MIN, TS_STR, TS_DEX, SKILL_END});
 }
 
-As another example, let's say I have a spell my player wants to cast.  In the 
+As another example, let's say I have a spell my player wants to cast.  In the
 spell code, I might check success with the following fragment.
 
 {
-    if(this_player()->resolve_task(TASK_DIFFICULT, 
+    if(this_player()->resolve_task(TASK_DIFFICULT,
         ({SKILL_WEIGHT, 50, SS_SPELLCRAFT,
-          SKILL_WEIGHT, 90, SKILL_AVG, TS_WIS, TS_INT, SKILL_END, 
+          SKILL_WEIGHT, 90, SKILL_AVG, TS_WIS, TS_INT, SKILL_END,
           SS_FORM_CONJURATION,
           SS_ELEMENT_FIRE})) > 0)
     {
         spell_succeeds();
     }
-}  
+}
 
 This creates a formula of:
   (50*spellcraft + 90*average(wis,int) + 100*conjuration + 100*fire)/100
@@ -284,9 +284,9 @@ if (success > 0)
 }
 else if (success <= -50)
 {
-      /* A player with relevant stats equal to thirty will fail and the 
+      /* A player with relevant stats equal to thirty will fail and the
          return value will be <= 50 about 3% of the time. We can figure
-         this by noting that for a return value less than -50, 
+         this by noting that for a return value less than -50,
          RANDOM + MODIFIER has to be less than 250, so for two stats of
          30 this means RANDOM has to be less than 130, which is the
          same has having stats equal to 185, which from the chart is
@@ -319,8 +319,8 @@ while his opponent's subtract, yielding a net bonus.  The final number
 is compared with the difficulty.  If it is higher, the task succeeds.
 Otherwise, the task fails.
 
-You can consider the difficulty minus the net bonus to be the "true 
-difficulty", and then you can apply the following formula to determine 
+You can consider the difficulty minus the net bonus to be the "true
+difficulty", and then you can apply the following formula to determine
 chance of success. The important thing to note in the below formula is
 that the base modifier is doubled when the chance is actually computed.
 This is a change over the way it used to be done, i.e. in the old way

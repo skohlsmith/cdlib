@@ -18,7 +18,7 @@
  * query_guild_type()      Always returns "layman"
  *
  * query_guild_style_lay() What styles are we? fighter, magic, cleric, thief
- *			   are the standard styles but there are other styles 
+ *			   are the standard styles but there are other styles
  *			   aren't there, perhaps we should enlarge the list.
  *
  * query_guild_name_lay()  The name of the guild.
@@ -27,17 +27,17 @@
  *                         the title of this guild.
  *
  * query_guild_not_allow_join_occ(o, s, s, s) This is called when our member
- *			   tries to join another guild. The type, style and 
+ *			   tries to join another guild. The type, style and
  *			   name of the other guild is sent as argument and we
  *			   can deny our member to join that guild if we want.
  *			   Observe, returning 1 will deny the player. This
- *			   function will also be called each time a player 
+ *			   function will also be called each time a player
  *			   logs on, we could test if the race has changed or
  *			   anything....
  *
  * query_guild_member_lay() Is always true, ofcourse.
  *
- * remove_guild_lay()      Call this if you are removeing your guild from the 
+ * remove_guild_lay()      Call this if you are removeing your guild from the
  *			   player, and you are an layman guild.
  *
  * autoload_shadow(s)      Is called when a player enters and we shall load

@@ -12,7 +12,7 @@ create_door()
 
     /* Here you decide wich command will take you through the door, 'enter' is no
        good pass command, at least not yet, since argument is not tested. If the
-       first pass command has only one or two letters in it the second pass 
+       first pass command has only one or two letters in it the second pass
        command will be used in the standard description of the door.
     */
     set_pass_command(({"w","west"}));
@@ -41,7 +41,7 @@ create_door()
            set_locked(i)         1 if locked, 0 if unlocked
 
        There are also plenty of other things you can set in the door, but this
-       is all you need. Look in /std/door.c for more details on all the 
+       is all you need. Look in /std/door.c for more details on all the
        set_functions()
     */
 }

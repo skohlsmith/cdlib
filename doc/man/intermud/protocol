@@ -31,7 +31,7 @@ Mudlib support
 The GD allows only the master object to send udp messages. There is a
 function 'send_udp_message' in /secure/master that can be called to send
 a message. Normally only a specific 'udp manager' is allowed by /secure/master
-to send messages. What object to use as UDP_MANAGER is defined in 
+to send messages. What object to use as UDP_MANAGER is defined in
 /config/sys/local.h
 
 There is a file /sys/global/udp that can be used as udp manager or inherited
@@ -49,7 +49,7 @@ Protocol design
 
 - Every message sent is printable strings.
 - Every message consists of a 'command' and 'parameters'. Paramaters can
-  have subparameters. 
+  have subparameters.
 
 The typical message string looks like:
 
@@ -73,13 +73,13 @@ or in a slightly more formal description:
 			      	    | '|' tag ':' value subparameterlist
 
 
-Where Alfanumword is one word of letters and digits, and 'String' is 
+Where Alfanumword is one word of letters and digits, and 'String' is
 any printable text not containing the '|', '||' or '@@@' letter combinations.
 
 The motivation for this design is the simple translation of a message into
 a mapping of parameters. This is very simple to do by exploding the
 message first on '||', separating the parameters and then to explode on '|'
-for each parametervalue, separating the subparameters. 
+for each parametervalue, separating the subparameters.
 
 The parameterlist is then put into a mapping using the tags as index. The
 values of the mapping can then be either a string or another mapping holding
@@ -97,7 +97,7 @@ Only a few commands has been implemented so far. Their names are defined in
 the file /sys/udp.h
 
 The commands, i.e. the 'Alfanumwords' for each command are:
-	
+
 	"startup"
 		This command is sent to the 'mudlist server' when the mud
 		starts. The 'mudlist server' is defined in /secure/std.h
@@ -130,7 +130,7 @@ The commands, i.e. the 'Alfanumwords' for each command are:
 		This command is sent from one mud to another to get info
 		on what muds it knows about. Parameters are the same as
 		for a 'ping_q' command.
-	
+
 	"mudlist_a"
 		This command is sent as an answer to a 'mudlist query'
 		command. The parameters are simple numeric indexes, one
@@ -173,7 +173,7 @@ The commands, i.e. the 'Alfanumwords' for each command are:
 Future extensions
 =================
 
-There are numerous possibilities for new commands in the protocol. Some 
+There are numerous possibilities for new commands in the protocol. Some
 examples of what could be added are commands to handle:
 
 	- Remote who, what wizards/players are logged in on a specific mud
@@ -189,7 +189,7 @@ Further in the future are:
 	  Perhaps having a special 'foreign mud' domain, where each 'wizard'
 	  is another mud.
 	- 'Online' updates of the distributed mudlib code.
-	
+
 
 Extension design
 ================
@@ -210,14 +210,14 @@ This new udp manager should then replace the old as defined in
 
 The key to this, is this piece of code in /sys/global/udp.c:
 
-  /* 
+  /*
    * Execute the given commands
    */
   int
   execure_udp_command(string cmd, mapping params)
   {
       switch(cmd)
-      {	
+      {
       case UDP_STARTUP:
       case UDP_SHUTDOWN:
       case UDP_PING_Q:

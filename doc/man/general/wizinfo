@@ -1,5 +1,5 @@
 /*
-	To simplify for other wizards you can add the an information 
+	To simplify for other wizards you can add the an information
 	property: OBJ_S_WIZINFO to your object.
 
 	OBJ_S_WIZINFO	If this string is defined it will be written when

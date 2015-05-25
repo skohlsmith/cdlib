@@ -4,7 +4,7 @@ NAME
 SYNOPSIS
 	Move [-f] <object> [<destination>]
 
-DESCRIPTION 
+DESCRIPTION
 	This command will move any object to another environment. It will
 	try to move livings with the normal move_living() function, with the
 	teleportation flag set, but if that fails, move() is used. On

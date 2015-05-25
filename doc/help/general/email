@@ -13,10 +13,10 @@ DESCRIPTION
 
 OPTIONS
         [none] - check what your email address is set to.
-	
+
 	"none" - set your email address to the string 'none', indicating
 	       that you don't have an account that can be reached by
 	       electronic mail
-	
+
 	email address - your email address, e.g. allan@cd.chalmers.se
 

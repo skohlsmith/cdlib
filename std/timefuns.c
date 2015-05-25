@@ -45,7 +45,7 @@ time_get_int(string str)
  accum -= minute*SECONDS_PER_MINUTE;
  second = accum;
 
- if(!str) 
+ if(!str)
    return 9999;
 
   switch(str)

@@ -39,7 +39,7 @@ DESCRIPTION
 	name	This specifies the name of an object in your inventory
 		or your environment.
 
-	"desc"	This specifies the short description of an object in 
+	"desc"	This specifies the short description of an object in
                 your inventory or your environment.
 
 	path	This specifies a path to an object of any kind.
@@ -52,7 +52,7 @@ DESCRIPTION
 
 	*name	This specifies the name of a player and nothing else.
 
-	here	This specifies the environment of yourself, usually this 
+	here	This specifies the environment of yourself, usually this
 		is a room.
 
 	me	This specifies yourself, your player object.

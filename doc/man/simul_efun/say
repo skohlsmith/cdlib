@@ -6,7 +6,7 @@ SYNOPSIS
 	varargs void say(mixed str, mixed oblist)
 
 DESCRIPTION
-        Sends a message (via catch_msg()) to other livings in 
+        Sends a message (via catch_msg()) to other livings in
         the environment of this_player().  Note that this_player()
         will not receive the message.
 

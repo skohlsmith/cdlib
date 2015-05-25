@@ -37,7 +37,7 @@ OPTIONS:
 	Domain		Give ranking of a specific domain
 
 NOTA BENE
-	A command is counted for the domain if a mortals does an action 
+	A command is counted for the domain if a mortals does an action
 	with one of the domains objects. This is true anywhere in the
 	mud. It is the object defining the add_action() of the executed
 	command that counts.
@@ -52,7 +52,7 @@ NOTA BENE
 	wizard helpers are mortals, commands would be counted otherwise.
 
 WARNING
-	There is a lot of ways to fool the ranking list. The simplest 
+	There is a lot of ways to fool the ranking list. The simplest
 	being running with your own mortal characters in your area. The
 	list is there for a purpose. If you cheat, it is simply foul play.
 	Wizards doing that risk demotion for the entire domain.

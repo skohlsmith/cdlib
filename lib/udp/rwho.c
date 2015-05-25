@@ -26,7 +26,7 @@ public int
 send_rwho_q(string mud, string askwiz)
 {
     mapping minfo;
-    
+
     minfo = TO->query_mud_info(mud);
 
     if (!mappingp(minfo))
@@ -34,7 +34,7 @@ send_rwho_q(string mud, string askwiz)
 
     if (stringp(minfo["HOSTADDRESS"]) && (atoi(minfo["PORTUDP"]) > 0))
     {
-	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]), 
+	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]),
 		     "@@@" + UDP_RWHO_Q +
 		     "||NAME:" + TO->query_my_name() +
 		     "||PORTUDP:" + TO->query_my_udpport() +
@@ -58,7 +58,7 @@ rwho_q(mapping p)
     object pl;
     mapping minfo;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -66,7 +66,7 @@ rwho_q(mapping p)
 
 	minfo = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info.
 	*/
@@ -75,7 +75,7 @@ rwho_q(mapping p)
 
 	if (p["PORTUDP"])
 	{
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 				    "@@@" + UDP_RWHO_A +
 				    "||NAME:" + TO->query_my_name() +
 				    "||PORTUDP:" + TO->query_my_udpport() +
@@ -87,8 +87,8 @@ rwho_q(mapping p)
 	return 0;
     }
     return 0;
-}   
- 
+}
+
 /*
  * Function name: rwho_a
  * Description:   Called when the mud receives an rwho_a package
@@ -102,7 +102,7 @@ rwho_a(mapping p)
     object pl;
     mapping minfo;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -110,7 +110,7 @@ rwho_a(mapping p)
 
 	minfo = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info.
 	*/
@@ -128,7 +128,7 @@ rwho_a(mapping p)
 	return 0;
     }
     return 0;
-}    
+}
 
 /*
  * The actual rwho message
@@ -150,7 +150,7 @@ rwho_message()
 
     r = SECURITY->get_mud_name() + " (" + SECURITY->do_debug("version") +
 	":" + MUDLIB_VERSION + "): ";
-    
+
     for (wiz = ({}), mortal = ({}), il = 0; il < sizeof(u); il++) {
 	if (u[il] && u[il]->query_wiz_level())
 	    wiz = wiz + ({ capitalize(u[il]->query_real_name()) });
@@ -164,12 +164,12 @@ rwho_message()
 	r += " player and ";
     else
 	r += " players and ";
-	
+
     r += LANG_WNUM(sizeof(wiz));
 
     if (sizeof(wiz) == 1)
 	r += " wizard.";
-    else 
+    else
 	r += " wizards.";
 
     if (sizeof(wiz))
@@ -226,10 +226,10 @@ cmd_rwho(string mud)
 	for (il = 0; il < sizeof(names); il++)
 	    if (!send_rwho_q(names[il], this_player()->query_real_name()))
 		names[il] = 0;
-	    
+
 	if (sizeof(names) && sizeof((names = names - ({ 0 }))))
 	{
-	    write("Ok, Have sent the query to:\n" + 
+	    write("Ok, Have sent the query to:\n" +
 		  break_string(COMPOSITE_WORDS(names) + ".\n", 70, 3));
 	    return 1;
 	}
@@ -249,4 +249,4 @@ cmd_rwho(string mud)
     return 1;
 }
 
-    
+

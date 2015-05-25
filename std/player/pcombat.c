@@ -14,7 +14,7 @@
  */
 private static object   *team_invited;	/* Array of players invited to team */
 
-/* 
+/*
  * Prototype.
  */
 static nomask void linkdeath_remove_enemy(object enemy);

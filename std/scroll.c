@@ -1,10 +1,10 @@
 /*
- * /std/scroll.c      
+ * /std/scroll.c
  *
  * A standard object that can be both read, and mread :)
  *
  * set_file(string file) - Will connect a file to the read command
- * 
+ *
  * set_autoload()        - Will make this object autoload
  */
 
@@ -148,7 +148,7 @@ init_arg(string arg)
 	add_prop(OBJ_M_NO_DROP, 1);
     else
 	add_prop(OBJ_M_NO_DROP, tmp);
-   
+
     auto_load = 1;
 }
 

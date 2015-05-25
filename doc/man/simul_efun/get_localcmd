@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	This function returns an array of all local commands added to
-	the object `ob'. 
+	the object `ob'.
 
 	If no argument is givent `this_object()' is used by default.
 

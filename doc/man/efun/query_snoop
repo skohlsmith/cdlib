@@ -2,8 +2,8 @@ NAME
 	query_snoop - check what object is snooping a given object
 
 SYNOPSIS
-	object query_snoop(object snoopee)		
-	
+	object query_snoop(object snoopee)
+
 DESCRIPTION
 	Gives objectpointer to the player that is snooping 'snoopee'. This
 	function can only be executed by `/secure/master.c'

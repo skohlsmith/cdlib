@@ -772,7 +772,7 @@ convert_to_names(string *list)
                     name = "admin";
                     continue;
                 }
- 
+
                 if (sizeof(tmp_arr = SECURITY->query_wiz_list(type)))
                     return_arr |= tmp_arr;
 
@@ -780,7 +780,7 @@ convert_to_names(string *list)
                 if ((type == WIZ_ARCH) &&
                     (sizeof(tmp_arr = SECURITY->query_wiz_list(WIZ_KEEPER))))
                     return_arr |= tmp_arr;
-                
+
                 continue;
             }
         }
@@ -884,7 +884,7 @@ convert_to_names(string *list)
  * Description  : Check if all names on the list are valid. Reports the
  *                first non-valid name that is encountered. Takes aliases
  *                in account.
- * Arguments    : string *list - a list of strings with names. 
+ * Arguments    : string *list - a list of strings with names.
  * Returns      : string       - the entry in the array that is not valid
  *                               is returned enquoted.
  *                0            - if all members are valid
@@ -1072,7 +1072,7 @@ from(string str)
     if (strlen(str))
     {
         filter_name = 1;
-    
+
         /* Transform the commandline argument to an array of addressees. */
         list = explode(cleanup_string(str), ",");
 
@@ -1104,7 +1104,7 @@ from(string str)
         if (filter_star &&
             !STARRED_FLAG(pMessages[index][MAIL_READ]))
             continue;
-        
+
         if (filter_name &&
             !IN_ARRAY(pMessages[index][MAIL_FROM], list))
             continue;
@@ -1885,13 +1885,13 @@ send_mail(string name)
         if (gCurrent > 0)
         {
             LOAD_PLAYER;
-    
+
 #ifdef MAX_IN_MORTAL_BOX
             /* The message was not read before, count it as read now. */
             if (!pMessages[gCurrent - 1][MAIL_READ])
                 gRead_count++;
 #endif MAX_IN_MORTAL_BOX
-    
+
             pMessages[gCurrent - 1][MAIL_READ] |= MSG_ANSWERED;
             SAVE_MAIL;
         }
@@ -2871,14 +2871,14 @@ query_aliases(string alias)
 {
     if (!stringp(alias))
         return ([ ]) + gAliases;
- 
+
     if (!pointerp(gAliases[alias]))
         return 0;
- 
+
     return ({ }) + gAliases[alias];
 }
- 
- 
+
+
 /*
  * Function name: create_mail
  * Description  : With this function, you can have mail generated from code.
@@ -3024,7 +3024,7 @@ query_prevent_shadow()
 {
     return 1;
 }
- 
+
 /*
  * Function name: query_auto_load
  * Description  : The mail reader will autoload for wizards.
@@ -3035,6 +3035,6 @@ query_auto_load()
 {
     if (environment()->query_wiz_level())
         return MASTER;
- 
+
     return 0;
 }

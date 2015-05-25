@@ -9,9 +9,9 @@ on a platinum coin. All values are given in copper below.
 
 There is one golden rule for values:
 
-     -------------------------------------------------------------	
+     -------------------------------------------------------------
 	 Nothing is more valuable than Fatty's weight in gold.
-     -------------------------------------------------------------	
+     -------------------------------------------------------------
 
 Below is the list of value formulas for specific items in copper coins:
 
@@ -21,7 +21,7 @@ Liqour healing          10 + (alco * alco / 10)
 Food			 5 + (amount * amount / 600)
 Magic object healing    5 * hp + hp * hp / 4
 Magic spell healing
- (cost of component)    hp * 20 
+ (cost of component)    hp * 20
 
 Below is a list of example items and their values:
 
@@ -30,19 +30,19 @@ Below is a list of example items and their values:
   Special spirits alc25   72cc
   Firebreather alc50     260cc
   Knife wc5              100cc
-  Sword wc30            1850cc  
+  Sword wc30            1850cc
   Armour ac5              75cc
-  Armour ac30            950cc  
-  Lantern                100cc 
-  Lantern oil             20cc 
-  Torch                   40cc 
+  Armour ac30            950cc
+  Lantern                100cc
+  Lantern oil             20cc
+  Torch                   40cc
   Rope                   100cc (1cc / 10 kgm)
   Piece of hide            1cc         (for writing on)
-  Sack                    24cc 
-  Backpack               350cc  
+  Sack                    24cc
+  Backpack               350cc
   Healpotion 50hp        875cc
   Healing component 40hp 800cc (Typically pulverized gemstones)
-	
+
 
 All prices can of course vary depending on quality, beauty, ornamentation etc.
 

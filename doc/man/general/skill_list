@@ -4,7 +4,7 @@ Skillnumber allocation:
 0000 - 0499    Standard skills
 
 0500 - 0999    World specific skills. These are skill that are specific to
-	       one LPmud world. 
+	       one LPmud world.
 
 1000 - 4999    Reserved for future use.
 
@@ -18,11 +18,11 @@ Skillnumber allocation:
 	      Domain #1: 101000 - 101999
 			etc
 
-	      To get the domain number: 
+	      To get the domain number:
 	        'Call /secure/master query_domain_number Domain'
 
 NOTE:
-	Maximum range of values are 0-100. Where 0 is no special ability 
+	Maximum range of values are 0-100. Where 0 is no special ability
 	and 100 is extremely good.
 
 Skillname		##	Description
@@ -67,7 +67,7 @@ SS_HIDE			55	Hide inside rooms
 SS_BACKSTAB		56	Do something bad to someones back
 
 /* Language skills */
-SS_LANG_COMMON          70	
+SS_LANG_COMMON          70
 SS_LANGUAGE		109	Speak other languages
 
 /* General skills */

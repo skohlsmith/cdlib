@@ -36,10 +36,10 @@ init()
     object ob;
     add_action("all_cmd", "", 1);
     if (this_player()->query_ghost() & GP_SKILLS)
-    { 
+    {
 	ob = clone_object(PATH + "set_skills");
 	ob->move(this_player());
-    } 
+    }
 }
 
 /*
@@ -61,12 +61,12 @@ long(string arg)
  * Description  : Catch all player commands. Take care of the legal ones
  *                and throw all the others away
  */
-public void 
+public void
 enter_cmd(string str)
 {
     object player, *a;
     string tmp;
-    
+
     if (!str || !strlen(str))
     {
 	write("Enter what?\n");

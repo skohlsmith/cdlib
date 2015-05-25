@@ -149,7 +149,7 @@ store_remove_items()
  * Description  : Update the contents of the storeroom, remove excess items.
  * Arguments    : object obj - the object that is added to the store.
  */
-void 
+void
 store_update(object obj)
 {
     object *inv;
@@ -205,7 +205,7 @@ store_update(object obj)
  *                stock.
  *                The default stock is represented as an array of the form:
  *
- *                ({ (string)filename1, (int)stock1, 
+ *                ({ (string)filename1, (int)stock1,
  *                   (string)filename2, (int)stock2,
  *                })
  *
@@ -269,7 +269,7 @@ reset_store()
 
     inv = all_inventory();
     inv -= FILTER_PLAYERS(inv);
-    
+
     /* For each of the items in the default stock, check the amount of items
      * in stock and clone new items if necessary.
      */
@@ -281,7 +281,7 @@ reset_store()
         counted = sizeof(filter(inv, &operator(==)(default_stock[index]) @
                              &extract(, 0, (strlen(default_stock[index]) - 1)) @
                              file_name));
-        
+
         while(++counted <= total)
         {
             clone_object(default_stock[index])->move(this_object(), 1);

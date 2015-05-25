@@ -18,10 +18,10 @@ void
 reset_auto_objects()
 {
     int clone_count;
-    
+
     if (!mappingp(room_objects))
         return;
-    
+
     foreach (string file, mixed data : room_objects)
     {
         /* This code is relying heavily on the copy-by-reference of arrays */
@@ -29,12 +29,12 @@ reset_auto_objects()
         function condition = data[1];
         function init_call = data[2];
         object *clones = data[3];
-        
+
         clones = filter(clones, objectp);
-        
+
         if (functionp(condition))
             clones = filter(clones, condition);
-        
+
         while (sizeof(clones) < count)
         {
             object ob;
@@ -42,7 +42,7 @@ reset_auto_objects()
             ob = clone_object(file);
             if (!objectp(ob))
                 return;
-            
+
             if (functionp(init_call))
                 init_call(ob);
 
@@ -50,7 +50,7 @@ reset_auto_objects()
                 ob->move_living("xx", this_object(), 1, 1);
             else
                 ob->move(this_object(), 1);
-            
+
             clones += ({ ob });
 
             clone_count++;
@@ -60,9 +60,9 @@ reset_auto_objects()
                 return;
             }
         }
-        
+
         data[3] = clones;
-        
+
     }
 }
 
@@ -71,10 +71,10 @@ reset_auto_objects()
  * Function Name: add_auto_object
  * Description  : Add an object to the list of objects that should
  *                be automatically reset.
- * 
+ *
  *                NOTE: In most cases you don't want this function, you wan't
  *                      the interfaces add_npc or add_object
- *                      
+ *
  * Arguments    : string file - The file to clone
  *                int count   - How many should be cloned.
  *                function condition - Whas is the condition for the cloning
@@ -91,7 +91,7 @@ add_auto_object(string file, int count = 1, function condition = 0,
 
     if (!mappingp(room_objects))
         room_objects = ([ ]);
-    
+
     room_objects[file] = ({ count, condition, init_call, ({ }) });
 
     /* Reset has to be started for the cloning to be done */

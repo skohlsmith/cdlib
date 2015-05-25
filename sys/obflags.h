@@ -1,6 +1,6 @@
 /*
    obflags.h
-   
+
    This is the GD flags for objects. The 'flag' integer is available to
    LPC objects through: flag = debug("ob_flags", ob);
 */

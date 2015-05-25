@@ -32,7 +32,7 @@ DESCRIPTION
 		activity statistics
 	trace
 		Sets the trace flags and returns the old trace flags.
-		When tracing is on a lot of information is printed during 
+		When tracing is on a lot of information is printed during
 		execution.
 
 		The trace bits are
@@ -49,7 +49,7 @@ DESCRIPTION
 	traceprefix <object path>
 		string traceprefix(string prefix)
 
-		If the the traceprefix is set (i.e. not 0) 
+		If the the traceprefix is set (i.e. not 0)
 		tracing will only occur in objects
 		having a name with the set prefix.
 	call_out_info

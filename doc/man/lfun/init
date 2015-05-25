@@ -1,5 +1,5 @@
 NAME
-        init - function called in an object when it encounters a 
+        init - function called in an object when it encounters a
             living object.
 
 SYNOPSIS

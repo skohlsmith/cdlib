@@ -115,7 +115,7 @@ query_seconds(string name)
     return ({ });
 }
 
-/* 
+/*
  * Function name: query_player_seconds
  * Description  : Find out the names of the seconds of a player that were
  *                registered by that player. This routine operates on
@@ -137,7 +137,7 @@ query_player_seconds()
             seconds -= ({ second });
         }
     }
-    
+
     if (sizeof(seconds))
     {
         /* Add the first to the seconds. */
@@ -296,7 +296,7 @@ register_second(string second, string password)
     int match;
 
     second = lower_case(second);
-    
+
     /* Verify whether the first knows the password of the second. */
     player = finger_player(second);
     match = player->match_password(password);

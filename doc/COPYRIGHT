@@ -71,8 +71,8 @@ COPYRIGHT LICENSE
     making up the world is termed Genesis and the society is termed GIA
     in the following text.
 
-2.  All code that is produced in Genesis or imported to Genesis is subject 
-    to this license. If you have code that you for some reason can't or 
+2.  All code that is produced in Genesis or imported to Genesis is subject
+    to this license. If you have code that you for some reason can't or
     don't want to place under this license, don't import it.
 
 3.  All code in Genesis may be freely copied and used by anyone
@@ -82,7 +82,7 @@ COPYRIGHT LICENSE
     from those who use it to cover the running costs, you may not make
     a profit from it.
 
-4.  All code in working order that is exported outside Genesis should 
+4.  All code in working order that is exported outside Genesis should
     contain this license, or a reference to it.
 
 5.  The copyright to all code that is not accompanied by an explicit
@@ -96,16 +96,16 @@ ETHICS
 
 The following paragraphs are recommendations.
 
-1.  Put a comment containing your name, the date of creation and the fact 
+1.  Put a comment containing your name, the date of creation and the fact
     that it was created on Genesis at the top of each file you make.
 
-2.  Put a comment with the date and information on the change every time 
+2.  Put a comment with the date and information on the change every time
     you make a major change to one of your objects.
 
 These are to be considered as rules of conduct. Breaking them in a major way
 may trigger disciplinary actions.
 
-3.  Write code that is in accordance with the rules and in balance with 
+3.  Write code that is in accordance with the rules and in balance with
     the game.
 
 4.  Don't copy other wizards code without permission from that wizard, the
@@ -114,10 +114,10 @@ may trigger disciplinary actions.
 5.  Don't export other wizards code without permission from that wizard or
     a keeper.
 
-6.  If you change less than half the code of an object, keep the name of 
+6.  If you change less than half the code of an object, keep the name of
     the creator and add your own below.
 
-7.  If you change more than half of the code of an object, put yourself in 
+7.  If you change more than half of the code of an object, put yourself in
     as creator, but keep a credit to the original creator.
 
 8.  Don't place objects that differ little from the original into the game.
@@ -127,14 +127,14 @@ may trigger disciplinary actions.
 
 10. If you make code that is not in balance with the game, is against the
     rules or contains bugs, the lord of your domain, an archwizard or a
-    keeper may at any time change it. The same applies to code that has 
+    keeper may at any time change it. The same applies to code that has
     to be changed due to changes in the surroundings.
 
 11. Changes made by others should always be documented in the code, and
     normally be reported to the wizard in question.
 
-12. Code that is left unattended for a long time may be turned over to an 
-    other wizard by a keeper. Unattended code in a domain becomes common 
+12. Code that is left unattended for a long time may be turned over to an
+    other wizard by a keeper. Unattended code in a domain becomes common
     domain property.
 
 13. Keepers will only give permission to copy or distribute the code of a

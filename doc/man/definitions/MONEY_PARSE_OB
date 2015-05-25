@@ -10,7 +10,7 @@ Description:	parses a string and returns an array of integersof the form
 		coins of that type, and the exact number of coins is used. If
 		0 is returned, the string could not be parsed.
 
-		For example, 
+		For example,
 		MONEY_PARSE_OB("all silver coins and 3 gold coins", this_player())
 		would return ({ 0, 20, 3, 0 }) (no copper, 20 silver, 3 gold,
 		and no platinum coins), assuming this_player() possesses 20

@@ -74,7 +74,7 @@ recite(string str)
     ob = obj[0];
 
     skill = ID_STRENGTH; /* Base value of this id scroll */
-    skill += this_player()->query_skill(SS_LANGUAGE) / 5 + 
+    skill += this_player()->query_skill(SS_LANGUAGE) / 5 +
 	this_player()->query_stat(SS_WIS) / 10;
     skill -= ob->query_prop(MAGIC_I_RES_IDENTIFY);
     if (skill < 0)
@@ -109,7 +109,7 @@ skill = 0;
 int
 dispel_magic(int num)
 {
-    object ob; 
+    object ob;
 
     if (num > ID_STRENGTH)
     {

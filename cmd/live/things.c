@@ -50,7 +50,7 @@ inherit "/cmd/std/command_driver";
 #include <subloc.h>
 
 #define ENV (environment(this_player()))
-#define PREV_LIGHT CAN_SEE_IN_ROOM(this_player()) 
+#define PREV_LIGHT CAN_SEE_IN_ROOM(this_player())
 
 /*
  * Prototypes
@@ -71,7 +71,7 @@ static string gItem;         /* string to hold pseudoitem from look command */
 void
 create()
 {
-    seteuid(getuid(this_object())); 
+    seteuid(getuid(this_object()));
 }
 
 /* **************************************************************************
@@ -144,13 +144,13 @@ query_cmdlist()
  *                sublocations responsible for extra descriptions of the
  *                living object.
  */
-public void 
+public void
 using_soul(object live)
 {
 }
 
 /* **************************************************************************
- * Here follows some support functions. 
+ * Here follows some support functions.
  * **************************************************************************/
 
 /*
@@ -185,9 +185,9 @@ light_fail(string str)
         "The chest is full."
         "The river can not be taken."
  *
- * Ref:           see /std/object.c for the move function 
+ * Ref:           see /std/object.c for the move function
  */
-varargs void 
+varargs void
 move_err_short(int ierr, object ob, object dest)
 {
     mixed str, str2;
@@ -269,7 +269,7 @@ move_err_short(int ierr, object ob, object dest)
 
     write(str);
 }
-   
+
 /*
  * Function name: manip_drop_access
  * Description:   Test if player carries an object
@@ -329,7 +329,7 @@ manip_relocate_to(object item_o, object to)
     object dest;        /* receiver */
     int ierr;
     string destmsg;
-    
+
     if (!objectp(item_o))
         return 0;
     if (!to)
@@ -340,11 +340,11 @@ manip_relocate_to(object item_o, object to)
     else
     {
         dest = to;
-        destmsg = (query_verb() == "give" ? " to " : 
+        destmsg = (query_verb() == "give" ? " to " :
             (dest->query_prop(CONT_I_ATTACH) ? " on " : " in ")) +
             QSHORT(dest);
     }
-    
+
     if (item_o == dest)
         return 0;               /* not into itself */
     if (item_o == this_player())
@@ -355,7 +355,7 @@ manip_relocate_to(object item_o, object to)
 
     if (!silent)
         say(QCTNAME(this_player()) + " tries to " + query_verb() +
-                " " + (stringp(item_o->short()) ? QSHORT(item_o) : 
+                " " + (stringp(item_o->short()) ? QSHORT(item_o) :
         item_o->query_name()) + destmsg + " but fails.\n");
 
     move_err_short(ierr, item_o, dest);
@@ -364,14 +364,14 @@ manip_relocate_to(object item_o, object to)
 }
 
 int
-manip_put_dest(object item) 
-{ 
-    return manip_relocate_to(item, gDest); 
+manip_put_dest(object item)
+{
+    return manip_relocate_to(item, gDest);
 }
 
 int
 manip_set_dest(string prep, object *carr)
-{ 
+{
     string vb;
 
     vb = query_verb();
@@ -384,7 +384,7 @@ manip_set_dest(string prep, object *carr)
 
     if (sizeof(carr) > 1)
     {
-        notify_fail("Please be specific, where do you want to " + 
+        notify_fail("Please be specific, where do you want to " +
                     query_verb() + " them?\n");
         return 0;
     }
@@ -402,7 +402,7 @@ manip_set_dest(string prep, object *carr)
         (gDest->query_prop(CONT_I_ATTACH) &&
         (member_array(prep, ({ "on", "onto" })) >= 0)))
     {
-        notify_fail(capitalize(query_verb()) + " what " + prep + 
+        notify_fail(capitalize(query_verb()) + " what " + prep +
             " the " + gDest->short() + "?\n");
         return 1;
     }
@@ -418,7 +418,7 @@ manip_ch_prep(string ptext)
 {
     return parse_command(ptext, ({0}), "'in' / 'inside' / 'from'");
 }
-   
+
 /*
  * Function name: manip_relocate_from
  * Description:   tries to transfer object to player
@@ -436,7 +436,7 @@ manip_relocate_from(object item_o)
     int ierr;
     object env;
     string tmp;
-    
+
     if (!objectp(item_o))
     {
         return 0;
@@ -483,7 +483,7 @@ manip_relocate_from(object item_o)
     if (!silent)
     {
         say(QCNAME(this_player()) + " tries to " + query_verb() +
-            " the " + (stringp(item_o->short()) ? QSHORT(item_o) : 
+            " the " + (stringp(item_o->short()) ? QSHORT(item_o) :
             item_o->query_name()) + " but fails.\n");
     }
 
@@ -503,7 +503,7 @@ manip_relocate_from(object item_o)
  *                          else see manip_relocate_to().
  */
 int
-manip_put_whom(object item) 
+manip_put_whom(object item)
 {
     if (environment(item) != this_player())
     {
@@ -515,7 +515,7 @@ manip_put_whom(object item)
 
 int
 manip_set_whom(string prep, object *carr)
-{ 
+{
     mixed tmp;
     int i;
 
@@ -560,7 +560,7 @@ manip_set_whom(string prep, object *carr)
  *
  */
 int
-in_gContainers(object ob) 
+in_gContainers(object ob)
 {
     mixed res;
 
@@ -596,12 +596,12 @@ look_living_exec(mixed plr)
  * Arguments:     object ob
  *
 */
-void 
+void
 show_exec(object ob)
 {
     object env = environment(ob);
     string str;
-    
+
     /* objects inside transparent objects */
     while ((env != this_player()) && (env != environment(this_player())))
     {
@@ -640,7 +640,7 @@ show_exec(object ob)
  * Globals:       string gItem
  *
 */
-int 
+int
 item_access(object ob)
 {
     if (!objectp(ob))
@@ -662,7 +662,7 @@ inside_visible(object cobj)
                 (cobj->query_prop(CONT_I_CLOSED) &&
                 !cobj->query_prop(CONT_I_TRANSP) &&
                 !cobj->query_prop(CONT_I_ATTACH)))
-        return 0;        
+        return 0;
 
     env = environment(cobj);
     if (env == this_player() || env == environment(this_player()) ||
@@ -694,10 +694,10 @@ visible(object ob, object cobj)
                 !cobj->query_prop(CONT_I_CLOSED)))
     {
         return ((env->query_prop(OBJ_I_LIGHT) >
-                -(this_player()->query_prop(LIVE_I_SEE_DARK))) && 
+                -(this_player()->query_prop(LIVE_I_SEE_DARK))) &&
                 CAN_SEE(this_player(), ob));
     }
-        
+
     env = environment(ob);
     if (env == this_player() || env == environment(this_player()))
         return CAN_SEE(this_player(), ob);
@@ -740,8 +740,8 @@ accessible(object ob)
     return 0;
 }
 
-/* 
- * Is 
+/*
+ * Is
  */
 int
 visibly_hold(object ob)
@@ -749,7 +749,7 @@ visibly_hold(object ob)
     object env;
     if (!objectp(ob))
         return 0;
- 
+
     env = environment(ob);
     while (objectp(env))
     {
@@ -767,12 +767,12 @@ visibly_hold(object ob)
     return 0;
 }
 
-/* 
+/*
  * Look ended here.
  */
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -878,7 +878,7 @@ appraise(string str)
 
     if (PREV_LIGHT <= 0)
         return light_fail("appraise");
- 
+
     notify_fail("Appraise what?\n", 0);
     if (!stringp(str))
         return 0;
@@ -937,7 +937,7 @@ count(string str)
                 ".\n");
             return 1;
         }
- 
+
         write("You count " + LANG_WNUM(sizeof(ob)) + " " +
             str + ".\n");
         return 1;
@@ -955,9 +955,9 @@ count(string str)
  * Description:   get items from environment or containers
  * Arguments:     str: tail of command string
  * Returns:       1: did get something
-                  0: 
+                  0:
  * Globals:       gFrom: sources of items
- *                gContainers: containers 
+ *                gContainers: containers
  * Notify_fail:   Get what?
  *                Get from what?
  *
@@ -970,11 +970,11 @@ get(string str)
     object *itema, *cont, linked, *obarr;
     string vb, prep, items;
     int i, from_self;
-    
+
     if (!PREV_LIGHT) return light_fail();
 
     vb = query_verb();
-    
+
     notify_fail(capitalize(vb) + " what?\n", 0);
 
     if (!stringp(str))
@@ -982,8 +982,8 @@ get(string str)
 
     gFrom = ({});
 
-    /* This is done to avoid all those stupid messages 
-       when you try 'get all' 
+    /* This is done to avoid all those stupid messages
+       when you try 'get all'
     */
     silent = (str == "all");
 
@@ -997,7 +997,7 @@ get(string str)
             if (silent)
                 notify_fail("Nothing taken.\n");
             return 0;
-        } 
+        }
         if (sizeof(itema) > 0)
         {
             itema->remove_prop(OBJ_I_HIDE);
@@ -1038,7 +1038,7 @@ get(string str)
             return 0;
 
         itema = NORMAL_ACCESS(itema, "in_gContainers", this_object());
-        if (sizeof(itema) == 0) 
+        if (sizeof(itema) == 0)
             return 0;
 
         itema = filter(itema, manip_relocate_from);
@@ -1047,7 +1047,7 @@ get(string str)
 
         itema->remove_prop(OBJ_I_HIDE);
 
-        from_self = 
+        from_self =
             (member_array(this_player(), all_environment(gContainers[0])) >= 0);
 
         write("You " + vb + " " + COMPOSITE_DEAD(itema) + " from " +
@@ -1070,7 +1070,7 @@ get(string str)
     return 0;
 }
 
-/* 
+/*
  * give - Give something to someone
  */
 /*
@@ -1141,8 +1141,8 @@ hide(string str)
     object *itema, *cont;
     string prep, vb, *args;
     int hiding, i, val, bval;
-    
-    vb = query_verb(); 
+
+    vb = query_verb();
     notify_fail(capitalize(vb) + " what?\n", 0);
 
     if (stringp(str))
@@ -1155,9 +1155,9 @@ hide(string str)
                 str += args[i];
         }
     }
-    
-    if ((this_player()->query_prop(OBJ_I_LIGHT) > 0) &&  
-        (this_player()->query_prop(OBJ_I_LIGHT) > 
+
+    if ((this_player()->query_prop(OBJ_I_LIGHT) > 0) &&
+        (this_player()->query_prop(OBJ_I_LIGHT) >
         environment(this_player())->query_prop(OBJ_I_LIGHT)))
     {
         notify_fail("You cannot hide here, shining like that!\n");
@@ -1209,14 +1209,14 @@ hide(string str)
                 this_player()->add_prop(OBJ_I_HIDE, val);
         }
         return 1;
-    }   
+    }
 
     silent = 0;
     if (str == "all")
     {
         silent = 1;
     }
-    
+
     if (parse_command(str, environment(this_player()), "%i", itema))
     {
         itema = CMDPARSE_STD->normal_access(itema, "manip_drop_access",
@@ -1254,7 +1254,7 @@ hide(string str)
         notify_fail("Nothing hidden.\n");
         return 0;
     }
-    
+
     if (!parse_command(str, environment(this_player()), "%i %w %i",
         itema, prep, cont))
     {
@@ -1287,7 +1287,7 @@ hide(string str)
         itema->force_heap_merge();
         return 1;
     }
-    
+
     return 0;
 }
 
@@ -1495,7 +1495,7 @@ keep(string str)
             write("Not keep protected --------\n" +
                 break_string(COMPOSITE_DEAD(objs), 70, 5) + "\n");
         }
-        
+
         return 1;
     }
 
@@ -1518,7 +1518,7 @@ keep(string str)
             return 1;
         }
     }
-    
+
     /* Now select the objects to (un)keep. */
     if (keep)
     {
@@ -1600,16 +1600,16 @@ glance_desc(object ob)
  * Returns:       1: found something to look at
  *                0: failed to find object
  * Notify_fail:   several
- * 
- * Globals:       gItem:  
+ *
+ * Globals:       gItem:
  *                gHolder:
  * Ex:            look, look at orcs, look inside chest
  *
    Documentation of look
-   
+
    The look at (in, inside) command has the following features.
 
-   look 
+   look
         Shows long description of the room and short description of
         all visible items in the environment (see do_glance() ).
 
@@ -1617,7 +1617,7 @@ glance_desc(object ob)
         Show the long description of several objects, carried or in the
         environment and the short description of object inside transparent
         objects.
-        
+
    look at 'multiple living'
         Show the long description of several living in the environment.
 
@@ -1626,20 +1626,20 @@ glance_desc(object ob)
         the objects carried by this being.
 
    look in 'containers'
-        Show the long description of the containers and short descriptions 
+        Show the long description of the containers and short descriptions
         their contents.
 
    look at 'single object'
         Shows the long description of the object and if the object is open
         and a container, shows short descriptions of it contents.
-   
+
    look at 'object' carried by 'living'
         Shows the short description of the object and if the object is
         an open or transparent container shows short descriptions of
         it contents.
-   
+
  */
-varargs int 
+varargs int
 look(string str, int brief)
 {
     string          prp,
@@ -1656,7 +1656,7 @@ look(string str, int brief)
     {
         return this_player()->do_glance(brief);
     }
-    
+
     if (PREV_LIGHT <= 0)
     {
         return light_fail("see");
@@ -1668,11 +1668,11 @@ look(string str, int brief)
     {
         return 0;
     }
-        
+
     /* look at object carried by something non living */
     /* We shouldn't be able to look at objects inside players presently
-    if (parse_command(str, environment(this_player()), 
-                      "'at' / 'in' / 'inside' %i 'on' / 'carried' [by] %i", 
+    if (parse_command(str, environment(this_player()),
+                      "'at' / 'in' / 'inside' %i 'on' / 'carried' [by] %i",
                       obarr, obl))
     {
         obl = NORMAL_ACCESS(obl, 0, 0);
@@ -1722,7 +1722,7 @@ look(string str, int brief)
     {
         /* No objects found */
         /* Test for pseudo item in the environment */
-        if (CAN_SEE(this_player(), ENV) && 
+        if (CAN_SEE(this_player(), ENV) &&
             stringp(long_desc = environment(this_player())->long(gItem)))
         {
             write(long_desc);
@@ -1732,12 +1732,12 @@ look(string str, int brief)
         {
             obarr = deep_inventory(environment(this_player()));
             obarr = filter(obarr, visible);
-            obarr = filter(obarr, item_access); 
-            if (sizeof(obarr) > 0) 
+            obarr = filter(obarr, item_access);
+            if (sizeof(obarr) > 0)
             {
                 map(obarr, write @ &->long(gItem));
                 return 1;
-            } 
+            }
             else
             {
                 if ((name == "me") || (name == "myself"))
@@ -1817,7 +1817,7 @@ look(string str, int brief)
 	    {
         	map(obd, show_exec);
 	    }
-    
+
             if (sizeof(obl) == 1)
 	    {
         	/* if a single living being we show carried items */
@@ -1829,7 +1829,7 @@ look(string str, int brief)
 	    }
 	}
 
-        /* if we are looking at many dead objects perhaps such an object 
+        /* if we are looking at many dead objects perhaps such an object
          * exists in the room too? If gItem has another singular form then
          * we suspect player gave a plural word to look for. Should work
          * in most cases. */
@@ -1876,8 +1876,8 @@ glance(string str)
 {
    return look(str, 1);
 }
- 
-int 
+
+int
 peek_access(object ob)
 {
     if (!living(ob) || ob->query_ghost() || ob == this_player())
@@ -1965,7 +1965,7 @@ peek(string str)
  * Returns:       1: did get something
                   0: failedd to get anything
  * Notify_fail:   * "Put what?"
-                  * 
+                  *
  * Ex:               drop item(s), put item(s) in container
  *
  */
@@ -1975,27 +1975,27 @@ put(string str)
     object *itema, *cont;
     string prep, vb;
     int to_self;
-    
-    vb = query_verb(); 
+
+    vb = query_verb();
     notify_fail(capitalize(vb) + " what?\n", 0);
-    
+
     if (!stringp(str))
     {
         return 0;
     }
 
-    /* This is done to avoid all those stupid messages 
-       when you try 'drop all' 
+    /* This is done to avoid all those stupid messages
+       when you try 'drop all'
      */
     silent = 0;
     if (str == "all")
     {
         silent = 1;
     }
-    
-    if (parse_command(str, environment(this_player()), "%i", itema)) 
+
+    if (parse_command(str, environment(this_player()), "%i", itema))
     {
-        
+
         itema = CMDPARSE_STD->normal_access(itema, "manip_drop_access",
                 this_object(), 1);
         if (sizeof(itema) == 0) {
@@ -2023,9 +2023,9 @@ put(string str)
         notify_fail("Nothing dropped.\n");
         return 0;
     }
-    
+
     if (!parse_command(str, environment(this_player()), "%i %w %i",
-                       itema, prep, cont)) 
+                       itema, prep, cont))
     {
         return 0;
     }
@@ -2070,7 +2070,7 @@ reveal(string str)
     object *itema, *cont, linked, *obarr;
     string vb, prep, items;
     int i;
-    
+
     gFrom = ({});
     if (!PREV_LIGHT) return light_fail();
 
@@ -2101,7 +2101,7 @@ reveal(string str)
             notify_fail("Nothing revealed.\n");
             return 0;
         }
- 
+
         itema->remove_prop(OBJ_I_HIDE);
         i = sizeof(itema);
         while(--i >= 0)
@@ -2154,7 +2154,7 @@ reveal(string str)
             return 0;
 
         itema = NORMAL_ACCESS(itema, "in_gContainers", this_object());
-        if (sizeof(itema) == 0) 
+        if (sizeof(itema) == 0)
             return 0;
 
         itema->remove_prop(OBJ_I_HIDE);
@@ -2194,7 +2194,7 @@ search(string str)
         write("But you are in the middle of a fight!\n");
         return 1;
     }
- 
+
     if (!CAN_SEE_IN_ROOM(this_player()))
     {
         notify_fail("It is too dark to see anything in here.\n");
@@ -2254,7 +2254,7 @@ search(string str)
             obj->query_the_name(this_player()) + ".\n");
         tell_object(obj, this_player()->query_The_name(obj) +
             " starts to search YOU!\n");
-        say(QCTNAME(this_player()) + " starts to search " + QTNAME(obj) + 
+        say(QCTNAME(this_player()) + " starts to search " + QTNAME(obj) +
             ".\n", ({ obj, this_player() }));
     }
     else
@@ -2291,7 +2291,7 @@ sneak(string str)
     str2 = SECURITY->modify_command(str, environment(this_player()));
     if (strlen(str2))
         str = str2;
-        
+
     dirs = environment(this_player())->query_exit_cmds();
     if (member_array(str, dirs) < 0)
     {
@@ -2299,8 +2299,8 @@ sneak(string str)
         return 0;
     }
 
-    if (this_player()->query_prop(OBJ_I_LIGHT) &&  
-        (this_player()->query_prop(OBJ_I_LIGHT) > 
+    if (this_player()->query_prop(OBJ_I_LIGHT) &&
+        (this_player()->query_prop(OBJ_I_LIGHT) >
         environment(this_player())->query_prop(OBJ_I_LIGHT)))
     {
         notify_fail("You cannot sneak shining like that!\n");
@@ -2321,7 +2321,7 @@ sneak(string str)
     {
         notify_fail("It's too difficult to sneak from here.\n");
         return 0;
-    }   
+    }
 
     val = bval + random(bval);
     this_player()->add_prop(OBJ_I_HIDE, val);
@@ -2338,10 +2338,10 @@ sneak(string str)
         write("It's too difficult to hide in here, you're visible again.\n");
         this_player()->reveal_me(0);
         return 1;
-    }   
+    }
 
-    if (this_player()->query_prop(OBJ_I_LIGHT) &&  
-        (this_player()->query_prop(OBJ_I_LIGHT) > 
+    if (this_player()->query_prop(OBJ_I_LIGHT) &&
+        (this_player()->query_prop(OBJ_I_LIGHT) >
         environment(this_player())->query_prop(OBJ_I_LIGHT)))
     {
         write("You cannot hide here, shining like that!\n");

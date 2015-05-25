@@ -3,7 +3,7 @@
 
     Here is a list of fatigue values for different kinds of rooms
     Travelling to a standard outdoor room has a fatigue of 1.
-    This is the default value for all rooms. 
+    This is the default value for all rooms.
     See which modifiers fit your room and add
     up the corresponding values to get the total
     for your room.

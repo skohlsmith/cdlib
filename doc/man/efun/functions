@@ -92,14 +92,14 @@ DESCRIPTION
 
 	A convenient way to combine functions is function composition.
 	The function composition operator is called @.  It is simply
-	defined to behave in the following way: 
+	defined to behave in the following way:
 	if  h = f @ g  then  h(x) = f(g(x)).
 
 	A real example (with thanks to Gorboth and Alcides):
 	We would like to print the name of all players that
 	are logged on from Sweden.
 
-	ps = filter(users(), 
+	ps = filter(users(),
 		    &wildmatch("*.se") @ lower_case @ query_ip_name)
 	     ->query_name());
 
@@ -119,7 +119,7 @@ DESCRIPTION
 	those from Sweden.  We now have an array with objects for
 	the swedish players, we now simple ask for their names by
 	using the whole array to the left of ->query_name().
-	
+
 
 	The form &->func(args) denotes a function that first expects
 	an object, and when given this object it will call func in it.
@@ -159,7 +159,7 @@ DESCRIPTION
 
 	The function  operator([])  corresponds to then indexing
 	opartion, i.e.  operator([])(x,y) == x[y]
-	
+
 
 SEE ALSO
 	applyv, papplyv, mkfunction
@@ -177,16 +177,16 @@ Using the function type:
      function f;
 
    at this point "f" may be assigned a value that is a function (efun,
-   lfun, etc.). 
+   lfun, etc.).
 
 
 2. Assignment
 
    A value can be assigned to a function variable in this manner:
 
-     f = &write();  
+     f = &write();
 
-   The above assigns the function write to the variable f.  
+   The above assigns the function write to the variable f.
 
 
 3. Calling functions using function variables
@@ -201,7 +201,7 @@ Using the function type:
 
      f("Hello!\n");
 
-   In this case, the above is identical to 
+   In this case, the above is identical to
 
      write("Hello!\n");
 
@@ -214,10 +214,10 @@ Using the function type:
 
      void func3() { /* some code */ }
 
-     void call_random_func() 
+     void call_random_func()
      {
        function *funcs = ({ &func1(), &func2(), &func3() });
-  
+
        function_to_call = funcs[random(3)];
 
        function_to_call();
@@ -239,15 +239,15 @@ Using the function type:
 
    Assigns the write function to the variable f; it also freezes the
    value "Hello\n" as the first argument.
-   Now, executing 
- 
-     f(); 
- 
-   is the same as executing 
+   Now, executing
+
+     f();
+
+   is the same as executing
 
      write("Hello.\n");
 
-  
+
    It is possible to freeze only a few of the arguments to a function at
    one time.  For instance:
 
@@ -258,7 +258,7 @@ Using the function type:
 
      set_sk(10);
 
-   which would be the equivalent of calling 
+   which would be the equivalent of calling
 
      set_skill(SS_AWARENESS, 10);
 
@@ -275,8 +275,8 @@ Using the function type:
 
      set_sk(SS_DEFENCE);
 
-   which would be the same as 
-    
+   which would be the same as
+
      set_skill(SS_DEFENCE, 10);
 
 5. Function composition
@@ -287,7 +287,7 @@ Using the function type:
      function f = &write() @ &lower_case()
      f("A");
 
-   is equivalent to 
+   is equivalent to
 
      write(lower_case("A"));
 
@@ -317,18 +317,18 @@ Using the function type:
       Here is a more useful example:
 
         function f = &->query_invis();
-        object *users_who_are_invis = filter(users(), f);    
-    
+        object *users_who_are_invis = filter(users(), f);
+
 
    2. A shorthand for
-       
+
         function f = &function_name();
 
-      is 
- 
+      is
+
         function f = function_name;
 
-     
+
       For instance,
 
         function f = &write();
@@ -347,7 +347,7 @@ Using the function type:
         {
           function f = func2();
         }
- 
+
         int func2() { return 1; }
 
       will cause an error.  This can be fixed in two ways:
@@ -360,12 +360,12 @@ Using the function type:
          {
            function f = func2();
          }
- 
+
          void func2() { return 1; }
 
       2. Define the function before referencing it
 
-         int func2() { return 1; }        
+         int func2() { return 1; }
 
          void func1()
          {
@@ -391,7 +391,7 @@ Using the function type:
 
         function f = &operator(>)(0);
         f(-1);
-  
+
       would return 1 (0 is greater than -1).
 
       operator is most useful as part of a composite function, though.
@@ -445,7 +445,7 @@ Using the function type:
    object *envs;
    object *gold_coins = filter(object_clones(find_object("/std/coins")),
        is_gold_coin);
-   
+
    gold_coins = filter(gold_coins, more_than_ten);
    envs = map(gold_coins, environment);
    envs = filter(envs, is_npc);

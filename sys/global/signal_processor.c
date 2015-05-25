@@ -1,5 +1,5 @@
-/* 
-   
+/*
+
 Functions
 ---------
 int start_listen(string channel, string func)
@@ -34,7 +34,7 @@ object *query_listeners(string channel)
 
 string *query_channels(object ob)
      Returns the channels that that object is listenning to.
-     
+
 Data Structures
 ---------------
 channels[channel][ob] = func;
@@ -44,7 +44,7 @@ channels[channel][ob] = func;
                             is sent to that channel (with the message as arg)
 
 NOTE:  An object may not listen to the same channel using 2 different
-functions, but it can listen to different channels. 
+functions, but it can listen to different channels.
 
 listeners[ob] = channels_list
   object ob                 the object which is listenning
@@ -53,7 +53,7 @@ listeners[ob] = channels_list
 secured[channel] = ({object, func})
   see secure_channel above.
 */
-#define USE_CALL_OUT     
+#define USE_CALL_OUT
 #pragma save_binary
 #pragma strict_types
 #pragma no_clone
@@ -88,7 +88,7 @@ _stop_listen(string channel, object ob)
 {
     if(!channel || !stringp(channel))
 	return;
-    
+
     if(channels[channel])
 	m_delkey(channels[channel], ob);
     if (listeners[ob])
@@ -105,11 +105,11 @@ int
 start_listen(string channel, string func)
 {
     object ob = previous_object();
-    
+
     if(!channel || !stringp(channel) ||
        !func || !stringp(func))
 	return 0;
-    
+
     if(listeners[ob] && member_array(channel, listeners[ob]) != -1)
 	return 1; // we are already listening to this channel
 
@@ -137,7 +137,7 @@ _stop_listen_all(object ob)
 {
     int i, n;
     string *chans;
-  
+
     if(listeners[ob])
     {
 	n = sizeof(listeners[ob]);
@@ -163,10 +163,10 @@ send_signal(string channel, mixed message)
 {
     int i, n;
     object *obs;
-  
+
     if(!channel || !stringp(channel) || !message)
 	return 0;
-    
+
     if(!channels[channel])
     {
 	channels += ([channel:([])]);
@@ -180,10 +180,10 @@ send_signal(string channel, mixed message)
 		 !call_other(secured[channel][0], secured[channel][1],
 			     previous_object(), channel, 1))
 	    return 0;
-  
+
     n = m_sizeof(channels[channel]);
     obs = m_indexes(channels[channel]);
-    for(i = 0; i < n; ++i) // send the message to all the listeners 
+    for(i = 0; i < n; ++i) // send the message to all the listeners
 	if (obs[i])
 	{
 #ifdef USE_CALL_OUT
@@ -202,7 +202,7 @@ query_listeners(string channel)
 {
     if(!channel || !stringp(channel))
 	return 0;
-    
+
     if (!channels[channel])
     {
 	channels[channel] = ([]);
@@ -215,7 +215,7 @@ query_listeners(string channel)
 	else if (!call_other(secured[channel][0], secured[channel][1],
 			     previous_object(), channel, 1))
 	    return 0;
-  
+
     return m_indexes(channels[channel]) - ({ 0 });
 }
 
@@ -237,8 +237,8 @@ secure_channel(string channel, object ob, string func)
     {
 	if (!function_exists(func, ob))
 	    func = 0;
-    }	    
-	
+    }
+
     if(!channels[channel])
 	channels += ([channel:([])]);
     if (secured[channel])
@@ -260,7 +260,7 @@ secure_channel(string channel, object ob, string func)
 	    _stop_listen(channel, obs[i]); // kick the unwanted object off
 	    kicked += 1;
 	}
-      
+
     return kicked + 1;
 }
 

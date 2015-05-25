@@ -17,7 +17,7 @@ create_creature() { ::create_mobile(); }
 nomask void
 create_mobile()
 {
-    create_creature(); 
+    create_creature();
 }
 
 void
@@ -46,7 +46,7 @@ default_config_creature(int lvl)
 /*
  * Function name: add_attack
  * Description:   Add an attack to the attack array.
- * Arguments:	  
+ * Arguments:
  *             wchit: Weapon class to hit
  *             wcpen: Weapon class penetration
  *	       dt:    Damage type
@@ -74,13 +74,13 @@ remove_attack(int id)
 {
     if (!QEXC)
 	return 0;
-    return (int)QEXC->cb_remove_attack(id); 
+    return (int)QEXC->cb_remove_attack(id);
 }
 
 /*
  * Function name: add_hitloc
  * Description:   Add a hitlocation to the hitloc array
- * Arguments:	  
+ * Arguments:
  *	      ac:    The ac's for a given hitlocation
  *	      %hit:  The chance that a hit will hit this location
  *	      desc:  String describing this hitlocation, ie "head", "tail"
@@ -107,7 +107,7 @@ remove_hitloc(int id)
 {
     if (!QEXC)
 	return 0;
-    return (int)QEXC->cb_remove_hitloc(id); 
+    return (int)QEXC->cb_remove_hitloc(id);
 }
 
 /*

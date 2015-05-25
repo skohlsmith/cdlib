@@ -8,8 +8,8 @@ SYNOPSIS
 DESCRIPTION
 	emote prints your name followed by the given message.
 
-	[message] = Any string. Words enclosed by '|' characters are 
-	taken to be names of people in the same room. The name is then 
+	[message] = Any string. Words enclosed by '|' characters are
+	taken to be names of people in the same room. The name is then
 	exchanged for the met/nonmet description relative to the observer.
 
 	NB! If the indicated person isn't present or if the name can't be
@@ -30,10 +30,10 @@ DESCRIPTION
 	Please note that the pronoun 'you' is substituted for the
 	objective of the emote if you specify a name within '|'
 	characters. Keep this in mind for grammatical constructions,
-	like ': looks at |denbarra| and |denbarra| looks back.'. 
+	like ': looks at |denbarra| and |denbarra| looks back.'.
 	Denbarra will then get the string '<Your name> looks
-	at you and you looks back.' which isn't exactly correct. 
-	However, fixing that is beyond the ability of the coder. :) 
+	at you and you looks back.' which isn't exactly correct.
+	However, fixing that is beyond the ability of the coder. :)
 	The above construction is also in conflict with the general
 	emote rules-of-conduct so perhaps it will never occur.
 

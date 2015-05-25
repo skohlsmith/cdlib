@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Loads all nonstatic global variables from a specifically formatted
 	file given by 'filename'. The format of the file is:
-	
+
 		variable_name	variable_value
 
 		intvar		number

@@ -1,4 +1,4 @@
-/* 
+/*
  *  /std/act/domove.c
  *
  *  Random walk: Standard action module for mobiles.
@@ -319,7 +319,7 @@ monster_ranwalk()
 /*
  * Function name: oke_to_move
  * Description:   Checks whether the npc is fighting someone, if he is in
- *                in combat, the move-command will be delayed till the 
+ *                in combat, the move-command will be delayed till the
  *                war is over.
  * Arguments:     exit  : the exit that is generated for the monster to take.
  * Returns:       0     : if in combat

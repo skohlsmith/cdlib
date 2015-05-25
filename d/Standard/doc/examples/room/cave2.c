@@ -73,7 +73,7 @@ reset_room()
 
 	/*
 	 * We want people in the room to get a message if they are here when
-	 * the room resets. You can test this by picking up the rock, and 
+	 * the room resets. You can test this by picking up the rock, and
 	 * call reset_room() in the room. Compare this with picking up the
 	 * torch in the earlier room and calling reset_room(). You call
 	 * another function in an object with the Call command. To call

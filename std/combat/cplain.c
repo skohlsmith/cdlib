@@ -39,13 +39,13 @@ cb_configure() { qme()->cr_configure(); }
 /******************************************************************
  *
  * These functions should be accessible from 'me'
- * 
+ *
  */
 
 /*
  * Function name: cb_add_attack
  * Description:   Add an attack to the attack array.
- * Arguments:	  
+ * Arguments:
  *             wchit: Weapon class to hit
  *             wcpen: Weapon class penetration
  *	       dt:    Damage type
@@ -74,7 +74,7 @@ cb_remove_attack(int id) { return ::remove_attack(id); }
 /*
  * Function name: cb_add_hitloc
  * Description:   Add a hitlocation to the hitloc array
- * Arguments:	  
+ * Arguments:
  *	      ac:    The ac's for a given hitlocation
  *	      %hit:  The chance that a hit will hit this location
  *	      desc:  String describing this hitlocation, ie "head", "tail"
@@ -109,7 +109,7 @@ cb_remove_hitloc(int id) { return ::remove_hitloc(id); }
  * Function name: cb_try_hit
  * Description:   Decide if a certain attack fails because of something
  *                related to the attack itself, ie specific weapon that only
- *		  works some of the time. 
+ *		  works some of the time.
  * Arguments:     aid:   The attack id
  * Returns:       True if hit, otherwise 0.
  */
@@ -133,7 +133,7 @@ cb_try_hit(int aid)
  *	 	  dam:	 The damage in hit points
  */
 public varargs void
-cb_got_hit(int hid, int ph, object att, int aid, int dt, int dam) 
+cb_got_hit(int hid, int ph, object att, int aid, int dt, int dam)
 {
     qme()->cr_got_hit(hid, ph, att, aid, dt, dam);
 }

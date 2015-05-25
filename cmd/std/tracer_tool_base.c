@@ -1,6 +1,6 @@
 /*
  * /cmd/std/tracer_tool_base.c
- * 
+ *
  * The basic tracer tool functions used in the commons soul for
  * parsing arguments to certain functions.
  */
@@ -38,7 +38,7 @@ find_item(object prev, string str)
 	return environment(this_interactive());
     }
 
-    if (str == "me") 
+    if (str == "me")
     {
 	return this_interactive();
     }
@@ -136,7 +136,7 @@ assign(string var, mixed val)
     mixed *vars, *vnew;
     mixed *stores, *snew;
 
-    if (!pointerp((vars = 
+    if (!pointerp((vars =
 		   (string *)this_interactive()->query_prop(TRACER_VARS))))
 	vars = ({});
     if (!pointerp((stores = (mixed *)this_interactive()->query_prop(TRACER_STORES))))
@@ -152,7 +152,7 @@ assign(string var, mixed val)
 	    break;
 	}
     }
-    
+
     if (set == 0)
     {
 	vars += ({ var });

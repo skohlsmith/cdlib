@@ -3,7 +3,7 @@ NAME
 
 SYNOPSIS
 	int random(int limit, void|int seed)
-	
+
 DESCRIPTION
 	Gives a random value between 0 and 'limit - 1'. This limit must be a
 	positive integer.

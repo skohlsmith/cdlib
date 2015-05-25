@@ -1,6 +1,6 @@
 NAME
 	call_otherv - call a function in another object with array parameter
-	
+
 SYNOPSIS
 	mixed call_other(object ob|string ob|object *oblist|mapping *oblist|
 	int 0, string func, mixed *arglist)

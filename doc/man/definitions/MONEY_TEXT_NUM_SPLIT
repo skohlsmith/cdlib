@@ -7,7 +7,7 @@ Description: Describes a number of copper coins in the smallest possible
 
 Arguments  : int - the value in copper coins
 
-Example    : MONEY_TEXT_NUM_SPLIT( 2056 )   ->  
+Example    : MONEY_TEXT_NUM_SPLIT( 2056 )   ->
                  "1 platinum, 2 gold, 3 silver and 4 copper coins"
 
 See also   : MONEY_TEXT_SPLIT

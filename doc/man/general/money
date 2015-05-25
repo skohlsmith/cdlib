@@ -44,8 +44,8 @@ The lfun move() is adapted to handle heaps. This means that move() sees to
 it that heaps are joined appropriately.
 
 When a part of a heap is to be moved a special lfun is first called in the
-heap object: 
-	
+heap object:
+
 	heap_ob->split_heap(int amount)
 	heap_ob->move(new_dest);
 

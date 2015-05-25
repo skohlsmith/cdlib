@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/key.c
  *
  * This is the standard key object.

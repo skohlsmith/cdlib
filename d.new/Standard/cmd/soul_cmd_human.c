@@ -9,7 +9,7 @@
 
   soul_cmd_ghost.c
 
-  This is the soul command object for ghosts. 
+  This is the soul command object for ghosts.
   Do not inherit this object, use the objects under /std
 
 */
@@ -29,6 +29,6 @@ query_cmdlist()
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/

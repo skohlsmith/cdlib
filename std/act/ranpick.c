@@ -1,4 +1,4 @@
-/* 
+/*
    /std/act/ranpick.c
 
    Random picking of objects: Standard action module for mobiles
@@ -65,7 +65,7 @@ monster_do_pick()
     ob = environment(this_object());
     if (!ob)
 	return;
-    
+
     inv = filter(all_inventory(ob), can_pick);
 
     if (sizeof(inv))

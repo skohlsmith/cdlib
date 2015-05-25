@@ -83,7 +83,7 @@ query_recover()
 
 /*
  * This function is called when the object is recovered. The argument arg is
- * the part after the ':' as given by query_recover(). It's used to set back 
+ * the part after the ':' as given by query_recover(). It's used to set back
  * some variables to their right values.
  */
 void

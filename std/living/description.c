@@ -412,7 +412,7 @@ query_exp_title()
 {
     if (query_wiz_level())
 	return LD_WIZARD;
- 
+
     return GET_EXP_LEVEL_DESC(this_object()->query_average_stat());
 }
 
@@ -428,9 +428,9 @@ public string
 query_presentation()
 {
     string a, b, c;
-    
-    a = query_title(); 
-    b = this_object()->query_exp_title(); 
+
+    a = query_title();
+    b = this_object()->query_exp_title();
 #ifndef NO_ALIGN_TITLE
     c = this_object()->query_al_title();
 #endif
@@ -438,7 +438,7 @@ query_presentation()
     return query_name() +
 	(strlen(a) ? (" " + a + ",") : "") +
 	(strlen(b) ? (" " + b + ",") : "") + " " +
-	this_object()->query_gender_string() + " " + 
+	this_object()->query_gender_string() + " " +
         this_object()->query_race_name()
 #ifndef NO_ALIGN_TITLE
 	+ (strlen(c) ? (" (" + c + ")") : "")
@@ -717,7 +717,7 @@ describe_combat(object *livings)
 	/* Other people hitting on me. */
 	if (index = sizeof(fights[this_object()]))
 	    text += ", while " + FO_COMPOSITE_ALL_LIVE(fights[this_object()],
-						       this_object()) + 
+						       this_object()) +
 		((index == 1) ? " is" : " are") +
 		subst + " fighting you";
 	text += ".\n";
@@ -785,7 +785,7 @@ describe_combat(object *livings)
 
     write(text);
 }
- 
+
 /*
  * Function name: do_glance
  * Description  : This is the routine describing rooms to livings. It will
@@ -833,7 +833,7 @@ do_glance(int brief)
 
     /* Describe the room and its contents. */
 #ifdef DAY_AND_NIGHT
-    if (!env->query_prop(ROOM_I_INSIDE) && 
+    if (!env->query_prop(ROOM_I_INSIDE) &&
 	((HOUR > 21) ||
 	 (HOUR < 5)) &&
 	((env->query_prop(OBJ_I_LIGHT) +
@@ -861,7 +861,7 @@ do_glance(int brief)
 
 /*
  * Function name: set_appearance_offset
- * Description:   The appearance offset affect how this living appears, 
+ * Description:   The appearance offset affect how this living appears,
  *                independent of who the watcher is. (The normal appearance
  *		  is relative to the watcher's opinion.)
  *                A negative offset makes the living more beautiful.
@@ -876,7 +876,7 @@ set_appearance_offset(int off)
 
 /*
  * Function name: query_appearance_offset
- * Description:   The appearance offset affect how this living appears, 
+ * Description:   The appearance offset affect how this living appears,
  *                independent of who the watcher is. (The normal appearance
  *		  is relative to the watcher's opinion.)
  *                A negative offset makes the living more beautiful.
@@ -970,7 +970,7 @@ query_align_text()
 
     return names[a];
 }
- 
+
 /*
  * Function name: show_hook
  * Description  : This hook is called whenever an item is 'snown' to this

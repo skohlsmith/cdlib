@@ -130,7 +130,7 @@ query_internal_value(object ob)
     object *inv = deep_inventory(ob);
     int sum = 0;
     int index = 0;
-   
+
     if (!pointerp(inv) || !(index = sizeof(inv)))
     {
         return 0;
@@ -143,7 +143,7 @@ query_internal_value(object ob)
 
         sum += query_the_value(inv[index]);
     }
-    
+
     return sum;
 }
 
@@ -310,7 +310,7 @@ check_watchers_see_steal(object place, object victim, object thief,
             }
         }
     }
-    
+
     if (tmp = sizeof(watchers))
     {
         /* Uh oh.. we got spotted, print the bad news.. */
@@ -318,13 +318,13 @@ check_watchers_see_steal(object place, object victim, object thief,
             ((tmp > 1) ? " seem " : " seems ") +
             "to have noticed the theft!\n");
     }
-   
+
     if (sizeof(wiz))
     {
         /* We have a wizard audience, let them know what transpired. */
         wiz->catch_tell("You see " + thief->query_name() + " " +
             query_verb() + "ing " + LANG_ASHORT(item) + " from " +
-            (victim ? victim->query_name() : 
+            (victim ? victim->query_name() :
             place->short()) + ".\n");
     }
 }
@@ -594,7 +594,7 @@ perform_backstab(string str, object whom)
             "your " + tmp[1] + " from behind, " + one + ".\n");
 
         weapon->did_hit(1, tmp[1], tmp[0], ob, W_IMPALE, tmp[2], tmp[3]);
-        
+
         this_player()->reveal_me(1);
     }
 
@@ -735,7 +735,7 @@ steal(string str)
     }
     else
     {
-        tmp = FIND_STR_IN_ARR(str2, 
+        tmp = FIND_STR_IN_ARR(str2,
             all_inventory(environment(this_player())) - ({ this_player() }));
 
         if (!sizeof(tmp))
@@ -850,7 +850,7 @@ steal(string str)
         }
         else
         {
-            write("You don't see anything to " + query_verb() + 
+            write("You don't see anything to " + query_verb() +
                 (victim ? " from " + victim->query_the_name(this_player()) :
                 place == environment(this_player()) ? "" :
                 " from " + place->short()) + ".\n");
@@ -858,7 +858,7 @@ steal(string str)
             /* Give the victim a chance to notice the attempt. */
             if (victim)
             {
-                tmp = victim->resolve_task(TASK_DIFFICULT, 
+                tmp = victim->resolve_task(TASK_DIFFICULT,
                     ({ SS_AWARENESS, TS_DEX }), this_player(),
                     ({ SS_PICK_POCKET, TS_DEX }));
 
@@ -884,7 +884,7 @@ steal(string str)
         }
         else
         {
-            write("You don't see any " + str1 + " to " + query_verb() + 
+            write("You don't see any " + str1 + " to " + query_verb() +
                 (victim ? " from " + victim->query_the_name(this_player())
                 : place == environment(this_player()) ? "" :
                 " from " + place->short()) + ".\n");
@@ -892,7 +892,7 @@ steal(string str)
             /* Give the victim a chance to notice the attempt. */
             if (victim)
             {
-                tmp = victim->resolve_task(TASK_DIFFICULT, 
+                tmp = victim->resolve_task(TASK_DIFFICULT,
                     ({ SS_AWARENESS, TS_DEX }), this_player(),
                     ({ SS_PICK_POCKET, TS_DEX }));
 
@@ -922,7 +922,7 @@ steal(string str)
             "held items, your attempt has been noticed.\n");
 
         tell_object(victim, this_player()->query_The_name(victim) +
-            " attempted to " + query_verb() + " your " + 
+            " attempted to " + query_verb() + " your " +
             item->short() + "!\n");
 
         return 1;
@@ -945,7 +945,7 @@ steal(string str)
     {
         chance -= tmp;
     }
-    
+
     /* Reset the last attempt value. */
     tmp = (time() + ((tmp > 0) ? ((tmp > 1200) ? 600 : (tmp / 2)) : 0));
     this_player()->add_prop(LIVE_I_LAST_STEAL, tmp);
@@ -984,20 +984,20 @@ steal(string str)
 
     /* Modify our chances based on the object itself. */
     if (IS_HEAP_OBJECT(item))
-    {   
+    {
         chance -= (item->heap_light() * 300);
         chance -= (item->heap_weight() / 60);
         chance -= (item->heap_volume() / 60);
     }
     else
-    {   
+    {
         chance -= (item->query_prop(OBJ_I_LIGHT) * 300);
         chance -= (item->query_weight() / 60);
         chance -= (item->query_volume() / 60);
     }
 
     /* Smaller players value their items more and are thus more wary */
-    tmp = (victim ? (victim->query_npc() ? 100 : 
+    tmp = (victim ? (victim->query_npc() ? 100 :
         victim->query_average_stat()) : 100);
     tmp = (query_the_value(item) / tmp);
     chance -= MAX(tmp, 0);
@@ -1048,12 +1048,12 @@ steal(string str)
         notice -= MAX(tmp, 0);
 
         /* We can't see.. that drops our chances noticebly */
-        if (!CAN_SEE_IN_ROOM(victim)) 
+        if (!CAN_SEE_IN_ROOM(victim))
         {
             notice /= 2;
         }
     }
- 
+
 #ifdef LOG_STEALS
     log[4] = notice;
 #endif LOG_STEALS
@@ -1089,24 +1089,24 @@ steal(string str)
     {
         /* We botched it, but did we get caught? */
         if (this_player()->resolve_task(TASK_DIFFICULT,
-                 ({ TS_DEX, SS_PICK_POCKET }), victim, 
+                 ({ TS_DEX, SS_PICK_POCKET }), victim,
                 ({ TS_DEX, SS_AWARENESS })) > 0)
         {
             success = 0;
             caught  = 0;
         }
         else
-        { 
+        {
             success = 0;
             caught  = 1;
         }
     }
-    else if ((result = ((random(result) + result) - 
+    else if ((result = ((random(result) + result) -
                 (random(1000) + random(1500)))) < 1)
     {
         /* We did it, but there is a chance we got spotted */
         if (this_player()->resolve_task(TASK_ROUTINE,
-                 ({ TS_DEX, SS_PICK_POCKET }), victim, 
+                 ({ TS_DEX, SS_PICK_POCKET }), victim,
                 ({ TS_DEX, SS_AWARENESS })) > 0)
         {
             success = 1;
@@ -1118,7 +1118,7 @@ steal(string str)
             caught  = 1;
         }
     }
-    else 
+    else
     {
         /* We got off scott free */
         success = 1;
@@ -1137,7 +1137,7 @@ steal(string str)
 
         if (caught && victim)
         {
-            tell_object(victim, "You catch " + 
+            tell_object(victim, "You catch " +
                 this_player()->query_the_name(victim) + " riffling " +
                 "through your belongings!\n");
         }
@@ -1159,9 +1159,9 @@ steal(string str)
 
         if (caught && victim)
         {
-            tell_object(victim, "You catch " + 
+            tell_object(victim, "You catch " +
                 this_player()->query_the_name(victim) + " attempting " +
-                "to " + query_verb() + " your " + item->short() + 
+                "to " + query_verb() + " your " + item->short() +
                 (place != victim ? " from your "+ place->short() : "" ) +
                 "!\n");
         }
@@ -1217,7 +1217,7 @@ steal(string str)
                 {
                     tmp = ({ this_player() });
                 }
-                
+
                 victim->add_prop(LIVE_AO_THIEF, tmp);
 
                 /* Sanity check */
@@ -1229,16 +1229,16 @@ steal(string str)
                     this_player()->add_exp_general(xp);
 #ifdef STEAL_EXP_LOG
                     log_file(STEAL_EXP_LOG, sprintf(
-                        "%12s %11s: %5d %s %s (%s)\n", 
-                        ctime(time())[4..15], 
-                        this_player()->query_name(), xp, 
-                        file_name(item), victim->short(this_object()), 
+                        "%12s %11s: %5d %s %s (%s)\n",
+                        ctime(time())[4..15],
+                        this_player()->query_name(), xp,
+                        file_name(item), victim->short(this_object()),
                         file_name(victim)));
 #endif STEAL_EXP_LOG
                 }
             }
 
-            tmp = (victim ? " from " + 
+            tmp = (victim ? " from " +
                 victim->query_the_name(this_player()) :
                 (place == environment(this_player()) ? "" :
                 " from " + place->short()));
@@ -1250,9 +1250,9 @@ steal(string str)
         {
             success = 0;
             tmp = "You cannot " + query_verb() + " " + LANG_ASHORT(item) +
-                " from " + 
-                (objectp(victim) ? 
-                 victim->query_the_name(this_player()) : 
+                " from " +
+                (objectp(victim) ?
+                 victim->query_the_name(this_player()) :
                 "the " + place->short()) + ", ";
 
             switch(moveresult)
@@ -1261,7 +1261,7 @@ steal(string str)
                 tmp += "since the " + place->short() + " is closed!\n";
                 break;
             case 1: case 4: case 5: case 8: case 10:
-                tmp += "since you are unable to carry the item!\n"; 
+                tmp += "since you are unable to carry the item!\n";
                 break;
             case 2: case 3: case 6:
                 tmp += "since the item is not allowed to leave its place!\n";
@@ -1285,7 +1285,7 @@ steal(string str)
     }
     else /* We failed. */
     {
-        tmp = (victim ? " from " + 
+        tmp = (victim ? " from " +
             victim->query_the_name(this_player()) :
             (place == environment(this_player()) ? "" :
             " from " + place->short()));
@@ -1305,10 +1305,10 @@ steal(string str)
         }
         else
         {
-            tell_object(victim, "You catch " + 
+            tell_object(victim, "You catch " +
                 this_player()->query_the_name(victim) + " trying " +
-                "to " + query_verb() + " " + LANG_ASHORT(item) + 
-                " from " + (place != victim ? "your " + place->short() : 
+                "to " + query_verb() + " " + LANG_ASHORT(item) +
+                " from " + (place != victim ? "your " + place->short() :
                 "you") + "!\n");
         }
 
@@ -1322,12 +1322,12 @@ steal(string str)
 
         /* Does the victim attack thieves instinctively? */
         if (victim->query_prop(LIVE_I_ATTACK_THIEF) &&
-            CAN_SEE_IN_ROOM(victim) && 
+            CAN_SEE_IN_ROOM(victim) &&
             CAN_SEE(victim, this_player()))
         {
             victim->command("$say to " + OB_NAME(this_player()) +
                 " Stop it you thief!");
-            
+
             /* Don't switch targets in combat! */
             if (!objectp(victim->query_attack()))
             {
@@ -1339,10 +1339,10 @@ steal(string str)
         tmp = victim->query_prop(LIVE_I_VICTIM_ADDED_AWARENESS);
         if (tmp == 0)
         {
-            victim->set_skill_extra(SS_AWARENESS, 
-                (victim->query_skill_extra(SS_AWARENESS) + 
+            victim->set_skill_extra(SS_AWARENESS,
+                (victim->query_skill_extra(SS_AWARENESS) +
                 F_AWARENESS_BONUS));
-        
+
             /* 5 minutes to be precise */
             set_alarm(300.0, 0.0, &remove_extra_skill(victim));
         }
@@ -1354,7 +1354,7 @@ steal(string str)
     /* We are only going to bother with this if we got the item */
     if (success && moveresult == 0)
     {
-        check_watchers_see_steal(place, victim, this_player(), 
+        check_watchers_see_steal(place, victim, this_player(),
             chance, item);
     }
 
@@ -1367,21 +1367,21 @@ steal(string str)
         "R_Chance: %8d\nB_Notice: %5d  E_Notice: %8d  "+
         "R_Notice: %8d\nItm_Val:  %5d  Result:   %8d  "+
         "Move_Res: %8d\nSuccess:  %5d  Caught:   %8d  "+
-        "Gen_XP:   %8d\n%'-'75s\n\n", 
+        "Gen_XP:   %8d\n%'-'75s\n\n",
         this_player()->query_name(), ctime(time()),
         (victim ?  interactive(victim) ? victim->query_name() :
         file_name(victim) : file_name(place)), file_name(item),
-        this_player()->query_skill(SS_PICK_POCKET), 
+        this_player()->query_skill(SS_PICK_POCKET),
         this_player()->query_skill(SS_SNEAK),
-        this_player()->query_skill(SS_AWARENESS), 
-        this_player()->query_stat(SS_DEX), 
+        this_player()->query_skill(SS_AWARENESS),
+        this_player()->query_stat(SS_DEX),
         victim->query_skill(SS_AWARENESS),
-        victim->query_stat(SS_INT), 
+        victim->query_stat(SS_INT),
         victim->query_stat(SS_WIS),
         victim->query_stat(SS_DEX),
-        log[0], log[1], log[5], log[3], log[4], 
-        log[6], log[2], log[7], log[8], 
-        success, caught, log[9], ""); 
+        log[0], log[1], log[5], log[3], log[4],
+        log[6], log[2], log[7], log[8],
+        success, caught, log[9], "");
 
     setuid();
     seteuid(getuid(this_object()));

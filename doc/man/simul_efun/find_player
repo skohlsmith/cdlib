@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	This function finds and returns the player object with the given
-	`name'. 
+	`name'.
 
 	The argument `name' must be given in lowercase for this function
 	to work.

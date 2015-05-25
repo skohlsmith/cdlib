@@ -8,11 +8,11 @@ but is linked to him in order to give him an extended set of commands.
 The commands aren't added using add_action but instead the command
 parsing is done inside the souls themselves. The intention of using a
 soul is to have an easily changeable command-defining object for more
-than one person to use. 
+than one person to use.
 
 There are two types of command souls; ordinary "souls" and tool souls.
-The ordinary soul will define commands that needs no special priviliges 
-while the tool souls gain the rights of the user before executing a 
+The ordinary soul will define commands that needs no special priviliges
+while the tool souls gain the rights of the user before executing a
 command. There is no difference in the souls as such however, the user
 need only to know how to add the soul to his set of souls, if to add it
 as a tool soul or as an ordinary command soul.
@@ -20,9 +20,9 @@ as a tool soul or as an ordinary command soul.
 How to write a soul
 ===================
 
-The soul may not contain any global variables because of the way it 
+The soul may not contain any global variables because of the way it
 functions. The same soul is used by all players. If you HAVE to have
-a global variable you can set a property in the player for that use, 
+a global variable you can set a property in the player for that use,
 but please try to avoid doing that.
 
 The soul must inherit "/cmd/std/command_driver" in order to work. This
@@ -44,9 +44,9 @@ replace_soul()
 	return "/new/upgraded/soul"
 }
 
-It can also return an array of new souls to replace the old one with. 
+It can also return an array of new souls to replace the old one with.
 That array can even hold the old soul as one of its members. Thereby
-not deleteing it from use, only adding more souls if the first is 
+not deleteing it from use, only adding more souls if the first is
 used.
 
 
@@ -54,7 +54,7 @@ used.
 * THE FOLLOWING IS OSOLETE AND SHOULD BE CHANGED PLEASE LOOK AT THE *
 * CODE IN THE MEANTIME                                              *
 *********************************************************************
-	
+
 The soul must contain the following functions:
 
 string get_soul_id()
@@ -114,13 +114,13 @@ shake_hands(string arg)
 {
     string *argv;
     object shakee;
-	
+
     if (!strlen(arg))
     {
 	notify_fail("Shake hands with whom?\n");
 	return 0;
     }
-    
+
     argv = explode(arg, " ");
 
     if (argv[0] != "hands")
@@ -142,13 +142,13 @@ shake_hands(string arg)
     }
 
     say(QCTNAME(this_interactive()) + " shakes hands with " + QTNAME(shakee) + ".\n", ({ this_interactive(), shakee }));
-    
+
     shakee->catch_msg(QCTNAME(this_interactive()) + " shakes your hand.\n");
     write("You shake hands with " + QTNAME(shakee) + ".\n");
     return 1;
 }
 
-int 
+int
 hello()
 {
     say(QCTNAME(this_interactive()) + " says hi.\n", this_interactive());

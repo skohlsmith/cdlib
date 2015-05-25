@@ -42,21 +42,21 @@ void
 start_death()
 {
     object ned, my_host;
-    
+
     my_host = environment(this_object());
-    
+
     if (!my_host || !living(my_host) || !my_host->query_ghost())
     {
 	remove_object();
 	return;
     }
 
-    
+
     write("A ambulance helicopter arrives and some men dressid in white\n" +
 "come out of it. They collect what is left of your body and put it on a\n" +
 "stretcher and in a couple of plastic bags. Then they put you in the\n" +
 "helicopter. You faint.\n");
-    
+
     write("You find yourself in another place.\n\n");
     my_host->move(DEATH_ROOM, 1);
 

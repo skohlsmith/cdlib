@@ -155,7 +155,7 @@ create()
 
     /*
      * Update the broken/unused maps
-     * This shouldn't be necessary, strictly speaking, but.. 
+     * This shouldn't be necessary, strictly speaking, but..
      */
     avail = m_indexes(BrokenMap);
     avail = filter(avail, sizeof @ &operator([])(BbpMap, ));
@@ -215,7 +215,7 @@ add_admin(string who)
 	MBS->err_args(who);
 	return MBM_IS_ADMIN;
     }
-    
+
     AdminList += ({ who });
 
     write("Added " + who + ".\n");
@@ -238,7 +238,7 @@ delete_admin(string who)
 	return MBM_BAD_CALL;
 
     who = UC(who);
-    
+
     if (!query_admin(who))
     {
 	MBS->err_args(who);
@@ -249,9 +249,9 @@ delete_admin(string who)
 	MBS->err_args(who);
 	return MBM_BASE_ADMIN;
     }
-    
+
     AdminList -= ({ who });
-    
+
     write("Removed " + who + ".\n");
     logit("Admin delete [" + UC(TI->query_real_name()) + "] " + who);
     dosave();
@@ -269,7 +269,7 @@ list_admin(int admin)
 {
     string *list;
     int i, sz;
-    
+
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
 
@@ -291,14 +291,14 @@ list_admin(int admin)
     }
 
     write("\n");
-    
+
     return MBM_NO_ERR;
 }
 
 /*
  * Function name: add_board
  * Description:	  Add a board to the list of boards
- * Arguments:	  data - data about the board: 
+ * Arguments:	  data - data about the board:
  *			 ({ 'name', 'category', 'dirpath', 'description' })
  * Returns:	  Error code, if any
  */
@@ -314,7 +314,7 @@ add_board(string *data)
     data[0] = implode(explode(data[0], "."), "");
     data[1] = UC(data[1]);
 //    data[3] = UC(data[3]);
-    
+
     /* String lengths */
     if (strlen(data[3]) > DESC_LEN)
     {
@@ -397,7 +397,7 @@ public nomask int
 remove_board(string board, string cath, int all)
 {
     string	*bdata, name;
-    
+
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
 
@@ -447,7 +447,7 @@ remove_board(string board, string cath, int all)
     if (UnusedMap[bdata[BBP_SPATH]])
 	m_delkey(UnusedMap, bdata[BBP_SPATH]);
 
-    write("Removed the board '" + board + "' in the category '" + cath + "'.\n"); 
+    write("Removed the board '" + board + "' in the category '" + cath + "'.\n");
     logit("Board delete [" + UC(TI->query_real_name()) + "] " + board + ":" + cath);
     if (all)
 	logit("Central entry delete [" + UC(TI->query_real_name()) + "] " + bdata[BBP_SPATH]);
@@ -507,7 +507,7 @@ remove_central_entry(string entry)
 
 /*
  * Function name: rename_board
- * Description:	  Rename a board 
+ * Description:	  Rename a board
  * Arguments:	  old - the old name
  *		  cath - the category
  *		  new - the new name
@@ -518,7 +518,7 @@ public nomask int
 rename_board(string old, string cath, string new, string ndesc)
 {
     string	*bdata, name;
-    
+
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
 
@@ -878,13 +878,13 @@ rename_category(string old, string new, string ndesc)
     string	desc;
     mixed	bds;
     int		i, sz;
-    
+
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
 
     old = UC(old);
     new = UC(new);
-    
+
     if (!strlen(CategoryMap[old]))
     {
 	MBS->err_args(old);
@@ -954,7 +954,7 @@ list_categories(int admin)
     }
     else
 	write("No categories available.\n");
-    
+
     return MBM_NO_ERR;
 }
 
@@ -969,7 +969,7 @@ tele_to_board(string spath)
 {
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
-    
+
     if (!sizeof(BbpMap[spath]))
     {
 	MBS->err_args(spath);
@@ -991,10 +991,10 @@ public nomask int
 generate_report(int what)
 {
     mixed blist;
-    
+
     if (CALL_CHECK)
 	return MBM_BAD_CALL;
-    
+
     blist = m_values(BbpMap);
     blist = filter(blist, &operator(!=)(0) @ strlen @
 		   &operator([])(, BBP_BOARD));
@@ -1024,7 +1024,7 @@ generate_report(int what)
     case 0:
 	blist = sort_array(blist, "sort_usage_read");
 	break;
-	
+
     case 1:
 	blist = sort_array(blist, "sort_usage_posted");
 	break;
@@ -1043,7 +1043,7 @@ generate_report(int what)
     case 4:
 	blist = sort_array(blist, "sort_tusage_read");
         break;
-	
+
     default:
         return MBM_NO_ERR;
 	break;
@@ -1081,12 +1081,12 @@ public void
 save_mbs(mapping mapp)
 {
     string name;
-    
+
     if (CALL_CHECK)
 	return;
 
     name = TI->query_real_name();
-    
+
     save_cache(mapp, SAVE_DIR + name[0..0] + "/" + name);
 }
 
@@ -1100,7 +1100,7 @@ public mapping
 restore_mbs()
 {
     string name;
-    
+
     if (CALL_CHECK)
 	return ([]);
 
@@ -1139,7 +1139,7 @@ query_board_exist(string board, string item)
 {
     if (CALL_CHECK)
 	return MBS_BAD_CALL;
-    
+
     if (!strlen(CategoryMap[item]))
 	return get_board_dom(board, item);
     else
@@ -1184,7 +1184,7 @@ query_unread_news(string bpath, string last)
 
     if (!last || !entry[BBP_LNOTE])
         return 0;
-    
+
     il = atoi(last[1..]);
     ic = atoi(entry[BBP_LNOTE][1..]);
 
@@ -1251,7 +1251,7 @@ query_categories()
 {
     if (CALL_CHECK)
 	return ({});
-    
+
     return m_indexes(CategoryMap);
 }
 
@@ -1303,7 +1303,7 @@ public nomask mixed
 query_board(string board, string cath)
 {
     string *blist;
-    
+
     if (CALL_CHECK)
 	return MBS_BAD_CALL;
 
@@ -1357,7 +1357,7 @@ print_headers(int select, string spath, int lnote, string order, string oitem)
 	write("No news is good news.\n");
 	return MBS_NO_ERR;
     }
-    
+
     bd = find_board(spath);
 
     hds = bd->query_headers();
@@ -1387,7 +1387,7 @@ print_headers(int select, string spath, int lnote, string order, string oitem)
     {
 	if (bd->check_reader())
 	    return MBS_NO_RACC;
-	
+
 	write("No news is good news.\n");
     }
 
@@ -1399,7 +1399,7 @@ print_headers(int select, string spath, int lnote, string order, string oitem)
  * Description:	  Read an item on a board
  * Arguments:	  board - the board to read
  *		  item - the item to read
- *		  mread - mread or not	
+ *		  mread - mread or not
  * Returns:	  ({ Error code, if any, "timestamp" })
  */
 nomask public mixed
@@ -1452,13 +1452,13 @@ find_next_unread(string board, int tme)
 	return ({ -1, MBS_NO_RACC });
 
     hds = bd->query_headers();
-    
+
     for (i = 0, sz = sizeof(hds) ; i < sz ; i++)
     {
 	if (tme < atoi(hds[i][1][1..]))
 	    return ({ i + 1, hds[i][1] });
     }
-    
+
     return ({ 0, "" });
 }
 
@@ -1476,7 +1476,7 @@ post_item(string board, string subj)
 
     if (CALL_CHECK)
 	return MBS_BAD_CALL;
-    
+
     bd = find_board(board);
     if (!objectp(bd))
 	return MBS_BAD_BOARD;
@@ -1563,11 +1563,11 @@ do_help(string cmd)
     	case "":
             TI->more(read_file(HELP_FILE, HelpMap["mbh"], HelpMap["mbh_len"]));
 	    break;
-    
+
     	case "list":
 	    write("Available MBS commands: mbs, mbm and mbh.\n");
 	    break;
-    
+
     	default:
 	    if (!(line = HelpMap[cmd]))
 		write("That command does not exist in the mbs helpfile.\n");
@@ -1587,7 +1587,7 @@ do_help(string cmd)
 /*
  * Function name: new_note
  * Description:	  This function is called from the board when a new note
- *		  is added to a board and the board is reporting 
+ *		  is added to a board and the board is reporting
  * Arguments:	  save_path - The place where the board stores notes
  *		  last_note - The name of the new note
  *		  room_path - The path to the room of the board
@@ -1689,7 +1689,7 @@ index_help(int cmd)
 {
     int i;
     string line, name;
-    
+
     /*
      * Start the process.
      */
@@ -1720,7 +1720,7 @@ index_help(int cmd)
 	    IndexLine = 0;
 	    return;
 	}
-	
+
 	if (sscanf(line, "#ENTRY %s\n", name) == 1)
 	{
 	    if (CountLine > 0)
@@ -1799,7 +1799,7 @@ find_board(string bspath)
 
     if (objectp(BobMap[bspath]))
 	return BobMap[bspath];
-    
+
     broom = BbpMap[bspath][BBP_RPATH];
 
     if (LOAD_ERR(broom))
@@ -1827,7 +1827,7 @@ get_board_by_path(string savep)
 {
     if (CALL_CHECK)
 	return 0;
-    
+
     return BbpMap[savep];
 }
 
@@ -1866,7 +1866,7 @@ update_bbmaps()
  * Function name: sort_cath_boards
  * Description:	  Sort function for category listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_cath_boards(string *item1, string *item2)
@@ -1886,7 +1886,7 @@ sort_cath_boards(string *item1, string *item2)
  * Function name: sort_dom_boards
  * Description:	  Sort function for domain listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_dom_boards(string *item1, string *item2)
@@ -1906,7 +1906,7 @@ sort_dom_boards(string *item1, string *item2)
  * Function name: sort_usage_read
  * Description:	  Sort function for usage listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_usage_read(mixed item1, mixed item2)
@@ -1926,7 +1926,7 @@ sort_usage_read(mixed item1, mixed item2)
  * Function name: sort_usage_posted
  * Description:	  Sort function for usage listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_usage_posted(mixed item1, mixed item2)
@@ -1946,7 +1946,7 @@ sort_usage_posted(mixed item1, mixed item2)
  * Function name: sort_tusage_read
  * Description:	  Sort function for today's usage listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_tusage_read(mixed item1, mixed item2)
@@ -1974,7 +1974,7 @@ sort_tusage_read(mixed item1, mixed item2)
  * Function name: sort_tusage_posted
  * Description:	  Sort function for today's usage listings of boards
  * Arguments:	  As per quicksort.
- * Returns:	  As per quicksort. 
+ * Returns:	  As per quicksort.
  */
 public nomask int
 sort_tusage_posted(mixed item1, mixed item2)
@@ -2026,11 +2026,11 @@ mail_notify(int what, mixed list)
     case M_E_REMOVED:
 	message = break_string("The board in the room '" + list[0][1] + "' storing messages in the directory '" + list[0][0] + "' has been removed from the MBS central board register due to inactivity. There has been no postings on that board in over " + SCRAP_DELAY + " days. Either reactivate it by posting on it and attach it to the MBS, or simply remove the code and the existing messages.", 70) + "\n";
 	break;
-	
+
     case M_B_UNUSED:
 	message = break_string("The board in the room '" + list[0][1] + "' storing messages in the directory '" + list[0][0] + "' has not recieved any postings in " + WARN_DELAY + " days. In 10 days the board will be removed entirely from the MBS unless a posting is made before then. Please consider its use and either post on it, or remove it entirely from the game and the MBS.", 70)  + "\n";
 	break;
-	
+
     case M_B_UN_REMOVED:
 	message = break_string("The board '" + list[0][1] + "' in the category '" + list[0][2] + "' storing messages in the directory '" + list[0][0] + "' has been removed from the MBS central board register due to inactivity. There has been no postings on that board in " + SCRAP_DELAY + " days. Please either remove the board code and the stored messages, or reactivate it by posting on it and re-attach it to the MBS.", 70) + "\n";
 	break;
@@ -2046,7 +2046,7 @@ mail_notify(int what, mixed list)
 
     // CREATE_MAIL(subject, author, to, cc, body)
     CREATE_MAIL("MBS missive", "MBS central", lower_case(recipient), "", message);
-    
+
     list = list[1..];
     if (sizeof(list))
 	set_alarm(5.0, 0.0, &mail_notify(what, list));
@@ -2149,7 +2149,7 @@ load_all_boards(string *list)
 {
     if (!sizeof(list))
 	return;
-    
+
     if (!objectp(find_board(list[0])))
     {
 	/* If the board is broken, warn */
@@ -2180,7 +2180,7 @@ load_all_boards(string *list)
 	/* Make sure it's not on the broken list */
 	if (BrokenMap[list[0]])
 	    m_delkey(BrokenMap, list[0]);
-	
+
 	/* Check if the board is badly used */
 	if (tmfunc(BbpMap[list[0]][BBP_LNOTE]) > DTS(WARN_DELAY) &&
 	    !strlen(BASE_CAT[BbpMap[list[0]][BBP_CAT]]))
@@ -2214,7 +2214,7 @@ load_all_boards(string *list)
 		m_delkey(UnusedMap, list[0]);
 	}
     }
-    
+
     list = list[1..];
     if (sizeof(list))
 	set_alarm(2.0, 0.0, &load_all_boards(list));
@@ -2307,7 +2307,7 @@ debug_out(string str)
 }
 
 /*
- * Function name: 
+ * Function name:
  * Description:
  * Arguments:
  * Returns:

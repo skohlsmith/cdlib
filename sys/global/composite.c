@@ -14,7 +14,7 @@ mixed *OldArr = ({});
  *  Prototypes
  */
 string desc_same(object *oblist, object for_obj);
-varargs string composite(mixed arr, string sepfunc, function descfunc, 
+varargs string composite(mixed arr, string sepfunc, function descfunc,
     object for_obj, int include_no_show);
 string lpc_describe(mixed *uarr, function dfun, object for_obj);
 varargs string composite_words(string *wlist, string word);
@@ -58,7 +58,7 @@ fo_desc_live(mixed arr, object for_obj, int no_someone, int include_no_show)
     {
         for_obj = previous_object(-1);
     }
-   
+
     if (!arr)
     {
         arr = OldArr;
@@ -240,9 +240,9 @@ fo_composite(mixed arr, string sepfunc, function descfunc, object for_obj)
  *                          a group of 'same objects' i.e objects whose
  *                          sepfunc returned the same value.
  *              for_obj:    object for which the description is being generated
- * 
+ *
  * Returns:     A description string on the format:
- *              <desc>, <desc> and <desc> 
+ *              <desc>, <desc> and <desc>
  *              Where <desc> is what obj->descfunc() returns
  *
  */
@@ -251,12 +251,12 @@ composite(mixed arr, string sepfunc, function descfunc, object for_obj,
     int include_no_show)
 {
     mixed *a;
-    
+
     if (!for_obj)
     {
 	for_obj = this_player();
     }
-    
+
     if (objectp(arr))
     {
 	arr = ({ arr });
@@ -276,9 +276,9 @@ composite(mixed arr, string sepfunc, function descfunc, object for_obj,
 	return 0;
     }
 
-    /* Make an array of unique lists of objects 
-     */    
-    a = unique_array(arr, sepfunc); 
+    /* Make an array of unique lists of objects
+     */
+    a = unique_array(arr, sepfunc);
 
     return lpc_describe(a, descfunc, for_obj);
 }
@@ -290,7 +290,7 @@ composite(mixed arr, string sepfunc, function descfunc, object for_obj,
  *              sepfunc:    Function to call in objects to get its <name>
  *                          Objects with the same <names> are sorted
  *                          together.
- * 
+ *
  * Returns:     0 or sorted array
  *
  */
@@ -304,7 +304,7 @@ sort_similar(mixed arr, string sepfunc)
     {
         return 0;
     }
-    
+
     a = unique_array(arr, sepfunc);
 
     if (!sizeof(a))
@@ -317,7 +317,7 @@ sort_similar(mixed arr, string sepfunc)
     {
         b += a[i];
     }
-    
+
     return b;
 }
 
@@ -391,7 +391,7 @@ composite_words(string *wlist, string word = "and")
 public string
 hanging_indent(string to_print, int length, int width)
 {
-    int    scrw; 
+    int    scrw;
     string *tmp;
 
     switch(width)

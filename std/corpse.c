@@ -578,8 +578,8 @@ get_leftover(string arg)
     if (this_player()->query_prop(TEMP_STDCORPSE_CHECKED))
         return 0;
 
-    vb = query_verb(); 
-    
+    vb = query_verb();
+
     notify_fail(capitalize(vb) + " what from what?\n");  /* access failure */
     if (!arg)
         return 0;
@@ -589,7 +589,7 @@ get_leftover(string arg)
         return 0;
 
     found = VISIBLE_ACCESS(corpses, "find_corpse", this_object());
-    
+
     if (sizeof(found) != 1)
     {
         set_alarm(0.5, 0.0, &(this_player())->remove_prop(TEMP_STDCORPSE_CHECKED));

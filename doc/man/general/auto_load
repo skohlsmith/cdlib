@@ -21,10 +21,10 @@ look like:
     }
 
 In the case of coins, it would be good if we saved how many coins and what
-type of coins the player had too. It is possible to save these variables 
+type of coins the player had too. It is possible to save these variables
 by adding text after the ':'. The ':' is there, simply to separate the
 filename from the variables saved. The improved function would be:
-    
+
     string
     query_auto_load()
     {

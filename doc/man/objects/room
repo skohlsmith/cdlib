@@ -16,11 +16,11 @@ of the file, not the one who loaded it.
 A room should always begin with the statements:
 
 inherit "/std/room.c";
- 
+
 #include <macros.h>
 #include <stdproperties.h>
 
-I will also make a few simple definitions to make life easier and 
+I will also make a few simple definitions to make life easier and
 the text easier to read.
 
 #define BS(message)	break_string(message, 75)
@@ -44,25 +44,25 @@ is a suitable place to put them.
 void
 create_room()
 {
-    /* 
+    /*
      * Start with the short name of the room
      */
     set_short("basic room");
 
-    /* 
-     * Now set the more extensive description, note that I begin with 
-     * one \n and end with two \n since I like a bit of space between the 
+    /*
+     * Now set the more extensive description, note that I begin with
+     * one \n and end with two \n since I like a bit of space between the
      * description and the obvious exits when the text is displayed.
      * The use of break_string will format the width suitably.
      */
     set_long(BS("\nThis is a basic example of how to use the /std/room.c file.\n\n"));
 
-    /* 
+    /*
      * Now add some pseudo objects, described later in the text.
      *
-     * This 'object' will respond  both to the command 'look at table' and 
-     * 'look at small table'. You must remember that it will nott be seen when 
-     * someone types 'look' but only when specified explicitly. So, you must 
+     * This 'object' will respond  both to the command 'look at table' and
+     * 'look at small table'. You must remember that it will nott be seen when
+     * someone types 'look' but only when specified explicitly. So, you must
      * be sure to mention these objects in the 'set_long' text for the player
      * to be curious enough to look at them.
      *
@@ -172,7 +172,7 @@ idea_pass()
 
     if (query_dircmd() == "please")
 	return 0;
-    
+
     write("You didn't say the magic word!\n");
     return 1;
 }
@@ -188,7 +188,7 @@ description to the room while the hole exists.
  The code would look like this:
 
 inherit "/std/object.c";
- 
+
 #include <macros.h>
 #include <stdproperties.h>
 
@@ -271,7 +271,7 @@ exits as well. The function 'query_tired_exits' returns an array with
 the tired values for all exits.
 
 Another useful function is 'query_desc' that will return all the added
-descriptions of a room on the form ({ desc1, obj1, desc2, obj2, ... }) 
+descriptions of a room on the form ({ desc1, obj1, desc2, obj2, ... })
 where objx is the object that added that particular description.
 
 The function 'change_my_desc' can change an existing added description,

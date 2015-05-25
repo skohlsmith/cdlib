@@ -1,7 +1,7 @@
 /*
  *  The standard herb.
  *
- *  The original made by Elessar Telcontar of Gondor, 
+ *  The original made by Elessar Telcontar of Gondor,
  *		Genesis, April to July 1992.
  */
 
@@ -103,7 +103,7 @@ long_func()
 
 /*
  * Function name: set_ingest_verb
- * Description:   Set what verb the player should type to be able to ingest 
+ * Description:   Set what verb the player should type to be able to ingest
  * 		  the herb. Default is "eat"
  * Arguments:     str - The verb
  */
@@ -162,7 +162,7 @@ dry() {}
  * Function name: force_dry
  * Description:   Call this function if you want to make the herb
  *                dry after creation. E.g. if you have some tool that
- *                makes a herb dry. If you want to set the herb 
+ *                makes a herb dry. If you want to set the herb
  *                to dried at creation, use set_dried.
  */
 void
@@ -180,7 +180,7 @@ force_dry()
     add_adj("dried");
     dry();
 }
- 
+
 /*
  * Function name: set_dried
  * Description:   Set the herb to dried. Use this function in
@@ -239,7 +239,7 @@ string query_id_long() { return id_long; }
 
 /*
  * Function name: set_unid_long
- * Description:   Set the long description you see if you cannot identify the 
+ * Description:   Set the long description you see if you cannot identify the
  *		  herb.
  * Arguments:     str - The long description
  */
@@ -309,9 +309,9 @@ query_herb_value() { return herb_value; }
  * Arguments:           a: The amount of food
  */
 public void
-set_amount(int a) 
-{ 
-    food_amount = a; 
+set_amount(int a)
+{
+    food_amount = a;
     add_prop(OBJ_I_VOLUME, max(1, (a / 5)));
     add_prop(OBJ_I_WEIGHT, a);
 }
@@ -326,7 +326,7 @@ query_amount() { return food_amount; }
 
 /*
  * Function name:       set_ate_it
- * Description:         This is called if the herb is eaten and the 
+ * Description:         This is called if the herb is eaten and the
  *                      ingest_verb != "eat"
  */
 void
@@ -426,7 +426,7 @@ ingest_it(string str)
     object 	*a, *foods;
     int		il;
     string str2, vb;
-    
+
     if (this_player()->query_prop(TEMP_STDHERB_CHECKED) ||
 	query_prop(TEMP_OBJ_ABOUT_TO_DESTRUCT))
     {
@@ -434,12 +434,12 @@ ingest_it(string str)
     }
 
     gFail = ({ });
-    vb = query_verb(); 
-    
+    vb = query_verb();
+
 /* If you type "eat all" and the command comes to a herb first
  * it would cause all eatable herbs to be eaten but no food.
  * This is to prevent this. (How often do you want to eat all herbs?)
- * This also stops "smoke all" "chew all" and so on. 
+ * This also stops "smoke all" "chew all" and so on.
  */
     if (str == "all")
     {
@@ -450,7 +450,7 @@ ingest_it(string str)
     notify_fail(capitalize(vb) + " what?\n", 0);
     if (!stringp(str))
 	return 0;
-    
+
     a = CMDPARSE_ONE_ITEM(str, "ingest_one_thing", "ingest_access");
     if (sizeof(a) > 0)
     {
@@ -485,7 +485,7 @@ ingest_fail()
 
 int
 ingest_access(object ob)
-{ 
+{
     string vb;
 
     vb = query_verb();
@@ -507,7 +507,7 @@ ingest_one_thing(object ob)
 
     vb=query_verb();
     am = (int) ob->query_amount();
-    
+
     if (this_player()->query_prop(LIVE_I_HERB_EFFECT) > time() - F_HERB_INTERVAL)
     {
         write(capitalize(LANG_ADDART(ob->short())) +
@@ -515,7 +515,7 @@ ingest_one_thing(object ob)
         gFail += ({ ob });
         return 0;
     }
-    
+
     if (vb=="eat")
     {
         if (!this_player()->eat_food(am))
@@ -532,7 +532,7 @@ ingest_one_thing(object ob)
         this_player()->add_prop(LIVE_I_HERB_EFFECT, time());
 	return 1;
     }
-    
+
     this_player()->add_prop(LIVE_I_HERB_EFFECT, time());
     return 1;
 }

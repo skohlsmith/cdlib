@@ -21,8 +21,8 @@ NOTA BENE
 	is returned, not the composite object that might inherit the file
 	that contains the function.
 
-	E.g: the expression 
-	
+	E.g: the expression
+
 	    function_exists("create_container", find_living("orc"))
 
 	will always return "/std/living".

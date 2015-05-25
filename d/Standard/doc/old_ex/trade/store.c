@@ -6,7 +6,7 @@ inherit "/std/room";
 
 #include <stdproperties.h>
 
-create_room() 
+create_room()
 {
    set_short("The shop's store room");
    set_long("This is the store room for the shop.\n");

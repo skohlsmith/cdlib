@@ -266,7 +266,7 @@ plural_short(object for_obj)
     if (!stringp(str))
     {
         str = singular_short(for_obj);
-        str = LANG_PSENT(str); 
+        str = LANG_PSENT(str);
     }
 
     return str;
@@ -302,7 +302,7 @@ short(object for_obj)
 
     str = plural_short(for_obj);
 
-    if (num_heap() < 12) 
+    if (num_heap() < 12)
     {
         return LANG_WNUM(num_heap()) + " " + str;
     }
@@ -333,7 +333,7 @@ query_objective()
     }
     return "it";
 }
- 
+
 /*
  * Function name: query_possessive
  * Description  : All nonlivings have possessive 'its'. Heaps may have 'their'
@@ -349,7 +349,7 @@ query_possessive()
     }
     return "its";
 }
- 
+
 /*
  * Function name: query_pronoun
  * Description  : All nonlivings have pronoun 'it'. Heaps may have 'they' if
@@ -370,7 +370,7 @@ query_pronoun()
  * Function name: make_leftover_heap
  * Description:   clone a heap to be used as the leftover
  *                heap after a split
- * Returns:       The leftover heap object 
+ * Returns:       The leftover heap object
  */
 public object
 make_leftover_heap()
@@ -393,7 +393,7 @@ make_leftover_heap()
 
     return ob;
 }
-     
+
 /*
  * Description: Called when heap leaves it's environment
  */
@@ -446,7 +446,7 @@ enter_env(mixed env, object old)
             !ob[i]->query_prop(TEMP_OBJ_ABOUT_TO_DESTRUCT))
         {
             ob[i]->set_heap_size(item_count + ob[i]->num_heap());
- 
+
             if (ob[i]->query_keepable() && !(ob[i]->query_keep()))
             {
                 ob[i]->set_keep(this_object()->query_keep());
@@ -521,7 +521,7 @@ force_heap_split()
     }
 
     return ob;
-}    
+}
 
 /*
  * Function name: query_prop_map
@@ -552,7 +552,7 @@ config_split(int new_num, object orig)
     set_long(orig->query_long());
 
     obj_props = orig->query_prop_map() + gOwn_props;
- 
+
     if (orig->query_keepable())
     {
         this_object()->set_keep(orig->query_keep());
@@ -625,7 +625,7 @@ stop(string str)
         }
         return 0;
     }
-    
+
     write("You are busy counting. You have to stop if you want " +
         "to do something else.\n");
     return 1;
@@ -685,7 +685,7 @@ no_garbage_collection()
 
 /*
  * Function name: appraise_number
- * Description:   This function is called when someon tries to appraise number 
+ * Description:   This function is called when someon tries to appraise number
  *                of pices in heap of this object.
  * Arguments:     num - use this number instead of skill if given.
  */
@@ -719,7 +719,7 @@ appraise_object(int num)
     write(break_string("You appraise that the weight is " +
         appraise_weight(num) + " and you guess its volume is about " +
         appraise_volume(num) + ".\n", 75));
-    write(break_string("You estimate that there are " + appraise_number(num) + 
+    write(break_string("You estimate that there are " + appraise_number(num) +
         " pieces worth approx " + appraise_value(num) + ".\n", 75));
 }
 

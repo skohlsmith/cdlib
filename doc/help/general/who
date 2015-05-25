@@ -14,13 +14,13 @@ DESCRIPTION
 
 OPTIONS
         f - show the names and full titles of the people you know.
- 
+
         i - do not show players that are not interactive (i.e. linkdead)
- 
+
         m - show only the mortal players logged in.
- 
+
         w - show only the wizards logged in.
-	
+
 	q - show all players in the queue. People whose name you do not
 	    remember are shown as <unknown>. When used, it supercedes all
 	    other options. For wizards, this option is void. (use finger)

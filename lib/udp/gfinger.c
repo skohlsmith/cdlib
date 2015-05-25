@@ -26,7 +26,7 @@ public int
 send_gfinger_q(string mud, string wiz_from, string wiz_to)
 {
     mapping minfo;
-    
+
     minfo = TO->query_mud_info(mud);
 
     if (!mappingp(minfo))
@@ -34,7 +34,7 @@ send_gfinger_q(string mud, string wiz_from, string wiz_to)
 
     if (stringp(minfo["HOSTADDRESS"]) && atoi(minfo["PORTUDP"]))
     {
-	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]), 
+	TO->send_udp(minfo["HOSTADDRESS"], atoi(minfo["PORTUDP"]),
 		     "@@@" + UDP_GFINGER_Q +
 		     "||NAME:" + TO->query_my_name() +
 		     "||PORTUDP:" + TO->query_my_udpport() +
@@ -57,7 +57,7 @@ gfinger_q(mapping p)
 {
     mapping minfo;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -65,7 +65,7 @@ gfinger_q(mapping p)
 
 	minfo = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info.
 	*/
@@ -85,7 +85,7 @@ gfinger_q(mapping p)
 	return 1;
     }
     return 0;
-}    
+}
 
 /*
  * Function name: gfinger_a
@@ -100,7 +100,7 @@ gfinger_a(mapping p)
     object pl;
     mapping minfo;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -108,7 +108,7 @@ gfinger_a(mapping p)
 
 	minfo = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info.
 	*/
@@ -125,7 +125,7 @@ gfinger_a(mapping p)
 	return 0;
     }
     return 0;
-}    
+}
 
 /*
  * The actual finger message

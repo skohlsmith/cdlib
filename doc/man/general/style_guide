@@ -16,7 +16,7 @@ Style -- the "look and feel" of a place -- is vitally important when
 creating a virtual world. Text descriptions are all that mortals have to
 lead their imagination, as they build the world in their mind.
 
-Thus, it is important to use words creatively. The goal is to create a 
+Thus, it is important to use words creatively. The goal is to create a
 richly detailed, convincing, and consistent world. Mortals should forget
 that they are sitting in front of a screen, merely typing a set of
 commands on a keyboard. Instead, they should believe that they are
@@ -132,7 +132,7 @@ either.
   clearing". Also provide descriptions for items that simply must be there
   (e.g., "floor", "walls" and "ceiling" in an interior room).
 
-- Respond to plausible attempts by mortals to manipulate items in the room 
+- Respond to plausible attempts by mortals to manipulate items in the room
   description. For example, if a tree is mentioned, respond to attempts to
   climb it. If there is a stream in the room, respond to attempts to drink
   from it, swim/dive/wade into it, etc. It is not necessary to let the
@@ -192,7 +192,7 @@ either.
   A beggar should respond to gifts, for example, just as a minstrel should
   respond to requests for songs.
 
-- Use the NPC_I_NO_LOOKS prop for npcs that are vividly described. Why 
+- Use the NPC_I_NO_LOOKS prop for npcs that are vividly described. Why
   describe how beautiful a female elf is, and then have the line in her
   description say "She looks ugly for an elf."?
 

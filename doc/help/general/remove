@@ -10,6 +10,6 @@ DESCRIPTION
 OPTIONS
         specification - a string that specifies what you want to remove
 	                it can take many different forms
-	
+
 SEE ALSO
 	wear, wield, unwield

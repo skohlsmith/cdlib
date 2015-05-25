@@ -233,7 +233,7 @@ interesting directories are.
       wizardnames start with a lowercase letter. If a wizard has a
       directory, but is not in a domain, he is automatically in the Wiz
       domain.
- 
+
    /d/Wiz
       This directory is the home of the braves. Most of the keepers and
       arches have their directories in this directory. You will probably
@@ -298,8 +298,8 @@ body function b(), function b() must be declared above function a(). This
 declaration can be done in two ways: you can put the entire funtion b() above
 a(), or you can implement the function b() somewhere below a() and put the
 prototype of b() (e.g.: "int b(int arg);") above a(). One good reason to
-use types is that the compiler will be able to detect errors in your code 
-more easy, and maybe even directly at the compilation and not wait until 
+use types is that the compiler will be able to detect errors in your code
+more easy, and maybe even directly at the compilation and not wait until
 the bugous function is called.
 
 LPC 3.0 knows these types:
@@ -328,7 +328,7 @@ on if they are applied to functions or variables.
 
 Applied to functions:
 
-	static <basic type> 
+	static <basic type>
 		The function can only be called by this object. It can't
 		be directly accessed with call_other.
 
@@ -352,14 +352,14 @@ Applied to functions:
 		a variable number of arguments.
 
 Varargs and nomask can be combined with any of the other modifiers and with
-each other... 
+each other...
 
 Applied to global variables:
 
 	static <basic type>
 		This variable will not be saved when the object is saved
 		with save_object() or changed by a restore_object().
-	 
+
 	private <basic type>
 		This variable can only be accessed by functions in the same
 		compilation unit.
@@ -383,7 +383,7 @@ Here are a few array functions that are very handy:
         This will give you the "index"th element of the array arr. Note
         that the elements of an array are numbered from 0 to the length
         of the array minus one (sizeof(arr)-1)).
-   
+
    member_array(elt, arr)
         With this you can check if a given element is a member of the array
         you want to check. If it is a member, the index will be returned.
@@ -401,7 +401,7 @@ Here are a few array functions that are very handy:
 	This function returns a string that is made of all elements of the
 	array arr, with the string str placed between them. E.g.:
 	implode(({ "foo","bar","zukini." }), " and ") would return
-	"foo and bar and zukini."  
+	"foo and bar and zukini."
 
    arr[from..to]
 	This notation returns a piece of an array from element from to
@@ -582,7 +582,7 @@ The add_exit function has four arguments: The filename of the room that is
 connected to this room, the command that will get you there and the third
 argument is an optional VBFC function (explained below). If that function
 returns 1, the exit cannot be taken. If the function returns 0, the exit
-can be taken. The last argument indicates how tiring it is to walk that 
+can be taken. The last argument indicates how tiring it is to walk that
 direction. 1 is the default value.
 
 
@@ -787,7 +787,7 @@ talking monster. Let's make an ugly nazgul by the name of Dschik.
                /* STR DEX CON INT WIS DIS */
       set_stats(({ 15, 13, 19,  3,  3, 70 })); /* Set his stats */
       set_hp(1000);           /* Heal him fully */
-      
+
       set_chat_time(10);      /* Set the time between speaking    */
       add_chat("Go away!");   /* Add some lines to say (randomly) */
       add_chat("Who are you?");
@@ -975,7 +975,7 @@ process_string() to fix things:
 
 The functions write() and tell_object() sends their messages exactly as they
 where given, the weird string you get. The function say() on the other hand
-handles VBFC nicely. 
+handles VBFC nicely.
 
 The whole VBFC effect is destroyed by using process_string, though. To get
 back at our previous examples:

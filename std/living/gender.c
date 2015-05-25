@@ -14,7 +14,7 @@ static nomask void
 gender_reset()
 {
     /* Illegal default value to force a change. */
-    this_object()->set_gender(-1); 
+    this_object()->set_gender(-1);
 }
 
 /*

@@ -1,6 +1,6 @@
 NAME
 	capitalize - capitalize the first word of a string
-	
+
 SYNOPSIS
 	string capitalize(string str|int foobar)
 

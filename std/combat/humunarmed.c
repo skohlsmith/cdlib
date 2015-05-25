@@ -30,7 +30,7 @@ inherit "/std/combat/unarmed";
  * Description:   Configures basic values for this humanoid.
  */
 public nomask void
-cr_configure() 
+cr_configure()
 {
     ::cr_configure();
 
@@ -62,7 +62,7 @@ cr_reset_attack(int aid)
 	    wchit += F_UNARMED_HIT(uskill, this_object()->query_stat(SS_DEX));
 	    wcpen += F_UNARMED_PEN(uskill, this_object()->query_stat(SS_STR));
 	}
-	
+
 	if (uskill < 1)
 	   uskill = -1;
 
@@ -100,7 +100,7 @@ cr_reset_hitloc(int hid)
 {
     ::cr_reset_hitloc(hid);
 
-    if (!sizeof(query_ua_hitloc(hid))) 
+    if (!sizeof(query_ua_hitloc(hid)))
     {
 	switch(hid)
 	{
@@ -149,7 +149,7 @@ cr_attack_desc(int aid)
     case W_BOTH:return "joined hands";
     case W_FOOTR:return (random(100)<80 ? "right foot" : "right knee");
     case W_FOOTL:return (random(100)<80 ? "left foot" : "left knee");
-    }  
+    }
     return "mind"; /* should never occur */
 }
 

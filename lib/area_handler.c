@@ -2,8 +2,8 @@
  * area_handler.c
  *
  * This object is documented separately and extensively in
- * /doc/man/objects/area_handler. 
- *				  
+ * /doc/man/objects/area_handler.
+ *
  */
 #pragma strict_types
 
@@ -163,12 +163,12 @@ init_map()
 	remove_object();
 	return 0;
     }
-	
+
     rm(Mapfile + ".m");
     write_file(Mapfile + ".m", (Map_w + 1) + "|" + Map_h + "|" + Timeout + "|" + Mapname + "|" + Roomdir + "|" + Areadir + "\n");
     for (i = 0 ; i < Map_h ; i++)
 	write_file(Mapfile + ".m", sprintf("%-" + (Map_w - 1) + "s\n", map_arr[i]));
-    
+
     line = read_file(Mapfile + ".m", 0, 1);
     Map_o = strlen(line);
     Map_init = 1;
@@ -266,7 +266,7 @@ create_room(string room)
 
     if (file_size(Roomdir + "/" + room) > 0)
 	return 1;
-    
+
     rmd = Roomdir + "/" + room;
     sscanf(room, "%s.%d.%d.%s", foo, x, y, foo);
 
@@ -284,7 +284,7 @@ create_room(string room)
 	write(ERRM + "Can't find description for position: " +  x + ", " + y + " '" + sym + "'\n");
 	return 0;
     }
-    
+
     write_file(rmd, "\n    set_short(\"" + desc[1][0] + "\");\n");
     num = sizeof(desc[1]);
     i = random(num - 1, x + 1 * y + 1) + 1;
@@ -317,7 +317,7 @@ create_room(string room)
 		write_file(rmd, "    add_item(\"" + desc[2][i] + "\", \"" + desc[2][i + 1] + "\\n\");\n");
 	}
     }
-    
+
     if (sizeof(desc[3]))
     {
 	write_file(rmd, "\n");
@@ -327,11 +327,11 @@ create_room(string room)
     }
     else
 	write_file(rmd, "\n    set_cleanup_time(" + (Timeout * 30) + ");\n");
-    
+
     write_file(rmd, "\n    add_prop(ROOM_I_TYPE, " + desc[0][0] + ");\n");
     write_file(rmd, "    add_prop(ROOM_I_INSIDE, " + desc[0][1] + ");\n");
     write_file(rmd, "    add_prop(ROOM_I_LIGHT, " + desc[0][2] + ");\n");
-    
+
     if (strlen(desc[4]))
 	write_file(rmd, "\n    create_extra()\n");
 
@@ -351,14 +351,14 @@ static nomask string
 find_room(int x, int y, string dir)
 {
     string rtype;
-    
+
     switch(dir)
     {
     case "s":
     case "south":
 	y -= 1;
 	break;
-	
+
     case "n":
     case "north":
 	y += 1;
@@ -368,7 +368,7 @@ find_room(int x, int y, string dir)
     case "west":
 	x -= 1;
 	break;
-	
+
     case "e":
     case "east":
 	x += 1;
@@ -462,7 +462,7 @@ add_desc(string tag, mixed dlist)
 	write(ERRM + "Illegal map location symbol: '" + tag + "'.\n");
 	return;
     }
-    
+
     if (sizeof(dlist) < 4 || sizeof(dlist[0]) < 3)
     {
 	write(ERRM + "Wrong number of arguments to add_desc for tag '" + tag + "'\n");
@@ -484,7 +484,7 @@ add_bound(string tag, string room)
 	write(ERRM + "Illegal map boundary symbol: '" + tag + "'.\n");
 	return;
     }
-    
+
     Bound_map[tag] = room;
 }
 
@@ -494,4 +494,4 @@ set_map(string map)
     Mapfile = map;
 }
 
- 
+

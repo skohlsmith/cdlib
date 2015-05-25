@@ -5,7 +5,7 @@ inherit "/std/room";
 
 #include <stdproperties.h>
 #include <macros.h>
-#include "/config/login/login.h" 
+#include "/config/login/login.h"
 
 int length, width;
 mixed *pos;
@@ -51,11 +51,11 @@ create_room()
 public string
 show_dials()
 {
-    return 
+    return
 	"The LENGTH dial is set to " + pos[0][length] + ".\n" +
 	    "The WIDTH dial is set to " + pos[1][width] + ".\n";
 }
-    
+
 
 /*
  * Function name: init
@@ -91,7 +91,7 @@ long(string arg)
 	    "the living. You should probably leave as fast as you can. You\n" +
             "can see a conveyor belt by the side of the machine that could\n" +
             "take you out of here.\n";
-    else 
+    else
 	str += "\nWell, get going! You have your features left to fix.\n";
     return str;
 }
@@ -101,7 +101,7 @@ long(string arg)
  * Description  : Catch all player commands. Take care of the legal ones
  *                and throw all the others away
  */
-public void 
+public void
 enter_cmd(string str)
 {
     if (!str)
@@ -120,16 +120,16 @@ enter_cmd(string str)
 	    write("Enter what?\n");
 	    return;
 	}
-	this_interactive()->move_living("onto the conveyor belt", 
+	this_interactive()->move_living("onto the conveyor belt",
 					this_interactive()->query_def_start());
 	break;
-	
+
     case "mangle":
     case "machine":
 	/* This is where the player gets modified. Awfully hardcoded
 	    Im afraid
 	 */
-	mangle_player(this_interactive(), length, width); 
+	mangle_player(this_interactive(), length, width);
 	break;
     default:
 	write("Enter what?\n");
@@ -252,7 +252,7 @@ all_cmd(string str)
  * Description:   Mangle a player into shape and move to the next room
  * Arguments:     pl: player to mangle
  */
-public void 
+public void
 mangle_player(object pl, int l, int w)
 {
     int myl, myw;
@@ -277,10 +277,10 @@ mangle_player(object pl, int l, int w)
 
     myl = (attr[0] * proc[l]) / 100;
     myw = (attr[1] * proc[l]) / 100;
-    
+
     pl->add_prop(CONT_I_HEIGHT, myl);
     pl->add_prop(CONT_I_WEIGHT, myw);
-    
+
     write("...you are slowly passed through the mangle and after awhile\n");
     write("you come out of it as a new " + pl->query_race_name() + ".\n\n");
 
@@ -297,4 +297,4 @@ mangle_player(object pl, int l, int w)
     }
 }
 
- 
+

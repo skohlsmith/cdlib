@@ -14,7 +14,7 @@ create_armour()
     set_short("leather jacket");
     set_adj("leather"); add_adj("rugged");
     set_long("It is a very rugged looking jacket, quite nice though.\n");
-    
+
     set_default_armour();
 }
 

@@ -68,7 +68,7 @@ second_life(object killer)
  * Description:     Modifies some values (e.g. exp, stats and hp) when a
  *                  player has died.
  */
-static void 
+static void
 modify_on_death()
 {
     int index = (SS_STR - 1);
@@ -101,7 +101,7 @@ modify_on_death()
     /* We should reset our hitpoints to something above 0. */
     set_hp(F_DIE_START_HP(query_max_hp()));
 
-    /* Update the progress indicator. */ 
+    /* Update the progress indicator. */
     add_prop(PLAYER_I_LASTXP, query_exp());
     update_last_stats();
 }

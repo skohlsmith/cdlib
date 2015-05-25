@@ -1,4 +1,4 @@
-/* 
+/*
  *  /std/act/attack.c
  *
  *  Selective attacking: Standard action module for mobiles

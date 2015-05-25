@@ -2,7 +2,7 @@ NAME
 	applications - list applications to join a domain
 
 SYNOPSIS
-	applications 
+	applications
 	applications <name>
 	applications clear <name>
 	applications clear <domain>

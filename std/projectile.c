@@ -44,7 +44,7 @@ create_projectile()
 /*
  * Function name: create_heap
  * Description  : Constructor. This sets some internal state of the projectile
- *                Mask create_projectile instead if you want to create a 
+ *                Mask create_projectile instead if you want to create a
  *                projectile.
  */
 public nomask void
@@ -75,7 +75,7 @@ enter_env(object to, object from)
 	 * a very ugly message when we pick up the arrows.
 	 */
 	set_no_merge(1);
-	defered_join = 1;	
+	defered_join = 1;
 	set_alarm(0.2, 0.0, &enter_env(to, from));
 	::enter_env(to, from);
     }
@@ -158,7 +158,7 @@ update_heap_id()
     int level;
 
     level = query_prop(OBJ_I_HIDE);
-    
+
     add_prop(HEAP_S_UNIQUE_ID,
 	     (loaded ? "loaded_" : "") +
 	     (broken ? "broken_" : "") +
@@ -295,9 +295,9 @@ get_projectile_long(string str, object for_obj, int num)
  * Function name: long
  * Description  : Describe the object or one pseudo item in it. This
  *                resolves possible VBFC. This long function appends
- *                the broken status of a projectile to the long 
- *                description that get_projectile_long returns. You 
- *                should probably redefine get_projectile_long instead 
+ *                the broken status of a projectile to the long
+ *                description that get_projectile_long returns. You
+ *                should probably redefine get_projectile_long instead
  *                of this function.
  * Arguments    : string str - the pseudo-item to describe. This is an
  *                             item added with add_item. If this is 0, it
@@ -356,7 +356,7 @@ short(object for_obj)
     {
         return 0;
     }
- 
+
     if (num_heap() < 2)
     {
         str = singular_short(for_obj);
@@ -365,11 +365,11 @@ short(object for_obj)
 
     str = (broken ? "broken " : "") + plural_short(for_obj);
 
-    if (num_heap() < 12) 
+    if (num_heap() < 12)
     {
 	return LANG_WNUM(num_heap()) + " " + str;
     }
-    
+
     if (this_player()->query_stat(SS_INT) / 2 > num_heap())
     {
 	return num_heap() + " " + str;
@@ -396,8 +396,8 @@ short(object for_obj)
  *                          points.
  *                hid:      The hit location id.
  */
-public varargs void 
-projectile_hit_target(object archer, int aid, string hdesc, int phurt, 
+public varargs void
+projectile_hit_target(object archer, int aid, string hdesc, int phurt,
 		      object enemy, int dt, int phit, int dam, int hid)
 {
     return;
@@ -424,7 +424,7 @@ init_recover(string arg)
 {
     string head, tail;
     int heap_size;
-    
+
     sscanf(arg, "%sPROJECTILE#%d#%d#%s", head, broken, heap_size, tail);
     set_heap_size(heap_size);
 }

@@ -18,11 +18,11 @@ DESCRIPTION
 	    the harder this object hit its enemies.
 
 	Defensive tohit: is average tohit chance someone has on us if he has
-	    dex 50, volume 60 litres, encumberance weight + vol 60 and 
+	    dex 50, volume 60 litres, encumberance weight + vol 60 and
 	    weapon to hit average of 70. The lower the harder the fictive
 	    enemy has to hit us.
 
-	Defensive ac:    is average reduction the ac gives when hit. The 
+	Defensive ac:    is average reduction the ac gives when hit. The
 	    higher value the better protected we are.
 
 SEE ALSO

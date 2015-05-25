@@ -58,7 +58,7 @@ basic skill list below. Simply add all maximum training levels of all
 skills you offer, and see if it is below 250. This leaves you free in
 the choice of how many basic skills can be trained, and how high you
 allow those basic skills to be trained, as long as you keep in mind the
-list below.  A major guild may train skill levels 1-90. Skill levels 
+list below.  A major guild may train skill levels 1-90. Skill levels
 91-100 are reserved for special training conditions. Examples of such
 conditions are quests, duels, mobile and secretive masters etc.
 
@@ -69,11 +69,11 @@ Generally available skill	max level	Description
 =========================	=========	===========
 SS_WEP_*                         30       All weapon skills
 SS_UNARM_COMBAT                  30       Unarmed combat
-SS_DEFENCE                       20       Defence 
-SS_BLIND_COMBAT                  20       Blind combat 
+SS_DEFENCE                       20       Defence
+SS_BLIND_COMBAT                  20       Blind combat
 SS_SPELLCRAFT                    20       General spellcraft
-SS_ELEMENT_*                     20       All spell element skills 
-SS_ALCHEMY                       20       Mix potions etc.  
+SS_ELEMENT_*                     20       All spell element skills
+SS_ALCHEMY                       20       Mix potions etc.
 SS_APPR_MON                      30       Appraise an opponent
 SS_APPR_OBJ                      30       Find out properties of an obj
 SS_APPR_VAL                      30       Value an object

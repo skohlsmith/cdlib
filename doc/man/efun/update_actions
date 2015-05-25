@@ -1,6 +1,6 @@
 NAME
 	update_actions - update the actions added by an object
-	
+
 SYNOPSIS
 	void update_actions(object = this_object())
 
@@ -10,7 +10,7 @@ DESCRIPTION
 	environment and the environment of the specified object.
 	The init() function in the specified object is then called
 	once for each of the objects where actions were removed.
-	
+
 SEE ALSO
 	disable_commands, enable_commands, living, get_localcmd, query_verb,
 	add_action

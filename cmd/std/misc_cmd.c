@@ -17,7 +17,7 @@ public string *
 replace_soul()
 {
     return
-	({ 
+	({
 	    "/cmd/live/info",
 	    "/cmd/live/items",
 	    "/cmd/live/magic",

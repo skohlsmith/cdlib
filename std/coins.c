@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/coins.c
  *
  * This is the heap object for coins.
@@ -52,7 +52,7 @@ create_heap()
     add_prop(OBJ_M_NO_SELL, 1);
 
     create_coins();
-    
+
     if (!query_prop(HEAP_S_UNIQUE_ID))
     {
 	set_coin_type(MONEY_TYPES[0]);
@@ -99,7 +99,7 @@ query_auto_load()
     return (MASTER + ":" + num_heap() + "," + coin_type);
 }
 
-/* 
+/*
  * Function name: init_arg
  * Description  : Called when autoloading. It will set the type of coins
  *                and the number of coins in the heap.
@@ -205,7 +205,7 @@ long()
  *                properties with respect to the coins.
  * Arguments    : string str - the coin type to set.
  */
-public void  
+public void
 set_coin_type(string str)
 {
     int ix;

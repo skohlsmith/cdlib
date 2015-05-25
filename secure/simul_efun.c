@@ -2,7 +2,7 @@
  * /secure/simul_efun.c
  *
  * This file holds all the simulated efuns. These are called as if they were
- * inherited in all objects. 
+ * inherited in all objects.
  *
  * It is managed with a hidden call_other() though so the functions will
  * not appear as true internal functions in objects.
@@ -43,7 +43,7 @@ fixeuid()
 /*
  * No one is allowed to shadow the simulated efuns
  */
-int 
+int
 query_prevent_shadow()
 {
     return 1;
@@ -57,7 +57,7 @@ query_prevent_shadow()
  *
  */
 
-void 
+void
 write(mixed data) = "write";
 
 void
@@ -66,8 +66,8 @@ write_vbfc(mixed data)
     this_player()->catch_vbfc(data, 0);
 }
 
-void 
-tell_object(object liveob, string message) 
+void
+tell_object(object liveob, string message)
 {
     liveob->catch_tell(message);
 }
@@ -117,7 +117,7 @@ slice_array(mixed a, int f, int t)
     return (pointerp(a)) ? a[f..t] : 0;
 }
 
-static string 
+static string
 slice_cmds(mixed *ar)
 {
     return ar[0];
@@ -139,7 +139,7 @@ get_localcmd(mixed ob = previous_object())
     return map(commands(ob), slice_cmds);
 }
 
-void 
+void
 localcmd()
 {
     this_player()->catch_tell(implode(get_localcmd(previous_object()), " ") + "\n");
@@ -213,7 +213,7 @@ exclude_array(mixed arr, int from, int to)
     mixed a,b;
     if (!pointerp(arr))
 	return 0;
-    
+
     if (from > sizeof(arr))
 	from = sizeof(arr);
     a = (from <= 0 ? ({}) : arr[0 .. from - 1]);
@@ -720,7 +720,7 @@ setuid()
  *                            when omitted.
  * Returns      : int - 1/0 - interactive or not.
  */
-varargs int 
+varargs int
 interactive(object ob = previous_object())
 {
     return query_interactive(ob);
@@ -756,7 +756,7 @@ atoi(string num)
  *		  str: Either a single string containing 'value by function
  *		       call' expressions, such a string is sent to catch_msg()
  *		       in the recieving objects.
- *		       If str is an array then this_player() will be used 
+ *		       If str is an array then this_player() will be used
  *		       in each recieving object to decide on met/nonmet.
  *		  oblist: Nothing, an object or an array of objects not
  *			  to send str to.
@@ -798,7 +798,7 @@ tell_room(mixed room, mixed str, mixed oblist = 0,
  * Arguments:     str: Either a single string containing 'value by function
  *		       call' expressions, such a string is sent to catch_msg()
  *		       in the recieving objects.
- *		       If str is an array then this_player() will be used 
+ *		       If str is an array then this_player() will be used
  *		       in each recieving object to decide on met/nonmet.
  *		  oblist: Nothing, an object or an array of objects not
  *			  to send str to.
@@ -831,14 +831,14 @@ say(mixed str, mixed oblist)
  * Function name: log_file
  * Description:   Logs a message in the creators ~/log/ subdir in a given
  *		  file.
- * 		  
+ *
  * 		  The optional argument 'csize' controls the cycling size
  * 		  of the log. If the argument is == 0 the default cycle
  * 		  size is used, if the argument is == -1 the maximum cycle
  * 		  size is used, if a positive integer is given, that cycle
  * 		  size is used provided that it is less or equal to the
  * 		  maximum cycle size.
- * 		  
+ *
  * Arguments:     file: The filename.
  *		  text: The text to add to the file
  * 		  csize: The cycle size, if any (optional)
@@ -864,7 +864,7 @@ log_file(string file, string text, int csize)
     {
 	path = SECURITY->query_wiz_path(cr) + "/log";
     }
-    
+
     /* We swap to the userid of the user trying to do log_file */
     oldeuid = geteuid(this_object());
     this_object()->seteuid(cr);
@@ -874,7 +874,7 @@ log_file(string file, string text, int csize)
 	/* We must create the path
         */
 	split = explode(path + "/", "/");
-    
+
 	for (fnam = "", il = 0; il < sizeof(split); il++)
 	{
 	    fnam += "/" + split[il];
@@ -931,7 +931,7 @@ log_file(string file, string text, int csize)
  *                           get the creator
  * Returns:       string - The creator name
  */
-public string 
+public string
 creator(mixed ob)
 {
     if (objectp(ob))
@@ -946,7 +946,7 @@ creator(mixed ob)
  * Arguments:     object ob - the object for which to get the domain
  * Returns:       string - the domain name
  */
-public string 
+public string
 domain(object ob)
 {
     return (string) SECURITY->domain_object(ob);
@@ -960,10 +960,10 @@ domain(object ob)
  * Returns:       string - the corresponding letter.
  */
 public string
-strchar(int x) 
+strchar(int x)
 {
     if (x >=0 && x < 256)
-	return 
+	return
 	    ("?\t\n\r" +
 	     "" +
 	     " !\"#$%&'()*+,-./0123456789:;<=>?" +
@@ -980,7 +980,7 @@ strchar(int x)
  * Arguments    : mixed etwas - the variable to type.
  * Returns      : string - the name of the type.
  */
-static string 
+static string
 type_name(mixed etwas)
 {
     if (intp(etwas))
@@ -1080,7 +1080,7 @@ dump_mapping(mapping m, string tab)
 	if (functionp(m[d[i]]))
 	    val = sprintf("%O", m[d[i]]);
 #endif _FUNCTION
-	
+
 	if (intp(m[d[i]]))
 	    val = "(int)" + m[d[i]];
 
@@ -1178,7 +1178,7 @@ secure_var(mixed var)
  *                mixed x    - the argument to perform the functions on.
  * Returns      : mixed - the result of the composition.
  */
-static mixed 
+static mixed
 compose_util(function f, function g, mixed x)
 {
     return f(g(x));
@@ -1268,7 +1268,7 @@ identity(mixed x)
  * Arguments:     x
  * Returns:       !x
  */
-int 
+int
 not(mixed x)
 {
     return !x;
@@ -1376,7 +1376,7 @@ strip(string str)
     end = strlen(str);
     while (start < end && (str[start] == ' ' || str[start] == '\n'))
 	start++;
-    
+
     end--; // Point _inside_ the string
     while (end > start && (str[end] == ' ' || str[end] == '\n'))
 	end--;

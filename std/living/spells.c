@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/living/spells.c
  */
 
@@ -48,7 +48,7 @@ query_spellobjs()
 {
     spell_objs = filter(spell_objs, objectp);
 
-    return secure_var(spell_objs); 
+    return secure_var(spell_objs);
 }
 
 public object
@@ -117,7 +117,7 @@ start_spell(string spell, mixed arg, object spellob)
  * Description:   Execute a spell
  * Arguments:     string spell - the name of the spell being cast
  *                mixed  sparg - arguments to spell invokation
- *                object spellob - the spell object  
+ *                object spellob - the spell object
  */
 static void
 cast_spell(string spell, mixed sparg, object spellob)
@@ -191,7 +191,7 @@ interrupt_spell()
 {
     if (!aid || !get_alarm(aid))
         return 0;
-    
+
     if (random(100) < 1)
     {
         break_spell();
@@ -215,9 +215,9 @@ abort_spell(string msg)
     {
         remove_alarm(aid);
         aid = 0;
- 
+
         this_object()->remove_prop(LIVE_I_CONCENTRATE);
-     
+
         if (!strlen(msg))
 	{
             tell_object(this_object(), "Ok.\n");
@@ -230,7 +230,7 @@ abort_spell(string msg)
         current_spellob->abort_spell(current_spell);
 
         current_spellob = current_spell = 0;
- 
+
         return 1;
     }
 

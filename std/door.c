@@ -1,4 +1,4 @@
-/* 
+/*
  * door.c
  *
  * This is the standard door object.
@@ -8,7 +8,7 @@
  *
  * Arguments:	        s = string, i = integer, o = object, m = mixed
  *			*x = list of given type.
- *			** mandatory function. 
+ *			** mandatory function.
  *			-* special circumstances apply
  *
  * All set functions has a corresponding query function defined.
@@ -31,7 +31,7 @@
 -* set_door_name(m)	- Call this function with the name or a list of all
  *			  the names that the door can be called.
  *			  Must be defined if a description is defined.
- *			
+ *
  * set_open(i)		- Call if 1 if open, 0 if closed.
  *
 ** set_open_desc(s)	- Call this function with the description of the
@@ -40,40 +40,40 @@
 ** set_closed_desc(s)	- Call this function with the description of the
  *			  closed door.
  *
- * set_pass_command(m)	- Call this function with the command string or a 
- *			  list of all the command strings that can be 
+ * set_pass_command(m)	- Call this function with the command string or a
+ *			  list of all the command strings that can be
  *			  given to pass through the door.
  *
 -* set_fail_pass(s)	- Call this function with the message you are given
  *			  if the door is closed when you try to pass through.
  *			  Must be defined if a pass command is defined.
  *
- * set_open_command(m)	- Call this function with the command string or a 
+ * set_open_command(m)	- Call this function with the command string or a
  *			  list of all the command strings that can be
  *			  given to open the door.
  *
 -* set_open_mess(*s)	- Call this function with a list of two strings. The
  *			  first string is the message given in the room when
- *			  someone opens the door on the (emote-like) format 
+ *			  someone opens the door on the (emote-like) format
  *			  "opens the door" and the other is the message given
  *			  in the other room.
  *			  Must be defined if an open command is defined.
  *
 -* set_fail_open(m)	- Call this function with the message given when you
- *			  fail to open an already open door. If you have a 
- *			  lock in the door, call it with a list of two 
+ *			  fail to open an already open door. If you have a
+ *			  lock in the door, call it with a list of two
  *			  strings with the first string being the message
  *			  given when the door already is open and the second
  *			  when the door is closed, but locked.
  *			  Must be defined if an open command is defined.
  *
- * set_close_command(m)	- Call this function with the command string or a 
+ * set_close_command(m)	- Call this function with the command string or a
  *			  list of all the command strings that can be
  *			  given to close the door.
  *
 -* set_close_mess(*s)	- Call this function with a list of two strings. The
  *			  first string is the message given in the room when
- *			  someone closess the door on the (emote-like) format 
+ *			  someone closess the door on the (emote-like) format
  *			  "closes the door" and the other is the message given
  *			  in the other room.
  *			  Must be defined if a close command is defined.
@@ -83,7 +83,7 @@
  *			  Must be defined if a close command is defined.
  *
  * set_locked(i)	- Call if 1 if locked, 0 if unlocked.
- * 
+ *
 -* set_lock_name(m)	- Call this function with the name or a list of all
  *			  the names that the lock (if any) can be called.
  *			  Must be defined if a lock if wanted.
@@ -91,13 +91,13 @@
  * set_lock_desc(s)	- Call this function with the description of the
  *			  lock (if any).
  *
- * set_lock_command(m)	- Call this function with the command string or a 
+ * set_lock_command(m)	- Call this function with the command string or a
  *			  list of all the command strings that can be
  *			  given to open the door.
  *
 -* set_lock_mess(*s)	- Call this function with a list of two strings. The
  *			  first string is the message given in the room when
- *			  someone opens the door on the (emote-like) format 
+ *			  someone opens the door on the (emote-like) format
  *			  "locks the door" and the other is the message given
  *			  in the other room.
  *			  Must be defined if a lock command is defined.
@@ -108,13 +108,13 @@
  *			  second you get when you try to lock an open door.
  *			  Must be defined if a lock command is defined.
  *
- * set_unlock_command(m)  Call this function with the command string or a 
+ * set_unlock_command(m)  Call this function with the command string or a
  *			  list of all the command strings that can be
  *			  given to unlock the door.
  *
 -* set_unlock_mess(*s)	- Call this function with a list of two strings. The
  *			  first string is the message given in the room when
- *			  someone unlocks the door on the (emote-like) format 
+ *			  someone unlocks the door on the (emote-like) format
  *			  "unlocks the door" and the other is the message given
  *			  in the other room.
  *			  Must be defined if an unlock command is defined.
@@ -131,13 +131,13 @@
  *
  * set_no_pick()	- Call this function if your door has a lock but you
  *			  don't want a 'pick' verb.
- * 
- * set_pick(i)		- Set how hard it is to pick the lock. >100 and it 
+ *
+ * set_pick(i)		- Set how hard it is to pick the lock. >100 and it
  *			  won't be possible to pick.
  *
  * set_str(i)           - Set strength needed to open/close the door.
  *
--* set_knock_command(m)	- Call this function with the command string or a 
+-* set_knock_command(m)	- Call this function with the command string or a
  *			  list of all the command strings that can be
  *			  given to knock on the door. Default cmd is
  *			  ({ "knock", "pound" }). To disable knocking,
@@ -146,8 +146,8 @@
  * set_knock_resp(*s)   - Call this function with an array of 3 message
  *			  strings. The first is the message written to
  *			  this_player() when s/he knocks on a closed door,
- *			  the second string is the message given in the 
- *			  room when someone knocks on the closed door in the 
+ *			  the second string is the message given in the
+ *			  room when someone knocks on the closed door in the
  *			  (emote-like) format "knocks on the door" and
  *			  the third is the message given in the room
  *			  on the other side of the closed door.
@@ -155,14 +155,14 @@
  * set_knock_fail(*s)   - Call this function with an array of 3 message
  *			  strings. The first is the message written to
  *			  this_player() when s/he knocks on an open door,
- *			  the second string is the message given in the 
- *			  room when someone knocks on the open door in the 
+ *			  the second string is the message given in the
+ *			  room when someone knocks on the open door in the
  *			  (emote-like) format "foolishly knocks on the
  *			  open door" and the third is the message given
  *			  in the room on the other side of the open door.
  *
  * Don't forget to set the special door properties if the standard
- * settings aren't what you want. 
+ * settings aren't what you want.
  *
  * The standard door has no locks, weighs 60 kg and has a volume of
  * 80 liters. The height of the standard door is 2 meters.
@@ -216,8 +216,8 @@ int	open_status,		/* If the door is open or not */
 	pick,			/* How hard is the lock to pick? */
 	open_str;		/* Strength needed to open door */
 
-/* 
- * Some prototypes 
+/*
+ * Some prototypes
  */
 void create_door();
 void set_lock_desc(string desc);
@@ -412,16 +412,16 @@ pass_door(string arg)
 	/* Lets say we arbitrarily can bend as dexh indicates.
 	   For something else, inherit and redefine.
 	 */
-	if ((int)this_player()->query_prop(CONT_I_HEIGHT) > 
-			query_prop(DOOR_I_HEIGHT) * dexh) 
+	if ((int)this_player()->query_prop(CONT_I_HEIGHT) >
+			query_prop(DOOR_I_HEIGHT) * dexh)
 	{
-	    write("The " + short() + " is more than " + 
+	    write("The " + short() + " is more than " +
 		  LANG_WNUM(dexh) + " times lower than you.\n" +
 		  "You're too tall and " +
 		  "not enough dexterous to get through.\n");
 	    return 1;
 	}
-	else if ((int)this_player()->query_prop(CONT_I_HEIGHT) > 
+	else if ((int)this_player()->query_prop(CONT_I_HEIGHT) >
 			query_prop(DOOR_I_HEIGHT))
 	{
 	    write("You bend down to pass through the " + short() + ".\n");
@@ -645,7 +645,7 @@ do_unlock_door(string mess)
  *
  * Arguments:	  arg - the argument given to the command lock/unlock
  * Returns:       1 - Ok, 0 - Fail.
- * 
+ *
  */
 int
 lock_procedure(string arg)
@@ -768,7 +768,7 @@ pick_lock(string str)
 
     do_pick_lock(skill, pick);
 
-    return 1;      
+    return 1;
 }
 
 /*
@@ -880,8 +880,8 @@ query_open() { return open_status; }
  * Description:	  Set the name of the door
  */
 void
-set_door_name(mixed name) 
-{ 
+set_door_name(mixed name)
+{
     int i, s;
     if (!pointerp(name))
     {
@@ -1022,9 +1022,9 @@ string *query_open_mess() { return open_mess; }
  * Function name: set_fail_open
  * Description:   Set the message when we fail to open door
  */
-void	
-set_fail_open(mixed mess)	
-{ 
+void
+set_fail_open(mixed mess)
+{
     if (!mess)
         fail_open = ({ });
     if (pointerp(mess))
@@ -1119,7 +1119,7 @@ string
 query_other_room() { return other_room; }
 
 /*
- * Function name: set_lock_name 
+ * Function name: set_lock_name
  * Description:   Set name of the lock
  */
 void
@@ -1196,13 +1196,13 @@ query_lock_mess() { return lock_mess; }
  * Function name: set_fail_lock
  * Description:   Set message when fail to lock the door
  */
-void	
-set_fail_lock(mixed mess)	
-{ 
+void
+set_fail_lock(mixed mess)
+{
     if (!mess)
 	fail_lock = ({ });
     if (pointerp(mess))
-	fail_lock = mess; 
+	fail_lock = mess;
     else
     	fail_lock = ({ mess });
 }
@@ -1268,9 +1268,9 @@ query_fail_unlock() { return fail_unlock; }
  * Function name: set_key
  * Description:   Set the number of the key that fits
  */
-void	
-set_key(mixed keyval)		
-{ 
+void
+set_key(mixed keyval)
+{
     do_set_key(keyval);
 /*
  * These lines cause trouble when you do set_key() in the create_door(),
@@ -1304,7 +1304,7 @@ query_key() { return key; }
 /*
  * Function name:	set_knock_command
  * Description	:	set the list of commands for knocking on the door
- * Arguments	:	mixed cmd -- a command string or an array of 
+ * Arguments	:	mixed cmd -- a command string or an array of
  *			command strings, or 0 to disable 'knock'.
  *			The default command is ({ "knock", "pound" }).
  */
@@ -1325,7 +1325,7 @@ set_knock_command(mixed cmd)
     }
 }
 
-/* 
+/*
  * Function name:	query_knock_command
  * Description	:	query the commands for knocking on a door
  * Returns	:	string * -- the commands
@@ -1342,7 +1342,7 @@ query_knock_command() { return knock_commands; }
 void
 set_knock_resp(string *msg) { knock_resp = msg;}
 
-/* 
+/*
  * Function name:	query_knock_resp
  * Description	:	query the responses to knocking on a closed door
  * Returns	:	string * -- the responses
@@ -1359,7 +1359,7 @@ query_knock_resp() { return knock_resp; }
 void
 set_knock_fail(string *msg) { knock_fail = msg; }
 
-/* 
+/*
  * Function name:	query_knock_fail
  * Description	:	query the responses to knocking on an open door
  * Returns	:	string * -- the responses
@@ -1371,10 +1371,10 @@ query_knock_fail() { return knock_fail; }
  * Function name: set_door_id
  * Description:   Set the id of the door
  */
-void	
-set_door_id(string id) 		
-{ 
-    door_id = id; 
+void
+set_door_id(string id)
+{
+    door_id = id;
 }
 
 /*
@@ -1468,7 +1468,7 @@ add_door_info(object dest)
 	door_ids = ({});
 	doors = ({});
     }
-    
+
     /* One door of the same type is enough. */
     if (member_array(door_id, door_ids) >= 0)
     {
@@ -1524,7 +1524,7 @@ enter_env(object dest, object old)
 {
     ::enter_env(dest, old);
 
-    add_door_info(dest); 
+    add_door_info(dest);
     if (open_status)
     {
         dest->change_my_desc(check_call(open_desc), this_object());
@@ -1570,7 +1570,7 @@ leave_env(object old, object dest)
  * Function name: standard_open_desc
  */
 string
-standard_open_desc() 
+standard_open_desc()
 {
   string temp_desc;
   temp_desc = "There is an open " + short();
@@ -1647,7 +1647,7 @@ standard_close_mess1()
  */
 string
 standard_close_mess2()
-{ 
+{
     return "The " + short() + " closes.\n";
 }
 

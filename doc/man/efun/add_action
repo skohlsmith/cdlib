@@ -1,6 +1,6 @@
 NAME
 	add_action - add an action to an object
-	
+
 SYNOPSIS
 	void add_action(function func, string verb, void|int part)
 
@@ -15,7 +15,7 @@ DESCRIPTION
 	For example:
 
 	    add_action(foobar, "tele", 1);
-	    
+
         will match on "tele" or "teleledning" while the whole verb
 	"teleledningsanka" will have to be given for this expression:
 
@@ -30,7 +30,7 @@ NOTA BENE
 	For this action to be added to an object, the object must be
 	`living', i.e. the function "enable_commands()" must have been
 	performed in the object prior to the "add_action()".
-	
+
 SEE ALSO
 	disable_commands, enable_commands, living, get_localcmd, query_verb
 

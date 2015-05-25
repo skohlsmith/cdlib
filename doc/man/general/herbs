@@ -7,17 +7,17 @@ directly, giving a certain effect - most often very weak. However, during
 the centuries, the herbalism was developed as there are certain herbs that
 can be used for interesting purposes, like healing, enhancing and curing.
 When you make a herb, keep in mind that most herbs are ineffective, and
-good, effective herbs are hard to find, and thus expensive. 
+good, effective herbs are hard to find, and thus expensive.
 
 
 		FUNCTIONS IN THE STANDARD HERB
 		------------------------------
 
-   Do set_ingest_verb to choose the appropriate verb - default is "eat". 
+   Do set_ingest_verb to choose the appropriate verb - default is "eat".
    In the create_herb(), the code will require that you either
    set the standard effect the herb will do (explained in the paragraph
    Effects of Herbs), OR do set_effect(HERB_SPECIAL); and
-   define the function special_effect() to handle what happens when 
+   define the function special_effect() to handle what happens when
    the player ingests the herb - this is for effects that are not handled
    by the standard herb.
 
@@ -27,14 +27,14 @@ Other setup-functions to be called within the create_herb() are:
 	herb name through these functions, as this would spoil the effect
 	of unidentified herbs. Instead use
 
-  set_herb_name - which will set the real name of the herb, 
+  set_herb_name - which will set the real name of the herb,
                         (for example strawberry or athelas)
 
   add_prop - to set weight and volume properties if you want something
 	else than the default (25 grams and 25 milli-liters),
 
   set_id_long and set_unid_long - the same for the long_desc.
-        Remember to describe what effect it has in the set_id_long, so 
+        Remember to describe what effect it has in the set_id_long, so
 	that the player truly identifies it.
 
   set_herb_value - the value of the herb when selling to herb-shops.
@@ -48,15 +48,15 @@ Other setup-functions to be called within the create_herb() are:
   set_id_diff   - An int from 1 to 100 describing the difficulty of
 	identifying the herb, like above.
 
-  set_effect - Described further below in this file. 
+  set_effect - Described further below in this file.
 
 What you should not do is to call set_long at all,
 as this will mess up the id and unid descriptions.
 
 Ideas on how to improve this generic herb are extremely welcome, so mail ideas
 for new functions or other improvements to Elessar. It would also be nice if
-we share the herbs we make, and put descriptions like names, effects, 
-difficulty of finding and filenames in a common file somewhere, so that we 
+we share the herbs we make, and put descriptions like names, effects,
+difficulty of finding and filenames in a common file somewhere, so that we
 might avoid having many herbs with just the same effects in the game.
 
 
@@ -74,10 +74,10 @@ Herb-types:
 	Strength-values: Any. Can even be negative for decrease.
   HERB_ENHANCING- enhances stats in a player, or gives the player a magic
 		  resistance of some sort.
-	Affect-types: 
+	Affect-types:
 		Stats: str, dex, con, int, wis, dis.
 		Resistance: acid, cold, electr, fire, magic, poison.
-	Strength-values: 
+	Strength-values:
 		Stats: decides how long the stat-change will last, but is
 			multiplied by 10 first - NB!
 			The stat-change is random, with a max of 4 either way,
@@ -99,7 +99,7 @@ Herb-types:
 			types of poisons.
 	Strength-values: between 1 and 100 - 100 means poison will be cured
 			for certain.
-  HERB_SPECIAL  - code your own herb-effect by making the function 
+  HERB_SPECIAL  - code your own herb-effect by making the function
                   special_effect().
 		You should not add other effects when doing this.
 	Affect-types: for you to decide.

@@ -2,7 +2,7 @@
  * /std/guild/guild_base.c
  *
  * This is the standard guild shadow functions that are common to all guild
- * shadows. 
+ * shadows.
  */
 
 /*
@@ -11,7 +11,7 @@
  *
  * Arguments:    s = string, i = integer, o = object
  *
- * query_guild_not_allow_join_guild(s, s, s) Function called when trying to 
+ * query_guild_not_allow_join_guild(s, s, s) Function called when trying to
  *                         shadow the player with a guild shadow. It calls each
  *                         query_allow_join_xxx(), described above.
  *
@@ -23,12 +23,12 @@
  *                         player log on. This is a good opportunity to check
  *                         the player and expell him if you want. This function
  *                         is ofcourse redefinable by you.
- * query_guild_member(s)   If you want to know if a player is member of a 
- *                         specific guild (type or name) you can call this 
+ * query_guild_member(s)   If you want to know if a player is member of a
+ *                         specific guild (type or name) you can call this
  *                         function with the appropriate string.
  *
- * query_guild_style(s)    If you want to know if a player is member of a 
- *                         specific guild style you can call this 
+ * query_guild_style(s)    If you want to know if a player is member of a
+ *                         specific guild style you can call this
  *                         function with the appropriate string.
  *
  * query_guild_leader()    Returns true if this player is considered to be a
@@ -134,7 +134,7 @@ shadow_me(object player, string type, string style, string name,
 
     player->set_guild_pref( ({ SS_OCCUP, SS_LAYMAN, SS_RACE, SS_CRAFT })[il],
         call_other(this_object(),
-            "query_guild_tax_" + ({ "occ", "lay", "race", "craft" })[il])); 
+            "query_guild_tax_" + ({ "occ", "lay", "race", "craft" })[il]));
     return 1;
 }
 
@@ -154,7 +154,7 @@ query_guild_keep_player(object player)
 /*
  * Function name: query_guild_member
  * Description:   Is the player already member of an occuptional or layman or
- *                race or creaft guild? Minor guilds or name of guild also 
+ *                race or creaft guild? Minor guilds or name of guild also
  *		  works.
  * Arguments:     str - the type of guild to search for, or guild name
  * Returns:       1 if the shadowed player was member :)
@@ -221,14 +221,14 @@ query_guild_style(string str)
     {
         i = 0;
     }
-    
+
     return i;
 }
 
 /*
  * Function name: query_guild_leader
  * Description  : Returns whether this player is considered to be a leader
- *                in one of his/her guilds. 
+ *                in one of his/her guilds.
  * Returns      : int 1/0 - guild leader or not.
  */
 public nomask int

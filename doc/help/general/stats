@@ -5,11 +5,11 @@ SYNOPSIS
         stats
 	stats <player>
 	stats reset
- 
+
 DESCRIPTION
         With this command you can see your vital statistics. If you are a
 	wizard you can see the stats of other players as well.
- 
+
 	For a summary of the possible descriptions, use the "levels" command.
 
 OPTIONS

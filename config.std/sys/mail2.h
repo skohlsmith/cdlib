@@ -48,7 +48,7 @@
  */
 #define WARNING_TOO_MUCH_IN_BOX (50)
 
-/* 
+/*
  * MAX_IN_MORTAL_BOX
  *
  * Mortals are restricticted to a maximum numbers they can have in their

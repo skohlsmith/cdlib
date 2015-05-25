@@ -1,6 +1,6 @@
 NAME
 	pingmud - Send a udp ping package to another mud
-	
+
 SYNOPSIS
 	pingmud host udp_port
 	pingmud mudname
@@ -17,15 +17,15 @@ OPTIONS
 	udp_port	The udp receiving port of the mud
 
 	mudname		Name of a mud known to this mud
-	
-	
+
+
 NOTA BENE
 	Only arches and keepers can ping other muds. Pilgrims can ping
-	their own mud.	
+	their own mud.
 
 BUG
 	Right now Pilgrims can ping any mud.
-	
+
 SEE ALSO
 	mudlist
 

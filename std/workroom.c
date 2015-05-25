@@ -1,7 +1,7 @@
-/* 
+/*
  * /std/workroom.c
  *
- * Generic workroom, just change it to your fit your tastes 
+ * Generic workroom, just change it to your fit your tastes
  */
 
 #pragma save_binary
@@ -34,7 +34,7 @@ create_workroom()
     if (SECURITY->query_domain_number(creator(this_object()))>=0)
 	load_board();
     add_prop(ROOM_I_INSIDE, 1);
-}    
+}
 
 /*
  * Function name: create_room
@@ -86,7 +86,7 @@ load_board()
     bb = clone_object("/std/board");
 
     name = implode(file, "/") + "/log";
-    if (file_size(name) != -2) 
+    if (file_size(name) != -2)
 	mkdir(name);
 
     bb->set_board_name(name + "/board_data");

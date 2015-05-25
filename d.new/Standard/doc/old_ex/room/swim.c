@@ -4,7 +4,7 @@ inherit "/std/room";
 #include <macros.h>
 
 #define HARD_TO_SWIM  20 /* how hard is it to swim across the water? */
-/* Note that a player with the requisite skill will always manage to swim 
+/* Note that a player with the requisite skill will always manage to swim
    but with lower in that skill he will only succeed if he's lucky. */
 
 /*
@@ -39,13 +39,13 @@ create_room()
  * The returning value decides what will happen to the player.
  * 0 means that the player isn't delayed.
  * 1 means that the player don't move, and that no other exits are tried.
- * 2 and more also stops the player, but the player can still move if 
+ * 2 and more also stops the player, but the player can still move if
  * there's another exit in the same dir. 2 is a very good value if you want
  * to make an 'enter mansion' direction.
  */
 
 swim()
-{   
+{
     int DIFFICULT;
     DIFFICULT=random(HARD_TO_SWIM)-2;
     if (this_player()->query_skill(SS_SWIM) < DIFFICULT)

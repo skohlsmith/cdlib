@@ -2,7 +2,7 @@
  * /cmd/wiz/normal/edit.c
  *
  * This is a subpart of /cmd/wiz/normal.c
- * 
+ *
  * The commands in this sub-part all have to do with editing stuff.
  *
  * Commands in this file:
@@ -159,7 +159,7 @@ exec_write(string str)
     {
 	SECURITY->do_debug("destroy", ob);
     }
-    
+
     /* Load the object and beware of errors. */
     if (error = catch(call_other(master, "teleledningsanka")))
     {
@@ -213,7 +213,7 @@ exec_done_editing_reloaded()
  *                function is called with the text. We call the function
  *                reload_soul in the player to get an euid into the soul
  *                and then execute the stuff.
- * Arguments    : string str - the 
+ * Arguments    : string str - the
  */
 public nomask void
 exec_done_editing(string str)
@@ -348,7 +348,7 @@ private nomask void
 pad_write(string str)
 {
     int index = 0;
-    
+
     if (!strlen(str))
     {
     	write("No note written on your notepad.\n");
@@ -401,7 +401,7 @@ pad_done_editing_reloaded()
  *                function is called with the text. We call the function
  *                reload_soul in the player to get an euid into the soul
  *                and then clip the text to the notepad.
- * Arguments    : string str - the 
+ * Arguments    : string str - the
  */
 public nomask void
 pad_done_editing(string str)
@@ -461,7 +461,7 @@ pad(string str)
 	pad_notes = m_delete(pad_notes, index);
 	save_pad_file();
         return 1;
-    
+
     case "r":
         if (size != 1)
         {
@@ -504,7 +504,7 @@ pad(string str)
             notify_fail("Syntax: pad w\n");
             return 0;
         }
-        
+
 	/* Clone an editor to enter the note text. */
 	clone_object(EDITOR_OBJECT)->edit(PAD_DONE);
 	return 1;

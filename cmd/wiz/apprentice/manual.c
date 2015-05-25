@@ -229,7 +229,7 @@ lman(string entry, string docdir)
 		    {
 			if (member_array(argv[1], sdirarr) < 0)
 			{
-			    write("No such subdir '" + argv[1] + 
+			    write("No such subdir '" + argv[1] +
 				"' available.\n");
 			    break;
 			}

@@ -9,15 +9,15 @@ SYNOPSIS
 
 DESCRIPTION
         With this function you can delay the call of a name function
-        `func' for `delay' seconds. If `arg' is specified it is passed as 
-	an argument to the function. If `arg' is not specified the id of 
+        `func' for `delay' seconds. If `arg' is specified it is passed as
+	an argument to the function. If `arg' is not specified the id of
 	the callout will be passed as an argument to the function.
         The function returns the id of the callout.
 
 NOTA BENE
         Neither "this_interactive()" nor "this_player()" is defined
         in a function that has been called by "call_out()". If you
-        have a `write()' statement in the function that is called 
+        have a `write()' statement in the function that is called
         with `call_out()' the output will end up in the game log.
 
 WARNING

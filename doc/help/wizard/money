@@ -13,7 +13,7 @@ DESCRIPTION
 	than you pass as arguments, money will be removed.
 
         Example: money 0 2 0 4      (to get 2 silvers and 4 platinum coins)
- 
+
 ARGUMENTS
 	<none>	- print how much money you have on you.
 	<args>	- the amount of copper, silver, gold and platinum coins

@@ -21,5 +21,5 @@ CAVEAT
 
 	You must currently remember which verb you did add_action() on
 	until there exists a query_trigverb()
-	
+
 BUGS

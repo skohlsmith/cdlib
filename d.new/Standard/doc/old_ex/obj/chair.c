@@ -28,7 +28,7 @@ init()
     add_action("stand_up","climp");
     add_action("stand_up","step");
     if (query_prop(CHAIR_O_OCCUPIED)==this_player())
-        add_action("do_all_commands", "", 1);    
+        add_action("do_all_commands", "", 1);
 }
 
 public int
@@ -46,12 +46,12 @@ do_all_commands(string str)
 
     if (member_array(verb,not_allowed)==-1)
         return 0;
-    else 
+    else
         return no_command();
-    
+
     return 1; /* should never occur */
 }
-     
+
 
 no_command()
 {
@@ -64,7 +64,7 @@ sit_down(string str)
 {
     object who,*list;
     string check;
-  
+
     if (!str)
         return 0;
 
@@ -107,18 +107,18 @@ stand_chair(string str)
     {
         write(QCTNAME(who)+" is sitting on the chair.\n");
         return 1;
-    }   
+    }
     change_prop(CHAIR_O_OCCUPIED,this_player());
     change_prop(OBJ_I_NO_GET,1);
     this_player()->change_prop(PLAYER_I_STANDS,1);
-    this_player()->change_prop(LIVE_S_EXTRA_SHORT," standing on a chair");   
+    this_player()->change_prop(LIVE_S_EXTRA_SHORT," standing on a chair");
     write("You stand on the chair.\n");
     say(QCTNAME(this_player())+" stands on the chair.\n");
     this_object()->move(this_player(),1);
     add_prop(OBJ_I_INVIS,1);
     return 1;
 }
-    
+
 stand_up(string str)
 {
     object who,*list;

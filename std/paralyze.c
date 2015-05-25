@@ -298,7 +298,7 @@ set_standard_paralyze(string str)
 
 /*
  * Function name: stop_paralyze
- * Description  : This function is called if the paralyze shall stop due to 
+ * Description  : This function is called if the paralyze shall stop due to
  *		  the time running out.
  */
 void

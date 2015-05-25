@@ -3,7 +3,7 @@ NAME
 
 SYNOPSIS
 	float nrnd([float mean[, float stdev]])
-	
+
 DESCRIPTION
 	Returns a normally distributed random floating-point value.
 	With no arguments nrnd() returns a random value with a mean

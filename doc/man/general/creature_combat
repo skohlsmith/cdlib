@@ -7,15 +7,15 @@ There is basically two different types of creatures:
 	- Tool users
 		These are nonhumanoid creatures that still use weapons
 		and armours. These tools can be entirely or partially
-		incompatible with humanoids. 
-	
+		incompatible with humanoids.
+
 	- Non tool users
 		These are normally animals that have no concept of tools
 		and fight with what they were born with, things like
 		fangs, claws and a tough skin.
 
 Tool users normally use the combat object: /std/combat/ctool.c
-This is the generic version of the humanoid combat object. 
+This is the generic version of the humanoid combat object.
 
     *
     * Docs will continue, I reference to the code for now.
@@ -23,4 +23,4 @@ This is the generic version of the humanoid combat object.
     * Some examples can be found in /doc/examples/mobiles
     *
 
-	
+

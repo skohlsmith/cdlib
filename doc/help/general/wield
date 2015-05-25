@@ -11,6 +11,6 @@ OPTIONS
         specification - a string that specifies what you want to wear
 	                it can take many different forms
 	                the item specified must be in your inventory
-	
+
 SEE ALSO
 	remove, wear, unwield

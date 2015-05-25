@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Gives the host name of an interactive player, ie from which site
 	the player is connecting to the game.
-	
+
 	The string returned is on the form: "milou.cd.chalmers.se"
 
 SEE ALSO
@@ -19,4 +19,4 @@ BUGS
 	query_ip_name will return the same as query_ip_number, always.
 
 
-	
+

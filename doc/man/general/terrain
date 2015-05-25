@@ -9,7 +9,7 @@ TERRAIN_OUTSIDE - This is used simply to define whether a room is outside
 	terrain system is based on. To define a room as outside, it must meet
         several criteria: - it must not be significantly walled in
                           - if it is walled in, it must have little to no
-                            ceiling, and thus exposed to the sun and 
+                            ceiling, and thus exposed to the sun and
                             sky/water above.
 
 TERRAIN_NATURAL - This is used to determine whether the environment of
@@ -75,10 +75,10 @@ TERRAIN_WET - This type is to be used if the area is 'wet'. It doesn't
 	liquid at all, but it should contain something wet, like saturated
 	soil.
 
-TERRAIN_ROCK - This type is to be used if the substrate of the ground 
+TERRAIN_ROCK - This type is to be used if the substrate of the ground
 	is hard. It is used for rocky ground, wooden floors, stone flagging.
 
-TERRAIN_SAND - This type is to be used if the substrate of the ground 
+TERRAIN_SAND - This type is to be used if the substrate of the ground
 	is sandy. It should be possible to pick up handfuls of sand from
 	places with this terrain type.
 
@@ -110,7 +110,7 @@ TERRAIN_STEEP - This type is to be used also for areas that are difficult
 	flat or horizontal.
 
 TERRAIN_SHADOWS - This type controles if it is esy to hide, if there
-        is a lightsource present. Alleys and ruins are typical of this 
+        is a lightsource present. Alleys and ruins are typical of this
         type, that can be used to increase the effectiveness of hide and sneak.
 
 TERRAIN_CROWDED - This type is to be used for areas that have many people

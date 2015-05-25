@@ -19,7 +19,7 @@
 /*
  * Build a mudlist
  */
-static string 
+static string
 build_mudlist(string *names)
 {
     string ret;
@@ -32,7 +32,7 @@ build_mudlist(string *names)
     {
 	p = TO->query_mud_info(names[il]);
 	ret += "||" + il + ":" +
-	    "|NAME:" + names[il] + 
+	    "|NAME:" + names[il] +
 	    "|HOST:" + p["HOST"] +
 	    "|HOSTADDRESS:" + p["HOSTADDRESS"] +
 	    "|PORT:" + p["PORT"] +
@@ -56,8 +56,8 @@ send_mudlist_q(string host, mixed port)
 		 "||PORTUDP:" + TO->query_my_udpport() +
 		 "@@@\n");
 }
-    
-    
+
+
 /*
  * mudlist_q
  */
@@ -71,7 +71,7 @@ mudlist_q(mapping p)
     {
 	names = TO->query_known_muds();
 	for (il = 0; il < sizeof(names); il+=5)
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 			 "@@@" + UDP_MUDLIST_A +
 			 build_mudlist(names[il..il+4]) + "@@@\n");
 	return 1;
@@ -121,7 +121,7 @@ int mudlist_a(mapping p)
     return 1;
 }
 
-/* 
+/*
  * cmd_mudlist - List the muds known to us
  */
 int
@@ -136,7 +136,7 @@ cmd_mudlist(string str)
     if (!str)
     {
 	if (sizeof(names)) {
-	    write(sizeof(names) + " known muds:\n" + 
+	    write(sizeof(names) + " known muds:\n" +
 		  break_string(COMPOSITE_WORDS(names) + ".\n",
 			       this_player()->query_option(OPT_SCREEN_WIDTH)-10,
 			       3));
@@ -151,7 +151,7 @@ cmd_mudlist(string str)
 	mudn = str;
 	flag = "none";
     }
-    else 
+    else
     {
 	str = flag;
 	if (sscanf(str, "%s %s", flag, mudn) != 2)

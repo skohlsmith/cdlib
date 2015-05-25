@@ -138,9 +138,9 @@
 
 #define A_R_FINGER  	TS_RFINGER
 #define A_L_FINGER  	TS_LFINGER
-#define A_FINGERS    	(TS_RFINGER | TS_LFINGER) 
+#define A_FINGERS    	(TS_RFINGER | TS_LFINGER)
 #define A_ANY_FINGER    (-98304 /* -A_FINGERS */)
- 
+
 #define A_R_FOOT    	TS_RFOOT
 #define A_L_FOOT    	TS_LFOOT
 #define A_FEET      	(TS_RFOOT | TS_LFOOT)

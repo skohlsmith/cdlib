@@ -5,8 +5,8 @@ SYNOPSIS
 	mixed *m_values(mapping map|int foobar)
 
 DESCRIPTION
-	This function returns the value part, of a mapping as an array. 
-	If an integer is given as argument, 0 is returned. 
+	This function returns the value part, of a mapping as an array.
+	If an integer is given as argument, 0 is returned.
 
 EXAMPLE
 	m_values( ([ 1:"a", 2:"b" ]) ) returns ({ "a", "b" })

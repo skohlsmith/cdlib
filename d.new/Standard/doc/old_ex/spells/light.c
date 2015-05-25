@@ -13,7 +13,7 @@
 
 #define MANA_LIMIT      5  /* How much mana does it cost to cast this spell? */
 #define CAST_LIMIT      20 /* How wise and skilled must the caster be? */
-#define SPELL_DIR       "/d/Genesis/doc/examples/spells/" 
+#define SPELL_DIR       "/d/Genesis/doc/examples/spells/"
 				/* Where is our spell dir? */
 
 /* Function name: light

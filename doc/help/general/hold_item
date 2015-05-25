@@ -7,6 +7,6 @@ SYNOPSIS
 DESCRIPTION
 	Hold an item in your hand.  Not all items can be held with this
 	command.
-	
+
 SEE ALSO
 	wear, wield, release, hold, hold_emote

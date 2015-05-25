@@ -6,7 +6,7 @@ to add new things to it yourself.
 Wizards are people familiar with the mud, who are allowed to add new
 things to it. To become a wizard is to be given the right to code.
 
-To become familiar with the mud, players must visit and adventure in most 
+To become familiar with the mud, players must visit and adventure in most
 of its parts. Only when this is accomplished is the user behind the player
 deemed capable of adding new things that will fit nicely in in the game.
 
@@ -16,7 +16,7 @@ same monster over and over again. Even for those that have found this to
 be an enjoyable type of playing, it has had one major practical drawback.
 Players have usually concentrated on playing in a very small part of the mud
 and many have become wizard without really having seen more than that
-small part. 
+small part.
 
 The sole purpose of making it an effort to become wizard is therefore to
 ensure quality in new parts of the game. There is no purpose in making it
@@ -27,10 +27,10 @@ hard work is something most of us expect to get paid in cash for.
 The wizards are specifically not an elite club of people that is to snort
 at the mere mortals and directly interfere with there playing. Any wizard
 found doing that is firstly warned and then expelled from the mud. The idea
-is for everyone to have fun, not for some to have fun on others behalf. 
+is for everyone to have fun, not for some to have fun on others behalf.
 Wizards are there to serve the mortals in making a better game, nothing else.
 
-So, how is this accomplished? 
+So, how is this accomplished?
 What has changed since earlier versions of the mudlib?
 
 The key to the new system is the changed experience point system. This is
@@ -48,7 +48,7 @@ solving quests. Normal xp is special in that:
 1) Once gained they can never be lost.
 2) They can never be gained twice for doing the same thing.
 
-To support the second point, each domain get 100 bits in each player. These 
+To support the second point, each domain get 100 bits in each player. These
 bits are supposed to be used for marking of what a certain player has
 already been given normal xp for. The bits are documented in 'quest_bits'.
 
@@ -88,7 +88,7 @@ of solving the 'immortal quest' a player must have an average of 90. If the
 player has an average of 100, success is ensured.
 
 A scale for normal xp is given in 'xp_scale'. This gives some guidelines
-as to how much xp to give for different tasks. 
+as to how much xp to give for different tasks.
 
 
 

@@ -8,6 +8,6 @@ OPTIONS
         specification - a string that specifies what you want to unwield
 	                it can take many different forms the item specified
 			must be in your inventory
-	
+
 SEE ALSO
 	remove, wield, wear

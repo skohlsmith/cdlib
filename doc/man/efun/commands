@@ -5,12 +5,12 @@ SYNOPSIS
 	mixed *commands(void|object ob)
 
 DESCRIPTION
-	Returns an array of arrays with all the commands of the specified 
+	Returns an array of arrays with all the commands of the specified
 	object.	If no object is specified, this_object() is assumed.
 	The format of each entry is:
-	({ 
-	   (string) command, 
+	({
+	   (string) command,
 	   (int)    short_verb,
-	   (object) defining_object, 
-	   (string) function 
+	   (object) defining_object,
+	   (string) function
 	)}

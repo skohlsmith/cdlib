@@ -8,7 +8,7 @@
 */
 
 /* You can disable heart_beat completely with this define. */
-#undef HEART_NEEDED 
+#undef HEART_NEEDED
 
 #include <config.h>		/* for STATUE_WHEN_LINKDEAD */
 #include <macros.h>
@@ -69,8 +69,8 @@ heart_beat()
 }
 
 void
-restart_heart() 
-{ 
+restart_heart()
+{
 #ifdef HEART_NEEDED
     set_alarm(2.0, 2.0, heart_beat);
 #endif

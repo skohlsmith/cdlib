@@ -31,7 +31,7 @@ send_gwizmsg(string wizname, string msg, int emote)
     {
 	p = TO->query_mud_info(ix[il]);
 	if (stringp(p["HOSTADDRESS"]) && atoi(p["PORTUDP"]))
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 			 "@@@" + UDP_GWIZMSG +
 			 "||NAME:" + TO->query_my_name() +
 			 "||PORTUDP:" + TO->query_my_udpport() +
@@ -52,13 +52,13 @@ send_gwizmsg(string wizname, string msg, int emote)
 /*
  * Got a message
  */
-int 
+int
 gwizmsg(mapping p)
 {
     string smsg;
     mapping mi;
 
-    if (stringp(p["NAME"]) && 
+    if (stringp(p["NAME"]) &&
 	stringp(p["PORTUDP"]))
     {
 	if (p["NAME"] == TO->query_my_name())
@@ -66,7 +66,7 @@ gwizmsg(mapping p)
 
 	mi = TO->query_mud_info(p["NAME"]);
 
-	/* 
+	/*
 	    If the mud is unknown to us we might as well ping it to get
 	    some relevant info. We do not accept messages from unknown
 	    muds.
@@ -105,7 +105,7 @@ gwizmsg(mapping p)
 /*
  * Loop through and tell wizards the received message
  */
-void 
+void
 tell_wizards(string smsg)
 {
     object *u;

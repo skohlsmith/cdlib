@@ -28,7 +28,7 @@
 
 /*
   All messages are on the format:
-  
+
        @@@command||parameter||parameter||parameter||parameter@@@
 
   Below is the commands included as the basic protocol defined:
@@ -103,8 +103,8 @@
 
 #ifdef UDP_MUDWHO
 
-/* 
- * These defines are the syntax of the MUDWHO protocol as given by 
+/*
+ * These defines are the syntax of the MUDWHO protocol as given by
  * Marcus J. Ranum 1991.
  */
 #define UDP_MW_PORT 		6888
@@ -122,7 +122,7 @@
 #define UDP_MW_LIVE(name, pass, comment) 			\
 	sprintf("M\t%.20s\t%.20s\t%.20s\t%.10d\t0\t%.25s",	\
 		name, pass, name, time(), comment)
-		
+
 #define UDP_MW_USER_IN(name, pass, uid, cname) 				\
 	sprintf("A\t%.20s\t%.20s\t%.20s\t%.20s\t%.10d\t0\t%.20s",	\
 		name, pass, name, uid, time(), cname)

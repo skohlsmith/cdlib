@@ -5,7 +5,7 @@ SYNOPSYS
 	beam
 	beam <adverb>
 	beam [at] <target>
-	beam <adverb> [at] <target>	
+	beam <adverb> [at] <target>
 
 OPTIONS
 	<adverb> - any adverb from the available set or a period . to not

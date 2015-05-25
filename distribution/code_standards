@@ -55,7 +55,7 @@ This is how your code should look:
 
 Example (No warranty of correctness supplied):
 
-/* 
+/*
  * A backscratcher example
  * Tintin 920206
  */
@@ -131,4 +131,4 @@ scratchback(mixed person)
 		       "It feels wonderful.\n");
     return 1;
 }
-				  
+

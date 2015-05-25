@@ -12,7 +12,7 @@ DESCRIPTION
 	result in the message "The sun shines brightly." being displayed
 	to everyone in the room.
 
-	All echo commands are logged. Writing your own echo command is a 
+	All echo commands are logged. Writing your own echo command is a
 	demoting offense.
 
 SEE ALSO

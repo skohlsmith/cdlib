@@ -42,7 +42,7 @@ create_body(string race, string gender)
     set_long(capitalize(query_real_name()) +
 	     " has an empty and blank stare.\n");
     set_appearance(random(98) + 1);
-	     
+
     add_prop(LIVE_I_ALWAYSKNOWN, 1);
     /* add_prop(OBJ_I_INVIS, 1); */
 

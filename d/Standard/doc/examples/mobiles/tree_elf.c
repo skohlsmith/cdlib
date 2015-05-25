@@ -3,13 +3,13 @@
  */
 
 /*
- * This elf is sitting at the top of a large tree. If attacked, he simply 
+ * This elf is sitting at the top of a large tree. If attacked, he simply
  * pushes the attacker off the tree to :)
  */
 
 inherit "/std/monster";
 
-#include "ex.h"	
+#include "ex.h"
 #include <ss_types.h>   /* Skills and stats are defined in /sys/ss_types.h */
 #include <stdproperties.h>      /* Properties */
 #include <macros.h>	/* QTNAME and more nice definitions */

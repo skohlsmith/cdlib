@@ -14,11 +14,11 @@ static string	*spell_verb,	/* The activating word */
  * Description:   Add a spell to the player's supply of spells.
  * Arguments:	  verb - The name of the spell, the name it is cast by.
  *		  func - The name of the function to call.
- *		  obj - The object to call the function in. 
+ *		  obj - The object to call the function in.
  * 		  name - The name of the spell.
  * Returns:       1 - Ok, 0 - The spell already existed.
  */
-int 
+int
 add_spell(string verb, string func, mixed cobj, string name)
 {
 
@@ -61,7 +61,7 @@ add_spell(string verb, string func, mixed cobj, string name)
  * Function name: list_spells
  * Description:   List the active spells.
  */
-void 
+void
 list_spells()
 {
     int index;

@@ -5,7 +5,7 @@ SYNOPSIS
 	object environment(object ob)
 
 DESCRIPTION
-	This function returns the object that has `ob' in its inventory, 
+	This function returns the object that has `ob' in its inventory,
 	the environment of `ob'. If no object is given as argument,
 	`this_object()' is used by default.
 

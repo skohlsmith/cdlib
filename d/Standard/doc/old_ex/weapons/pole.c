@@ -13,7 +13,7 @@ create_weapon()
     set_long("A big heavy pole.\n");
 
     /* Now, a player can refere to this weapon as 'weapon' and 'dagger'. To
-     * distinguish it from other daggers, we want the player to be able to 
+     * distinguish it from other daggers, we want the player to be able to
      * use 'small dagger' as an id too.
      */
     set_adj("big");
@@ -24,7 +24,7 @@ create_weapon()
 
     /* The weapon type and the type of damage done by this weapon */
     set_wt(W_CLUB); /* It's a club */
-    set_dt(W_BLUDGEON); 
+    set_dt(W_BLUDGEON);
 
     /* Last, how shall it be wielded? */
     set_hands(W_BOTH);
@@ -48,7 +48,7 @@ try_hit(object ob) /* ob is the target we will try to hit. */
 /* Tell everyone in the room that our wielder didn't manage to hit this time.
  * But don't tell the wielder twice.
  */
-	tell_room(environment(query_wielded()), QCTNAME(query_wielded()) + 
+	tell_room(environment(query_wielded()), QCTNAME(query_wielded()) +
 		" tries hard but doesn't manage to rise the big pole.\n",
 		query_wielded()); /* The last arg say who shall not hear */
 	return -1;

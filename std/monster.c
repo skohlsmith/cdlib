@@ -1,4 +1,4 @@
-/* 
+/*
    /std/monster.c
 
    This is the standard humanoid monster object. This object is intended
@@ -60,9 +60,9 @@ reset_npc() { reset_monster(); }
  * Description:  Use the humanoid combat file
  */
 public string
-query_combat_file() 
+query_combat_file()
 {
-    return "/std/combat/chumanoid"; 
+    return "/std/combat/chumanoid";
 }
 
 /*

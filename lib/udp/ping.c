@@ -30,8 +30,8 @@ send_ping_q(string host, mixed port)
 }
 
 /*
- */  
-int 
+ */
+int
 ping_q(mapping p)
 {
     mapping mi;
@@ -41,7 +41,7 @@ ping_q(mapping p)
 	if (stringp(p["NAME"]) &&
 	    p["NAME"] != TO->query_my_name() &&
 	    p["NAME"] != lower_case(TO->query_my_name()))
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 			 "@@@" + UDP_PING_A +
 			 SECURITY->startup_udp() + "@@@\n");
 
@@ -60,8 +60,8 @@ ping_q(mapping p)
 }
 
 /*
- */  
-int 
+ */
+int
 ping_a(mapping p)
 {
     if (stringp(p["NAME"]) &&

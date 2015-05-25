@@ -1,7 +1,7 @@
 /*
  * A standard object that adds resistance to its carrier
  */
- 
+
 #pragma save_binary
 #pragma strict_types
 
@@ -78,7 +78,7 @@ leave_env(object from, object to)
 {
     if (objectp(from) && living(from))
       	from->remove_magic_effect(this_object());
-    
+
     ::leave_env(from, to);
 }
 

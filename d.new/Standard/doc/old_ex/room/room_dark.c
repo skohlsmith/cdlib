@@ -1,6 +1,6 @@
 
 /*
-    
+
     This is a dark room.
 
 */
@@ -17,7 +17,7 @@ create_room()
         "This is a filthy cave, if you have a light you can see.\n"+
         " ");
 
-    add_prop(ROOM_I_LIGHT, 0);    
+    add_prop(ROOM_I_LIGHT, 0);
 }
 
 

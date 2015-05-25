@@ -2,10 +2,10 @@
  * /std/player_pub.c
  *
  * This is the customizable part of the old player.c. Inherit this object
- * to make your race object. That race dependant object should then be 
- * inherited by the guild dependant object. 
+ * to make your race object. That race dependant object should then be
+ * inherited by the guild dependant object.
  *
- * This file inherits the player_sec object statically to ensure the 
+ * This file inherits the player_sec object statically to ensure the
  * protection of all lower level routines.
  */
 
@@ -46,7 +46,7 @@ death_sequence()
 {
     object death_mark;
     if (!query_ghost()) return;
-    
+
     death_mark = clone_object(DEFAULT_DEATH);
     death_mark->move(this_object(), 1);
 }

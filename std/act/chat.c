@@ -3,9 +3,9 @@
 
    Chatting: Standard action module for mobiles
 
-   add_chat(string)	       Set a random chatstring 
+   add_chat(string)	       Set a random chatstring
 
-   add_cchat(string)           Set a random combat chatstring 
+   add_cchat(string)           Set a random combat chatstring
 
    clear_chat()		       Clear random chatstring
 
@@ -139,7 +139,7 @@ monster_do_chat()
     int il;
     string chatstr;
 
-    if (!this_object()->query_attack()) 
+    if (!this_object()->query_attack())
     {
 	if (!sizeof(monster_chat_left))
 	    monster_chat_left = monster_chat;
@@ -164,7 +164,7 @@ monster_do_chat()
 	chatstr = monster_cchat_left[il];
 	monster_cchat_left = exclude_array(monster_cchat_left,il,il);
 	il = monster_cchat_time;
-	
+
     }
     this_object()->seq_clear(SEQ_CHAT);
     this_object()->seq_addfirst(SEQ_CHAT,

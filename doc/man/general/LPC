@@ -489,7 +489,7 @@ called functions are defined in the inherited object:
 13 - Arrays
 -----------
 
-There is support for arrays. An array can be declared by putting a '*' 
+There is support for arrays. An array can be declared by putting a '*'
 in front of the variable definition, like:
 
 	int *arr;
@@ -502,7 +502,7 @@ separated by commas and arrays can be added to or subtracted from
 each other. Elements can be of any type, even other arrays.
 
 You can build arrays directly by assigning them to an array-definition,
-or indirectly by adding array-definitions to them. Assigning values to 
+or indirectly by adding array-definitions to them. Assigning values to
 indexes that are not in the range [0, sizeof(array)-1] will lead to errors.
 Another way of building arrays is to allocate() them. In that case you will
 get an empty array of the allocated size, to which you can start to assign

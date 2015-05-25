@@ -2,7 +2,7 @@
    sys/state_desc.h
 
    Holds all textual descriptions of state descriptions of livings.
-   
+
    Note that local changes to these arrays are done in
    /config/sys/state_desc2.h
 */
@@ -55,9 +55,9 @@
 #define SD_NUM_STATLEVS 15
                       /* Lowest possible level is probably 7. But just to be safe. */
 #define SD_STATLEVELS ({ 1, 14, 22, 30, 39, 48, 58, 68, 79, 90, 102, 114, 126, 138, 150 })
-#define SD_STATLEVEL_EPIC 165 
-#define SD_STATLEVEL_IMM  185 
-#define SD_STATLEVEL_SUP  210 
+#define SD_STATLEVEL_EPIC 165
+#define SD_STATLEVEL_IMM  185
+#define SD_STATLEVEL_SUP  210
 
 #define SD_NUM_GUILDS       4
 #define SD_GUILD_EXTENSIONS ({ "race", "occ", "lay", "craft" })
@@ -85,7 +85,7 @@
 			   "feeling rather hurt", "hurt", 		\
                 	   "somewhat hurt", "slightly hurt", 		\
 			   "feeling very well" })
-    
+
 #define SD_MANA		({ "in a vegetable state", "exhausted",		  \
 			   "worn down", "indisposed", "in a bad shape",   \
 			   "very degraded", "rather degraded",\
@@ -135,11 +135,11 @@
 #define SD_STUFF    	({ "eat quite a lot more", "eat a lot more",	  \
 		     	   "eat some more", "eat a little more",	  \
 		     	   "barely eat more" })
-    
+
 #define SD_INTOX	({ "tipsy", "intoxicated", "drunk", "tanked", 	  \
 			   "blitzed", "wasted", "toasted", "pissed",	  \
 			   "stoned", "obliviated" })
-    
+
 #define SD_HEADACHE	({ "mild", "uncomfortable", "bad", "serious",     \
 			   "intense", "pounding", "burning", "extreme" })
 

@@ -17,13 +17,13 @@ mapping map_managers;
 
 
 /*
-  The mapping holding all map links 
+  The mapping holding all map links
 
   NOTE
       This is made static and not saved to KEEPERSAVE because each domain
       should in the preload phase link themselves to the map.
 */
-static mapping m_maplinks = ([]);     
+static mapping m_maplinks = ([]);
 static mapping single_locs = ([]);	    /* ([ loc:domain ]) */
 static mixed *boxes = ({});		    /* ({ ({ box, domain }), ... }) */
 
@@ -102,7 +102,7 @@ setup_one_maplink(string manager)
     manager->make_link();
 }
 
-    
+
 /*
  * Function name:   add_maplink
  * Description:     Adds a new link to the global map.
@@ -139,7 +139,7 @@ add_maplink(string file, string box, string *singles)
 	if (pointerp(old[2]))
 	    for (il = 0; il < sizeof(old[2]); il++)
 		m_delkey(single_locs, old[2][il]);
-	
+
 	if (pointerp(boxes))
 	    for (il = 0; il < sizeof(boxes); il++)
 		if (boxes[il][1] == domain)
@@ -150,7 +150,7 @@ add_maplink(string file, string box, string *singles)
 	singles = ({ singles });
 
     m_maplinks[domain] = ({ file, box, singles });
-    
+
     for (il = 0; il < sizeof(singles); il++)
     {
 	single_locs[singles[il]] = domain;
@@ -161,13 +161,13 @@ add_maplink(string file, string box, string *singles)
     boxes += ({ ({ box, domain }) });
     if (stringp(box) && sscanf(box, "x%d-%dy%d-%d", x, xd, y, yd) == 4)
     {
-	for (il = x; il < xd; il++)  for (il2 = y; il2 < yd; il2++) 
+	for (il = x; il < xd; il++)  for (il2 = y; il2 < yd; il2++)
 	    set_domain_bit(il, il2);
     }
     return 1;
 }
 
-static int 
+static int
 set_domain_bit(int x, int y)
 {
     "/std/map/map"->set_domain_bit(x, y, 1);
@@ -212,7 +212,7 @@ public string *query_singles_doms() { return m_values(single_locs); }
  * Arguments:       wlc: Location on the form "xnnnnynnnn"
  *		    box:  An square on the map defined as:
  *			       "xnnnn-nnnnynnnn-nnnn"
- * Returns:	    True if within box		    
+ * Returns:	    True if within box
  */
 public int within_box(string wlc, string box)
 {
@@ -292,7 +292,7 @@ create_maproom(string xyc, string file_info)
 
    if (sscanf(xyc,"x%d.%dy%d.%d",wlx,slx,wly,sly) != 4)
        return 0;
-   
+
    seteuid(ROOT_UID);
 
    fname = MAP_PATH + "/" + xyc + ".c";
@@ -369,12 +369,12 @@ find_remote_map_sym(string wlc)
     int this_type;
     int other_type;
     int check_type;
-    int wlx, wly, slx, sly; 
+    int wlx, wly, slx, sly;
     int ssx, ssy;
     mixed *terrain;
- 
+
     sscanf(wlc,"x%d.%dy%d.%d", wlx, slx, wly, sly);
- 
+
     terrain = "/std/map/map"->get_nine(wlx, wly);
     this_type = terrain[0][4];
 
@@ -399,17 +399,17 @@ find_remote_map_sym(string wlc)
             (TERRAIN_PRIORITY[check_type & PLAIN]))
             other_type = check_type;
     }
-     
+
     if ((this_type & DOMAIN_BIT) || (other_type & DOMAIN_BIT))
         return this_type;
- 
+
     if (TERRAIN_PRIORITY[this_type & PLAIN] >
         (TERRAIN_PRIORITY[other_type & PLAIN]))
-        return this_type; 
- 
+        return this_type;
+
     if (random(100, map_seed(wlx, wly)) < prob(slx, sly))
         return other_type;
- 
+
     return this_type;
 }
 
@@ -424,13 +424,13 @@ find_remote_map_char(string wlc)
 {
     string ch;
     int sym;
-    
+
     sym = find_remote_map_sym(wlc);
-    ch = MAP_CHARS[sym & PLAIN]; 
+    ch = MAP_CHARS[sym & PLAIN];
     if (stringp(ch))
 	return ch;
     else
 	return MAP_DEFAULT_CHAR;
 }
 
-	
+

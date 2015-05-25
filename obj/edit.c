@@ -195,7 +195,7 @@ display(int num, int use_more = 0)
  *                the report function in the calling object.
  * Arguments    : string str - the text entered.
  */
-static void 
+static void
 finished(string str)
 {
     if (functionp(finished_fun))
@@ -328,7 +328,7 @@ delete(string arg)
         write("No lines specified for deletion.\n");
         return;
     }
- 
+
     arg   = implode(explode(arg, " "), "");
     parts = explode(arg, ",");
 

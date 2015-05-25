@@ -28,7 +28,7 @@ create_object()
 init()
 {
     string *adj;
-    
+
     add_action("press", "press");
     add_action("alpha", "alpha");
     add_action("beta", "beta");
@@ -66,7 +66,7 @@ select(string str)
     return 1;
 }
 
-public int 
+public int
 show(string str)
 {
     write("This is how you look:\n");
@@ -74,7 +74,7 @@ show(string str)
     return 1;
 }
 
-int alpha(string str) 
+int alpha(string str)
 {
     int val;
     if(!stringp(str)) {
@@ -93,8 +93,8 @@ int alpha(string str)
     aval = val;
     return 1;
 }
-    
-int beta(string str) 
+
+int beta(string str)
 {
     int val;
     if(!stringp(str)) {
@@ -113,8 +113,8 @@ int beta(string str)
     bval = val;
     return 1;
 }
-    
-int gamma(string str) 
+
+int gamma(string str)
 {
     int val;
     if(!stringp(str)) {
@@ -133,13 +133,13 @@ int gamma(string str)
     gval = val;
     return 1;
 }
-    
+
 int press(string str)
 {
-    
+
     select(call_other(PATH + "check_attrib", "get_elem", aval, gval));
     select(call_other(PATH + "check_attrib", "get_elem", gval, bval));
     write("As radiation flows through your body, you feel it change.\n");
-	
+
     return 1;
 }

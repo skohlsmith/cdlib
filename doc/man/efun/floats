@@ -6,7 +6,7 @@ SYNOPSIS
 	float itof(int)
 	int ftoi(float)
 	string ftoa(float)
-	
+
 	RANDOM
 	float rnd()
 
@@ -35,24 +35,24 @@ SYNOPSIS
 	MISCELLANEOUS
 	float abs(float)
 	float fact(float)
-	
+
 DESCRIPTION
 	Floating point constants take the form
 
 	[sign]<number>.<number>[e[sign]<number>]
-	
+
 	where [ ] denotes optional parts.
 	Thus 1.0 and -14.3e-4 are both accepted as floats, 3 and 2e9 are not.
 	In expressions
 
-	f = 1/2.5; 
+	f = 1/2.5;
 
-	won't work but 
+	won't work but
 
-	f = 1.0/2.5; 
+	f = 1.0/2.5;
 
 	will.
-	
+
 	All floats are 32 bits in length, with 24 bits in the mantissa and
 	8 bits in the exponent (IEEE format).
 
@@ -68,11 +68,11 @@ DESCRIPTION
 	The rest of the functions are either self explanatory, or can be
 	looked up in a Unix manual. (If you think this is too terse, you can
 	send additional material to mud@cd.chalmers.se)
-	
+
 NOTA BENE
-	Only use floats when they are really needed. They are slower than 
+	Only use floats when they are really needed. They are slower than
 	integer arithmetic.
-		
+
 SEE ALSO
 	sscanf
 

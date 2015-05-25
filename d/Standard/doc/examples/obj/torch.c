@@ -75,10 +75,10 @@ create_torch()
  * init_recover(). To handle normal torch query_torch_recover() and
  * init_torch_recover() has been made so unless we have done something special
  * with the torch we can use them as follows.
- * 
+ *
  * query_recover() returns a string that is used to recover this object later.
  * Therefor this function is of 'string' type. The first part of the recover
- * string is the file name of this object, the last part any argument that 
+ * string is the file name of this object, the last part any argument that
  * will be sent to init_recover() when recovering. This way you can let
  * variables be 'remembered'.
  */

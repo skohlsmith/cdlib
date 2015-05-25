@@ -8,7 +8,7 @@ How to make a spell book
 ========================
 
 This example exists in coded form in /doc/examples/spells/spell_book.c
-The file only set up the spells, the true spell code is in light.c, 
+The file only set up the spells, the true spell code is in light.c,
 shield.c and energy_blast.c in the same directory.
 
 To get an object that defines spells to work we should first do:

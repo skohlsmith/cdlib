@@ -7,7 +7,7 @@ int new_mail;
 
 create_room()
 {
- 
+
     set_short("The post office");
 
     set_long("\n"+

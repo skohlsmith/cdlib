@@ -2,7 +2,7 @@ NAME
 	start - display and set default staring location
 
 SYNOPSIS
-	start 
+	start
 	start [options]
 	start [path]
 
@@ -12,7 +12,7 @@ DESCRIPTION
 
 OPTIONS
 	[none] 	- display the current starting location
-	
+
 	valid	- display all valid (mortal) starting locations
 
 	here	- set your starting location to be this room

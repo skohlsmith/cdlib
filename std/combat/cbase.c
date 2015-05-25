@@ -1,7 +1,7 @@
 /*
  /std/combat/cbase.c
 
- This is the externalized combat routines. 
+ This is the externalized combat routines.
 
  This object is cloned and linked to a specific individual when
  engaged in combat. The actual object resides in 'limbo'.
@@ -107,11 +107,11 @@ cb_status()
     mixed ac;
     object *valid_enemies;
 
-    str = "Living object: " + file_name(me) + 
+    str = "Living object: " + file_name(me) +
         " (Uid: " + getuid(me) + ", Euid: " + geteuid(me) + ")\n";
 
-    str += "Combat object: " + file_name(this_object()) + 
-        " (Uid: " + getuid(this_object()) + 
+    str += "Combat object: " + file_name(this_object()) +
+        " (Uid: " + getuid(this_object()) +
             ", Euid: " + geteuid(this_object()) + ")\n";
 
     if (attack_ob)
@@ -143,11 +143,11 @@ cb_status()
                              "   %use" }));
         ac = attacks[il][ATT_DAMT];
         ac = ({ (ac & W_IMPALE ? attacks[il][ATT_WCPEN][0] + " " : "no "),
-                (ac & W_SLASH ? attacks[il][ATT_WCPEN][1] + " " : "no "), 
+                (ac & W_SLASH ? attacks[il][ATT_WCPEN][1] + " " : "no "),
                 (ac & W_BLUDGEON ? attacks[il][ATT_WCPEN][2] + " " : "no ") });
         ac = implode(ac,"   ");
 
-        str += sprintf("%-20s %|9d %-17s %|9d %|9d\n", 
+        str += sprintf("%-20s %|9d %-17s %|9d %|9d\n",
             this_player()->check_call(cb_attack_desc(att_id[il])) + ":",
             attacks[il][ATT_WCHIT],
             ac,
@@ -166,12 +166,12 @@ cb_status()
         ac = hitloc_ac[il][HIT_AC];
         if (!pointerp(ac))
             ac = ({ ac, ac, ac });
-        else 
+        else
             ac = ac[0..2];
         str += sprintf("%@|9d %|9d\n", ac, hitloc_ac[il][HIT_PHIT]);
     }
 
-    str += "\nParry: " + me->query_skill(SS_PARRY) + "  Defense: " + 
+    str += "\nParry: " + me->query_skill(SS_PARRY) + "  Defense: " +
         me->query_skill(SS_DEFENSE) + "  Stat av: " +
         (tmp = me->query_average_stat()) + "  Dex: " + me->query_stat(SS_DEX) +
         "  Enc: " + (me->query_encumberance_weight() +
@@ -206,7 +206,7 @@ cb_data()
     val = 2 * fixnorm(me->query_stat(SS_DEX), 50) -
         fixnorm(me->query_encumberance_weight() +
             me->query_encumberance_volume(), 60);
-    
+
     tmp = 0;
     i = -1;
     size = sizeof(att_id);
@@ -241,7 +241,7 @@ cb_data()
     val = 2 * fixnorm(50, me->query_stat(SS_DEX)) -
         fixnorm(60, me->query_encumberance_weight() +
             me->query_encumberance_volume());
-    
+
     if (sizeof(filter(me->query_weapon(-1), objectp)))
     {
         tmp = me->query_skill(SS_PARRY);
@@ -328,7 +328,7 @@ remove_object()
  * Function name: combat_link
  * Description:   Called by the internal combat routines on startup
  */
-public void 
+public void
 cb_link()
 {
     if (objectp(me))
@@ -341,9 +341,9 @@ cb_link()
 /*
  * Description: Return the connected living
  */
-public object qme() 
-{ 
-    return me; 
+public object qme()
+{
+    return me;
 }
 
 /*
@@ -353,9 +353,9 @@ public object qme()
 public void
 cb_configure()
 {
-    att_id = ({}); 
+    att_id = ({});
     hit_id = ({});
-    hitloc_ac = ({}); 
+    hitloc_ac = ({});
     attacks = ({});
 }
 
@@ -371,9 +371,9 @@ cb_add_panic(int dpan)
 
     oldpan = cb_query_panic();
 
-    panic += dpan; 
-    if (panic < 0) 
-        panic = 0; 
+    panic += dpan;
+    if (panic < 0)
+        panic = 0;
 
     if (!panic && oldpan)
         tell_object(me, "You feel calm again.\n");
@@ -384,7 +384,7 @@ cb_add_panic(int dpan)
  * Description:   Give the panic level.
  */
 public int
-cb_query_panic() 
+cb_query_panic()
 {
     int ival, proc;
 
@@ -410,7 +410,7 @@ cb_query_panic()
         panic = max(panic, 0);
     }
 
-    return panic; 
+    return panic;
 }
 
 /*
@@ -582,11 +582,11 @@ cb_tohit(int aid, int wchit, object vic)
         tmp = vic->query_skill(SS_BLIND_COMBAT) * tmp / 100;
     }
 
-    whit = 4 * fixnorm(random(wchit) + random(wchit) + 
+    whit = 4 * fixnorm(random(wchit) + random(wchit) +
                        random(wchit) + random(wchit), random(tmp));
-    
+
     cb_update_tohit_val(vic);
-    
+
     whit += tohit_val;
 
     if (whit > 0)
@@ -629,9 +629,9 @@ cb_update_combat_time()
  * Returns:       True if hit, otherwise 0.
  */
 public int
-cb_try_hit(int aid) 
-{ 
-    return 1; 
+cb_try_hit(int aid)
+{
+    return 1;
 }
 
 /*
@@ -648,7 +648,7 @@ cb_try_hit(int aid)
  *                dam:   The number of hitpoints taken
  */
 public varargs void
-cb_got_hit(int hid, int ph, object att, int aid, int dt, int dam) 
+cb_got_hit(int hid, int ph, object att, int aid, int dt, int dam)
 {
 }
 
@@ -679,7 +679,7 @@ cb_hitloc_desc(int hid)
     return hitloc_ac[i][HIT_DESC];
 }
 
-/* 
+/*
  * Function name: tell_watcher
  * Description:   Send the string from the fight to people that want them
  * Arguments:     str   - The string to send
@@ -725,7 +725,7 @@ tell_watcher(string str, mixed enemy, mixed arr)
     }
 }
 
-/* 
+/*
  * Function name: tell_watcher_miss
  * Description:   Send the string from the fight to people that want them
  *                when there is a miss.
@@ -1134,7 +1134,7 @@ cb_add_enemy(object enemy, int force)
     cb_update_enemies();
 
     /* Make sure panic value is updated before we add enemies */
-    cb_query_panic(); 
+    cb_query_panic();
     pos = member_array(enemy, enemies);
 
     if (force && pos >= 0)
@@ -1162,7 +1162,7 @@ cb_add_enemy(object enemy, int force)
  *                is used to print hunting messages or drag enemies along.
  * Arguments:     True if leaving else arriving
  */
-public void 
+public void
 cb_adjust_combat_on_move(int leave)
 {
     int i, pos, size;
@@ -1190,7 +1190,7 @@ cb_adjust_combat_on_move(int leave)
                 {
                     drag += ({ inv[i] });
                     tell_object(inv[i], "As " +
-                        me->query_the_name(inv[i]) + 
+                        me->query_the_name(inv[i]) +
                         " leaves, you are dragged along.\n");
                 }
                 else
@@ -1215,7 +1215,7 @@ cb_adjust_combat_on_move(int leave)
 
             if (sizeof(rest) && i_am_real)
             {
-                me->catch_tell("You are now hunted by " + 
+                me->catch_tell("You are now hunted by " +
                     FO_COMPOSITE_ALL_LIVE(rest, me) + ".\n");
             }
 
@@ -1227,8 +1227,8 @@ cb_adjust_combat_on_move(int leave)
             */
             this_object()->cb_stop_fight(rest);
         }
-    } 
-    else 
+    }
+    else
     {
         i = -1;
         size = sizeof(inv);
@@ -1341,9 +1341,9 @@ cb_run_away(string dir)
  * Returns:       True if wielded.
  */
 public mixed
-cb_wield_weapon(object wep) 
-{ 
-    return ""; 
+cb_wield_weapon(object wep)
+{
+    return "";
 }
 
 /*
@@ -1353,7 +1353,7 @@ cb_wield_weapon(object wep)
  * Returns:       None.
  */
 public void
-cb_unwield(object wep) 
+cb_unwield(object wep)
 {
 }
 
@@ -1389,9 +1389,9 @@ cb_query_weapon(int which)
  * Arguments:     arm - The armour.
  */
 public int
-cb_wear_arm(object arm) 
-{ 
-    return 0; 
+cb_wear_arm(object arm)
+{
+    return 0;
 }
 
 /*
@@ -1400,7 +1400,7 @@ cb_wear_arm(object arm)
  * Arguments:     arm - The armour.
  */
 public void
-cb_remove_arm(object arm) 
+cb_remove_arm(object arm)
 {
 }
 
@@ -1428,7 +1428,7 @@ cb_query_armour(int which)
                 arms |= hitloc_ac[i][HIT_ARMOURS];
             }
         }
- 
+
         return arms;
     }
 
@@ -1540,7 +1540,7 @@ heart_beat()
      */
     cb_update_enemies();
     cb_update_attack();
-    
+
     if (!cb_query_attack())
     {
         /* We don't stop the heart beat for another 30 seconds */
@@ -1610,7 +1610,7 @@ heart_beat()
     {
         if (!objectp(me))
             break;
-        
+
         /*
          * Will we use this attack this round? (random(100) < %use)
          */
@@ -1627,7 +1627,7 @@ heart_beat()
                 continue;
             }
 
-            /* 
+            /*
              * The intended victim can also force a fail. like in the weapon
              * case, if fail, the cause must produce explanatory text himself.
              */
@@ -1650,7 +1650,7 @@ heart_beat()
                     {
                         pen = pen[0];
                     }
- 
+
                     pen *= 5;
                 }
                 else
@@ -1705,7 +1705,7 @@ heart_beat()
             }
             if (hitresult[1])
             {
-                cb_did_hit(att_id[il], hitresult[1], hitresult[4], hitresult[0], 
+                cb_did_hit(att_id[il], hitresult[1], hitresult[4], hitresult[0],
                        attack_ob, dt, hitsuc, hitresult[3]);
             }
             else
@@ -1722,7 +1722,7 @@ heart_beat()
             }
         }
     }
-    
+
     /*
      * We might actually turn into a deadform here also,
      * some armours do damage when they're hit.
@@ -1733,7 +1733,7 @@ heart_beat()
         stop_heart();
         return;
     }
-    
+
     /*
      * Fighting is quite tiresome you know
      */
@@ -1752,10 +1752,10 @@ heart_beat()
 
     /* Fighting is frightening, we might panic!  */
     cb_may_panic();
-    
+
     /* Success? Maybe, Look for new foes! */
     cb_update_attack();
-    
+
     return;
 }
 
@@ -1765,7 +1765,7 @@ heart_beat()
  * Description:   Called to decide damage for a certain hit on 'me'.
  * Arguments:     wcpen:         Weapon class penetration
  *                dt:            Damage type, MAGIC_DT if no ac helps
- *                attacker: 
+ *                attacker:
  *                attack_id:     -1 if a special attack
  *                target_hitloc: The hit location to damage.  If left
  *                               unspecified or an invalid hitloc is
@@ -1806,7 +1806,7 @@ cb_hit_me(int wcpen, int dt, object attacker, int attack_id, int target_hitloc =
 
     /* Update the list of aggressors. If we hit ourselves: no update. */
     cb_add_enemy(attacker);
-    if (!attack_ob && attacker != me) 
+    if (!attack_ob && attacker != me)
     {
         attack_ob = attacker;
     }
@@ -2001,7 +2001,7 @@ cb_attack(object victim)
 
 /*
  * Function name:  cb_attacked_by
- * Description:    This routine is called when we are attacked or when 
+ * Description:    This routine is called when we are attacked or when
  *                 someone we are hunting appears in our location.
  * Arguments:      ob: The attacker
  */
@@ -2107,7 +2107,7 @@ cb_query_enemy(int arg)
  * Returns      : object - the currently attacked object.
  */
 public nomask mixed
-cb_query_attack() 
+cb_query_attack()
 {
     if (attack_ob && !attack_ob->query_ghost() &&
         environment(attack_ob) == environment(me))
@@ -2115,7 +2115,7 @@ cb_query_attack()
         return attack_ob;
     }
 
-    return 0;    
+    return 0;
 }
 
 /*
@@ -2127,7 +2127,7 @@ cb_query_attack()
  */
 public nomask mixed
 cb_update_attack()
-{    
+{
     object *targets, old_enemy;
 
 
@@ -2137,8 +2137,8 @@ cb_update_attack()
     {
         return attack_ob;
     }
-        
-    me->notify_enemy_gone(attack_ob);    
+
+    me->notify_enemy_gone(attack_ob);
     /* To cling to an enemy we must fight it. */
     if (me->query_prop(LIVE_O_ENEMY_CLING) == attack_ob)
         me->remove_prop(LIVE_O_ENEMY_CLING);
@@ -2158,7 +2158,7 @@ cb_update_attack()
     {
         tell_object(me, "You turn to attack " +
             attack_ob->query_the_name(me) + ".\n");
-    } 
+    }
     else
     {
         /* If we killed our previous enemy and have no more we're nice
@@ -2167,11 +2167,11 @@ cb_update_attack()
         me->remove_prop(LIVE_I_STUNNED);
     }
 
-    return attack_ob; 
+    return attack_ob;
 }
 
 /**********************************************************
- * 
+ *
  * Below is internal functions, only used by the inheritor of
  * this standard combat object.
  */
@@ -2254,7 +2254,7 @@ add_attack(int wchit, mixed wcpen, int damtype, int prcuse, int id, int skill,
  * Returns:       True if removed
  */
 static int
-remove_attack(int id) 
+remove_attack(int id)
 {
     int pos;
 
@@ -2274,9 +2274,9 @@ remove_attack(int id)
  * Returns:       Array with elements as described in add_attack
  */
 public int *
-query_attack_id() 
-{ 
-    return att_id + ({}); 
+query_attack_id()
+{
+    return att_id + ({});
 }
 
 /*
@@ -2286,7 +2286,7 @@ query_attack_id()
  * Returns:       Array with elements as described in add_attack
  */
 public mixed *
-query_attack(int id) 
+query_attack(int id)
 {
     int pos;
 
@@ -2361,7 +2361,7 @@ add_hitloc(mixed ac, int prchit, string desc, int id, object *armours)
  * Returns:       True if removed
  */
 static int
-remove_hitloc(int id) 
+remove_hitloc(int id)
 {
     int pos;
 
@@ -2381,9 +2381,9 @@ remove_hitloc(int id)
  * Returns      : int * - An array with all hitloc identifiers.
  */
 public int *
-query_hitloc_id() 
-{ 
-    return hit_id + ({}); 
+query_hitloc_id()
+{
+    return hit_id + ({});
 }
 
 /*
@@ -2403,7 +2403,7 @@ query_hitloc_id()
  *            })
  */
 public nomask mixed *
-query_hitloc(int id) 
+query_hitloc(int id)
 {
     int pos;
 

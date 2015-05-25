@@ -43,7 +43,7 @@
 #define SS_PARRY		23
 #define SS_DEFENCE		24
 /*
- * Someone said defence can be spelled defense too.. 
+ * Someone said defence can be spelled defense too..
  */
 #define SS_DEFENSE	 	24
 #define SS_MOUNTED_COMBAT	25

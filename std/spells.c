@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/spells.c
  *
  * This is the standard spell object. It should be inherited into any
@@ -14,7 +14,7 @@
  *			  used exactly as create_object() when you inherit
  *			  the "/std/object" file.
  *
- * add_spell()		- This function is called to add a spell to the 
+ * add_spell()		- This function is called to add a spell to the
  *			  list of spells a player has access to. You should
  *			  never used "add_action" for this purpose, since
  *			  that will void most of the built-in functionality
@@ -41,7 +41,7 @@
  *       .....
  *       add_spell("verbN", "functionN", "nameN");
  *   }
- * 
+ *
  *   int function1() { }
  *   int function2() { }
  *   .....
@@ -184,7 +184,7 @@ query_verbs()
 /*
  * Function name: query_funcs
  * Description:   Not used by command_driver, do we need it?
- */ 
+ */
 string *
 query_funcs()
 {
@@ -221,7 +221,7 @@ leave_env(object old, object dest)
  * Function name: query_spell_time
  * Description:   How long time will it take to cast a spell?
  * Arguments:	  verb - The spell verb
- * Returns:       The time it will take. Real casting time will be time + 2 
+ * Returns:       The time it will take. Real casting time will be time + 2
  */
 int query_spell_time(string verb) { return 0; }
 

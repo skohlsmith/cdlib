@@ -14,11 +14,11 @@ int no_poison;
 
 create_potion()
 {
-    set_soft_amount(10); 
-    set_alco_amount(0); 
-    set_name("potion"); 
+    set_soft_amount(10);
+    set_alco_amount(0);
+    set_name("potion");
     set_adj("bubbling");
-    set_long("This potion bubbles and fumes.\n"); 
+    set_long("This potion bubbles and fumes.\n");
 
     /* Magical poison can be magically dispelled, but we resist a little. */
     set_magic_res(40); /* This potion is a little resistive to dispelling */
@@ -58,8 +58,8 @@ consume_me()
 	poison->set_strength(20);
         poison->start_poison();
     }
-    else 
-	write("Failed to load poison for some reason.\n"); 
+    else
+	write("Failed to load poison for some reason.\n");
 }
 
 cure_poison(int strength)

@@ -5,7 +5,7 @@ The file contains both ordinary text and program excerpts of a recoverable
 object. Read EVERYTHING since explanatory text is given in the program
 parts as well.
 
-What 'recover' is 
+What 'recover' is
 =================
 
 When the game reboots, or when a player wants to take a short break for
@@ -39,10 +39,10 @@ logs in, he will be told which objects are recovered.
 How to implement recover in objects
 ===================================
 
-The recoverable object should define two functions: 
+The recoverable object should define two functions:
 'public string query_recover()' and 'void init_recover(string arg)'.
 When the player quits or saves, the status of the gamedriver and the location
-of the player is first checked. If recover is possible the function 
+of the player is first checked. If recover is possible the function
 'query_recover()' is called in every object in the inventory of the player.
 
 The function 'query_recover()' should return a string on the format:
@@ -83,7 +83,7 @@ create_weapon()
     set_short("small knife"); set_pshort("small knives");
     set_adj("small");
     set_long("It is a very simple looking knife, quite deadly though.\n");
- 
+
     set_default_weapon();
     set_wf(this_object());
     wtime = 0;

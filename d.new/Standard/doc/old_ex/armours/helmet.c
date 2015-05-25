@@ -12,7 +12,7 @@ create_armour()
     set_long("It's small but would probably protect you a little.\n");
 
     /* Now, a player can refere to this armour as 'armour' and 'helmet'. To
-     * distinguish it from other helmets, we want the player to be able to 
+     * distinguish it from other helmets, we want the player to be able to
      * use 'small helmet' as an id too.
      */
     set_adj("small");

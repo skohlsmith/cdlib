@@ -19,13 +19,13 @@ When the gamedriver is started up, one object is loaded:
 	/secure/master.c
 
 When this is done and the create() in it has been called, the gamedriver
-checks for special options given with the '-f' flag from commandline when 
+checks for special options given with the '-f' flag from commandline when
 the process was started (see /secure/master.c)
 
 When ready, the actual preloading begins. This is done by a call to the
-epilog() function in /secure/master.c It returns an array of possible 
-filenames to preload. The GD then calls the function preload() in 
-/secure/master.c with each of these filenames. 
+epilog() function in /secure/master.c It returns an array of possible
+filenames to preload. The GD then calls the function preload() in
+/secure/master.c with each of these filenames.
 
 When the array of filenames to preload is exhausted the gamedriver starts to
 allow users to connect to the game.
@@ -44,7 +44,7 @@ Preload files returned by epilog()
 
 /secure/master.c holds a list of all the domains and all the wizards in the
 game. This list is consulted by epilog() so that one object for each domain
-and one object for each domain-less wizard gets preloaded. The filenames of 
+and one object for each domain-less wizard gets preloaded. The filenames of
 these objects are:
 
 	/d/Domain_name/preload.c

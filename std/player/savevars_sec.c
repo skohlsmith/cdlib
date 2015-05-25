@@ -88,7 +88,7 @@ player_save_vars_reset()
     age_time = time();
 }
 
-/* 
+/*
  * Name of the player.
  * This can only be called from player_sec.
  */
@@ -107,7 +107,7 @@ add_name(mixed name)
     ::add_name(name);
 }
 
-/* 
+/*
  * Function name:   master_set_name
  * Description:     /secure/master needs to be able to do set_name. This
  *                  function can only be called from that object.
@@ -151,7 +151,7 @@ set_adj(string *arr)
     string *adj;
     int i, len;
 
-    if (arr) 
+    if (arr)
     {
         adj = query_adj(1);
 
@@ -169,9 +169,9 @@ set_adj(string *arr)
         adj_desc = query_adj(1);
         return 1;
     }
-    else 
+    else
         ::set_adj(adj_desc);
-    
+
     return 1;
 }
 
@@ -228,7 +228,7 @@ query_wiz_level()
  *                and cannot be called externally.
  * Arguments    : string p - the new password string.
  */
-nomask static void     
+nomask static void
 set_password(string p)
 {
     password = p;
@@ -301,7 +301,7 @@ nomask public void
 set_player_file(string f)
 {
     object ob;
-    
+
     catch(f->teleledningsanka());
 
     ob = find_object(f);
@@ -338,7 +338,7 @@ query_auto_load()
  * Description:     Gives back the array of strings with objects to recover
  *                  when the player enters the game.
  * Returns:         An array of strings describing what objects to recover,
- *                    along with the 
+ *                    along with the
  */
 nomask string *
 query_recover_list()
@@ -436,7 +436,7 @@ query_decay_time()
        This will fix that. */
     if (decay_time_acc < 0)
         decay_time_acc = 10000;
-    
+
     /* Only increment if we're actually decaying skills */
     if (!query_skill_decay())
         return decay_time_acc;
@@ -462,10 +462,10 @@ reset_decay_time()
      */
     if (decay_time_acc < 0)
         decay_time_acc = 10000;
-    
+
     if (decay_time_acc > 432000)
         decay_time_acc = 432200;
-    
+
     while (decay_time_acc >= SKILL_DECAY_INTERVAL)
         decay_time_acc -= SKILL_DECAY_INTERVAL;
 }
@@ -552,7 +552,7 @@ set_mailaddr(string addr)
 public nomask void
 set_cap_name()
 {
-    cap_name = capitalize(query_real_name()); 
+    cap_name = capitalize(query_real_name());
 }
 
 /*
@@ -568,7 +568,7 @@ set_cap_name()
 public nomask int
 set_default_start_location(string str)
 {
-    if (!query_wiz_level() && 
+    if (!query_wiz_level() &&
         SECURITY->check_def_start_loc(str) < 0)
         return 0;
 
@@ -636,8 +636,8 @@ set_tot_value(int val)
  * Arguments:       (int) t: the login time
  */
 static nomask varargs void
-set_login_time(int t = time()) 
-{ 
+set_login_time(int t = time())
+{
     login_time = t;
 }
 
@@ -647,9 +647,9 @@ set_login_time(int t = time())
  * Returns:         The login-time.
  */
 public nomask int
-query_login_time() 
-{ 
-    return login_time; 
+query_login_time()
+{
+    return login_time;
 }
 
 /*
@@ -658,8 +658,8 @@ query_login_time()
  * Arguments:       (int) t: the logout time
  */
 static nomask varargs void
-set_logout_time(int t = time()) 
-{ 
+set_logout_time(int t = time())
+{
     logout_time = t;
 }
 
@@ -669,7 +669,7 @@ set_logout_time(int t = time())
  * Returns:         The logout-time.
  */
 public nomask int
-query_logout_time() 
+query_logout_time()
 {
     /* For the purpose of backward compatibility, we use the file time
      * if no logout_time was remembered.
@@ -682,9 +682,9 @@ query_logout_time()
  * Description:     Sets from which site the player is logged in.
  */
 public nomask void
-set_login_from() 
-{ 
-    login_from = query_ip_name(this_object()); 
+set_login_from()
+{
+    login_from = query_ip_name(this_object());
 }
 
 /*
@@ -693,13 +693,13 @@ set_login_from()
  * Returns:         A string with the site name.
  */
 public nomask string
-query_login_from() 
-{ 
-    return login_from; 
+query_login_from()
+{
+    return login_from;
 }
 
 /*************************************************************************
- * 
+ *
  * Auto shadow routines.
  *
  */
@@ -784,7 +784,7 @@ query_autoshadow_list()
 
 
 /*************************************************************************
- * 
+ *
  * Bit handling routines.
  *
  */
@@ -808,7 +808,7 @@ set_bit(int group, int bit)
         return 0;
 
     euid = geteuid(previous_object());
-        
+
     num = (int)SECURITY->query_domain_number(euid); /* If euid == domain */
     if (num < 0)
         num = SECURITY->query_domain_number(SECURITY->query_wiz_dom(euid));
@@ -845,7 +845,7 @@ clear_bit(int group, int bit)
     if (group < 0 || group > 4 || bit < 0 || bit > 19)
         return 0;
     euid = geteuid(previous_object());
-        
+
     num = (int)SECURITY->query_domain_number(euid); /* If euid == domain */
     if (num < 0)
         num = SECURITY->query_domain_number(SECURITY->query_wiz_dom(euid));
@@ -863,7 +863,7 @@ clear_bit(int group, int bit)
 
 /*
  * Function name:   test_bit
- * Description:     Test a given bit in a given group for a given domain. 
+ * Description:     Test a given bit in a given group for a given domain.
  * Arguments:       dom:   Domain which bits are to be tested
  *                  group: An integer 0-4
  *                  bit:   An integer 0-19
@@ -985,7 +985,7 @@ add_aliases(mapping m)
 
     if (mappingp(m_alias_list))
         m_alias_list += m;
-    else    
+    else
         m_alias_list = m;
 }
 
@@ -1196,7 +1196,7 @@ query_restricted()
 }
 
 /*************************************************************************
- * 
+ *
  * Remember handling routines.
  *
  */
@@ -1253,14 +1253,14 @@ query_remembered(mixed name)
  *                  The living must exist in our list of those we have been
  *                  introduced to.
  * Arguments:       str: Name of living that we want to remember.
- * Returns:         -1 if at limit for remember, 0 if not introduced, 
+ * Returns:         -1 if at limit for remember, 0 if not introduced,
  *                  1 if remember ok, 2 if already known
  */
 public int
 add_remembered(string str)
 {
-    int max;    
-    
+    int max;
+
     /* Alreayd known? */
     if (query_remembered(str))
 	return 2;
@@ -1268,7 +1268,7 @@ add_remembered(string str)
     /* Not introduced? */
     if (!query_met(str) && !query_introduced(str))
 	return 0;
-    
+
     max = F_MAX_REMEMBERED(query_stat(SS_INT), query_stat(SS_WIS));
     if (m_sizeof(query_remember_name()) >= max)
 	return -1;
@@ -1278,7 +1278,7 @@ add_remembered(string str)
 
     remove_introduced(str);
     m_remember_name[str] = 1;
-    
+
     return 1; /* Remember ok */
 }
 
@@ -1295,11 +1295,11 @@ remove_remembered(string name)
     int result;
 
     name = lower_case(name);
-    
+
     if (query_introduced(name))
     {
         result = 1;
-	remove_introduced(name);        
+	remove_introduced(name);
     }
 
     if (query_remembered(name))
@@ -1307,7 +1307,7 @@ remove_remembered(string name)
         result = 1;
         m_delkey(m_remember_name, name);
     }
-    
+
     return result;
 }
 
@@ -1332,7 +1332,7 @@ set_whimpy(int flag)
  * Function name:   set_wiz_unmet
  * Description:     Marks if the wizard wants to see all as met or unmet
  * Arguments:       flag: 1 if see as unmet, 0 if see as met, 2 see npcs as unmet.
- * Returns:         The new state    
+ * Returns:         The new state
  */
 public int
 set_wiz_unmet(int flag)
@@ -1344,7 +1344,7 @@ set_wiz_unmet(int flag)
 /*
  * Function name:   query_wiz_unmet
  * Description:     Returns if the wizard wants to see all as met or unmet
- * Returns:         The current state    
+ * Returns:         The current state
  */
 public int
 query_wiz_unmet()

@@ -8,7 +8,7 @@ SYNOPSIS
 
 DESCRIPTION
 	With this command you can load one or more files into memory without
-	actually cloning it. This is particularly useful for checking if a 
+	actually cloning it. This is particularly useful for checking if a
 	file is bug-free or not without having to clone an object.
 
 ARGUMENTS

@@ -24,7 +24,7 @@
  * commands were implemented for examples.)
  *
  * Commands and "use functions":
- * 
+ *
  * Command       Function                Remark
  * =========================================================================
  *   drink       command_drink()
@@ -239,7 +239,7 @@ query_cmd_soul()
  *                sublocations responsible for extra descriptions of the
  *                living object.
  */
-public void 
+public void
 using_soul(object live)
 {
 }
@@ -290,7 +290,7 @@ use_items(object *items, function f, int silent)
     {
         /* Call the function to "use" the item */
         res = f(items[i]);
- 
+
         if (!res)
 	{
 	    /* The item cannot be used in this way */
@@ -309,14 +309,14 @@ use_items(object *items, function f, int silent)
 	    used += ({ items[i] });
 	}
     }
-        
+
     if (!sizeof(used))
     {
         /* Nothing could be used.  Say why. */
 
         if (!fail)
 	{
-            notify_fail("You cannot seem to " + query_verb() + 
+            notify_fail("You cannot seem to " + query_verb() +
                 ((sizeof(items) > 1) ? " those" : " that") + ".\n");
             return 0;
 	}
@@ -327,7 +327,7 @@ use_items(object *items, function f, int silent)
 
     if (!silent)
     {
-    	write("You " + query_verb() + " " + COMPOSITE_ALL_DEAD(used) + 
+    	write("You " + query_verb() + " " + COMPOSITE_ALL_DEAD(used) +
             ".\n");
     	say(QCTNAME(this_player()) + " " + LANG_PWORD(query_verb()) + " " +
             QCOMPDEAD + ".\n");
@@ -335,13 +335,13 @@ use_items(object *items, function f, int silent)
 
     return used;
 }
-    
+
 /*
  * Function name: use_described_items
  * Description:   Given a string, cause the actor to "use" the items described
  *                by the string.
  * Arguments:     string str  - the string describing what to use
- *                object *obs - the items to be matched with the string 
+ *                object *obs - the items to be matched with the string
  *                function f  - the function to call in the objects found to
  *                              use them.
  *                int silent  - suppress the default message given when items are
@@ -436,7 +436,7 @@ release(string str)
 {
     mixed *items;
 
-    if (!strlen(str) || !parse_command(str, all_inventory(this_player()), 
+    if (!strlen(str) || !parse_command(str, all_inventory(this_player()),
         "[the] %i", items))
     {
         notify_fail(capitalize(query_verb()) + " what?\n", 0);

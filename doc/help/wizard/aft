@@ -31,13 +31,13 @@ DESCRIPTION
 	you most recently viewed. The rightmost column contains the size of
 	the file in bytes. With "aft" or "aft lu" only the files that changed
 	(i.e. with an asterisk) are shown.
- 
+
 	 1 commune :   /d/Genesis/log/COMMUNE                    154184
 	 2 kills   : * /d/Genesis/log/KILLS                       89798
 	 3 pkills  : * /d/Genesis/log/PKILLS                      19599
 	 4 bugs    >   /d/Genesis/log/bugs                         4395
 	 5 praise  :   /d/Genesis/log/praise                      77145
- 
+
 ARGUMENTS
 	[none]	Without arguments, do "aft lu", list all tracked files that
 		have changed since they were last read.
@@ -56,7 +56,7 @@ ARGUMENTS
 
 SEE ALSO
 	tail
- 
+
 CAVEAT
 	With aft, a wizard will force him/herself to tail a particular file.
         Therefore, using %% after an "aft r" will result in the same file being

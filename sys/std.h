@@ -52,7 +52,7 @@
 #define ROOT_UID	"root"
 #define BACKBONE_UID	"backbone"
 
-/* 
+/*
  * These are the possible types of wizards
  */
 #define WIZ_MORTAL	0
@@ -171,14 +171,14 @@
  * safe place.
  */
 #define CHANNELS_SAVE "/players/channels"
- 
+
 /*
  * WIZ_SOUL(rank)
  *
  * This macro gives the wizard command file to use for a certain wizard rank.
  * Not every wizard gets the soul of his own rank since it is useless to give
  * someone an empty soul.
- */   
+ */
 #define WIZ_SOUL(rank) ( ({ \
     WIZ_CMD_MORTAL,         \
     WIZ_CMD_APPRENTICE,     \
@@ -191,7 +191,7 @@
     WIZ_CMD_ARCH,           \
     WIZ_CMD_KEEPER })[(rank)])
 
-/* 
+/*
  * Wizard restriction definitions
  */
 #define RESTRICT_SNOOP		0x001
@@ -231,4 +231,4 @@
 #endif  CONFIG_DEFINED
 
 /* No definitions beyond this line. */
-#endif SECURE_DEFINED 
+#endif SECURE_DEFINED

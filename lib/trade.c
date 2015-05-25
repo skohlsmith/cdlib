@@ -15,7 +15,7 @@
 
       create_room() {
         config_default_trade();
-        .... 
+        ....
         rest of the create
       }
 
@@ -27,7 +27,7 @@
        object who_pays, int silent)
 
       Both functions return an array doubble size of money types
-      with money data if they succeed. First part is money connected 
+      with money data if they succeed. First part is money connected
       to the buying/selling object and last part to this_object.
 
       If test then no money is being switch, you just get the array
@@ -103,10 +103,10 @@
 			      not change this if you haven't got VERY good
 			      reasons.
 
-   pay(i, o, s, i, o, i)      Documented above. Only first i (price) is 
+   pay(i, o, s, i, o, i)      Documented above. Only first i (price) is
 			      necessary.
 
-   give(i, o, s, i, o, i)     Documented above. Only first i (price) is 
+   give(i, o, s, i, o, i)     Documented above. Only first i (price) is
 			      necessary.
 
 
@@ -115,14 +115,14 @@
    Default trade is as follows:
 
      Max money given out in cc is 1000
-     All types of greed is set to 100, which means the price in the calls will 
+     All types of greed is set to 100, which means the price in the calls will
        be used.
      Types and values of the coins will be used as they are in /sys/money.h
      The trade object accepts all kinds of money
-     The trade gives maximum out: 2 platinum, 20 gold, 400 silver and 10000 
-       copper coins. Note that if you don't set the copper give out = to max 
+     The trade gives maximum out: 2 platinum, 20 gold, 400 silver and 10000
+       copper coins. Note that if you don't set the copper give out = to max
        give out you might cut off the copper given out so buyer won't get the
-       right money. You can ofcourse check yourself for this and take 
+       right money. You can ofcourse check yourself for this and take
        apropriate action....
      The trade reduces the payout of coins with: 8 platinum, 8 gold, 2 silver
        and 0 copper coins. Note that if you reduce copper the buyer, or seller,
@@ -160,7 +160,7 @@
 			       the price (integer) with the array. The string
                                might tell us how the the change is wanted.
 
-	reduce_coin(i, ai)     Reduces the array according to the price from 
+	reduce_coin(i, ai)     Reduces the array according to the price from
 			       the top.
 
 	calc_coins(i, ai, s)   Reduces the array according to the price from
@@ -190,11 +190,11 @@
 #include "/sys/macros.h"
 #include "/sys/money.h"
 
-#define MONEY_GIVE_MAX     MONEY_VALUES[3] 
+#define MONEY_GIVE_MAX     MONEY_VALUES[3]
   /* Good thing to set the copper max to this give max so no money will be lost
   */
   /*                          copper  silver  gold  platinum                */
-#define MONEY_GIVE_OUT     ({ 10000,    400,    3,    0 }) 
+#define MONEY_GIVE_OUT     ({ 10000,    400,    3,    0 })
 #define MONEY_GIVE_REDUCE  ({     0,      2,    8,    8 })
 #define MONEY_ACCEPT       ({     1,      1,    1,    1 })
 
@@ -203,7 +203,7 @@
 /* our fellow mortal player. */
 #define MONEY_GREED_BUY     100
 #define MONEY_GREED_SELL    100
-#define MONEY_GREED_CHANGE  100 
+#define MONEY_GREED_CHANGE  100
 
 static 	mixed 	money_give_max;
 static 	int 	*money_give_out;
@@ -304,7 +304,7 @@ int query_money_greed_buy()
 int query_money_greed_sell()
 {
     int val;
-    
+
     val = this_object()->check_call(money_greed_sell);
     return (val < 90 ? 90 : val);
 }
@@ -312,7 +312,7 @@ int query_money_greed_sell()
 int query_money_greed_change()
 {
     int val;
-    
+
     val = this_object()->check_call(money_greed_change);
     return (val < 90 ? 90 : val);
 }
@@ -376,10 +376,10 @@ int
 money_merge(int *arr)
 {
     int v, i;
-    
+
     if (sizeof(arr) != num_of_types)
 	return 0;
-    
+
     for (v = 0, i = 0; i < num_of_types; i++)
 	v += arr[i] * money_values[i];
 
@@ -481,10 +481,10 @@ want_to_pay(int *arr, string str)
 {
     string *m_names;
     int i, *tmp_arr, j;
-    
+
     if (!str || (str == ""))
 	return;
-    
+
     tmp_arr = allocate(num_of_types);
     m_names = explode(str, " ");
 
@@ -526,7 +526,7 @@ calc_change_str(int *arr, string str)
 {
     int i, j, k, *tmp_arr;
     string *m_names;
-    
+
     m_names = explode(str, " ");
     tmp_arr = allocate(num_of_types);
 
@@ -572,7 +572,7 @@ calc_change(int price, int *arr, string str)
     else
 	tmp_arr = money_give_out;
 
-    /* this is done once to reduce effect if random give max. */  
+    /* this is done once to reduce effect if random give max. */
     max = this_object()->check_call(money_give_max);
     if (new_price > 0)
 	for (i = num_of_types - 1; i >= 0; i--)
@@ -614,9 +614,9 @@ calc_coins(int price, int *arr, string str)
     new_price = price; /* Keep orignial price intact */
 
     for (i = 0; i < num_of_types; i++)
-    { 
+    {
 	new_arr[i] = arr[i];
-	
+
 	if (new_price <= (tmp = new_arr[i] * money_values[i]))
 	{
 	    new_arr[i] = new_price / money_values[i];
@@ -733,7 +733,7 @@ change_money(int *arr, object from, object to, int silent)
 		    write("Error when taking money from the player,\n" +
 		        "are there false money around?\n");
 /*
-   There shouldn't be any errors from move since the environment should be a 
+   There shouldn't be any errors from move since the environment should be a
    room, if however a move error has arrived we don't print any text.
    Nor is there a warning if we drop the money on the floor.
 */
@@ -750,7 +750,7 @@ change_money(int *arr, object from, object to, int silent)
 
             if ((move_error == 0) && (error1 != 0))
 		move_error = error1;
-	
+
 	    if (!silent && error1)
 	    {
 		/* move error detected */
@@ -783,7 +783,7 @@ text(int *arr)
 {
     string *t_arr, coin_str;
     int i, j;
-    
+
     if (sizeof(arr) < num_of_types)  /* Not a valid array. */
 	return ;
 
@@ -836,7 +836,7 @@ default_config_trade() { config_default_trade(); }
 
 /*
  * Function name: pay
- * Description:   Let the first object pay the price to the second 
+ * Description:   Let the first object pay the price to the second
  *                object if not test
  * Arguments:     price - the price to pay
  *                ob - the object who should pay
@@ -907,7 +907,7 @@ pay(int price, object ob, string str, int test, object ob2, string str2,
     if (!can_pay_arr(price, arr))
 	return ({ 4 });
 
-    if ((price == 0) && test) 
+    if ((price == 0) && test)
         arr = arr + calc_change(price, arr, str2);
     else
         arr = calc_coins(price, arr, str2);
@@ -934,7 +934,7 @@ varargs int *
 give(int price, object ob, string str, int test, object ob2, int silent)
 {
     int *arr, *tmp_arr, i;
-    
+
     if (!ob && !test)
 	ob = this_player();
     if (!ob && !test) {

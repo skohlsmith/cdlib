@@ -1,6 +1,6 @@
 NAME
 	allocate - create an array of n elements
-	
+
 SYNOPSIS
 	mixed *allocate(int n);
 

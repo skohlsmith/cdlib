@@ -13,13 +13,13 @@
 
 	F_              "formulas.h"
 
-	LANG_		"language.h"	
+	LANG_		"language.h"
 
 	LOG_            "log.h"
 
 	MACROS_         "macros.h"
 
-	MATH_		"math.h"	
+	MATH_		"math.h"
 
 	MAP_            "map.h"
 
@@ -53,6 +53,6 @@
 	LD_		"living_desc.h"
 */
 
-	
+
 
 

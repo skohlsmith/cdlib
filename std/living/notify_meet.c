@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/living/notify_meet.c
  */
 

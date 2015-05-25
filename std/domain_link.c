@@ -175,7 +175,7 @@ domain_delete_player(string name)
  *                should be taken. It should return only those items that
  *                the player is entitled to, but that are missing in the
  *                player. The returned mapping looks as follows:
- * 
+ *
  *                    ([ (string) code : (string) description ])
  *
  *                The code is an internal string used to call restore_item().

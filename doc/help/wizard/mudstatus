@@ -5,11 +5,11 @@ SYNOPSIS
 	mudstatus on/off <eval_limit> <time_limit>
 
 DESCRIPTION
-	Enables driver logging of commands or alarms that take more 
+	Enables driver logging of commands or alarms that take more
 	than eval_limit or time_limit to execute.
 
 	The log will be written to /MUDstatistics in the format:
-	
+
 	Activity  (   time:cpu) evalcost  cp  mc  rd  wr  mv
 	   time - real execution time
 	   cpu  - cpu time used
@@ -22,5 +22,5 @@ DESCRIPTION
 
 OPTIONS
 	eval_limit  - The eval cost limit to log
-	time_limit  - The time limit to log, in ms	
+	time_limit  - The time limit to log, in ms
 

@@ -27,7 +27,7 @@ create_object()
     add_adj("metalic");
     set_short("small metallic clip");
     set_long("The clip will make your name appear known to everyone.\n");
-    
+
     remove_prop(OBJ_I_VALUE);
     remove_prop(OBJ_I_VOLUME);
     remove_prop(OBJ_I_WEIGHT);

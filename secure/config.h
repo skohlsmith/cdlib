@@ -1,4 +1,4 @@
-/* 
+/*
   /secure/config.h
 
   This file contains all world specific information. To configure your

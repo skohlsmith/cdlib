@@ -36,15 +36,15 @@ Your typical /d/Domain/common/maplink.c file would look like:
 
   inherit "/std/map/manager";
 
-  void 
+  void
   create_map_manager()
   {
 	add_single("x123y456", "/d/Domain/terrain/whatever");
 	add_single("x123y457", "/d/Domain/terrain/whatever");
 	add_single("x123y458", "/d/Domain/terrain/whatever");
 
-	set_box(321, 654, 
-	        	({ 
+	set_box(321, 654,
+	        	({
 				".n.."
 				".nn."
 				".n.."
@@ -54,13 +54,13 @@ Your typical /d/Domain/common/maplink.c file would look like:
 				  "." : "/d/Domain/terrain/water"
 			])
 		);
-  }	
+  }
 
 This will reserve the area on the map with coordinates:
 
 	     656  -+-----------+
    Y-coord         |           |
-	     654  -+-----------+ 
+	     654  -+-----------+
 		   |           |
 		  321         324
                       X-coord
@@ -73,7 +73,7 @@ Managing an area
 
 When an area is reserved the map managing code in /secure/master expects
 to ask the domains map manager what terrain file to use for a specific
-coordinate. 
+coordinate.
 
 The map manager is asked to supply so called 'terrain files' for each
 coordinate that the domain has reserved. The information needed to do
@@ -85,9 +85,9 @@ typically be created under /d/Genesis/map:
     A file called 'xnnnn.mynnnn.m' with the following contents:
 
 	inherit "your_terrainfile";
-	
-	create_mapsquare(int wlx, int wly, int slx, int sly) 
-	{ 
+
+	create_mapsquare(int wlx, int wly, int slx, int sly)
+	{
 	   ::create_mapsquare(wlx, wly, slx, sly);
 	}
 
@@ -105,7 +105,7 @@ However the terrainfile is not one room but many and the differences
 if any is up to you to supply.
 
 This is specifically true when adding exits. You will probably only
-want to add an exit to one of your normal rooms in a specific 
+want to add an exit to one of your normal rooms in a specific
 coordinate not in all locations with the same terrain.
 
 Examples of terrain files can be found under /d/Genesis/terrain/*
@@ -114,7 +114,7 @@ Examples of terrain files can be found under /d/Genesis/terrain/*
 Sublocation exceptions
 ======================
 
-/std/mapsquare.c supports exceptions within the maplocation. This means 
+/std/mapsquare.c supports exceptions within the maplocation. This means
 that you can give a path to a normal room that will be linked to a
 specific sublocation. This is done with a call on the form:
 
@@ -156,9 +156,9 @@ Typical example: 'goto x186.2y554.4'
 Relevant commands and other miscellaneus stuff
 ==============================================
 
-With the command 'mapdomains' you will get a list of the domains linked to 
+With the command 'mapdomains' you will get a list of the domains linked to
 the map, their map manager and the managed coordinates.
- 
+
 When you 'take over' an area of the map you can effectively change its looks
 entirely. Maps made for mortals and other information retrieved from the
 global map database might therefore be erroneous. The terrain information
@@ -168,8 +168,8 @@ You are therefore recommended to use the 'remap' command if neccessary and
 change the map database so as to approximately fit your terrain. A perfect
 fit might be impossible, there is only 31 terrain types in the standard map
 and you might have any number within your area. Approximate at best, a
-'silver grass field' might be remapped as 'plains' or perhaps 
-'lightvegetation'. 
+'silver grass field' might be remapped as 'plains' or perhaps
+'lightvegetation'.
 
 The standard terrain types are found in /config/sys/map_defines.h
 
@@ -190,7 +190,7 @@ is motivated in itself.
 BUGS and DEVELOPMENT
 ====================
 
-	The limit of one box and a number of single locations might 
+	The limit of one box and a number of single locations might
 	change. It will not be unlimited though.
 
 	As said above transportation is being developed. Specifically

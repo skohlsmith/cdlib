@@ -6,6 +6,6 @@ SYNOPSIS
 
 DESCRIPTION
 	Release an item that you are holding.
-	
+
 SEE ALSO
 	remove, unwield, hold_item

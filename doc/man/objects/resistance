@@ -87,7 +87,7 @@ those. Then 56% of the damage reach the third object, which takes away
 25% of 56%, so that only 42% of the original damage reach you. So the
 three protecting objects all together removed 58% of the damage.
 
-The resistance is calculated by the function 
+The resistance is calculated by the function
 int query_magic_res(string prop), defined in /std/object.c.
 
 The maximum resistance value for an additive resistance effect that an
@@ -194,7 +194,7 @@ remove(object ob)
     if ((ob != this_object()) || (tp != query_worn()))
         return -1;
 
-    if (!living(tp)) 
+    if (!living(tp))
         return 0;
 
     tp->remove_magic_effect(this_object());

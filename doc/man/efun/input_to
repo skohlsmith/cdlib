@@ -9,7 +9,7 @@ DESCRIPTION
 	input from a player into a function.
 
 	The function `func' is then called with the string the player
-	wrote as argument. If `noecho' is given and is non-zero, the string 
+	wrote as argument. If `noecho' is given and is non-zero, the string
 	is not echoed on the player's screen.
 
 NOTA BENE

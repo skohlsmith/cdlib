@@ -7,7 +7,7 @@ Humanoid combat is an example of combat that is tool enhanced. Being
 'humanoid' also means that you get a set of default attacks and hitlocations.
 These are defined in /sys/wa_types.h
 
-	Attacks:		
+	Attacks:
 		right fist, left fist, joined hands, left foot,	right knee
 
 	Hit locations:
@@ -28,7 +28,7 @@ Both these objects inherits the generic 'tool' combat object,
 
 	- ctool inherits cbase and therefore work more or less like it,
 	  see 'combat' for description of cbase. It is however extended
-	  with the concept of combat tools. 
+	  with the concept of combat tools.
 
     *
     * Docs will continue, I reference to the code for now.

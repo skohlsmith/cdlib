@@ -4,11 +4,11 @@ This file documents how the system with userids work:
 Basics
 ======
 
-The system with userids is used to know who is responsible for each object 
+The system with userids is used to know who is responsible for each object
 in the game. The rights of an object depends on the rights of the userids it
 carries. This includes read, write, snoop, possess and many other things.
 
-Every object in the game have two separate userids. 
+Every object in the game have two separate userids.
 
 	uid	- This indicates who is responsible for a specific instance
 		  of an object.
@@ -24,7 +24,7 @@ a direct function of the filename.
 
 Userids are strings, normally wizard or domain names. The game driver has
 no concept of what these strings are. The name system is entirely up to
-the master object. 
+the master object.
 
 There is five efuns that is used to set and check userids:
 
@@ -33,10 +33,10 @@ There is five efuns that is used to set and check userids:
 	geteuid(object)		- Get the euid of an object.
 
 	setuid()		- Set uid = cuid for the current object.
-				  The master object is queried by calling 
+				  The master object is queried by calling
 				  'creator_file', for the cuid of the
 				  current objects filename.
-	
+
 	seteuid(userid)		- Set the euid = userid.
 				  The master object is queried by calling
 				  'valid_seteuid' to see if the current
@@ -118,7 +118,7 @@ These rules are not coded into the gamedriver but they are implemented in
 the login object and in the master object. They are part of the userid design
 but might be done differently.
 
-- All wizards, when logging in, gets their own name as uid and euid. 
+- All wizards, when logging in, gets their own name as uid and euid.
 
 - All mortals, when logging in, gets the 'backbone' userid as uid and euid.
 
@@ -128,13 +128,13 @@ or clone some special situations may occur.
 When rooms are loaded because they are entered for the first time they could
 be loaded by any object. Normally a 'player' or another room. As there are
 'border' cases between areas and as players have the 'backbone' uid, most rooms
-will be given userids according to rule 2 above. That is their uid will be 
+will be given userids according to rule 2 above. That is their uid will be
 equal to their cuid and their euid will be 0.
 
 This is problematic because rooms often clone objects. To make this possible
-all rooms use the combination: 
-	
-		setuid(); seteuid(getuid(this_object())); 
+all rooms use the combination:
+
+		setuid(); seteuid(getuid(this_object()));
 
 to ensure that they are always capable of loading and cloning with the rights
 of the wizard who wrote the room.

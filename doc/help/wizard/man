@@ -11,25 +11,25 @@ SYNOPSIS
 	man -u
 
 DESCRIPTION
-	man displays information from the different chapters of the 
+	man displays information from the different chapters of the
 	reference manual section of the documentation library. A
 	chapter, when given, applies to the keyword that follows it.
 	For most efficient use of this command, a chapter should
-	always be specified. 
+	always be specified.
 
-	If a chapter is specified, the command will store the array 
+	If a chapter is specified, the command will store the array
 	containing the possible matches for further quick reference
 	with the "man #selection" command.
-	
-OPTIONS	
+
+OPTIONS
 	[chapter] keyword
-		Display the manual entry of the first command found that 
+		Display the manual entry of the first command found that
 		matches the given keyword. If a chapter is specified,
 		store the selection array for further reference.
 
 	-c
 		List all available chapters.
-	
+
 	-k [chapter] keyword
 		Display all matches of 'keyword'. If the chapter is specified
 		store the selection array for further reference.
@@ -39,7 +39,7 @@ OPTIONS
 
 	man -u
 		Update the manual after a chapter was added.
-	
+
 	man #selection
 		Display the manual entry of the specified preselected entry.
 

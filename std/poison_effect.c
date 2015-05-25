@@ -173,9 +173,9 @@ query_poison_type()
  *                resistance. This strength must be in the range 1 - 100.
  * Arguments    : int s - The strength of the poison.
  */
-public void 
-set_strength(int s) 
-{ 
+public void
+set_strength(int s)
+{
     if (s < 1)
     {
         s = 1;
@@ -184,7 +184,7 @@ set_strength(int s)
     {
         s = 100;
     }
-    strength = s; 
+    strength = s;
 }
 
 /*
@@ -192,10 +192,10 @@ set_strength(int s)
  * Description  : This returns the strength of the poison.
  * Returns      : int - the strength
  */
-public int 
-query_strength() 
-{ 
-    return strength; 
+public int
+query_strength()
+{
+    return strength;
 }
 
 /*
@@ -231,9 +231,9 @@ query_silent()
  *                in seconds.
  * Arguments    : t - the time the poison lasts
  */
-public void 
-set_time(int t) 
-{ 
+public void
+set_time(int t)
+{
     p_time = itof(t);
 }
 
@@ -242,9 +242,9 @@ set_time(int t)
  * Description  : This returns the time the poison will last, in seconds.
  * Returns      : int - the time the poison lasts in total.
  */
-public int 
-query_time() 
-{ 
+public int
+query_time()
+{
     return ftoi(p_time);
 }
 
@@ -277,8 +277,8 @@ query_time_left()
  *                applied, in seconds.
  * Arguments    : i - the interval
  */
-public void 
-set_interval(int i) 
+public void
+set_interval(int i)
 {
     interval = itof(i);
 }
@@ -289,8 +289,8 @@ set_interval(int i)
  *                applications, in seconds.
  * Returns      : int - the interval
  */
-public int 
-query_interval() 
+public int
+query_interval()
 {
     return ftoi(interval);
 }
@@ -340,8 +340,8 @@ query_responsible_object()
  *                case of POISON_STAT)
  * Arguments    : *d - the damage types
  */
-public void 
-set_damage(int *d) 
+public void
+set_damage(int *d)
 {
     damage = d;
 }
@@ -363,7 +363,7 @@ add_damage(int *d)
  * Returns      : int * - the damage types
  */
 public int *
-query_damage() 
+query_damage()
 {
     return damage;
 }
@@ -426,7 +426,7 @@ log_player_death_extra_info()
 /*
  * Function name: tell_damage_player
  * Description  : The player has been hurt; tell him how.  A string
- *                is passed, which must sound reasonable in the 
+ *                is passed, which must sound reasonable in the
  *                sentences "You feel xxxx." and "You feel much xxxx."
  * Arguments    : phit - the damage level
  *                str  - the string to tell the player.
@@ -441,7 +441,7 @@ tell_damage_player(int phit, string str)
 
     if (phit > 90)
     {
-        tell_object(poisonee, "You feel so much " + str + 
+        tell_object(poisonee, "You feel so much " + str +
             ", you wish you were dead.\n");
         return;
     }
@@ -507,7 +507,7 @@ damage_player()
             continue;
         }
 
-        switch (damage[index]) 
+        switch (damage[index])
         {
         case POISON_HP:
             dam = (res * random(damage[index + 1])) / 100;
@@ -570,7 +570,7 @@ damage_player()
         poisonee->command( ({ "$choke", "$cough", "$puke", "$shiver",
             "$moan", "$groan" })[random(6)]);
     }
-  
+
     a_dam = set_alarm((interval / 2.0) + (rnd() * interval), 0.0,
                       damage_player);
 }

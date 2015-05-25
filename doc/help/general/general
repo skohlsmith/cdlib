@@ -18,15 +18,15 @@ DESCRIPTION
         appraise <item>, search <item>
         doors : open, close, lock <door> with <key>, unlock <door> with <key>,
         ------- pick <lock> on <door>, smash <door> with <weapon>,
-                look through <door>  
-        
+                look through <door>
+
         Information
         -----------
         stats, vitals, i(inventory), options, skills, spells
 
         Communication
         -------------
-        '(say), commune <wizard> <msg>, who, 
+        '(say), commune <wizard> <msg>, who,
 
 SEE ALSO
         the specific help-page, see also "help topics".

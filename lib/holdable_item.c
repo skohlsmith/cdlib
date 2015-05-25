@@ -178,7 +178,7 @@ query_slot_desc(object for_obj)
     /* Should never happen. */
     return "somewhere";
 }
-	    
+
 /*
  * Function name: query_hold_desc
  * Description  : Returns the string describing how the player is holding
@@ -224,14 +224,14 @@ command_hold()
 
     if (this_player() != environment())
     {
-        return "You must carry the " + this_object()->short() + 
+        return "You must carry the " + this_object()->short() +
             " to be able to hold it.\n";
     }
 
     if (slots == W_ANYH)
     {
         if (this_player()->query_tool(TS_RWEAPON))
-	{ 
+	{
             held_in_hand = TS_LWEAPON;
 	}
         else
@@ -255,10 +255,10 @@ command_hold()
     /* Check for a hold function */
     if (!(hret = this_object()->hold()))
     {
-        write("You hold the " + this_object()->short() + 
+        write("You hold the " + this_object()->short() +
 	    " " + query_slot_desc(this_player()) + ".\n");
         str = " holds " + LANG_ADDART(this_object()->short()) + ".\n";
-        say( ({ this_player()->query_Met_name() + str, 
+        say( ({ this_player()->query_Met_name() + str,
                 "The " + this_player()->query_nonmet_name() + str,
                 "" }) );
     }
@@ -305,7 +305,7 @@ command_release()
     {
 	write("You release the " + this_object()->short() + ".\n");
 	str = " releases " + LANG_ADDART(this_object()->short()) + ".\n";
-	say( ({ this_player()->query_Met_name() + str, 
+	say( ({ this_player()->query_Met_name() + str,
 		"The " + this_player()->query_nonmet_name() + str,
 		"" }) );
     }
@@ -408,7 +408,7 @@ holdable_item_usage_desc()
 {
     return ("The " + this_object()->short(this_player()) +
 	" can be held " + query_slot_desc() + ".\n");
-}    
+}
 
 /*
  * Function name: appraise_holdable_item

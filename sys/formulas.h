@@ -30,7 +30,7 @@
 #ifndef MATH_FILE
 #define MATH_FILE "/sys/global/math"
 #endif  MATH_FILE
- 
+
 /*
  * Stats
  *
@@ -84,7 +84,7 @@
 #define F_WEIGHT_FAULT_ARMOUR(w, ac, at)\
     (F_WEIGHT_DEFAULT_ARMOUR(ac, at) * 800 / 1000 > (w))
 
-/* 
+/*
  * Weapon
  *
  * Note also that these are only valid for humanoid weapons.
@@ -154,7 +154,7 @@
 #define F_STEAL_MIN_SKILL            (20)
 #define F_BACKSTAB_MIN_SKILL         (20)
 
-/* 
+/*
  * Living
  */
 #define F_KILL_NEUTRAL_ALIGNMENT        (10)
@@ -231,7 +231,7 @@
  */
 #define F_RECOVERY_LIMIT	(1209600)
 
-/* 
+/*
  * Death
  */
 #define F_DEATH_MESSAGE      "\nYou die.\n" + 				     \
@@ -255,7 +255,7 @@
 #define F_EXP_TEAM_BONUS(size)          (100 + ((size) * 10))
 
 /*
- * Combat 
+ * Combat
  */
 
 #define F_MAX_HP(con)  (((con) < 10) ? ((con) * 10) : (((con) * 20) - 100))
@@ -286,7 +286,7 @@
 #define F_VALUE_ALCO(alco)		(10 + ((alco) * (alco) / 10))
 
 /*
- * Magic 
+ * Magic
  */
 #define F_VALUE_MAGICOB_HEAL(hp)	(5 * (hp) + (hp) * (hp) / 4)
 #define F_VALUE_MAGIC_COMP(hp)		((hp) * 20)

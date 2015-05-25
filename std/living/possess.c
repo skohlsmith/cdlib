@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/living/possess.c
  */
 

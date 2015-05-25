@@ -1,9 +1,9 @@
 /*
   /std/combat/chumanoid.c
 
-  This is the externalized combat routines for humanoids. 
+  This is the externalized combat routines for humanoids.
 
-  This combat object predefines a set of attacks and hitlocations 
+  This combat object predefines a set of attacks and hitlocations
   for humanoid living objects. It also keeps track of the total percentage
   of attacks that can be made each turn and distributes those percentages
   over the attacks depending on effectiveness of weapon wielded.
@@ -64,13 +64,13 @@ cb_configure()
     add_attack(0, 0, 0, 0, W_BOTH);  me->cr_reset_attack(W_BOTH);
     add_attack(0, 0, 0, 0, W_FOOTR); me->cr_reset_attack(W_FOOTR);
     add_attack(0, 0, 0, 0, W_FOOTL); me->cr_reset_attack(W_FOOTL);
-    
+
     add_hitloc(0, 0, 0, A_HEAD);  me->cr_reset_hitloc(A_HEAD);
     add_hitloc(0, 0, 0, A_L_ARM); me->cr_reset_hitloc(A_L_ARM);
     add_hitloc(0, 0, 0, A_R_ARM); me->cr_reset_hitloc(A_R_ARM);
     add_hitloc(0, 0, 0, A_TORSO); me->cr_reset_hitloc(A_TORSO);
     add_hitloc(0, 0, 0, A_LEGS);  me->cr_reset_hitloc(A_LEGS);
- 
+
     map(qme()->query_weapon(-1), cb_wield_weapon);
     map(qme()->query_armour(-1), cb_wear_arm);
 }
@@ -124,7 +124,7 @@ cb_modify_procuse()
         }
 
         enabled_attacks[il] = 1;
-        swc += att[il][ATT_WCHIT] * F_PENMOD(att[il][ATT_WCHIT], 
+        swc += att[il][ATT_WCHIT] * F_PENMOD(att[il][ATT_WCHIT],
             att[il][ATT_SKILL]);
     }
 
@@ -132,7 +132,7 @@ cb_modify_procuse()
     {
         if (swc && enabled_attacks[il])
         {
-            puse = (attuse * att[il][ATT_WCHIT] * 
+            puse = (attuse * att[il][ATT_WCHIT] *
                     F_PENMOD(att[il][ATT_WCHIT], att[il][ATT_SKILL])) / swc;
         }
         else
@@ -140,7 +140,7 @@ cb_modify_procuse()
             puse = 0;
         }
 
-        ::add_attack(att[il][ATT_WCHIT], att[il][ATT_WCPEN], 
+        ::add_attack(att[il][ATT_WCHIT], att[il][ATT_WCPEN],
                      att[il][ATT_DAMT], puse, attid[il],
                      (att[il][ATT_SKILL] ? att[il][ATT_SKILL] : -1),
                      att[il][ATT_OBJ] );
@@ -200,7 +200,7 @@ cb_wield_weapon(object wep)
     {
 	return "The " + wep->short() + " is not a true weapon!\n";
     }
-    
+
     if (stringp(str = ::cb_wield_weapon(wep)))
     {
 	return str;
@@ -213,7 +213,7 @@ cb_wield_weapon(object wep)
     	/*
          * We get no more use of the weapon than our skill with it allows.
 	 */
-	wcskill = (int)me->query_skill(SS_WEP_FIRST + 
+	wcskill = (int)me->query_skill(SS_WEP_FIRST +
 				       ((int)wep->query_wt() - W_FIRST));
 	if (wcskill < 1)
 	    wcskill = -1;

@@ -165,7 +165,7 @@ audience(string who)
         index = -1;
         while(++index < size)
         {
-            if (member_array(this_interactive()->query_real_name(), 
+            if (member_array(this_interactive()->query_real_name(),
                 obs[index]->query_queue_list()) == -1)
             {
                 obs[index] = 0;
@@ -183,7 +183,7 @@ audience(string who)
         return 1;
     }
 
-    if (sscanf(who, "cancel %s", name) == 1) 
+    if (sscanf(who, "cancel %s", name) == 1)
     {
         name = lower_case(name);
         ob = find_player(name);
@@ -204,7 +204,7 @@ audience(string who)
             return 1;
         }
 
-        write("You cancel your request for audience with " + 
+        write("You cancel your request for audience with " +
               capitalize(name) + ".\n");
         tell_object(ob, this_interactive()->query_cap_name() +
             " canceled " + this_interactive()->query_possessive() +
@@ -238,7 +238,7 @@ audience(string who)
     }
 
     if ((idle = query_idle(ob)) > 300)
-    { 
+    {
         write(capitalize(ob->query_real_name()) + " is idle for " +
             CONVTIME(idle) + " and may not react instantly.\n");
     }
@@ -368,7 +368,7 @@ cat_string(mixed org, string what, object pl, int up)
             (up == 1 ? QCTNAME(pl) : QTNAME(pl)));
     else
         org[1] += what;
-    
+
     return org;
 }
 
@@ -963,7 +963,7 @@ line(string str, int emotion = 0, int busy_level = 0)
         {
             write("You do not hold the rank to speak on the " + line + " line.\n");
             return 1;
-        }        
+        }
         members = map(users() - ({ this_player() }), geteuid);
         members = filter(members, &operator( >= )(, rank) @
             SECURITY->query_wiz_rank);
@@ -977,7 +977,7 @@ line(string str, int emotion = 0, int busy_level = 0)
         {
             write("You are not a member of the domain " + line + ".\n");
             return 1;
-        }        
+        }
         members = SECURITY->query_domain_members(line);
         members &= map(users() - ({ this_player() }), geteuid);
     }
@@ -995,7 +995,7 @@ line(string str, int emotion = 0, int busy_level = 0)
         {
             write("You are not a member of the " + line + " team.\n");
             return 1;
-        }        
+        }
         members = SECURITY->query_team_list(line);
         members &= map(users() - ({ this_player() }), geteuid);
     }
@@ -1010,7 +1010,7 @@ line(string str, int emotion = 0, int busy_level = 0)
         {
             write("You are not a subscriber to the " + line + " line.\n");
             return 1;
-        }        
+        }
         members &= map(users() - ({ this_player() }), geteuid);
     }
     else
@@ -1027,7 +1027,7 @@ line(string str, int emotion = 0, int busy_level = 0)
         {
             return finger("-l " + line);
         }
-    
+
         if (line_list(lower_case(line)))
         {
             return 1;
@@ -1040,7 +1040,7 @@ line(string str, int emotion = 0, int busy_level = 0)
     receivers = filter(members, not @ &operator(&)(busy_level | BUSY_F) @
                        &->query_prop(WIZARD_I_BUSY_LEVEL) @ find_player);
     receivers = filter(receivers, &interactive() @ find_player);
-    
+
     if (!(size = sizeof(receivers)))
     {
         notify_fail("There is no one listening to the channel '" + line +
@@ -1085,7 +1085,7 @@ line_shortcut(string str)
 {
     if (!this_interactive()->query_option(OPT_AUTOLINECMD))
         return 0;
-    
+
     return line(query_verb() + (strlen(str) ? (" " + str) : ""), 0);
 }
 
@@ -1101,7 +1101,7 @@ linee_shortcut(string str)
 {
     if (!this_interactive()->query_option(OPT_AUTOLINECMD))
         return 0;
-    
+
     return line(extract(query_verb(), 0, -2) +
         (strlen(str) ? (" " + str) : ""), 1);
 }
@@ -1217,10 +1217,10 @@ tell(string str)
             write(capitalize(target->query_real_name()) + " is idle for " +
                 CONVTIME(idle) + " and may not react instantly.\n");
         }
-    
+
         if (target->query_wiz_level())
         {
-            target->catch_tell((target->query_option(OPT_TIMESTAMP) ? timestamp : "") + 
+            target->catch_tell((target->query_option(OPT_TIMESTAMP) ? timestamp : "") +
                 capitalize(this_player()->query_real_name()) +
                 " tells you: " + msg + "\n");
         }
@@ -1307,13 +1307,13 @@ nomask int
 wsay(string str)
 {
     object *wizards;
-    
+
     if (!strlen(str))
     {
         notify_fail("Say what in the way of the wizards?\n");
         return 0;
     }
-    
+
     wizards = filter(all_inventory(environment(this_player())),
         &->query_wiz_level()) - ({ this_player() });
     if (!sizeof(wizards))
@@ -1321,10 +1321,10 @@ wsay(string str)
         notify_fail("There are no wizards present to hear your message.\n");
         return 0;
     }
-    
+
     wizards->catch_tell(capitalize(this_player()->query_real_name()) +
         " wizard-speaks: " + str + "\n");
-    
+
     if (this_player()->query_option(OPT_ECHO))
     {
         write("You wizard-speak: " + str + "\n");
@@ -1333,5 +1333,5 @@ wsay(string str)
     {
         write("Ok.\n");
     }
-    return 1;  
+    return 1;
 }

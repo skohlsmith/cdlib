@@ -22,7 +22,7 @@ void
 reset_room()
 {
     /*
-     * Since there are many elves in the world, we'll have to give this 
+     * Since there are many elves in the world, we'll have to give this
      * elf an special name. If we were to test if someone with name 'elf'
      * was here, any elf could have broken the reset, and only our special
      * elf should be able to do that, so let's give him a special name
@@ -81,7 +81,7 @@ try_climb(string str)
 
 /*
  * Jump, like climbing. If some stupid player tries to jump he will fall down.
- * This time the fall is quite long and if you have 0 hp after the fall you 
+ * This time the fall is quite long and if you have 0 hp after the fall you
  * will die *grin*. We don't care what argument player gave to the jump command
  * this time. Just let him fall. this_player() will be moved to a room
  * that controls the fall better.

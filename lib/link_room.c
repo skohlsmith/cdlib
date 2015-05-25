@@ -1,4 +1,4 @@
-/*    
+/*
 
    /lib/link_room.c
 
@@ -26,7 +26,7 @@ object link_room(string lfile, mixed dest, int pos);
 
 /*
  * Function name: transport_to
- * Description:   Transport player to first linked room in clone chain.  
+ * Description:   Transport player to first linked room in clone chain.
  *                Also creates the corridor and links it to the other
  *                endpoint if the corridor does not exist.
  * Arguments:	  ex:    The direction command (north, south ...)
@@ -57,7 +57,7 @@ transport_to(string ex, mixed room, int delay)
 	if (!sscanf(file_name(or), "%s#", room))
 	    room = file_name(or);
     }
-    
+
     lastr = 0;
 
     /*
@@ -75,29 +75,29 @@ transport_to(string ex, mixed room, int delay)
     else
 	link_ends = ({ room });
 
-    /* 
+    /*
         Make the cloned corridor if it is not already made. Build by adding
         one room at a time from the destination position.
      */
     if (!lastr)
-    {  
+    {
 	/* Next to dest */
-	if (!(lastr = this_object()->link_room(LINK_ROOM, or, delay))) 
+	if (!(lastr = this_object()->link_room(LINK_ROOM, or, delay)))
 	    return 0;
 	backstr = (string) or->make_link(this_object(), lastr);
-	lastr->add_exit(or, ex, 0);   
+	lastr->add_exit(or, ex, 0);
 	lastr->link_master(room);    /* Destination is master of corridor */
 
 	for (c = 1; c < delay; c++)
 	{
 	    ls = link_room(LINK_ROOM, or, delay - c);
 	    ls->add_exit(lastr, ex, 0);
-	    lastr->add_exit(ls, backstr, 0);                   
+	    lastr->add_exit(ls, backstr, 0);
 	    lastr = ls;
 	    lastr->link_master(room);
 	}
 	lastr -> add_exit(this_object(), backstr, 0);
-	link_starts = (sizeof(link_starts) 
+	link_starts = (sizeof(link_starts)
 		       ? link_starts + ({ lastr }) : ({ lastr }));
     }
 
@@ -139,22 +139,22 @@ make_link(mixed to_room, object via_link)
 	link_ends = ({ to_room });
 	ne = -1;
     }
-  
+
     if (ne < 0)
-    	link_starts = (link_starts ? 
+    	link_starts = (link_starts ?
 		       link_starts + ({ via_link }) : ({ via_link }));
-    
+
     ex = query_exit();
     ne = member_array(to_room, ex);
 
     return (ne >= 0 ? ex[ne + 1] : "back");
     /* We can't go back when we are at the end point, ie one way corridor */
 }
-  
+
 /*
  * Function name: link_room
  * Description:   Create a corridor room. Set the descriptions of it.
- *                Does not add exits. This is supposed to be replaced by 
+ *                Does not add exits. This is supposed to be replaced by
  *                the actual room inheriting this standard room. It is supposed
  *                to set proper descriptions (long and short) instead of
  *                copying the endpoint description. Corridor rooms are
@@ -170,7 +170,7 @@ varargs public object
 link_room(string lfile, mixed dest, int pos)
 {
     object ob;
-  
+
     ob = clone_object(lfile);
 
     ob->set_short(query_short()); /* Default same short as starting point */
@@ -179,7 +179,7 @@ link_room(string lfile, mixed dest, int pos)
     ob->add_prop(ROOM_I_LIGHT, query_prop_setting(ROOM_I_LIGHT));
     ob->add_prop(ROOM_I_INSIDE, query_prop_setting(ROOM_I_INSIDE));
     ob->add_prop(ROOM_I_TYPE, query_prop_setting(ROOM_I_TYPE));
-  
+
     return ob;
 }
 

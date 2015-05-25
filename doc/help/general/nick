@@ -9,7 +9,7 @@ SYNOPSIS
 DESCRIPTION
 	With this quicktyper command, you can manage your nick(name) list.
 	A nick(name) is an abbreviation that will substitute a longer term
-	so you have to type less. 
+	so you have to type less.
 
 OPTIONS
 	<none>	- list all your nicks.

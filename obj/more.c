@@ -186,7 +186,7 @@ qmore(string answer)
 	write(PROMPT);
 	input_to("qmore");
 	return 1;
-    }	
+    }
 
     if (lineno < (pagesize + first))
     {

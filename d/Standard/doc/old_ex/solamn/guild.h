@@ -87,7 +87,7 @@
 
 /* Formulas to the cmd_soul */
 #define F_CKICK_HIT(ob, ob2)	ob->query_skill(SS_KICK) * \
-					ob->query_stat(SS_DEX) 
+					ob->query_stat(SS_DEX)
 
 #define F_CKICK_PEN(ob, ob2)	F_PENMOD(ob->query_stat(SS_STR) / 4, \
 					ob->query_skill(SS_KICK) / 2) + 10

@@ -71,7 +71,7 @@ create_monster()
       return;
 
    set_name("alchemist");
-   set_race_name("alchemist"); 
+   set_race_name("alchemist");
    set_living_name("_alchemist_");
    set_adj("town");
    set_long("@@my_long");
@@ -541,7 +541,7 @@ name_price(object what)
                      + ".";
                  break;
          case 3: str = "Give me a chance with this "
-                     + check_call(what->short()) + ", " 
+                     + check_call(what->short()) + ", "
                      + ((who->query_gender() == G_MALE) ? "master" : "lady")
                      + ".";
       }
@@ -570,7 +570,7 @@ catch_tell(string str)
    {
       what = lower_case(what);
 
-      if (what == "give it back" || what == "give it back." 
+      if (what == "give it back" || what == "give it back."
        || what == "give it back!" || what == "give it back, please.")
       {
          if ((i = member_array(lower_case(who), from_arr)) >= 0)

@@ -3,7 +3,7 @@ inherit "/std/mapsquare";
 void create_mapsquare(int wlx, int wly, int slx,int sly)
 {
     ::create_mapsquare(wlx, wly, slx, sly);
-	
+
 	set_short("Asteroid belt");
 
 	if(query_random_encounter())
@@ -26,4 +26,4 @@ void create_mapsquare(int wlx, int wly, int slx,int sly)
     }
 
 
-	
+

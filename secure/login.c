@@ -96,7 +96,7 @@ static void get_name(string str);
 /*
  * Function name: clean_up
  * Description  : This function is called every two minutes and if the
- *                player lost or broke connection, we destruct the object. 
+ *                player lost or broke connection, we destruct the object.
  */
 static void
 clean_up()
@@ -129,8 +129,8 @@ create()
  * Description  : This function returns the short description of this object.
  * Returns      : string - the short description.
  */
-string 
-short() 
+string
+short()
 {
     return "login"  + (name ? " (" + name + ")" : "");
 }
@@ -366,9 +366,9 @@ start_player1()
         }
     }
 
-    /* 
+    /*
      * There can be three different reasons for not having a player_file:
-     * 
+     *
      *    1 - If this is a new character, let the login player object
      *        manage the creation / conversion / process.
      *    2 - The players racefile is not loadable, a new body must be
@@ -391,26 +391,26 @@ start_player1()
             else
                 ob = clone_object(LOGIN_NEW_PLAYER);
         }
-        ob->open_player(); 
+        ob->open_player();
 
         seteuid(BACKBONE_UID);
-        export_uid(ob); 
-        ob->set_trusted(1); 
+        export_uid(ob);
+        ob->set_trusted(1);
         exec(ob, this_object());
         ob->enter_new_player(name, password);
         destruct();
         return;
     }
 
-    ob->open_player(); 
+    ob->open_player();
 
     if (SECURITY->query_wiz_rank(name))
         seteuid(name);
     else
         seteuid(BACKBONE_UID);
 
-    export_uid(ob); 
-    ob->set_trusted(1); 
+    export_uid(ob);
+    ob->set_trusted(1);
     start_player2(ob);
 }
 
@@ -793,7 +793,7 @@ get_name(string str)
 #ifdef ALWAYS_APPLY
         if (!wildmatch("*jr", str))
         {
-            write_socket("\nCurrently, " + SECURITY->get_mud_name() + 
+            write_socket("\nCurrently, " + SECURITY->get_mud_name() +
                 " cannot accept new players from any site without " +
                 "application. If you want to create a character here, " +
                 "you may log in with 'application'.\n\n");
@@ -803,7 +803,7 @@ get_name(string str)
         }
 #endif ALWAYS_APPLY
 
-        if (!wildmatch("*jr", str) && 
+        if (!wildmatch("*jr", str) &&
             SECURITY->check_newplayer(query_ip_number(this_object())) == 2)
         {
             write_socket("\nYour site is blocked due to repeated offensive " +
@@ -914,7 +914,7 @@ get_name(string str)
         start_player();
         return;
     }
-    
+
     if (player_file)
     {
         write_socket("\nWelcome, " + capitalize(name) +
@@ -1087,7 +1087,7 @@ check_double_login()
 {
     if (SECURITY->query_wiz_rank(query_pl_name()) > WIZ_NORMAL)
         return 0;
-    
+
     foreach (string name : SECURITY->query_seconds(query_pl_name()))
     {
         if (find_player(name))
@@ -1098,7 +1098,7 @@ check_double_login()
             return 1;
         }
     }
-    
+
     return 0;
 }
 
@@ -1165,7 +1165,7 @@ check_password(string p)
     if (check_double_login())
         return;
 #endif
-    
+
     /* Reset the login flag so people won't skip the queue. */
     login_flag = 0;
 
@@ -1199,7 +1199,7 @@ check_password(string p)
 
 	size = sizeof(players);
 	names = ({ });
-	
+
 	while(--size >= 0)
 	{
 	    /* Security, we don't want to give the pass to untrusted functions */
@@ -1207,7 +1207,7 @@ check_password(string p)
 	    {
 		continue;
 	    }
-	    
+
 	    if (players[size]->match_password(p))
 	    {
 		names += ({ players[size]->query_real_name() });
@@ -1243,7 +1243,7 @@ check_password(string p)
         /* Check for seconds. */
         names = SECURITY->query_seconds(name);
         names &= map(players, &->query_real_name());
-        
+
         if (sizeof(names))
 	{
 	    SECURITY->log_syslog(LOG_SECOND_LOGIN,

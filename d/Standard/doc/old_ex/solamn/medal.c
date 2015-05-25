@@ -53,7 +53,7 @@ init()
 
     seteuid(getuid(TO));
 /* Here I check if the player is being banished */
-    if (IN_B_LIST(TP->query_real_name(), 1)) 
+    if (IN_B_LIST(TP->query_real_name(), 1))
 	return;
 
     call_out("soul", 1, TP);

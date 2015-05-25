@@ -55,7 +55,7 @@ visible_access(mixed *arr, string acsfunc, object acsobj, int normflag,
     int num;
     object *invenv;
     object *items;
-    
+
     /* Access failure. */
     if (!pointerp(arr) || !sizeof(arr) || !this_player())
 	return  ({ });
@@ -100,7 +100,7 @@ visible_access(mixed *arr, string acsfunc, object acsobj, int normflag,
 	return items;
 
     /* Select a certain item, eg. first or third */
-    if (num < 0)               
+    if (num < 0)
 	return order_num(items, -num);
 
     /* Select a number of items, eg. one or three */
@@ -212,12 +212,12 @@ parse_command_size()
  * Arguments    : object ob - the object to test.
  * Returns      : int - if true, the object is selected.
  */
-nomask int 
+nomask int
 filter_first(object ob)
 {
     if (gNum < 1)
 	return 0;
-    else if (ob->query_prop(HEAP_I_IS)) 
+    else if (ob->query_prop(HEAP_I_IS))
 	gNum -= ob->split_heap(gNum);
     else
 	gNum -= 1;
@@ -260,21 +260,21 @@ do_verb_1obj(string cmd, string single_func, string acsfunc, object cobj,
 {
     mixed * itema;
     object call_obj;
-    
+
     if (!cmd)
 	return 0;
     if (!cobj)
 	call_obj = previous_object();
     else
 	call_obj = cobj;
-    
+
     if (!parse_command(cmd, PARSE_ENV, "[the] %i", itema))
 	return 0;
-    
+
     itema = normal_access(itema, acsfunc, cobj, include_invis);
     if (!itema)
 	return 0;
-        
+
     return filter(itema, single_func, call_obj);
 }
 
@@ -283,7 +283,7 @@ do_verb_1obj(string cmd, string single_func, string acsfunc, object cobj,
    Access objects located inside containers.
    Access containers inside player or in players environment.
    Calls 'prep_func' for acknowledge of word returned by %w
-   
+
    Parses command and calls 'single_func' for each object to do the command
    upon. Returns array of these objects for which 'single_func' returned 1,
 */
@@ -295,30 +295,30 @@ do_verb_inside(string cmd, string prep_func, string single_func,
     mixed *itema1, *itema2;
     object call_obj;
     string str2;
-    
+
     if (!cmd)
 	return 0;
     if (!cobj)
 	call_obj = previous_object();
     else
 	call_obj = cobj;
-    
+
     if (!parse_command(cmd, PARSE_ENV, "[the] %i %w [the] %i", itema1, str2, itema2))
 	return 0;
-    
+
     if (!call_other(call_obj, prep_func, str2))
 	return 0;
-    
-    itema2 = normal_access(itema2, afunc, cobj);  
+
+    itema2 = normal_access(itema2, afunc, cobj);
     if (!itema2)
 	return 0;
-    
+
     gContainers = itema2;
-    
+
     itema1 = normal_access(itema1, "in_containers", this_object());
     if (!itema1)
 	return 0;
-    
+
     return filter(itema1, single_func, call_obj);
 }
 
@@ -331,7 +331,7 @@ do_verb_inside(string cmd, string prep_func, string single_func,
  * globals        gContainers: the array of containers
  */
 int
-in_containers(object ob) 
+in_containers(object ob)
 {
     if (!objectp(ob))
 	return 0;
@@ -346,7 +346,7 @@ in_containers(object ob)
    Access objects inside player or in players environment.
    Access a single object inside player or in players environment.
    Calls 'check_func' for acknowledge of word returned by %w and second %i
-   
+
    Parses command and calls 'single_func' for each object to do the command
    upon. Returns an array of these objects for which 'single_func' returned 1.
 */
@@ -357,36 +357,36 @@ do_verb_with(string cmd, string check_func, string single_func,
     mixed *itema1, *itema2;
     object call_obj;
     string str2;
-    
+
     if (!cmd)
 	return 0;
     if (!cobj)
 	call_obj = previous_object();
     else
 	call_obj = cobj;
-    
+
     if (!parse_command(cmd, PARSE_ENV, "[the] %i %w [the] %i", itema1, str2, itema2))
 	return 0;
-    
-    itema2 = normal_access(itema2, acsfunc2, cobj);  
+
+    itema2 = normal_access(itema2, acsfunc2, cobj);
     if (!itema2)
 	return 0;
-    
+
     gContainers = itema2;
-    
+
     itema1 = normal_access(itema1, acsfunc1, cobj);
     if (!itema1)
 	return 0;
-    
+
     if (!call_other(call_obj, check_func, str2, itema2))
 	return 0;
-    
+
     return filter(itema1, single_func, call_obj);
 }
 
 /*
  * Function name: find_str_in_arr
- * Description:   Will return the array of objects corresponding to the str 
+ * Description:   Will return the array of objects corresponding to the str
  *		  that this_player can see, picked from the given array.
  * Arguments:	  str - the string to search for
  *		  ob  - An array with objects to look through
@@ -417,7 +417,7 @@ find_str_in_arr(string str, object *ob)
 		return items;
 
 	    /* Select a certain item, eg. first or third */
-	    if (num < 0)               
+	    if (num < 0)
 		return order_num(items, -num);
 
 	    /* Select a number of items, eg. one or three */
@@ -461,11 +461,11 @@ find_str_in_object(string str, object ob)
  *
  * Returns an array with four elements:
  *
- * ret[0]		 The prepositions 
- * ret[1]		 The items, a normal parse_command %i return value 
+ * ret[0]		 The prepositions
+ * ret[1]		 The items, a normal parse_command %i return value
  *			 or a string (subitem/sublocation)
- * ret[2]		 True if last was not a normal object 
- * ret[3]		 True if no normal objects 
+ * ret[2]		 True if last was not a normal object
+ * ret[3]		 True if no normal objects
  *
  */
 mixed *
@@ -487,19 +487,19 @@ parse_itemlist(string str)
 
     while (strlen(rest))
     {
-	notify_fail(break_string("Sorry, In '" + str + "'. The ending: '" + 
+	notify_fail(break_string("Sorry, In '" + str + "'. The ending: '" +
 				 rest + "', not understood.\n", 76));
 	if (!parse_command(rest, ({}), "%p %s", trypreps, nrest))
 	    return 0;
 	if (!strlen(nrest))
 	    return 0;
-	
+
 	preps += ({ trypreps[0] });
-	
+
 	if (!parse_command(nrest, PARSE_ENV, "[the] %i %s", itemlist, rest))
 	{
-	    if (!parse_command(nrest, ({}), "%s %p %s", itemstr, 
-			       trypreps, rest)) 
+	    if (!parse_command(nrest, ({}), "%s %p %s", itemstr,
+			       trypreps, rest))
 	    {
 		/* Subitem or sublocation in the room */
 		itemlists += ({ nrest });
@@ -513,7 +513,7 @@ parse_itemlist(string str)
 		last_sub = 1;
 	    }
 	    bef = sizeof(itemlists) - 2;
-	    
+
 	    /* Two following subitem/sublocations are combined to one */
 	    if (bef >= 0 && stringp(itemlists[bef]))
 	    {

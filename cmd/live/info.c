@@ -41,11 +41,11 @@ inherit "/cmd/std/command_driver";
 /* **************************************************************************
  * The constructor.
  */
-void 
+void
 create()
 {
     setuid();
-    seteuid(getuid()); 
+    seteuid(getuid());
 }
 
 /* **************************************************************************
@@ -98,13 +98,13 @@ query_cmdlist()
  *		  sublocations responsible for extra descriptions of the
  *		  living object.
  */
-public void 
+public void
 using_soul(object live)
 {
 }
 
 /* **************************************************************************
- * Here follow some support functions. 
+ * Here follow some support functions.
  * **************************************************************************/
 
 /*

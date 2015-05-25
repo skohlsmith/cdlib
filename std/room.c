@@ -1,4 +1,4 @@
-/*  
+/*
  * /std/room.c
  *
  * This is the room object. It should be inherited by all rooms.
@@ -53,7 +53,7 @@ create_container()
     add_prop(ROOM_I_IS,    1);
     add_prop(ROOM_I_LIGHT, 1);
     add_prop(ROOM_I_HIDE, 10);
-    
+
     room_link_cont = 0;
 
     seteuid(creator(this_object()));
@@ -148,7 +148,7 @@ public object
 clone_here(string file)
 {
     object ob;
-    
+
     ob = clone_object(file);
     accept_here += ({ ob });
     return ob;
@@ -180,7 +180,7 @@ add_accepted_here(object ob)
 {
     accept_here += ({ ob });
 }
- 
+
 /*
  * Function name: light
  * Description:   Returns the light status in this room
@@ -191,7 +191,7 @@ nomask int
 light()
 {
     int li;
-    
+
     li = query_prop(ROOM_I_LIGHT);
     if (objectp(room_link_cont))
     {
@@ -229,7 +229,7 @@ set_room(mixed room)
 {
 }
 
-/* 
+/*
  * Function name: update_internal
  * Description:   Updates the light, weight and volume of things inside
  *                also updates a possible connected container.
@@ -345,7 +345,7 @@ query_domain()
  * Arguments:     string cmd    - the name of the executed command
  *                object actor  - the command performer
  *                object target - the target of the command
- *                int cmd_type  - the command attributes (from cmdparse.h) 
+ *                int cmd_type  - the command attributes (from cmdparse.h)
  * Returns:       0 - command allowed
  *                1 - command blocked, no error message provided
  *                string - command blocked, use string as error message.

@@ -1,6 +1,6 @@
 NAME
 	write_socket - send text to an interactive user
-	
+
 SYNOPSIS
 	void write_socket(string | int)
 

@@ -184,7 +184,7 @@ query_id_long() { return id_long; }
 
 /*
  * Function name: set_unid_long
- * Description:   Set the long description you see if you cannot identify the 
+ * Description:   Set the long description you see if you cannot identify the
  *		  potion.
  * Arguments:     str - The long description
  */
@@ -290,7 +290,7 @@ query_id_diff() { return id_diff; }
  * Description:   Set the soft amount of the potion
  * Argument:      int - the soft amount
  */
-void 
+void
 set_soft_amount(int i)
 {
     if (i > 10)
@@ -307,7 +307,7 @@ set_soft_amount(int i)
  * Description:   What is the soft amount of the potion
  * Returns:       The soft amount
  */
-int 
+int
 query_soft_amount(int i) { return soft_amount; }
 
 /*
@@ -315,7 +315,7 @@ query_soft_amount(int i) { return soft_amount; }
  * Description:   Set the alco amount of the potion
  * Argument:      int - the alco amount
  */
-void 
+void
 set_alco_amount(int i) { alco_amount = i; }
 
 /*
@@ -326,7 +326,7 @@ set_alco_amount(int i) { alco_amount = i; }
  *                query_alco_strength().
  * Returns:       0
  */
-nomask int 
+nomask int
 query_alco_amount(int i) { return 0; }
 
 /*
@@ -334,7 +334,7 @@ query_alco_amount(int i) { return 0; }
  * Description:   What is the alco amount of the potion?
  * Returns:       The alco amount
  */
-int 
+int
 query_alco_strength(int i) { return alco_amount; }
 
 /*
@@ -356,7 +356,7 @@ query_potion_value() { return potion_value; }
 
 /*
  * Function name:       set_quaffed_it
- * Description:         This is called if the potion is quaffed and the 
+ * Description:         This is called if the potion is quaffed and the
  *                      quaff_verb != "quaff
  */
 void
@@ -452,7 +452,7 @@ quaff_it(string str)
     }
 
     gFail = ({ });
-    vb = query_verb(); 
+    vb = query_verb();
 
     notify_fail(capitalize(vb) + " what?\n", 0);
     if (!stringp(str))
@@ -500,7 +500,7 @@ quaff_fail()
 
 int
 quaff_access(object ob)
-{ 
+{
     string vb = query_verb();
 
     if ((environment(ob) == this_player()) &&
@@ -537,7 +537,7 @@ quaff_one_thing(object ob)
     /* Test if you quaffed a non quaff potion */
     if ((vb == "quaff") && (vb != ob->query_quaff_verb()))
             ob->set_quaffed_it();
-    
+
     return 1;
 }
 
@@ -592,7 +592,7 @@ void set_magic_res(int resistance) { magic_resistance = resistance; }
  */
 int
 query_magic_res(string prop)
-{ 
+{
     if (prop == MAGIC_I_RES_MAGIC)
         return magic_resistance;
     else
@@ -629,7 +629,7 @@ dispel_magic(int magic)
 
 int
 smell_access(object ob)
-{ 
+{
     string vb = query_verb();
 
     if ((environment(ob) == this_player()) &&
@@ -664,7 +664,7 @@ smell_one_thing(object ob)
         else if (vb == "smell")
             write(ob->query_unid_smell());
     }
-    
+
     return 1;
 }
 

@@ -308,7 +308,7 @@ set_domain_max(string dname, int max)
 
 /*
  * Function name: query_domain_max
- * Description  : Find and return the maximum number of wizards wanted. 
+ * Description  : Find and return the maximum number of wizards wanted.
  * Arguments    : string dname - the name of the domain.
  * Returns      : int - the max number if found, -1 otherwise.
  */
@@ -521,7 +521,7 @@ remove_domain(string dname)
  *                string wmess - wizard message.
  *                string dmess - domain message.
  */
-static void 
+static void
 tell_domain(string dname, string wname, string wmess, string dmess)
 {
     object wiz;
@@ -755,7 +755,7 @@ draft_wizard_to_domain(string dname, string wname)
     if (strlen(m_wizards[wname][FOB_WIZ_DOM]) &&
         (m_wizards[wname][FOB_WIZ_DOM] != WIZARD_DOMAIN))
     {
-        notify_fail(capitalize(wname) + " already is a member of " + 
+        notify_fail(capitalize(wname) + " already is a member of " +
             m_wizards[wname][FOB_WIZ_DOM] + ".\n");
         return 0;
     }
@@ -971,7 +971,7 @@ apply_to_domain(string dname)
 
     dname = capitalize(dname);
     wname = getwho();
-    
+
     switch(m_wizards[wname][FOB_WIZ_RANK])
     {
     case WIZ_MAGE:
@@ -979,7 +979,7 @@ apply_to_domain(string dname)
     case WIZ_KEEPER:
         if (m_wizards[wname][FOB_WIZ_DOM] != WIZARD_DOMAIN)
         {
-            notify_fail("You are already a member of the domain " + 
+            notify_fail("You are already a member of the domain " +
                 m_wizards[wname][FOB_WIZ_DOM] + ".");
             return 0;
         }
@@ -994,7 +994,7 @@ apply_to_domain(string dname)
     default:
         if (m_wizards[wname][FOB_WIZ_DOM] != "")
         {
-            notify_fail("You are already a member of the domain " + 
+            notify_fail("You are already a member of the domain " +
                 m_wizards[wname][FOB_WIZ_DOM] + ".\n");
             return 0;
         }
@@ -1042,7 +1042,7 @@ apply_to_domain(string dname)
 
 /*
  * Function name: accept_application
- * Description  : A lord accepts an application. 
+ * Description  : A lord accepts an application.
  * Arguments    : string wname - the wizard to accept.
  * Returns      : int 1/0 - success/failure.
  */
@@ -1125,7 +1125,7 @@ deny_application(string wname)
     /* May only be called from the Lord soul. */
     if (!CALL_BY(WIZ_CMD_LORD))
         return 0;
-    
+
     cmder = getwho();
     if (m_wizards[cmder][FOB_WIZ_RANK] > WIZ_LORD)
     {
@@ -1240,7 +1240,7 @@ remove_all_applications(string wname)
 /*
  * Function name: filter_applications
  * Description  : This function checks whether a particular wizard is in the
- *                list of people who have applied to a domain. 
+ *                list of people who have applied to a domain.
  * Arguments    : string *wizards - the people who have applied to a domain.
  *                string wname    - the wizard to check.
  * Returns      : int 1/0 - true if the wizard applied to the domain.
@@ -1372,7 +1372,7 @@ list_applications(string str)
         {
             write("No wizards have applied to your domain.\n");
             return 1;
-        }            
+        }
 
         write("The following people have applied to your domain: " +
             COMPOSITE_WORDS(sort_array(map(m_applications[m_wizards[cmder][FOB_WIZ_DOM]],
@@ -1459,7 +1459,7 @@ bookkeep_exp(string type, int exp)
     else if ((type == "combat") && (!living(giver) || !cobj))
 #else
     else if ((type == "combat") && !living(giver))
-#endif EXP_FROM_COMBAT_OBJECT 
+#endif EXP_FROM_COMBAT_OBJECT
     {
         log_file(LOG_BOOKKEEP_ERR,
             sprintf("%s %-12s combat (%8d) object %s\n", ctime(time()),
@@ -1651,11 +1651,11 @@ query_domain_qexp(string dname)
 /*
  * Function name: query_domain_cexp
  * Description  : Gives the combat experience gathered by a domain.
- * Arguments    : string dname - the domain name. 
+ * Arguments    : string dname - the domain name.
  * Returns      : int - the accumulated experience.
  */
 int
-query_domain_cexp(string dname)        
+query_domain_cexp(string dname)
 {
     dname = capitalize(dname);
 
@@ -2536,7 +2536,7 @@ remove_global_read(string wname)
  *                the file, see the header of this file.
  * Returns      : mapping - the global read list.
  */
-mapping 
+mapping
 query_global_read()
 {
     return secure_var(m_global_read);
@@ -2565,7 +2565,7 @@ set_mentor(string mentor, string student)
         return 0;
 
     /* The student has to be at least a normal wiz. */
-    if (mentor != "none" && 
+    if (mentor != "none" &&
 	mentor != "" &&
 	query_wiz_rank(student) < WIZ_NORMAL)
         return 0;
@@ -2736,7 +2736,7 @@ set_restrict(string wiz, int res)
     if ((m_wizards[wiz][FOB_WIZ_RANK] < WIZ_NORMAL) ||
         (m_wizards[wiz][FOB_WIZ_RANK] > WIZ_MAGE))
         return 0;
-    
+
     m_wizards[wiz][FOB_WIZ_RESTRICT] |= res;
     save_master();
 
@@ -2758,7 +2758,7 @@ remove_restrict(string wiz, int res)
 
     if (sizeof(m_wizards[wiz]) == 0)
         return 0;
-    
+
     m_wizards[wiz][FOB_WIZ_RESTRICT] ^= res;
     save_master();
 
@@ -2775,7 +2775,7 @@ query_restrict(string wiz)
 {
     if (sizeof(m_wizards[wiz]) == 0)
         return 0;
-    
+
     return m_wizards[wiz][FOB_WIZ_RESTRICT];
 }
 

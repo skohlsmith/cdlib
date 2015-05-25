@@ -36,7 +36,7 @@ mixed mobile_deny_objects();
 void
 create_mobile()
 {
-    /* 
+    /*
      * Observe that we do not continue the 'default' calls here
      * All default values are already set.
      */
@@ -83,7 +83,7 @@ team_join(object member)
 }
 
 #ifdef HEART_NEEDED
-static int   
+static int
 test_live_here(object ob)
 {
     return (living(ob) && interactive(ob) && (ob != this_object()));
@@ -98,7 +98,7 @@ void
 test_if_any_here()
 {
     if (environment(this_object()) &&
-	(!sizeof(filter(all_inventory(environment(this_object())), 
+	(!sizeof(filter(all_inventory(environment(this_object())),
 			test_live_here))))
     {
 	stop_heart();
@@ -108,7 +108,7 @@ test_if_any_here()
 	test_alarm = set_alarm(50.0, 0.0, test_if_any_here);
 }
 
-/* 
+/*
  * start_heart
  * Description:  When a mobile has an active heartbeat we must test
  *		 now and then if we can turn it off.
@@ -132,7 +132,7 @@ query_race_name()
 
     if (!str)
 	return (string) DEFAULT_PLAYER->query_race();
-    else 
+    else
 	return str;
 }
 
@@ -318,7 +318,7 @@ query_exp_factor()
 {
     return mobile_exp_factor;
 }
-   
+
 /*
  * Function name: init_living
  * Description:   A patch for the automatic attack if this mobile can do that
@@ -346,7 +346,7 @@ special_attack(object victim)
 {
     return 0;
 }
- 
+
 /*
  * Function name: mobile_deny_objects
  * Description:   This function is called from VBFC and NPC_M_NO_ACCEPT_GIVE

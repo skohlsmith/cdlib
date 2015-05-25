@@ -1,10 +1,10 @@
-/* 
+/*
  * /lib/library.c
  *
  * Support for libraries.
  *
  * Example usage:
- * 
+ *
  * inherit "/std/room";
  * inherit "/lib/library";
  *
@@ -13,7 +13,7 @@
  * {
  *     set_short("Library");
  *     set_long("This is a library.\n");
- *    
+ *
  *     // Set the directory where book files will be stored
  *     set_book_directory("/d/Domain/subdir/");
  *
@@ -22,7 +22,7 @@
  *
  *     // Initialize the library
  *     create_library();
- * 
+ *
  *     // Add a sign with help information
  *     add_item("sign", library_help());
  *     add_cmd_item("sign", "read", library_help());
@@ -54,7 +54,7 @@
 #define PLURAL_BOOK_TYPE \
     (sizeof(plural_book_types) ? \
     plural_book_types[0] : LANG_PWORD(book_types[0]))
-  
+
 #define SHELF_TYPE shelf_types[0]
 #define PLURAL_SHELF_TYPE \
     (sizeof(plural_shelf_types) ? \
@@ -343,7 +343,7 @@ library_list_approval_long_hook()
     write(appr_list);
 }
 
-/* 
+/*
  * Function name: library_list_approval_short_hook
  * Description:   Redefine this to alter how the short listing of books
  *                needing approval is presented
@@ -366,7 +366,7 @@ library_no_shelves_hook()
     notify_fail("There are no different " + SHELF_TYPE + ".\n");
     return 0;
 }
-   
+
 /*
  * Function name: library_list_shelves_hook
  * Description:   Redefine this to alter how the listing of shelves is
@@ -412,7 +412,7 @@ library_list_shelf_short_hook(string shelf)
 public int
 library_list_syntax_failure_hook(string str)
 {
-    notify_fail("Usage: " + query_verb() + 
+    notify_fail("Usage: " + query_verb() +
         (strlen(appr_dir) ? " [approval]" : "") + " [titles]\n");
     return 0;
 }
@@ -432,7 +432,7 @@ library_borrow_syntax_failure_hook()
     return 0;
 }
 
-/* 
+/*
  * Function name: library_borrow_unavailable_approval_book_hook
  * Description:   Redefine this to alter the message given when a
  *                user attempts to borrow or read a nonexistant book from
@@ -500,7 +500,7 @@ public void
 library_return_hook(object book)
 {
     write("You return the " + book->short() + ".\n");
-    say(QCTNAME(this_player()) + " returns " + LANG_ADDART(book->short()) + 
+    say(QCTNAME(this_player()) + " returns " + LANG_ADDART(book->short()) +
         ".\n");
 }
 
@@ -526,7 +526,7 @@ library_write_prompt_title_input_hook()
     write("What is the name of the book? (fewer than " + MAX_TITLE_SIZE +
         " characters).  (~q to quit)\n> ");
 }
-       
+
 /*
  * Function name: library_write_prompt_summary_input_hook
  * Description:   Redefine this to alter the message given to prompt
@@ -623,14 +623,14 @@ library_classify_unavailable_book_hook(string title)
  *                user attempts to classify a book under a nonexistant
  *                shelf
  * Arguments:     string shelf - the shelf name
- */ 
+ */
 public void
 library_classify_unavailable_shelf_hook(string shelf)
 {
     write("There is no such " + SHELF_TYPE + ".\n");
 }
 
-/* 
+/*
  * Function name: library_classify_hook
  * Description:   Redefine this to alter the message given when a
  *                user classifies a book
@@ -687,7 +687,7 @@ library_deny_unavailable_book_hook(string title)
 /*
  * Function name: library_deny_hook
  * Description:   Redefine this to alter the message given when a
- *                user denies a book 
+ *                user denies a book
  * Arguments:     string title - the book's file
  */
 public void
@@ -875,7 +875,7 @@ get_books(string dir)
 
     return books;
 }
-   
+
 /*
  * Function name: get_book_info
  * Description:   For each of a given array of book files, add an element
@@ -884,7 +884,7 @@ get_books(string dir)
  * Arguments:     string *books - An array of book files.
  *                mapping m     - A mapping in which to store the above
  *                                mentioned information.
- */ 
+ */
 public void
 get_book_info(string *books, mapping m)
 {
@@ -1011,7 +1011,7 @@ library_configure_book(object book, string text_filename, string book_name)
 {
     book->set_long("A " + BOOK_TYPE + " entitled \"" + book_name + "\".\n");
     book->set_name(book_types);
-    
+
     if (sizeof(plural_book_types))
     {
         book->set_pname(plural_book_types);
@@ -1110,7 +1110,7 @@ library_borrow(string str)
     }
 
     if (!strlen(str))
-    { 
+    {
         return library_borrow_syntax_failure_hook();
     }
 
@@ -1124,15 +1124,15 @@ library_borrow(string str)
             {
                 return 1;
             }
- 
+
             if (!strlen(book_file = appr_map[str]))
             {
                 return library_borrow_unavailable_approval_book_hook(str);
             }
         }
         else
-        {                    
-            return library_borrow_unavailable_book_hook(str);         
+        {
+            return library_borrow_unavailable_book_hook(str);
         }
     }
 
@@ -1184,7 +1184,7 @@ library_read(string str)
     }
 
     if (!strlen(str))
-    { 
+    {
         return library_borrow_syntax_failure_hook();
     }
 
@@ -1205,8 +1205,8 @@ library_read(string str)
             }
         }
         else
-        {                    
-            return library_borrow_unavailable_book_hook(str);         
+        {
+            return library_borrow_unavailable_book_hook(str);
         }
     }
 
@@ -1290,7 +1290,7 @@ library_list_access()
     return 1;
 }
 
-/* 
+/*
  * Function name: library_list
  * Description:   The "list" command
  * Arguments:     string str - arguments given to the "list" command
@@ -1493,7 +1493,7 @@ library_hook_get_approval_names()
     return ({ });
 }
 
-/* 
+/*
  * Function name: add_book
  * Description:   Add a new book to the library
  * Arguments:     string title   - the book's title
@@ -1554,7 +1554,7 @@ done_writing(string title, string summary, string input)
         return 0;
     }
 
-    if (!add_book(title, summary, "by " + this_player()->query_name(), 
+    if (!add_book(title, summary, "by " + this_player()->query_name(),
         input, !!strlen(appr_dir)))
     {
         library_write_failed_hook();
@@ -1591,7 +1591,7 @@ library_validate_title(string title)
     }
 
     update_books();
-  
+
     if (book_map[title])
     {
         write("\nThere is already a " + BOOK_TYPE + " with that title.\n" +
@@ -1710,7 +1710,7 @@ library_approve(string str)
     seteuid(getuid());
 
     rm(book_file);
-    
+
     update_books();
 
     library_approve_hook(str);
@@ -1741,7 +1741,7 @@ library_classify_access()
 public int
 library_classify_get_shelf(object who, string title, string input)
 {
-    string book_file; 
+    string book_file;
 
     set_this_player(who);
 
@@ -1751,7 +1751,7 @@ library_classify_get_shelf(object who, string title, string input)
         return 0;
     }
 
-    if (!strlen(book_file = book_map[title])) 
+    if (!strlen(book_file = book_map[title]))
     {
         library_classify_unavailable_book_hook(title);
         return 0;
@@ -1764,7 +1764,7 @@ library_classify_get_shelf(object who, string title, string input)
     library_classify_hook(title, input);
     return 1;
 }
-    
+
 /*
  * Function name: library_classify
  * Description:   The "classify" command
@@ -1784,7 +1784,7 @@ library_classify(string str)
         return library_classify_syntax_failure_hook(str);
     }
 
-    if (!strlen(book_map[str])) 
+    if (!strlen(book_map[str]))
     {
         return library_classify_unavailable_book_hook(str);
     }
@@ -1834,14 +1834,14 @@ library_deny(string str)
         return library_deny_unavailable_book_hook(str);
     }
 
-    library_remove_book(book_file);  
+    library_remove_book(book_file);
 
     update_books();
 
     library_deny_hook(str);
     return 1;
 }
- 
+
 /*
  * Function name: library_discard_access
  * Description:   Redefine this function to limit permission to discard books
@@ -1909,7 +1909,7 @@ init_library()
     }
 
     add_action(library_list,   "list");
-    
+
     add_action(library_write,  "write");
 
     add_action(library_approve,  "approve");
@@ -1942,19 +1942,19 @@ library_help()
 
     string str =
         "Library commands available:\n" +
-        help_cmd("List " + 
+        help_cmd("List " +
             (m_sizeof(book_shelves) ? "[<" + SHELF_TYPE + ">] " : "") +
             "[titles]", "List books in the library.");
 
     if (m_sizeof(book_shelves))
     {
-        str += help_cmd("List " + PLURAL_SHELF_TYPE, 
+        str += help_cmd("List " + PLURAL_SHELF_TYPE,
                         "List " + PLURAL_SHELF_TYPE + " in the library.");
     }
 
     if (borrow_required)
     {
-        str += 
+        str +=
             help_cmd("Borrow <title>",
                      "Borrow a book for reading.") +
             help_cmd("Return <book>",
@@ -1972,7 +1972,7 @@ library_help()
 
     if (strlen(appr_dir))
     {
-        str += 
+        str +=
             help_cmd("Approve <title>",
                      "Approve a book for inclusion in the library.");
 

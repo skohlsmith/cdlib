@@ -1,5 +1,5 @@
-/* 
-   An example shop coded by Nick, some Ideas and part of code taken from 
+/*
+   An example shop coded by Nick, some Ideas and part of code taken from
    Tricky's shop in hobbitown.
 
 */
@@ -194,7 +194,7 @@ do_sell(string str)
  *                  str - string describing how the money should be paid
  */
 object *
-sell_it(object *ob, string str, int check) 
+sell_it(object *ob, string str, int check)
 {
     int price, i, j, k, *tmp_arr, *null, *value_arr;
     object *sold;
@@ -222,7 +222,7 @@ sell_it(object *ob, string str, int check)
 	    NF("I normally don't buy wielded or worn objects.\n");
 	    continue;
         }
-    
+
 /*  This will make all coins undroppable for a second. */
 /*  Even fake coins, but then again, they have no value ;-) */
         ob[i]->query_auto_load();
@@ -280,7 +280,7 @@ do_buy(string str)
 	NF("Buy what?\n");
 	return 0;
     }
- 
+
     STORE_ROOM->short();
 
     /*  Did the player specify payment and change? */
@@ -332,7 +332,7 @@ do_buy(string str)
  *                  str3 - what coin types to get chainge back in
  */
 object *
-buy_it(object *ob, string str2, string str3) 
+buy_it(object *ob, string str2, string str3)
 {
     int price, i, j, k, *value_arr, *arr, error;
     object *bought;
@@ -425,7 +425,7 @@ do_value(string str)
 
     for (i = 0; i < sizeof(item); i++)
     {
-	if (not_interesting(item[i])) 
+	if (not_interesting(item[i]))
 	{
 	    NF("That item is not interesting.\n");
 	    continue;
@@ -468,9 +468,9 @@ do_value(string str)
             write(BS("I want " + text(arr) + " for the " +
 		item[i]->short() + ".\n"));
 	j++;
-    }	
+    }
 
-    say(QCTNAME(TP) + " asks about some values.\n"); 
+    say(QCTNAME(TP) + " asks about some values.\n");
     if (j > 0)
 	return 1;
     return 0;
@@ -504,7 +504,7 @@ do_list(string str)
     else
 	if (str == "armours")
   	    item_arr = filter(item_arr,"armour_filter", TO);
-    else 
+    else
 	if (str)
   	    item_arr = filter(item_arr,"string_filter", TO, str);
 
@@ -563,7 +563,7 @@ string_filter(object ob, string str)
 int
 not_interesting(object ob)
 {
-    if (!ob->query_prop(OBJ_I_VALUE) || 
+    if (!ob->query_prop(OBJ_I_VALUE) ||
 	(function_exists("create_heap", ob) == "/std/coins"))
 	return 1;
     return 0;

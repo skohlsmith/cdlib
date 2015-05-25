@@ -84,7 +84,7 @@ query_knight_level()
 	return ob->query_knight_level();
     return 0;
 }
-    
+
 /* Function name: query_def_post
  * Description:   We change the default post office for our members.
  * Returns:	  The new postoffice
@@ -192,7 +192,7 @@ notify_you_killed_me(object ob)
 }
 
 /* Function name: change_prestige
- * Description:   When a player has killed something or should change the 
+ * Description:   When a player has killed something or should change the
  *		  prestige for some other reason, call this function.
  * Arguments:     pres - the prestige to add.
  */
@@ -215,7 +215,7 @@ change_prestige(int pres)
 	shadow_who->set_skill(SS_PRESTIGE_ACC,
 			      shadow_who->query_skill(SS_PRESTIGE_ACC) +
 			      pres);
-	shadow_who->set_skill(SS_PRESTIGE_ST, 
+	shadow_who->set_skill(SS_PRESTIGE_ST,
 			      shadow_who->exp_to_stat(
 				   shadow_who->query_skill(SS_PRESTIGE_ACC)));
 	new_level = query_level_up(shadow_who->query_skill(SS_PRESTIGE_ST),

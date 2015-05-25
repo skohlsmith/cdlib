@@ -24,7 +24,7 @@ create_room()
 	"possible to climb.\n");
 
     add_item("road", "It looks terrible long\n");
-    add_item( ({ "tree", "big tree" }), 
+    add_item( ({ "tree", "big tree" }),
 	"Well, maybe the tree is not so easy to climb after all.\n");
 
     add_exit(EX_ROOM + "road1", "west");
@@ -84,7 +84,7 @@ try_climb(string str)
      * be written in case this command fails. Returning 0 without setting this
      * will result in the popular 'What?'. Since we want to give other objects
      * the chance to handle a 'climb' command, we shouldn't write a fail
-     * messege directly either, perhaps the player didn't try to climb the 
+     * messege directly either, perhaps the player didn't try to climb the
      * tree at all.....
      */
     notify_fail("Climb what?\n");
@@ -116,12 +116,12 @@ try_climb(string str)
 	 * say() is a nice lfun too. It will send a message to every living
 	 * object in the room that is not this_player(). You can specify more
 	 * objects not to send the message to with a second argument.
-	 * 'sman say' and 'man meet_people' both will show you more info 
+	 * 'sman say' and 'man meet_people' both will show you more info
 	 * about the function. say() is a special case of tell_room() just
 	 * like write() is a special case of tell_object().
 	 *
 	 * QCTNAME is a nice macro to use with say(). It sees to it that each
-	 * living object gets the met or unmet name of the player depending 
+	 * living object gets the met or unmet name of the player depending
 	 * on there status. This is a VBFC call wich is why it won't work in
 	 * a write() statement, as said above. If the living object can't see
 	 * this_player() then 'Someone' will be written instead of his name.
@@ -150,7 +150,7 @@ try_climb(string str)
      * If we get here it means the player managed to climb. Then we use the
      * function move_living(). You've seen earlier how we use move() on dead
      * objects but when players move between rooms we want messages to be
-     * written and fights to be updated and so on. That's why we use 
+     * written and fights to be updated and so on. That's why we use
      * move_living() on living objects.
      *
      * The first argument to move_living() indicates how the move is done.

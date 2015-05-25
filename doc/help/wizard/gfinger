@@ -12,9 +12,9 @@ DESCRIPTION
 	Note that gfinger cannot be used to get lists of wizards
 	or domains, nor information on domains on other muds.
 
-	
+
 OPTIONS
 	playername@Mudname	Info on a player or wizard on the
 				specified mud
 
-			
+

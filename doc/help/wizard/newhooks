@@ -6,6 +6,6 @@ SYNOPSIS
 
 DESCRIPTION
 	This command updates all your command hooks. An Arch or Keeper
-	can update another player's command hooks by giving the player 
+	can update another player's command hooks by giving the player
 	name as argument.
 

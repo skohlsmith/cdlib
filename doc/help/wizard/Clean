@@ -4,7 +4,7 @@ NAME
 SYNOPSIS
 	Clean [<object>]
 
-DESCRIPTION 
+DESCRIPTION
 	Destruct all non interactive objects in the inventory of another
 	object.
 

@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	Writes the approx 1080 last bytes of the file 'filename' to the
-	current player, ie this_player	
+	current player, ie this_player
 
 	It ensures that it starts writing on a new line.
 

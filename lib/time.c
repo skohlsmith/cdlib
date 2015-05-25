@@ -14,7 +14,7 @@ convtime(int time)
 {
     string res;
     int n;
-    
+
     res = "";
 
     n = time / 86400;
@@ -35,7 +35,7 @@ convtime(int time)
 
 	if (n == 1)
 	    res += n + " hour";
-	else 
+	else
 	    res += n + " hours";
 	time -= n * 3600;
     }

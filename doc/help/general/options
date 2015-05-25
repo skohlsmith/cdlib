@@ -74,8 +74,8 @@ ARGUMENTS
                                200 columns. The default is 80.
                                Use "off" to disable screen wrapping on the
                                side of the game.
- 
-        web <yes/no>         - Give permission to publish certain information 
+
+        web <yes/no>         - Give permission to publish certain information
                                linked to your character on the web.
 
 

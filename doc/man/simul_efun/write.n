@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	Writes data to the current 'command giver', ie the object returned by
-	this_player. Data is normally text.	
+	this_player. Data is normally text.
 
 NOTA BENE
 	write as well as tell_object sends unprocessed messages to the

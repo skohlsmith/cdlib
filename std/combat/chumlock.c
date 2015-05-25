@@ -25,7 +25,7 @@ create_chumanoid()
 /*
  * Function name: cb_add_attack
  * Description:   Add an attack to the attack array.
- * Arguments:	  
+ * Arguments:
  *             wchit: Weapon class to hit
  *             wcpen: Weapon class penetration
  *	       dt:    Damage type

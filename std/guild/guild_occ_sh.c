@@ -18,7 +18,7 @@
  * query_guild_type()      Always returns "occupational"
  *
  * query_guild_style_occ() What styles are we? fighter, magic, cleric, thief
- *			   are the standard styles. 
+ *			   are the standard styles.
  *
  * query_guild_name_occ()  The name of the guild.
  *
@@ -26,11 +26,11 @@
  *                         the title of this guild.
  *
  * query_guild_not_allow_join_occ(o, s, s, s) This is called when our member
- *			   tries to join another guild. The type, style and 
+ *			   tries to join another guild. The type, style and
  *			   name of the other guild is sent as argument and we
  *			   can deny our member to join that guild if we want.
  *			   Observe, returning 1 will deny the player. This
- *			   function will also be called each time a player 
+ *			   function will also be called each time a player
  *			   logs on, we could test if the race has changed or
  *			   anything....
  *
@@ -49,7 +49,7 @@
  * query_guild_incognito_occ() Define this function so that it returns true if
  *                         the player's guild affiliation should be unknown.
  *
- * remove_guild_occ()      Call this if you are removeing your guild from the 
+ * remove_guild_occ()      Call this if you are removeing your guild from the
  *			   player, and you are an occupational guild.
  *
  * autoload_shadow(s)      Is called when a player enters and we shall load

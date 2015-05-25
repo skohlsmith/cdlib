@@ -80,7 +80,7 @@ shutdown_info_domain_link(int level)
 {
     string *links;
     int index;
-		 
+
     links = SECURITY->query_domain_links();
     index = sizeof(links);
     while(--index)
@@ -312,7 +312,7 @@ execute_shutdown()
 
     shutdown_info_domain_link(ARMAGEDDON_SHUTDOWN);
 }
-     
+
 /*
  * Function name: query_delay
  * Description  : Returns the time we have left in seconds.

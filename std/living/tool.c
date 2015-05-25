@@ -4,7 +4,7 @@
  * General routines for using tool slots
  */
 
-static mapping tool_slots = ([]);  /* The object occupying a certain slot */ 
+static mapping tool_slots = ([]);  /* The object occupying a certain slot */
 
 /*
  * Function name: clear_tool_slots
@@ -33,7 +33,7 @@ occupy_slot(object tool)
     int i, size, *slots;
     string name;
 
-    slots = tool->query_slots(); 
+    slots = tool->query_slots();
     size = sizeof(slots);
 
     /*
@@ -55,7 +55,7 @@ occupy_slot(object tool)
     {
         tool_slots[slots[i]] = tool;
     }
-    
+
     return 1;
 }
 
@@ -86,7 +86,7 @@ empty_slot(object tool)
  * Function name: query_tool
  * Description:   Get the item occupying a given slot or all items in tool slots
  * Arguments:     int slot - the slot to check or -1 for all items
- * Returns:       If a slot is given as an argument, the object occupying 
+ * Returns:       If a slot is given as an argument, the object occupying
  *                the slot or 0.  If -1 is given as an argument, an array
  *                of objects.
  */

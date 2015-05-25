@@ -23,19 +23,19 @@ inherit "/std/monster";
 
 create_monster()
 {
-    /* We ignore the master object 
+    /* We ignore the master object
      */
-    if (!IS_CLONE) 
+    if (!IS_CLONE)
 	return;
 
     set_name("ugluk");
-    set_race_name("troll"); 
+    set_race_name("troll");
     set_adj("nasty");
     set_long("It is a very ugly and nasty lookin' troll.\n");
 
-    /* Average stat: 5 
+    /* Average stat: 5
      */
-    default_config_npc(5);          
+    default_config_npc(5);
 
     /* But we want it to have more hitpoints
      */

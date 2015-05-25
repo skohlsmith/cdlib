@@ -16,11 +16,11 @@ the success of the player's attempt to hide.
 ROOM_I_HIDE is set to 10 by default unless that value is changed by the
 creator of the room.
 
-The formula is: 
+The formula is:
 
 Hidden = (SS_HIDE - ROOM_I_HIDE) / 2  + random((SS_HIDE - ROOM_I_HIDE) / 2);
 
-That value, if positive, is stored in the hidden object as the property 
+That value, if positive, is stored in the hidden object as the property
 OBJ_I_HIDE and is later used for detection purposes. As long as the property
 is != 0 the object stays hidden.
 
@@ -29,7 +29,7 @@ random(SS_AWARENESS) > OBJ_I_HIDE. An effect of this is that it is possible
 for a player with good hiding skill and bad awareness to hide an object
 so effectively he can't even find it himself afterwords. Too prevent this
 he can type "hide <object> poorly" in which case it will be hidden poorly
-enough for him always too see it, using the player's awareness as the 
+enough for him always too see it, using the player's awareness as the
 limiting parameter.
 
 * A player may not hide in a room where other living objects are present.
@@ -58,9 +58,9 @@ limiting parameter.
   his usual success value. This is due to the fact that when invisible it
   is hard to determine if you really have managed to hide or not.
 
-If you need to reveal a player against his will, call the function 
+If you need to reveal a player against his will, call the function
 "reveal_me()" in the player object. The text "You are startled to find
-NNNN suddenly standing next to you!" will be displayed to everyone in the 
+NNNN suddenly standing next to you!" will be displayed to everyone in the
 room. Do 'sman reveal_me' to find out about arguments, returns.
 
 
@@ -70,12 +70,12 @@ Reveal
 A player that sees a hidden object may reveal it, bringing it visible to
 all by typing "reveal <object>". The command "reveal me" will reveal
 oneself, effectivly just bringing you out of hiding.
- 
+
 Search
 ------
 
-A player may search anywhere and if he manages to find anything hidden 
-it will become visible for all to see. If he wants to find it for himself 
+A player may search anywhere and if he manages to find anything hidden
+it will become visible for all to see. If he wants to find it for himself
 only he must take it quickly and then hide it again.
 
 You find something when SS_AWARENESS > OBJ_I_HIDE, in other words just the

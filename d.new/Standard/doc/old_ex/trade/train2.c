@@ -15,7 +15,7 @@ void set_up_skills();
 
 void
 create_room()
-{ 
+{
     set_short("Second Training room");
     set_long(break_string("" +
 	"This is the training room on the second floor. Here only members " +

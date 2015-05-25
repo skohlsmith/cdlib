@@ -3,7 +3,7 @@ NAME
 
 SYNOPSIS
         float rnd()
-        
+
 DESCRIPTION
 	Gives a random float value in the interval [0.0, 1.0)
 

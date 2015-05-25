@@ -40,7 +40,7 @@ reset_room()
      * file ex.h. Saves the trouble writing the long path, and should I once
      * move where I keep my monsters I will only have to change that define
      * and not every file. room_add_object() can take more arguments. Do
-     * 'sman room_add_object' too see what it can do. 
+     * 'sman room_add_object' too see what it can do.
      */
     if (!present("hermit", this_object()))
 	room_add_object(EX_MON + "hermit");
@@ -73,7 +73,7 @@ create_room()
 	"darker and east is a road." +
 	"\n", 76));
     /*
-     * The last \n needs to be added, and 76 tells how many characters to 
+     * The last \n needs to be added, and 76 tells how many characters to
      * print on each line.
      */
 
@@ -103,7 +103,7 @@ create_room()
      * set to 0 then it's outside. So, if the property is not set, query_prop()
      * will return 0 and thus default is that all rooms are outside.
      *
-     * To get a listing of all standard properties, you can either look 
+     * To get a listing of all standard properties, you can either look
      * through /sys/stdproperties.h or try 'man -k properties'. Warning,
      * they are very many.
      */
@@ -112,7 +112,7 @@ create_room()
     /*
      * Now, we want objects to be loaded into the room, but create_room()
      * is the only function that will be called at creation. Let's call
-     * reset_room() ourselves here so the hermit and torch get cloned 
+     * reset_room() ourselves here so the hermit and torch get cloned
      * here.
      *
      * It's good coding practice to clone objects last in the creation of

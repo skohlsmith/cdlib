@@ -7,8 +7,8 @@ SYNOPSIS
 	mixed *m_indexes(mapping map|int foobar)
 
 DESCRIPTION
-	This function returns the index part, of a mapping as an array. 
-	If an integer is given as argument, 0 is returned. 
+	This function returns the index part, of a mapping as an array.
+	If an integer is given as argument, 0 is returned.
 
 EXAMPLE
         m_indices( ([ 1:"a", 2:"b" ]) ) returns ({ 1, 2 })

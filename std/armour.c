@@ -80,7 +80,7 @@ static private int      will_not_recover;       /* True if it won't recover */
  *                etcetera.
  */
 void
-create_armour() 
+create_armour()
 {
 }
 
@@ -479,7 +479,7 @@ query_repair()
  * Function Name: query_repair_cost
  * Description  : Returns the cost to repair this armour one level.
  * Returns      : int - the cost in cc
- */ 
+ */
 int
 query_repair_cost()
 {
@@ -490,7 +490,7 @@ query_repair_cost()
 /*
  * Function name: set_armour_hits
  * Description:   By setting the hits counter you will have influence over how
- *                likely the armour is to get in a worse condition. The hits 
+ *                likely the armour is to get in a worse condition. The hits
  *                variable keeps track of how many times this piece of armour
  *                has been hit.
  * Argument:      new_hits - integer
@@ -554,9 +554,9 @@ query_value()
  *              0 - No affect the armour can be worn / removed
  *              1 - It can be worn / removed but no text should be printed
  *                  (it was done in the function)
- *              -1  It can not be worn / removed default failmsg will be 
+ *              -1  It can not be worn / removed default failmsg will be
  *                  written
- *             string  It can not be worn / removed 'string' is the 
+ *             string  It can not be worn / removed 'string' is the
  *                     fail message to print
  */
 void
@@ -621,24 +621,24 @@ public varargs void
 set_default_armour(int ac, int at, int *am, object af)
 {
     /* Sets the armour class. */
-    if (ac) set_ac(ac); 
+    if (ac) set_ac(ac);
     else set_ac(1);
 
     /* Set the armour type. */
     if (at) set_at(at);
     else set_at(A_BODY);
-    
+
     /* Set armour modifier vs weapon damage type. */
     if (am) set_am(am);
     else set_am(A_NAKED_MOD);
 
-    
+
     /* Sets the name of the object that contains the function
        to call for extra defined wear_arm() and remove_arm()
        functions. */
     if (af) set_af(af);
 }
-    
+
 
 /*
  * Function name: set_shield_slot
@@ -685,14 +685,14 @@ query_protects()
 
              TORSO HEAD LEGS R_ARM L_ARM ROBE SHIELD
 
-    TORSO      X      
+    TORSO      X
     HEAD            X
     LEGS                 X
     R_ARM                      X
     L_ARM                            X
-    ROBE       X         X                
-    SHIELD                     X     X                          
-    MAGIC      X    X    X     X     X          
+    ROBE       X         X
+    SHIELD                     X     X
+    MAGIC      X    X    X     X     X
 
         Max ac is 100 for all hitlocations. If the sum of the ac for a
         given hitlocation is > 100 then it is set to 100.
@@ -704,15 +704,15 @@ query_protects()
             switch (abit)
             {
                 case A_CHEST:
-                    chid = ({ A_TORSO });    
+                    chid = ({ A_TORSO });
                     break;
-                case A_HEAD:    
+                case A_HEAD:
                 case A_LEGS:
                 case A_R_ARM:
                 case A_L_ARM:
                     chid = ({ abit });
                     break;
-                case A_ROBE:  
+                case A_ROBE:
                     chid = ({ A_TORSO, A_LEGS });
                     break;
                 case W_LEFT:
@@ -729,7 +729,7 @@ query_protects()
 
     return hids;
 }
- 
+
 /*
  * Function name: update_prop_settings
  * Description:   Will uppdate weight and value of this object to be legal
@@ -740,7 +740,7 @@ update_prop_settings()
     if (query_prop(OBJ_I_VALUE) < F_VALUE_ARMOUR(arm_ac) &&
                         !query_prop(OBJ_I_IS_MAGIC_ARMOUR))
         add_prop(OBJ_I_VALUE, F_VALUE_ARMOUR(arm_ac));
- 
+
     if (F_WEIGHT_FAULT_ARMOUR(query_prop(OBJ_I_WEIGHT), arm_ac, arm_at) &&
                         !query_prop(OBJ_I_IS_MAGIC_ARMOUR))
         add_prop(OBJ_I_WEIGHT, F_WEIGHT_DEFAULT_ARMOUR(arm_ac, arm_at));
@@ -843,7 +843,7 @@ may_not_recover()
 
 /*
  * Function name: may_recover
- * Description  : In some situations it is undesirable to have an armour 
+ * Description  : In some situations it is undesirable to have an armour
  *                not recover. This function may then be used to force the
  *                armour to be recoverable.
  *

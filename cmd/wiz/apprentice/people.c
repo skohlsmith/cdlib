@@ -132,7 +132,7 @@ guildtell(string str)
  * First follow quite some sort-functions. They are all separated since they
  * are called quite a lot. Each check that has to be made in these functions
  * costs time, therefore we sacrifice little memory to keep all these
- * functions to gain a lot in execution time! 
+ * functions to gain a lot in execution time!
  */
 
 nomask int

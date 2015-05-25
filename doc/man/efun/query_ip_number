@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Gives the ip number of an interactive player, ie from which site
 	the player is connecting to the game.
-	
+
 	The string returned is on the form: "129.16.48.2"
 
 SEE ALSO

@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Gives the time in seconds since whatever 1970, when the object
 	was created.
-	
+
 SEE ALSO
  	time, ctime, file_time
 

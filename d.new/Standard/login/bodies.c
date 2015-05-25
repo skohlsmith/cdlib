@@ -36,7 +36,7 @@ make_one_of_each(int j)
     int i;
     string tmp;
     object ob;
-    
+
     for (i = 0; i < 2; i++)
     {
 	tmp = RACES[j] + (i ? "male" : "female");
@@ -56,18 +56,18 @@ make_random(int j)
 {
     string tmp;
     object ob;
-    
+
     ob = clone_object(PATH + "body");
     ob->create_body();
     ob->move(this_object());
-    
+
     tmp = ob->query_race_name() + ob->query_gender_string();
     bodies[tmp]++;
-    
+
     if (j)
 	call_out("make_random", 1, j - 1);
 }
-    
+
 /*
  * Function name: init
  * Description  : Add commands etc.
@@ -113,21 +113,21 @@ update_player(object ob)
     object player, oplayer;
     int deadness;
     int *skill_types, il, val;
-    
+
 
     player = this_player();
     deadness = player->query_ghost();
-    
+
 /*    Case 1: Old player died, he selects body of same race and gender
 	Give him his body, appearance and send him packing
       Case 2: old player died. He selects body of different race &| gender
-	Give him new race, appearance and gender, take away half of each 
+	Give him new race, appearance and gender, take away half of each
         skill he has, set that he should go through features and mangle
       Case 3: New player enters the game
-        Give him a body, set stats, race, appearance and Gender 
+        Give him a body, set stats, race, appearance and Gender
       Case 4: Conversion of old type player
         Suck out exp. Set stats, race, gender and appearance.
-		
+
 	    */
 #define OLD_NUMQUESTS 12
 
@@ -144,7 +144,7 @@ update_player(object ob)
 	else
 	{
 	    /* We should modify stats to reflect base stats
-	     * but this can wait until later 
+	     * but this can wait until later
 	     */
 
 	    /* Set skills to half
@@ -156,7 +156,7 @@ update_player(object ob)
 		val = player->query_skill(skill_types[il]);
 		player->set_skill(skill_types[il], val / 2);
 	    }
-	    
+
 	    player->set_race_name(ob->query_race_name());
 	    player->set_gender(ob->query_gender());
 	    player->set_ghost((player->query_ghost() | GP_MANGLE |
@@ -227,12 +227,12 @@ update_player(object ob)
  * Function name: enter_cmd
  * Description  : Resolve the different enter commands
  */
-public void 
+public void
 enter_cmd(string str)
 {
     object player, *a;
     string tmp;
-    
+
     if (!str || !strlen(str))
     {
 	write("Enter what?\n");
@@ -257,7 +257,7 @@ enter_cmd(string str)
 	}
 	return;
     }
-    
+
     a = CMDPARSE_ONE_ITEM(str, "enter_body", "enter_access");
     if(!sizeof(a))
     {
@@ -311,7 +311,7 @@ create_new(string *a)
 	ob->create_body();
 
     ob->move(this_object());
-    
+
     tmp = ob->query_race_name() + ob->query_gender_string();
     bodies[tmp]++;
     tell_room(this_object(), "\You hear a ringing in your ears as your\n" +
@@ -321,7 +321,7 @@ create_new(string *a)
 	      "As you take a step forward with your new body, a new\n" +
 	      "hologram pops up.\n");
 }
-	
+
 /*
  * Function name: all_cmd
  * Description  : Catch all player commands. Take care of the legal ones
@@ -343,7 +343,7 @@ all_cmd(string str)
     case "exa":
     case "examine":
     case "compare":
-    case "sysbug":	
+    case "sysbug":
     case "home":
     case "trans":
 	return 0;

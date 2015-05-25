@@ -181,7 +181,7 @@ check_env()
 	demon->remove_object();
 
     /*
-     * This object has been moved out of the possessed body. 
+     * This object has been moved out of the possessed body.
      * Stop possessing.
      */
     if (environment(this_object()) != possessed)

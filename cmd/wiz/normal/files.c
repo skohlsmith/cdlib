@@ -2,7 +2,7 @@
  * /cmd/wiz/normal/files.c
  *
  * This is a subpart of /cmd/wiz/normal.c
- * 
+ *
  * The commands in this sub-part all have to do with the manipulation of
  * files and objects.
  *
@@ -111,9 +111,9 @@ multi_file(string str, int operation)
 {
     string *files, *parts, *source, *cont, target;
     int    index, size, done;
-    
+
     CHECK_SO_WIZ;
-    
+
     if (!stringp(str))
     {
 	notify_fail("No argument given to " + query_verb() + ".\n");
@@ -162,7 +162,7 @@ multi_file(string str, int operation)
     if ((size = sizeof(source)) == 0)
 	return notify_fail(query_verb() + ": " + files[0] +
 			   ": No such file or directory.\n");
-    
+
     if (size > MAXFILES)
     {
 	write("Selected " + size + " files. Only the first " + MAXFILES +
@@ -228,7 +228,7 @@ multi_file(string str, int operation)
 		parts = explode(source[index], "/");
 		str += "/" + parts[sizeof(parts) - 1];
 	    }
-	    
+
 	    if (rename(source[index], str))
 	    {
                 SECURITY->remove_binary(str);
@@ -740,7 +740,7 @@ clone_ob(string what)
 	notify_fail("No such file.\n");
 	return 0;
     }
-    
+
     ob = clone_object(str);
     if (!ob)
     {
@@ -829,39 +829,39 @@ clone(string str)
 	        write("Ok.\n");
 	    }
 	    break;
-	    
+
 	case 1:
 	    write("Too heavy for destination.\n");
 	    break;
-	    
+
 	case 2:
 	    write("Can't be dropped.\n");
 	    break;
-	    
+
 	case 3:
 	    write("Can't take it out of it's container.\n");
 	    break;
-	    
+
 	case 4:
 	    write("The object can't be inserted into bags etc.\n");
 	    break;
-	    
+
 	case 5:
 	    write("The destination doesn't allow insertions of objects.\n");
 	    break;
-	    
+
 	case 6:
 	    write("The object can't be picked up.\n");
 	    break;
-	    
+
 	case 7:
 	    write("Other (Error message printed inside move() function).\n");
 	    break;
-	    
+
 	case 8:
 	    write("Too big volume for destination.\n");
 	    break;
-	    
+
 	default:
 	    write("Strange, very strange error in move: " + num + "\n");
 	    break;
@@ -992,7 +992,7 @@ distrust(string str)
     if (!ob)
 	ob = parse_list(str);
 
-    if (!ob) 
+    if (!ob)
     {
 	notify_fail("Object not found: " + str + "\n");
 	return 0;
@@ -1021,7 +1021,7 @@ du(string str)
 {
     int aflag;
     string p, flag, path;
-    
+
     if (!str)
     {
 	path = ".";
@@ -1051,10 +1051,10 @@ du(string str)
 	}
     }
     p = FTPATH(this_interactive()->query_path(), path);
-    
+
     if (p == "/")
 	p = "";
-    
+
     xdu(p, aflag);
 
 	return 1;
@@ -1065,16 +1065,16 @@ xdu(string path, int aflag)
 {
     int sum, i;
     string *files, output;
-    
+
     files = get_dir(path + "/*");
-    
+
     sum = 0;
-    
+
     for (i = 0; i < sizeof(files); i++)
     {
 	if (files[i] == "." || files[i] == "..")
 	    continue;
-	
+
 	if (aflag && file_size(path + "/" + files[i]) > -1)
 	{
 	    write(file_size(path + "/" + files[i]) / 1024 + "\t" +
@@ -1086,7 +1086,7 @@ xdu(string path, int aflag)
 	else
 	    sum += file_size(path + "/" + files[i]);
     }
-    
+
     write(sum / 1024 + "\t" + path + "\n");
     return sum;
 }
@@ -1094,7 +1094,7 @@ xdu(string path, int aflag)
 /* **************************************************************************
  * ed - edit a file
  */
-nomask int 
+nomask int
 ed_file(string file)
 {
     CHECK_SO_WIZ;
@@ -1238,7 +1238,7 @@ load_many_delayed_reloaded()
 
     load_many();
 }
- 
+
 nomask int
 load(string str)
 {
@@ -1345,7 +1345,7 @@ load(string str)
         write("Message: " + error + "\n");
 	return 1;
     }
-    
+
     if (this_player()->query_option(OPT_ECHO))
 	write("Loaded: " + str + "\n");
     else
@@ -1386,7 +1386,7 @@ mv_cmd(string str)
 /* **************************************************************************
  * remake - Remake an object, checks entire dependency of inherited files
  */
-nomask int 
+nomask int
 remake_object(string str)
 {
     object ob;
@@ -1416,7 +1416,7 @@ remake_object(string str)
     for (updatem = ({}), il = sizeof(inherits) - 1; il >= 0; il--)
     {
 	ob = find_object(inherits[il]);
-			  
+
 	if (ob && (file_time(inherits[il]) > object_time(ob)))
 	    updatem += ({ inherits[il] });
 	else if (ob &&
@@ -1472,7 +1472,7 @@ trust_ob(string str)
 
     CHECK_SO_WIZ;
 
-    if (!str) 
+    if (!str)
     {
 	notify_fail("Trust what object?\n");
 	return 0;
@@ -1480,7 +1480,7 @@ trust_ob(string str)
 
     ob = parse_list(str);
 
-    if (!ob) 
+    if (!ob)
     {
 	notify_fail("Object not found: " + str + "\n");
 	return 0;
@@ -1530,7 +1530,7 @@ update_ob(string str)
 	{
 	    if (obs[i]->query_default_start_location() == str)
 	    {
-		error = 1;	
+		error = 1;
 		write("Cannot update the start location of "
 		    + capitalize(obs[i]->query_real_name()) + ".\n");
 	    }
@@ -1631,12 +1631,12 @@ dupd(string s)
 {
     int i;
     string *dir, *args, path, fpath;
-    
+
     /* catch 'update' without args */
 
     if (!s)
 	return update_ob(s);
-    
+
     /* check if user specifies the -d option */
 
     args = explode(s, " ");
@@ -1651,7 +1651,7 @@ dupd(string s)
 
     path = FTPATH(this_interactive()->query_path(), s);
 
-    /* read directory */ 
+    /* read directory */
 
     dir = get_dir(path);
 
@@ -1660,7 +1660,7 @@ dupd(string s)
     args = explode(path, "/");
     args = exclude_array(args, sizeof(args) - 1, sizeof(args));
     path = implode(args, "/");
-  
+
     /* move through all files returned by 'dir' */
 
     for (i = 0; i < sizeof(dir); i++)
@@ -1668,7 +1668,7 @@ dupd(string s)
 	/* get full filepath to objects */
 
 	fpath = FTPATH(path, dir[i]);
-	
+
 	/* just update existing objects. skip anything names workroom.c to
 	    avoid accidents */
 

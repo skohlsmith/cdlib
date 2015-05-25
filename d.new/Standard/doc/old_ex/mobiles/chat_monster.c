@@ -27,7 +27,7 @@ create_monster()
 
     /* And the list we will run through, it will be randomized but our chatter
      * won't say something he has already said from the list again until the
-     * whole list is gone through, and randommized again. 
+     * whole list is gone through, and randommized again.
      */
     add_chat("Hi, how are you?");
     add_chat("I'm talking to you ;-)");

@@ -1,5 +1,5 @@
 /*
- * This is the first room in the example area. Here you will hopefully 
+ * This is the first room in the example area. Here you will hopefully
  * find most of the examples you need to create your own glorious area.
  *
  * /Nick
@@ -41,7 +41,7 @@ create_room()
     set_short("The first room");
 
     /*
-     * Set long description of the room. It is normally shown to players 
+     * Set long description of the room. It is normally shown to players
      * entering the room and when they do 'look'.
      */
     set_long("You are standing in the first example room. A long road\n" +
@@ -106,7 +106,7 @@ create_room()
 
 /*
  * This function is called each time someone tries to go south. If we
- * were to return 0 from this function then player would move as 
+ * were to return 0 from this function then player would move as
  * usually. This is a good way to block off a path.
  * 'int' means this function returns an integer.
  */
@@ -123,7 +123,7 @@ block()
     notify_fail("The way south is not yet open to the public.\n");
     return 2;
 
-     * notify_fail() sets the message the play will get in case his 
+     * notify_fail() sets the message the play will get in case his
      * command fails. Standard message is 'What?' which you may have
      * seen a number of times as mortal....
      */
@@ -139,7 +139,7 @@ block()
  * not updated, either use the sysbug command, or contact an Arch.
  *
  * Functions like notify_fail() and write() are what we call efuns. They
- * are defined inside the Game Driver. You can get manual pages on them 
+ * are defined inside the Game Driver. You can get manual pages on them
  * with the 'man' command.
  *
  * Files found in /doc/man/ can be read with the 'man' command and files

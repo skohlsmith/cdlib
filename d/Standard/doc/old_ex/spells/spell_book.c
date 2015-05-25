@@ -10,7 +10,7 @@ string spell_verb; /* This string will hold the verb the caster of a spell */
 
 /*
  * Here follow the standard create routine of spells.
- * Here you can add spells to the object 
+ * Here you can add spells to the object
  */
 void
 create_spells()
@@ -76,7 +76,7 @@ cast_spell(string str)
 }
 
 /*
- * Does this spell take much time to cast? 
+ * Does this spell take much time to cast?
  */
 int
 query_spell_time(string str)
@@ -132,4 +132,4 @@ start_spell_fail(string verb, string arg)
     return str;
 }
 
-	
+

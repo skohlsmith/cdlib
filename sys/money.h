@@ -108,7 +108,7 @@
 #define MONEY_TEXT_SPLIT(cc)     MONEY_TEXT(MONEY_SPLIT(cc))
 #define MONEY_TEXT_NUM_SPLIT(cc) MONEY_TEXT_NUM(MONEY_SPLIT(cc))
 
-/* 
+/*
  * MONEY_UNIQUE_NAME(ct) returns the value for the HEAP_S_UNIQUE_ID property
  * added to coins of the coin type ct.
  */
@@ -143,7 +143,7 @@
  * the object ob is searched for coins of that type, and the exact number of
  * coins is used.  If 0 is returned, the string could not be parsed.
  *
- * For example, 
+ * For example,
  * MONEY_PARSE_OB("all silver coins and 3 gold coins", this_player()) would
  * return ({ 0, 20, 3, 0 }) (no copper coins, 20 silver coins, 3 gold coins,
  * and no platinum coins), assuming this_player() possesses 20 silver coins.

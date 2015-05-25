@@ -1,5 +1,5 @@
 
-/* 
+/*
  * This is an object that allows people to choose skills.
  */
 
@@ -14,14 +14,14 @@ inherit "/lib/skill_raise";
 
 public int done();
 
-create_object() 
+create_object()
 {
-    set_name("trainer"); 
+    set_name("trainer");
     set_short("skill trainer");
 
     add_prop(OBJ_I_NO_DROP, 1);
     set_no_show(1);
-    
+
     create_skill_raise();
 
     sk_add_train(SS_PILOT	       ,0 ,0, 0, 32);
@@ -41,7 +41,7 @@ init()
 public int instruct(string str)
 {
     write(
-	  "The robot says: I will implant a knowledge chip in you. You may choose\n" + 
+	  "The robot says: I will implant a knowledge chip in you. You may choose\n" +
 	  "'space' or 'ground' version of chip.\n\n");
     return 1;
 }
@@ -79,7 +79,7 @@ ground()
 
     return 1;
 }
-	
+
 public int
 done()
 {

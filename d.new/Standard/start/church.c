@@ -11,7 +11,7 @@ string arr_line;
 create_room() {
     add_prop(OBJ_S_WIZINFO, "@@wizinfo");
     set_short("LPmud standard church");
-    
+
     set_long("\n"+
 	     "You are in the local village church.\n" +
 	     "There is a deep pit in the center.\n" +

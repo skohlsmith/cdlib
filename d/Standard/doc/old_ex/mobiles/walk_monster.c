@@ -10,7 +10,7 @@ create_monster()
     set_random_move(10);
 }
 
-/* The rest here is to get this mobile to be a nice buddy and if he is in a 
+/* The rest here is to get this mobile to be a nice buddy and if he is in a
  * team and he or a members gets attacked he will join the fight.
  */
 /*

@@ -3,9 +3,9 @@ static int room_terrain;
 
 /*
  * Function name: terrain_includes_all
- * Description  : Checks if the room contains terrain of a 
+ * Description  : Checks if the room contains terrain of a
  *                certain type (or combination of types)
- * Arguments    : int terrain - the terrain (or combination of terrains) 
+ * Arguments    : int terrain - the terrain (or combination of terrains)
  *                to check for
  * Returns      : in - 1 if terrain matches the room, 0 otherwise
  */
@@ -19,7 +19,7 @@ terrain_includes_all(int terrain)
  * Function name: terrain_includes_any
  * Description  : Checks if the terrain of the room includes a
  *                certain type
- * Arguments    : int terrain - the terrain (or combination of terrains) 
+ * Arguments    : int terrain - the terrain (or combination of terrains)
  *                to check for
  * Returns      : int - 1 if terrain found in the room, 0 otherwise
  */
@@ -31,9 +31,9 @@ terrain_includes_any(int terrain)
 
 /*
  * Function name: terrain_exact
- * Description  : Checks if the terrain of the room exactly matches a 
+ * Description  : Checks if the terrain of the room exactly matches a
  *                certain type
- * Arguments    : int terrain - the terrain (or combination of terrains) 
+ * Arguments    : int terrain - the terrain (or combination of terrains)
  *                to check for
  * Returns      : int - 1 if terrain matches the room, 0 otherwise
  */

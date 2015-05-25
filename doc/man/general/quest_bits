@@ -3,13 +3,13 @@ could request and receive a limited number of quest-flags in a player.
 These flags were then stored in the player and you could easily keep
 track of a player's progress in one your quests. The trouble was that
 the total amount of bits was limited, in reality you could at most
-get around 10 bits in a player. I've introduced a system here that 
+get around 10 bits in a player. I've introduced a system here that
 is centered around the domains. Every domain has automatically 100
 bits available in a player for quest (and suchlike bookkeeping) use.
 
 The bits are grouped into five groups of 20 bits. It's up to you to
 decide what you want to use them for. Any domain object (or player)
-has the power to affect these bits in a player, so I advice you to 
+has the power to affect these bits in a player, so I advice you to
 keep careful notes of what bits you use for what purpose. The command
 "bit" will allow you to examine a logged-in player and affect the 100
 bits that your domain has available in him. The lfuns are best studied
@@ -40,11 +40,11 @@ Actual usage in your code: (see also /std/player/savevars_sec.c)
 
 	player->set_bit(group, bit)
 	This sets a given bit in a given group. The euid of the object
-	calling is used to decide what domain is relevant. 
+	calling is used to decide what domain is relevant.
 
 	player->clear_bit(group, bit)
 	This clears a given bit in a given group. The euid of the object
-	calling is used to decide what domain is relevant. 
+	calling is used to decide what domain is relevant.
 
 	player->test_bit(domain, group, bit)
 	This tests a given bit in a given group in a given domain.

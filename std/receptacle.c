@@ -235,7 +235,7 @@ plural_short(object for_obj)
 {
     string plural_short_description = ::plural_short(for_obj);
 
-    return ((strlen(plural_short_description)) ? 
+    return ((strlen(plural_short_description)) ?
         (plural_short_description +
             ((query_prop(CONT_I_CLOSED)) ? "" : " (open)")) : 0);
 }
@@ -639,7 +639,7 @@ do_default_pick(string str)
             ((res = items[0]->query_cf()->pick(items[0])) >= 0))
 	{
             items[0]->remove_prop(CONT_I_LOCK);
-        
+
             remove_temp_libcontainer_checked(tp);
 
             if (res == 0)

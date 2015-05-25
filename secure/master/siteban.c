@@ -1,4 +1,4 @@
-/* 
+/*
  * /secure/master/siteban.c
  *
  * This module maintains the list of banned sites.
@@ -181,7 +181,7 @@ list_siteban(string wildcards)
     }
     write("A = All logins banned, N = No new logins\n");
 
-    return 1;    
+    return 1;
 }
 
 /*

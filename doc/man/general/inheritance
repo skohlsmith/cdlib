@@ -85,7 +85,7 @@ inherit "/lib/shop";
 
 The room will then get all the properties of /std/room, and all the
 properties of /lib/shop. If the inherited files define functions or
-variables with the same name, the definition of the first inherit in 
+variables with the same name, the definition of the first inherit in
 the file is the one that gets used.
 
 Named inheritance is used to resolve conflicts when you have multiple
@@ -100,7 +100,7 @@ Virtual base classes is a fancy name for something that is rather simple
 to understand, but quite some job to implement. To explain what it is and
 why we use it, I'll make an example:
 
-We want to make a main gauche, which is an object that is both an armour 
+We want to make a main gauche, which is an object that is both an armour
 and a weapon.
 
 We have the following objects with their inheritance chains:

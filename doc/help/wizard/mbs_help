@@ -35,11 +35,11 @@ DESCRIPTION
 
 	Liege - The lieges have limited access to the mbm commands as they
 		are responsible for the upkeep of the domain internal boards.
-		This particular privilige, or duty if you prefer that, can 
+		This particular privilige, or duty if you prefer that, can
 		not be delegated to anyone else except a board admin.
 
 	Admin -	The board admin has full access to the mbs service at all
-		times, naturally. 
+		times, naturally.
 
 OPTIONS
 	<cmd>	- Get help text on this command.
@@ -93,7 +93,7 @@ OPTIONS
 	UU	- Unsubscribe all boards
 	uc	- Uncatchup on the current board, make all notes unread.
 	UC	- Uncatchup on the current selection
-	UCC	- Uncatchup on all subscribed boards	
+	UCC	- Uncatchup on all subscribed boards
         scrap	- Scrap a board
 	ls	- List the scrapped boards
         +	- Select the next board with unread news, list the headers
@@ -451,7 +451,7 @@ DESCRIPTION
 	board.
 
 SEE ALSO
-	Options ln, L, S, u, U, ss and si.	
+	Options ln, L, S, u, U, ss and si.
 
 #ENTRY mbs S
 NAME
@@ -470,7 +470,7 @@ DESCRIPTION
 	specified, it is stored with he current default newsgroup.
 
 SEE ALSO
-	Options ln, L, s, u, U, ss and si.	
+	Options ln, L, s, u, U, ss and si.
 
 #ENTRY mbs t
 NAME
@@ -617,7 +617,7 @@ DESCRIPTION
 
 NOTA BENE
 	This command only removes the board from the list you are
-	displayed when listing unsubscribed boards, nothing else.	
+	displayed when listing unsubscribed boards, nothing else.
 
 SEE ALSO
 	Options s and ls.
@@ -713,7 +713,7 @@ DESCRIPTION
 NOTA BENE
 	That an item is marked as the current newsgroup selection item
 	does not mean that newgroups is used as current selection. It
-	only means that IF you chose newsgroups for selection purposes, 
+	only means that IF you chose newsgroups for selection purposes,
 	this is	the item used.
 
 SEE ALSO
@@ -886,8 +886,8 @@ OPTIONS
 (l)	la	- List all mbs administrators
 
 FILES
-	The mbm command uses a save file '/syslog/mbs_central.o' for keeping 
-	track of both the available boards and the indexes of this help file. 
+	The mbm command uses a save file '/syslog/mbs_central.o' for keeping
+	track of both the available boards and the indexes of this help file.
 	It is automatically updated and restored by the mbs service.
 
 #ENTRY mbm a
@@ -902,8 +902,8 @@ ACCESS LEVEL
 
 DESCRIPTION
 	Use this command to add a new board to the list of named and
-	available boards. The board must first have been loaded in to 
-	memory and a first note posted on it. This adds it to the list 
+	available boards. The board must first have been loaded in to
+	memory and a first note posted on it. This adds it to the list
 	of unnamed boards in the mbs central register.
 
 	The name of the new board must be unique, i.e. not exist previously
@@ -969,12 +969,12 @@ ACCESS LEVEL
 	Liege
 
 DESCRIPTION
-	With this command you remove a board from both the list of 
-	available boards and the list of unnamed boards. This is 
+	With this command you remove a board from both the list of
+	available boards and the list of unnamed boards. This is
 	typically something you want to do when moving a board to
 	another savepath, or removing it entirely from the game.
 
-	This command removes it from the list of boards that can be 
+	This command removes it from the list of boards that can be
 	named later by you.
 
 LIEGE LEVEL USAGE
@@ -996,9 +996,9 @@ ACCESS LEVEL
 DESCRIPTION
 	With this command you remove a board from the list of
 	unnamed boards. You do this with boards that aren't named
-	yet and has moved, or have been removed. 
+	yet and has moved, or have been removed.
 
-	This command removes it from the list of boards that can be 
+	This command removes it from the list of boards that can be
 	named later by you.
 
 LIEGE LEVEL USAGE
@@ -1178,7 +1178,7 @@ ACCESS LEVEL
 DESCRIPTION
 	The new name must be no longer than 10 characters. You can supply
 	a new description as well (which must be 30 characters or less in
-	length), or just change the old by giving the same name for the 
+	length), or just change the old by giving the same name for the
 	old and new categories.
 
 	Base categories can not be renamed or changed.
@@ -1214,7 +1214,7 @@ ACCESS LEVEL
 	Liege
 
 DESCRIPTION
-	This command lists all mbs administrators. 
+	This command lists all mbs administrators.
 
 ADMIN LEVEL USAGE
 	Default administrators have their names enclosed in straight
@@ -1261,7 +1261,7 @@ DESCRIPTION
 
 NOTA BENE!
 	Don't reset the list too often, as info only becomes interesting
-	after a certain time of accumulating of info.	
+	after a certain time of accumulating of info.
 
 #ENTRY tutorial
 MBS users tutorial
@@ -1315,8 +1315,8 @@ get this kind of listing:
 = -----      --------   ------     -----------
 = Bd1        Cat1       Dom1       Description of board Bd1
 = Bd2        Cat1       Dom2       Description of board Bd2
-= 
-= Bd3        Cat2       Dom1       Description of board Bd3 
+=
+= Bd3        Cat2       Dom1       Description of board Bd3
 = Bd4        Cat2       Dom3       Description of board Bd4
 = ...
 
@@ -1327,7 +1327,7 @@ one category or domain by giving it as an argument to the command;
 = > mbs L cat2
 = Board      Category   Domain     Description
 = -----      --------   ------     -----------
-= Bd3        Cat2       Dom1       Description of board Bd3 
+= Bd3        Cat2       Dom1       Description of board Bd3
 = Bd4        Cat2       Dom3       Description of board Bd4
 = ...
 
@@ -1415,7 +1415,7 @@ unsubscribed boards, naturally.
 = -----      --------   ------     -----------                   ------
 = Bd1        Cat1       Dom1       Description of board Bd1      [rwd]
 = Bd2        Cat1       Dom2       Description of board Bd2      [---]
-= 
+=
 = Bd3        Cat2       Dom1       Description of board Bd3      [r-d]
 = Bd4        Cat2       Dom3       Description of board Bd4      [rwd]
 = Bd5        Cat2       Dom3       Description of board Bd5      [rw-]
@@ -1427,7 +1427,7 @@ You specify the board you want to subscribe to by board name AND
 category or domain. Beware that some boards might have the same
 name and belong to the same domain, but assigned to different
 categories. The safe board identification method is always by name
-and category. You subscribe boards by issuing the command 
+and category. You subscribe boards by issuing the command
 'mbs s <board> <category/domain> <newsgroup>'. If you omit the
 newsgroup entry, it will be assigned to the currently selected
 newsgroup.
@@ -1435,19 +1435,19 @@ newsgroup.
 = >mbs s bd1 cat1
 = You have subscribed to the board 'Bd1' in the category 'Cat1' and
 = assigned it to the newsgroup 'Misc'.
-= 
+=
 = >mbs s bd3 dom1 misc
 = You have subscribed to the board 'Bd3' in the category 'Cat2' and
 = assigned it to the newsgroup 'Misc'.
-= 
+=
 = >mbs s bd2 cat1 guilds
 = You have subscribed to the board 'Bd2' in the category 'Cat1' and
 = assigned it to the newsgroup 'Guilds'.
-= 
+=
 = >mbs s bd4 cat2
 = You have subscribed to the board 'Bd4' in the category 'Cat2' and
 = assigned it to the newsgroup 'Guilds'.
-= 
+=
 = >mbs s bd5 cat2 misc
 = You have subscribed to the board 'Bd5' in the category 'Cat2' and
 = assigned it to the newsgroup 'Misc'.
@@ -1462,12 +1462,12 @@ news and display their status:
 
 = > mbs
 = Newsgroup: Misc
-= 
+=
 =  Board      Category   Domain     Description                    Status
 =  -----      ---------  ------     -----------                    ------
 =  Bd1        Cat1       Dom1       Description of board Bd1       U [rwd]
 =  Bd3        Cat2       Dom1       Description of board Bd3       U [r-d]
-= 
+=
 = *Bd5        Cat2       Dom3       Description of board Bd5       U [rw-]
 
 The status is either 'U' for unread news, or '-' for nothing of interest.
@@ -1483,11 +1483,11 @@ Now list the other newsgroup as well:
 = Currently selected newsgroup: Guilds
 = > mbs
 = Newsgroup: Guilds
-= 
+=
 =  Board      Category   Domain     Description                    Status
 =  -----      ---------  ------     -----------                    ------
 =  Bd2        Cat1       Dom2       Description of board Bd2       U [---]
-= 
+=
 =  Bd4        Cat2       Dom3       Description of board Bd4       U [rwd]
 
 Now, as you can see, the board 'Bd2' really is off limits for you. You
@@ -1531,7 +1531,7 @@ Reading news
 Reading news is very very simple. Just type 'mbs r', and the mbs will
 select the first unread article, starting in the current selection and
 on the currently selected board. If it finds no article on that board,
-it'll swap to the following one. When the selection item is exhausted, 
+it'll swap to the following one. When the selection item is exhausted,
 it will swap to the next selection item, starting over there and so on.
 
 You can also select a specific article by typing 'mbs r <item number>',
@@ -1591,8 +1591,8 @@ that has been added recently you type 'mbm' or 'mbm l'.
 
 Assume we want to call the first one 'Bd1' and we want it in the
 category Cat3, the 'Test' category. You add boards with the
-command 'mbm a <board name> <category> <save path> <description>'. 
-Take care to put the board in a category that best describes its 
+command 'mbm a <board name> <category> <save path> <description>'.
+Take care to put the board in a category that best describes its
 contents!
 
 = > mbm a bd1 cat3 /d/Dom1/wiz1/myboard My first board

@@ -40,12 +40,12 @@
 	     - The function called returns 1         <= NOTE
 
          A pattern can also be considered matched if the "function" value
-	 is 1 and not a string as it would normally be. This means that 
+	 is 1 and not a string as it would normally be. This means that
 	 if the "function" is VBFC and returns 1 then it is considered a
-	 match. 
-   
+	 match.
+
 	 Note the difference between the returned value from the
-	 function called and the value of (a possible) VBFC call. The 
+	 function called and the value of (a possible) VBFC call. The
 	 VBFC value is used as the name of the function to call. BUT if
 	 it does not return such a name and returns 1 instead, then it
 	 is a match. (Jemand Comprende ?!?)
@@ -102,7 +102,7 @@ catch_tell(string str)
 
     for (il = 0; il < sizeof(trig_patterns); il++)
     {
-	if (stringp(trig_patterns[il])) 
+	if (stringp(trig_patterns[il]))
 	{
 	    pattern = process_string(trig_patterns[il], 1);
 	    if (trig_check(str, pattern, trig_functions[il]))
@@ -145,7 +145,7 @@ trig_check(string str, string pat, string func)
     {
 	return 0; /* Illegal pattern */
     }
-    
+
     if (sizeof(trig_oblist))
 	ob = trig_oblist;
     else

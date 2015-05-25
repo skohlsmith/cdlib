@@ -14,7 +14,7 @@ Background
 
 To force players to go through a long, to some very boring, period of
 playing before becoming wizards makes us lose some very good coders, they
-simply give up or, knowing the rules, never even start playing. 
+simply give up or, knowing the rules, never even start playing.
 
 Most of the time this is good, only the really interested people invests
 the time it takes to play a character to wizhood. For some specific people
@@ -34,7 +34,7 @@ Madwands are drafted by the 'promote' command and expelled with the 'expel'
 command. See help on these. Arches and Keepers can also use the 'draft'
 command to draft a specific mortal as Madwand to a specific domain.
 
-A mortal promoted to 'Madwand' gets his playerfile saved so as if he is 
+A mortal promoted to 'Madwand' gets his playerfile saved so as if he is
 expelled he will get restored to his pre-madwand status. This differs
 from demoted wizards that get to start from scratch again.
 
@@ -44,12 +44,12 @@ Mudlib support
 
 Madwands are normal wizards in all respects and can be any level as long
 as they are members of a domain. Each domain has registred which of its
-members, if any, that is a Madwand. 
+members, if any, that is a Madwand.
 
 The 'Madwand' is not an extra member in the domain. If the domain is full
 but has no Madwand, it is still full and no Madwand can be drafted.
 
-Information of who is a Madwand and if a domain has one, is given through 
+Information of who is a Madwand and if a domain has one, is given through
 the 'finger' command. This applies both to wizards and domains. All
 Madwands will also have their title prepended with 'the Madwand of Domain'
 by default.

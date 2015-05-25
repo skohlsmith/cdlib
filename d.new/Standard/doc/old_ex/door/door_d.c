@@ -53,7 +53,7 @@ create_door() {
                                   /* cannot bend their backs ;-) */
 
     /* There are also plenty of other things you can set in the door, but this
-       is all you need. Look in /std/door.c for more details on all the 
+       is all you need. Look in /std/door.c for more details on all the
        set_functions()
     */
 }

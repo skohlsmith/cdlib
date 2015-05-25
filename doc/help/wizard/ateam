@@ -20,7 +20,7 @@ DESCRIPTION
 ARGUMENTS
 	ateam
 	   List all teams and all members.
-	
+
 	ateam add <team> <member>
 	   Add <member> to <team>. If <team> doesn't exist, it's
 	   created automatically. Note that <member> must be a
@@ -40,6 +40,6 @@ ADMINISTRATIVE COMMENTS
 
 	Teams with the names "aop", and "aod" can query ip numbers
 	and see/change player seconds listings.
-	
+
 SEE ALSO
 	global

@@ -4,7 +4,7 @@
  * This module checks weapons and armours
  *
  * Rather unneccesary, time-consuming code that we could do without if people
- * only could stop cheating. 
+ * only could stop cheating.
  *
  */
 

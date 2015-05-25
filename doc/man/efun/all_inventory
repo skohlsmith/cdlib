@@ -1,6 +1,6 @@
 NAME
 	all_inventory - return the contents of an object
-	
+
 SYNOPSIS
 	object *all_inventory(object ob)
 

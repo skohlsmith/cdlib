@@ -4,7 +4,7 @@
  * This object holds the apprentice wizards commands. The soul has been split
  * over a few modules. Hence, the list of commands below only reflects the
  * commands actually coded in this module:
- * 
+ *
  * - adjdesc
  * - allcmd
  * - altitle
@@ -219,7 +219,7 @@ query_cmdlist()
         "wize":"wiz",
         "wsay":"wsay",
         ]);
-    
+
     return cmd + query_line_cmdlist();
 }
 
@@ -297,7 +297,7 @@ print_soul_list(string *soul_list, string soul)
         write("----- " + capitalize(soul_id) + ":\n");
         list = m_indices(soul_list[index]->query_cmdlist());
 
-        /* To print the list of this soul, don't list the lines. 
+        /* To print the list of this soul, don't list the lines.
         if (soul == get_soul_id())
         {
             list -= m_indices(query_line_cmdlist());
@@ -1017,7 +1017,7 @@ finger(string str)
             write("There are no wizards with global read rights.\n");
             return 1;
         }
-        
+
         write("Wizard      Added by    Reason\n");
         write("----------- ----------- ------\n");
         names = sort_array(m_indices(gread));
@@ -1064,7 +1064,7 @@ finger(string str)
             "." + (pinfo ? " PInfo available." : "") + "\n");
         return 1;
     }
- 
+
     write("There is no such player, domain, category, etcetera." +
         (pinfo ? " PInfo available." : "") + "\n");
     return 1;
@@ -1409,7 +1409,7 @@ last(string str)
             case "-a":
                 all = 1;
                 break;
-                
+
             default:
                 plist += ({ args[i] });
                 break;

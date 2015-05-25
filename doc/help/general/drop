@@ -10,6 +10,6 @@ DESCRIPTION
 OPTIONS
         specification - a string that specifies what you want to drop
 	                it can take many different forms
-		
+
 SEE ALSO
 	get, put

@@ -25,7 +25,7 @@ inherit "/std/object";
 #define BACKUP		 ("/player_tool")
 #define BACKUP_DIR	 (PLAYERS + BACKUP)
 #define PREDEATH	 (".predeath")
-#define PREDEATH_FILE(p) (PLAYER_FILE(p) + PREDEATH) 
+#define PREDEATH_FILE(p) (PLAYER_FILE(p) + PREDEATH)
 
 #define CHECK_SO_ACCESS if (!valid_access()) return 0
 

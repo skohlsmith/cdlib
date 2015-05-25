@@ -1,5 +1,5 @@
 /*
-   sc_room.c 
+   sc_room.c
    a room to show how one can use the swim and climb skill
 */
 
@@ -29,7 +29,7 @@ create_room()
 	     "tree trying to go up.\n");
     add_exit("/doc/examples/room/tree", "up", "@@climb");
     add_exit("/doc/examples/room/lake", "east", "@@swim");
-    add_item("tree", 
+    add_item("tree",
 	     "It's a high tree and it looks hard to climb, but.\n" +
 	     "you can manage.\n");
     add_item("lake",
@@ -43,12 +43,12 @@ create_room()
  * The returning value decides what will happen to the player.
  * 0 means that the player isn't delayed.
  * 1 means that the player don't move, and that no other exits are tried.
- * 2 and more also stops the player, but the player can still move if 
+ * 2 and more also stops the player, but the player can still move if
  * there's another exit in the same dir. 2 is a very good value if you want
  * to make an 'enter mansion' direction.
  */
 
-climb() 
+climb()
 {
     if (this_player()->query_skill(SS_CLIMB) < random(HARD_TO_CLIMB))
     {

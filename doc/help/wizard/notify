@@ -10,7 +10,7 @@ SYNOPSIS
 
 DESCRIPTION
 	This command sets your notification level. There are several possible
-	settings. It can be used to get messages about who is loggin on and 
+	settings. It can be used to get messages about who is loggin on and
 	off. The options indicated toggles setting, so using A twice would
 	produce no effect.
 

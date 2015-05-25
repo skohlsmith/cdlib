@@ -1,7 +1,7 @@
 Until now all players have started all their LPmud sessions in one
 single room, /room/church. In LPmud 3.0 we are changing this. Players
 will start in different places depending on race and guild membership.
-	
+
 New players will start in separate rooms determined by their race.
 This will be the place where the player starts his LPmud sessions
 until he finds a place that allows him to change the starting point.

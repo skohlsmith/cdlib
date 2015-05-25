@@ -26,7 +26,7 @@ create_object()
 	a = slice_array(a, 0, sizeof(a) - 2);
 
     k = sizeof(a);
-    
+
     while (i < k)
     {
 	attrib = attrib + ({ ({ a[i++], 3, ({ }) }) });

@@ -11,11 +11,11 @@ inherit "/std/potion";
  */
 create_potion()
 {
-    set_soft_amount(10); 
-    set_alco_amount(0); 
-    set_name("potion"); 
+    set_soft_amount(10);
+    set_alco_amount(0);
+    set_name("potion");
     set_adj("bubbling");
-    set_long("This potion bubbles and fumes.\n"); 
+    set_long("This potion bubbles and fumes.\n");
 
     add_prop(OBJ_I_VALUE, 125);
     add_prop(OBJ_I_WEIGHT, 103);
@@ -37,7 +37,7 @@ consume_me()
 
 /*
  * Note that we shouldn't do a "deep_inventory".  All poison must be on
- * the top level.  This will allow a gettable living to be poisoned, 
+ * the top level.  This will allow a gettable living to be poisoned,
  * where the living does not get cured when the carrier does.
  */
     inv = all_inventory(this_player());
@@ -50,7 +50,7 @@ consume_me()
  */
     for (i = 0; i < sizeof(inv); i++ )
     {
-    	if (function_exists("cure_poison", inv[i]) == "/std/poison_effect") 
+    	if (function_exists("cure_poison", inv[i]) == "/std/poison_effect")
 	{
             inv[i]->cure_poison(types, strength);
 	    strength = strength / 2;

@@ -325,7 +325,7 @@ time2format(int timestamp, string format)
 {
     string timestring = ctime(timestamp);
     string result = "";
-    
+
     while(strlen(format))
     {
         if (format[0..3] == "yyyy")
@@ -391,6 +391,6 @@ time2format(int timestamp, string format)
         result += format[0..0];
         format = format[1..];
     }
-   
+
     return result;
 }

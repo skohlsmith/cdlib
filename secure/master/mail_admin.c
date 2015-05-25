@@ -212,18 +212,18 @@ export_mail(string name, string path)
     while(++index < size)
     {
 	mail = restore_message(messages[index][MAIL_DATE]);
-	
+
 	text = "Message: " + (index + 1) + "\nFrom   : " +
 	      messages[index][MAIL_FROM] + "\n" +
 	      (messages[index][MAIL_REPLY] ? "Reply  : " : "Subject: ") +
 	      messages[index][MAIL_SUBJ] + "\n";
-	
+
 	if (mail[MSG_TO] != capitalize(name))
 	{
 	    text += HANGING_INDENT("To     : " +
 		COMPOSITE_WORDS(explode(mail[MSG_TO], ",")), 9, 1);
 	}
-	
+
 	if (mail[MSG_CC] != "")
 	{
 	    text += HANGING_INDENT("CC     : " +
@@ -233,7 +233,7 @@ export_mail(string name, string path)
 	/* Write the message to file and print a sequence number to the
 	 * wizard. Notice that the index of the loop is also increased in
 	 * this write-statement.
-	 */	
+	 */
 	write_file(path, text + "Date   : " +
             MAKE_DATE(messages[index][MAIL_DATE]) + " " +
             DATE_YEAR(messages[index][MAIL_DATE]) +
@@ -374,7 +374,7 @@ purge_check_messages(int dir, int messages, int purged, string *files)
 
     mail_system = 0;
     mail_wizard = 0;
-    mail_alarm = 0;    
+    mail_alarm = 0;
 }
 
 /*
@@ -657,7 +657,7 @@ mailadmin(string str)
     if (strlen(mail_wizard) &&
 	(str != "reset"))
     {
-        write("The \"mailadmin\" command is busy for " + 
+        write("The \"mailadmin\" command is busy for " +
 	    capitalize(mail_wizard) + ".\n");
 	return 1;
     }

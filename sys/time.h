@@ -21,7 +21,7 @@
 
 /*
  * TIME_FILE
- * 
+ *
  * The file defining the time converting functions.
  */
 #define TIME_FILE      ("/sys/global/time")

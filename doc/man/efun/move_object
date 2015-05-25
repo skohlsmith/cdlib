@@ -6,8 +6,8 @@ SYNOPSIS
 
 DESCRIPTION
 	Moves the object executing the function to the destination indicated
-	by 'dest' or if the argument is a string 'destfilename' then 
-	move_object tries to load the corresponding object and move 
+	by 'dest' or if the argument is a string 'destfilename' then
+	move_object tries to load the corresponding object and move
 	this_object to that destination.
 
 	When an object moves from a destination all the commands it has
@@ -17,7 +17,7 @@ DESCRIPTION
 
 	Upon entering the destination object each living object which becomes
 	nearby will be set to this_player respectively and init will be run
-	in the entering object. Thus letting it add its commands with 
+	in the entering object. Thus letting it add its commands with
 	add_action to each nearby living object.
 
 	If the entering object is itself living, then this_player will be

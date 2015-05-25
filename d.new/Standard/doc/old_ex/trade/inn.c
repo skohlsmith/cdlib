@@ -22,11 +22,11 @@ create_room()
 	"and a warm fireplace. You can smell the beer from the kegs " +
 	"and the food from the kitchen." +
 	"", 75) + "\n");
-    
+
     add_item("bar", "A nice looking wooden bar with a menu on it.\n");
     add_item("menu", "It has a lot of readable words on it.\n");
     add_item("chairs",
-	"They are made out of wood as is the rest of the place.\n"); 
+	"They are made out of wood as is the rest of the place.\n");
     add_item("tables", "They are darkened with spilled beer.\n");
     add_cmd_item("menu", "read", "@@read");
 
@@ -42,7 +42,7 @@ create_room()
 	"apple", "red", 30, 25, 0, 0,
 	"It looks very tasty.\n", 0);
     add_food( ({ "potato", "potato soup", "soup", "soups" }),
-	"soup", "potato", 65, 80, "plate of potato soup", 
+	"soup", "potato", 65, 80, "plate of potato soup",
 	"plates of potato soup",
 	"It doesn't smell very good at all.\n", 0);
     add_food( ({ "potatoes", "spiced", "plate of spiced potatoes",

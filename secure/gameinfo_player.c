@@ -1,6 +1,6 @@
 /*
  * gameinfo.c
- * 
+ *
  * Game information system.
 
 
@@ -27,7 +27,7 @@ static mixed    *sect_array;	/* The array holding section information */
 static string   *text_array;    /* Array holding all sections text */
 static string	cur_sect,       /* Current section to display */
                 cur_menu;       /* Current menu */
-		
+
 
 static void write_info();
 static void do_menu(string s_num);
@@ -138,19 +138,19 @@ write_info()
 	if (calls[pos][1] == "time_out")
 	    remove_alarm(calls[pos][0]);
     set_alarm(600.0, 0.0, time_out);
-    
+
     pos = member_array(cur_sect, sect_array);
     if (pos >= 0)
 	write_socket(process_string(text_array[pos], 1));
     else
 	write_socket("No such section: " + cur_sect + "\n");
-    
+
     if (pos < (sizeof(sect_array)-1) &&
 	strlen(sect_array[pos+1]) > strlen(sect_array[pos]))
 	cur_menu = fix_menu(cur_sect);
 
     write_socket("\n" + cur_menu);
-    
+
     input_to(do_menu);
 }
 
@@ -163,7 +163,7 @@ fix_menu(string str)
 // This looks like dead code, I wonder what it was supposed to do /Tintin
 #if 0
     pos = member_array(str, sect_array);
-    
+
     if (cur_menu)
     {
 	pos = member_array(str, sect_array);

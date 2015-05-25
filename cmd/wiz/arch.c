@@ -122,7 +122,7 @@ query_cmdlist()
 }
 
 /* **************************************************************************
- * Here follows the actual functions. Please add new functions in the 
+ * Here follows the actual functions. Please add new functions in the
  * same order as in the function name list.
  * **************************************************************************/
 
@@ -135,7 +135,7 @@ all_spells()
     CHECK_SO_ARCH;
 
     SECURITY->list_spells();
-    
+
     return 1;
 }
 
@@ -214,7 +214,7 @@ ateam(string str)
             for (i = 0, sz = sizeof(tms) ; i < sz ; i++)
             {
                 args = sort_array(SECURITY->query_team_list(tms[i]));
-                write(sprintf("%-10s", capitalize(tms[i])) + 
+                write(sprintf("%-10s", capitalize(tms[i])) +
                     (sizeof(args) ? COMPOSITE_WORDS(map(args, capitalize)) :
                     "No members") + ".\n");
             }
@@ -249,7 +249,7 @@ delchar(string str)
             "useless to remove the file now.\n");
         return 0;
     }
-    
+
     if (SECURITY->query_wiz_rank(who))
     {
         notify_fail("Wizards should be demoted.\n");
@@ -401,7 +401,7 @@ mudstatus(string arg)
             notify_fail("SYNTAX: mudstatus on/off eval_limit time_limit(ms)\n");
             return 0;
         }
-        ev = 0; 
+        ev = 0;
         ti = 0;
     }
 
@@ -524,7 +524,7 @@ newchar(string str)
 
     /*
      * NOTA BENE!
-     * 
+     *
      * DO NOT CHANGE THE FORMAT OF THE NEWCHAR_LIST FILE!!!!
      * This file is read automatically by an external service which mails
      * the recipiants of the charater, messing with this will mess up that
@@ -642,7 +642,7 @@ nopurge(string str)
         "\nDate  : " + ctime(file_time(NOPURGE(name)))+ "\n");
     return 1;
 }
- 
+
 /* **************************************************************************
  * pingmud - send a udp ping to another mud
  */
@@ -651,7 +651,7 @@ pingmud(string arg)
 {
     CHECK_SO_ARCH;
 
-#ifdef UDP_MANAGER    
+#ifdef UDP_MANAGER
     return UDP_MANAGER->cmd_ping(arg);
 #else
     notify_fail("No udp manager active.\n");
@@ -758,7 +758,7 @@ nomask int
 siteban(string str)
 {
     CHECK_SO_ARCH;
-    
+
     return SECURITY->siteban(str);
 }
 
@@ -939,7 +939,7 @@ storemuds(string arg)
 {
     CHECK_SO_ARCH;
 
-#ifdef UDP_MANAGER    
+#ifdef UDP_MANAGER
     if (UDP_MANAGER->update_masters_list())
     {
         write("Ok.\n");
@@ -1016,7 +1016,7 @@ vip(string str)
     }
 
     write("VIP access of " + capitalize(str) + " was NOT granted.\n");
-    return 1;    
+    return 1;
 }
 
 

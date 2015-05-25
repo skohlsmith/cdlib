@@ -1,6 +1,6 @@
 NAME
 	set_alarm, set_alarmv - delayed execution of a function
-	
+
 SYNOPSIS
 	int set_alarm(float delay, float repeat_delay, function func)
 

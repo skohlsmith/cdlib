@@ -49,7 +49,7 @@ static int worn, arm_at, worn_on_part;
 
 public void set_wf(object ob);
 
-/* 
+/*
  * Function name: set_slots
  * Description:   Indicate which armour slots this item occupies.
  * Arguments:     int i - the armour slots (A_CHEST, A_LEGS, etc.)
@@ -302,7 +302,7 @@ wear_how(int location)
             how = " on " + pos + " brow"; break;
         case A_EYES:
             how = " over " + pos + " eyes"; break;
-        default: 
+        default:
             how = "";
     }
 
@@ -344,7 +344,7 @@ check_slot(int slot)
         if (layers > looseness)
         {
             /* The item cannot fit over the other items already worn */
-            return "The " + this_object()->short() + " won't fit over the " + 
+            return "The " + this_object()->short() + " won't fit over the " +
                 worn_arr[sizeof(worn_arr) - 1]->short() + ".\n";
         }
     }
@@ -401,7 +401,7 @@ wear_me()
                 break;
 	    }
 	}
-        
+
         if ((++i == sizeof(slots)) && strlen(error_msg))
 	{
             return error_msg;
@@ -432,7 +432,7 @@ wear_me()
         this_object()->remove_adj("unworn");
         worn = 1;
         return 1;
-    } 
+    }
 
     do_remove_item();
 
@@ -446,7 +446,7 @@ wear_me()
         return wfail;
     }
 
-    return "You cannot wear the " + 
+    return "You cannot wear the " +
         this_object()->short(this_player()) + ".\n";
 }
 
@@ -491,7 +491,7 @@ remove_me()
         {
            write("You remove something.\n");
         }
-     
+
         say(QCTNAME(this_player()) + " removes " +
             this_player()->query_possessive() + " " +
             QSHORT(this_object()) + ".\n");
@@ -530,9 +530,9 @@ command_remove()
  *		  0 - No affect the item can be worn / removed
  *		  1 - It can be worn / removed but no text should be printed
  *		      (it was done in the function)
- *		 -1 - It can not be worn / removed default failmsg will be 
+ *		 -1 - It can not be worn / removed default failmsg will be
  *		      written
- *           string - It can not be worn / removed 'string' is the 
+ *           string - It can not be worn / removed 'string' is the
  *		      fail message to print
  */
 public void
@@ -659,7 +659,7 @@ wearable_item_leave_env(object from, object to)
 
     if (!wear_func || !wear_func->remove(this_object()) && wearer)
     {
-        tell_object(wearer, 
+        tell_object(wearer,
             "You remove the " + this_object()->short() + ".\n");
     }
 

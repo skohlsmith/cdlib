@@ -37,7 +37,7 @@ show_wielded(object for_obj)
     {
         return "";
     }
-    
+
     if (for_obj != this_object())
     {
         p = this_object()->query_possessive();
@@ -99,7 +99,7 @@ wield(object weapon)
     return 1;
 }
 
-/* 
+/*
  * Function name: unwield
  * Description:   Unwield a weapon
  * Arguments:     The weapon to unwield

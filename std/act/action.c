@@ -1,11 +1,11 @@
-/* 
+/*
    /std/act/action.c
 
    Generic actions: Standard action module for mobiles
 
-   add_act(string)	       Set a random actstring 
+   add_act(string)	       Set a random actstring
 
-   add_cact(string)            Set a random combat actstring 
+   add_cact(string)            Set a random combat actstring
 
    set_act_time(int)	       Set the mean value for act intervall
 
@@ -55,7 +55,7 @@ add_act(mixed str, int flag)
 
     if (!str)
         return;
-    
+
     if (!sizeof(monster_act))
         monster_act = ({});
 
@@ -138,19 +138,19 @@ monster_do_act(int waited = 0)
 {
     int il;
     string act;
-    
+
     this_object()->seq_clear(SEQ_ACT);
     this_object()->seq_addfirst(SEQ_ACT, &monster_do_act(waited + 1));
-    
+
     if (!this_object()->query_attack())
     {
-        
+
         if (waited < monster_act_time)
             return 0;
-        
+
         if (!sizeof(monster_act_left))
             monster_act_left = monster_act;
-        
+
         if (!(il = sizeof(monster_act_left)))
             return 0;
 
@@ -162,13 +162,13 @@ monster_do_act(int waited = 0)
     {
         if (waited < monster_cact_time)
             return 0;
-        
+
         if (!sizeof(monster_cact_left))
             monster_cact_left = monster_cact;
-        
+
         if (!(il = sizeof(monster_cact_left)))
             return 0;
-        
+
         il = random(il);
         act = monster_cact_left[il];
         monster_cact_left = exclude_array(monster_cact_left, il, il);

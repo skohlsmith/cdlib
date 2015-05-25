@@ -5,7 +5,7 @@
  *
  * All movement related routines are coded here.
  */
- 
+
 #include <filter_funs.h>
 #include <macros.h>
 #include <options.h>
@@ -29,11 +29,11 @@ move_reset()
 {
     set_m_in(LD_ALIVE_MSGIN);
     set_m_out(LD_ALIVE_MSGOUT);
- 
+
     set_mm_in(LD_ALIVE_TELEIN);
     set_mm_out(LD_ALIVE_TELEOUT);
 }
- 
+
 /*
  * Function name: move_living
  * Description:   Posts a move command for a living object somewhere. If you
@@ -65,15 +65,15 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
     string com, msgout, msgin;
     mixed msg;
     string from_desc;
-    
+
     oldtp = this_player();
- 
+
     if (!objectp(to_dest))
     {
         msg = LOAD_ERR(to_dest);
         to_dest = find_object(to_dest);
     }
-    
+
     if (stringp(msg))
     {
         if (!environment(this_object()))
@@ -91,23 +91,23 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
             return 7;
         }
     }
- 
+
     if (!to_dest->query_prop(ROOM_I_IS))
     {
         return 7;
     }
- 
+
     if (!how)
     {
         return move(to_dest, 1);
-    } 
+    }
 
-    if (how == "M") 
+    if (how == "M")
     {
         msgin = 0;
         msgout = 0;
-    } 
-    else if (how == "X") 
+    }
+    else if (how == "X")
     {
         msgin = this_object()->query_mm_in() + "\n";
         msgout = this_object()->query_mm_out() + "\n";
@@ -116,12 +116,12 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
     }
     else
     {
-        if (query_prop(LIVE_I_SNEAK)) 
+        if (query_prop(LIVE_I_SNEAK))
         {
             msgin = this_object()->query_m_in() + " sneaking";
             msgout = this_object()->query_m_out() + " sneaking " + how + ".\n";
         }
-        else 
+        else
         {
             msgin = this_object()->query_m_in();
             msgout = this_object()->query_m_out() + " " + how + ".\n";
@@ -156,7 +156,7 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
         /* Update the last room settings. */
         add_prop(LIVE_O_LAST_ROOM, env);
         add_prop(LIVE_S_LAST_MOVE, vb);
- 
+
         /* Update the hunting status */
         this_object()->adjust_combat_on_move(1);
 
@@ -168,7 +168,7 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
             env->add_prop(ROOM_S_DIR, ({ how, query_race_name() }) );
         }
 
-        /* Report the departure. */                     
+        /* Report the departure. */
         if (msgout)
         {
             if (invis)
@@ -184,18 +184,18 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
                     "" }) );
             }
         }
-    }    
+    }
 
     if (!query_prop(LIVE_I_SNEAK))
     {
-        remove_prop(OBJ_I_HIDE); 
+        remove_prop(OBJ_I_HIDE);
     }
     else
     {
         remove_prop(LIVE_I_SNEAK);
     }
 
-    if (index = move(to_dest)) 
+    if (index = move(to_dest))
     {
         return index;
     }
@@ -225,7 +225,7 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
     {
         this_object()->do_glance(this_object()->query_option(OPT_BRIEF));
     }
- 
+
     /* See is people were hunting us or if we were hunting people. */
     this_object()->adjust_combat_on_move(0);
 
@@ -245,7 +245,7 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
         }
         remove_prop(TEMP_DRAGGED_ENEMIES);
     }
-                               
+
     if (!dont_follow &&
         stringp(how) &&
         (size = sizeof(team = query_team())))
@@ -303,7 +303,7 @@ move_living(string how, mixed to_dest, int dont_follow, int no_glance)
  *                commands cannot be forced as they are protected.
  */
 public void
-follow_leader(string com) 
+follow_leader(string com)
 {
     /* Only accept this call if we are called from our team-leader. */
     if (previous_object() != query_leader())
@@ -340,7 +340,7 @@ reveal_me(int tellme)
     {
         this_object()->catch_msg("You are no longer hidden.\n");
     }
- 
+
     list = FILTER_LIVE(all_inventory(environment()) - ({ this_object() }) );
     remove_prop(OBJ_I_HIDE);
 

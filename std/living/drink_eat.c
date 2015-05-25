@@ -94,7 +94,7 @@ drink_alco(int strength, int ask)
 	return 1;
 
     curtox += strength;
-    
+
     set_intoxicated(curtox);
 
     return 1;

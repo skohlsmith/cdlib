@@ -108,7 +108,7 @@ reset()
 /*
  * send_udp - Send a udp package. All packages goes through this function
  */
-int 
+int
 send_udp(string host, int port, string message)
 {
     if (previous_object() == this_object())
@@ -125,7 +125,7 @@ incoming_udp(string host, string msg)
     string cmd, prm, *parts, a, b;
     mapping params;
     int il;
-    
+
     if (sscanf(msg,"@@@%s||%s@@@", cmd, prm) != 2)
     {
 	if (sscanf(msg,"@@@%s@@@", cmd) != 1)
@@ -160,7 +160,7 @@ incoming_udp(string host, string msg)
  * update_master_list	Update the list of known muds in master
  * query_known_muds	Gives a list of known mud names
  * query_mud_info	Gives info an a specific mud
- * 		    	A mapping with a set of parameters for 
+ * 		    	A mapping with a set of parameters for
  * 			    each mud typically:
  *         			 "NAME", "HOSTADDRESS", "PORT",
  *				 "PORTUDP", "VERSION", "TIME"
@@ -243,7 +243,7 @@ islowercase(string s)
     return lower_case(s) == s;
 }
 
-/* 
+/*
  * Execute the given commands
  */
 int
@@ -265,7 +265,7 @@ execute_udp_command(string cmd, mapping params)
  * Function name:  send_startup_udp
  * Description:    Send the startup message, usually to the mudserver.
  */
-void 
+void
 send_startup_udp(string host, int port)
 {
     TO->send_udp(host, port,
@@ -294,7 +294,7 @@ startup(mapping p)
  * Function name:  send_shutdown_udp
  * Description:    Send the shutdown message, usually to the mudserver.
  */
-void 
+void
 send_shutdown_udp(string host, int port)
 {
     TO->send_udp(host, port,
@@ -356,18 +356,18 @@ mudwho_mudalive(int start)
 	for (i = 0; i < last_users; i++)
 	{
 	    if (i >= sizeof(u))
-		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT, 
+		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT,
 			 UDP_MW_USER_OUT(name, pass, "User" + i));
 	    else
 	    {
 #ifdef UDP_MW_ANONYMOUS
-		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT, 
+		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT,
 			     UDP_MW_USER_IN(name, pass, "User" + i, "Anonymous"));
 #else
 		cmt = capitalize(u[i]->query_real_name());
 		if (cmt == 0)
 		    cmt = "Unknown";
-		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT, 
+		TO->send_udp(UDP_MUDWHO, UDP_MW_PORT,
 			     UDP_MW_USER_IN(name, pass, "User" + i, cmt));
 #endif
 	    }

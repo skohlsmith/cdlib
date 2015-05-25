@@ -1,7 +1,7 @@
 /*
  * /doc/workroom.c
  * Written 920624 by Quis
- * 
+ *
  * This function serves two main purposes.  First, it is example coding
  * of a workroom.  Second, it gives the apprentice wizard an easy way to
  * get back to the wizard island.
@@ -11,7 +11,7 @@ inherit "/std/workroom";
 
 /*
  * The following macros are intended to prevent lines from wrapping
- * around the screen, and avoid the wizard from having to put in explicit 
+ * around the screen, and avoid the wizard from having to put in explicit
  * \n's.
  */
 
@@ -45,7 +45,7 @@ create_workroom()
     add_exit("/d/Genesis/wiz/domain", "enter", 0, 0);
 }
 
-/* 
+/*
  * This function simply returns a string.  Complex descriptions based on
  * the state of the room are possible.
  */
@@ -54,6 +54,6 @@ string
 long_desc()
 {
     return BSNN("This workroom is quite spartan. " +
-         "There are many desks scattered throughout. " + 
+         "There are many desks scattered throughout. " +
          "There is a shimmering field in the center of the room. ");
 }

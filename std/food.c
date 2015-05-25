@@ -1,6 +1,6 @@
 /*
    /std/food.c
-   
+
    This is the standard object used for any form of eatable things
 
    Typical usage of /std/food.c
@@ -96,9 +96,9 @@ set_short(mixed new_short)
  * Arguments:           a: The amount of food
  */
 public void
-set_amount(int a) 
-{ 
-    food_amount = a; 
+set_amount(int a)
+{
+    food_amount = a;
     add_prop(HEAP_I_UNIT_VOLUME, a / 10);
     add_prop(HEAP_I_UNIT_WEIGHT, a);
 }
@@ -139,7 +139,7 @@ command_eat()
                 return "The " + singular_short() + " is too much for you.\n";
             }
 
-            split_heap(i);            
+            split_heap(i);
             this_object()->special_effect(i);
 
             return 1;
@@ -229,12 +229,12 @@ init_recover(string str)
     }
 }
 
-/*      
+/*
  * Function name: special_effect
  * Description  : Define this routine if you want to do some special effect
  *                if a player consumes this food.
  * Arguments    : int amount - the number of foods consumed.
- */             
+ */
 public void
 special_effect(int amount)
 {

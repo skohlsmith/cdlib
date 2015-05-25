@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/living/wizstat.c
  *
  * Contains the code to implement the various wizardly information commands.
@@ -20,7 +20,7 @@ round_stat(int stat)
 	return sprintf("%3.1fM", itof(stat) / 1000000.0);
     else if (stat > 1000)
 	return sprintf("%3.1fk", itof(stat) / 1000.0);
-		
+
     return sprintf("%d", stat);
 }
 
@@ -48,8 +48,8 @@ stat_living()
 	  "-----------------------------------------------------------------------------\n" +
 	  "Exp: %9d %8s)  Quest: %7d  Combat: %8d  General: %8d\n" +
  	  "Weight: %6d %8s)  Volume: %6d %8s)\n" +
-	  "Hp:  %4d %5s)  Mana:  %4d %5s)  Panic: %4d %5s)  Fatigue: %4d %5s)\n" +  
-	  "Eat: %4d %5s)  Drink: %4d %5s)  Intox: %4d %5s)  Av.Stat: %4d\n" +  
+	  "Hp:  %4d %5s)  Mana:  %4d %5s)  Panic: %4d %5s)  Fatigue: %4d %5s)\n" +
+	  "Eat: %4d %5s)  Drink: %4d %5s)  Intox: %4d %5s)  Av.Stat: %4d\n" +
  	  "\n" +
 	  "Stat: %@7s\n"  +
           "Value:%@7d\n" +
@@ -172,6 +172,6 @@ skill_living()
     {
 	sk += sprintf("%38s %38s\n", skills[index], skills[index + size]);
     }
-    
+
     return "Skills of " + capitalize(query_real_name()) + ":\n" + sk;
 }

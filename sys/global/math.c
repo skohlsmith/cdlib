@@ -18,14 +18,14 @@ public nomask int
 find_exp(int sum)
 {
     int x, i;
-    
+
     x = 1;
     while (sum > x)
     {
 	i++;
 	x += x;
     }
-    
+
     return i;
 }
 
@@ -138,7 +138,7 @@ square_root(int square)
  *                This way, for quests or other hints, the same player
  *                gets the same value each time.
  * Arguments    : string name  - the lower case name of the player
- *                int    seed  - 
+ *                int    seed  -
  *                int    range - the range to compute the number in
  * Returns      : int          - the randomized value.
  */

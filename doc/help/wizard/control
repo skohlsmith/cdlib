@@ -12,7 +12,7 @@ DESCRIPTION
 	The wand lets you 'snoop' all that happens to the living and
 	give commands as the living. Commands are given with a leading
 	'#' to differentiate them from your own commands.
-	
+
 	Unlike possess you can still give commands 'to yourself' as
 	usual. There is no need to quit. The wand can be toggled on/off
 	or utterly destructed.

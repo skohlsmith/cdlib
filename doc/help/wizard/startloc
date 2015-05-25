@@ -8,7 +8,7 @@ SYNOPSIS
 
 DESCRIPTION
 	With this command an archwizard can handle the default and
-	temporary start location lists. 
+	temporary start location lists.
 
 OPTIONS
 	list	- List all or one of the location lists.

@@ -33,7 +33,7 @@ create_monster()
     set_skill(SS_UNARM_COMBAT, 80);
     set_skill(SS_BLIND_COMBAT, 80);
     set_skill(SS_PARRY, 80);
-    
+
     add_prop(CONT_I_WEIGHT, 85000);
     add_prop(CONT_I_HEIGHT, 1830);
     add_prop(CONT_I_VOLUME, 84000);
@@ -41,7 +41,7 @@ create_monster()
     /* Leftover 1 */
     add_leftover("/std/leftover", "nose", 1, 0, 0, 0);
     /* Leftover 2 */
-    add_leftover("/std/leftover", "ear", 2, "@@check_ear:" +  
+    add_leftover("/std/leftover", "ear", 2, "@@check_ear:" +
 		 MASTER + "@@", 0, 0);
     /* Leftover 3 */
     add_leftover("/doc/examples/mobiles/bb_heart.c", "heart", 1, 0, 0, 1);

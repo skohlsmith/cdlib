@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/room/description.c
  *
  * This is a sub-part of /std/room.c
@@ -32,7 +32,7 @@ add_my_desc(string str, object cobj)
 
     if (!cobj)
         cobj = previous_object();
-    
+
     if (!str)
         return;
 
@@ -160,7 +160,7 @@ exits_description()
         {
         case 0:
             break;
-        
+
         case 1:
             text += "There is one non-obvious exit: " + exits[0] + ".\n";
             break;
@@ -324,7 +324,7 @@ no_find()
  * Description:   The herbalist has searched the room, now let's see if and
  *                what he has found.
  * Arguments:     herbalist - The player searching for herbs
- *                herb_file - the file of the herb the player is looking for 
+ *                herb_file - the file of the herb the player is looking for
  *                            (optional)
  * Returns:       The message to write
  */

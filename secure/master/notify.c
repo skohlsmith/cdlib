@@ -305,11 +305,11 @@ graph(string str)
             notify_fail("Only arches and keepers may reset the graph.\n");
             return 0;
         }
-        
+
         reset_graph();
         write("Graph reset.\n");
         return 1;
-        
+
     case "reboots":
         display_reboot_graph();
         return 1;
@@ -542,7 +542,7 @@ notify(object ob, int level)
     switch(level)
     {
     case NOTIFY_LOGIN:
-        tmp = sprintf("login  %s", ip_name); 
+        tmp = sprintf("login  %s", ip_name);
         message += "logged in.";
         break;
 
@@ -565,12 +565,12 @@ notify(object ob, int level)
         break;
 
     case NOTIFY_REVIVE:
-        tmp = sprintf("revive %s", ip_name); 
+        tmp = sprintf("revive %s", ip_name);
         message += "revived from linkdeath";
         break;
 
     case NOTIFY_SWITCH:
-        tmp = sprintf("switch %s", ip_name); 
+        tmp = sprintf("switch %s", ip_name);
         message += "reconnected.";
         break;
 

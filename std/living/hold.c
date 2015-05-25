@@ -30,7 +30,7 @@ hold(object tool)
     mixed res;
 
     res = occupy_slot(tool);
-  
+
     if (!stringp(res))
     {
         query_combat_object()->cb_modify_procuse();
@@ -66,7 +66,7 @@ show_held(object for_obj)
     int il, size;
     string str, p, pr;
 
-    a = (object *)this_object()->query_tool(-1) - 
+    a = (object *)this_object()->query_tool(-1) -
         (object *)this_object()->query_weapon(-1) -
         (object *)this_object()->query_armour(-1);
 
@@ -74,7 +74,7 @@ show_held(object for_obj)
     {
         return "";
     }
-    
+
     if (for_obj != this_object())
     {
         p = query_possessive();

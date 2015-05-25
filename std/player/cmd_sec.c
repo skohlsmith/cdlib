@@ -259,7 +259,7 @@ save_me(int value_items)
     else
 	set_tot_value(0);
 
-    /* Do some queries to make certain time-dependent 
+    /* Do some queries to make certain time-dependent
      * vars are updated properly.
      */
     query_mana();
@@ -300,7 +300,7 @@ save_me(int value_items)
  * Returns:         Always 1
  */
 public int
-save_character(string str) 
+save_character(string str)
 {
     save_me(1);
     write("Ok.\n");
@@ -374,7 +374,7 @@ quit(string str)
             inv = filter(inv, &not() @ &->check_recoverable(manual));
         inv = filter(inv, &not() @ &->query_prop(OBJ_M_NO_DROP));
 
-        foreach(object item: inv)        
+        foreach(object item: inv)
         {
             command("$drop " + OB_NAME(item));
         }
@@ -411,7 +411,7 @@ quit(string str)
         /* This is the hammer. */
         SECURITY->do_debug("destroy", item);
     }
-    
+
     this_object()->remove_object();
     return 1;
 }
@@ -474,12 +474,12 @@ change_password_new(string str)
  * Description  : Takes and checks the old password.
  * Arguments    : string str - the given (old) password.
  */
-static nomask void 
+static nomask void
 change_password_old(string str)
 {
     write("\n");
     if (!strlen(str) ||
-	!match_password(str)) 
+	!match_password(str))
     {
 	write("Wrong old password.\n");
 	return;

@@ -35,13 +35,13 @@ DESCRIPTION
 		functions are not listed.
 	rusage
 		return a string containing the current rusage information.
-		the values returned are 
+		the values returned are
 		(listed here to save you a souce lookup):
             sprintf(buff, "%ld %ld %d %d %d %d %d %d %d %d %d %d %d %d %d %d",
 		utime, stime, maxrss, rus.ru_ixrss, rus.ru_idrss,
 		rus.ru_isrss, rus.ru_minflt, rus.ru_majflt, rus.ru_nswap,
-		rus.ru_inblock, rus.ru_oublock, rus.ru_msgsnd, 
-		rus.ru_msgrcv, rus.ru_nsignals, rus.ru_nvcsw, 
+		rus.ru_inblock, rus.ru_oublock, rus.ru_msgsnd,
+		rus.ru_msgrcv, rus.ru_nsignals, rus.ru_nvcsw,
 		rus.ru_nivcsw);
 	top_ten_cpu
 		returns an array containing strings with the cpu consumptions
@@ -49,7 +49,7 @@ DESCRIPTION
 		reboot
 	object_cpu
 		accepts an object parameter. Returns cpu usage of object
-		since last reboot. 
+		since last reboot.
 	swap
 		accepts an object parameter. Forces the object to be swapped.
 	version
@@ -58,7 +58,7 @@ DESCRIPTION
 		OBSOLETE
 	trace
 		Sets the trace flags and returns the old trace flags.
-		When tracing is on a lot of information is printed during 
+		When tracing is on a lot of information is printed during
 		execution.
 
 		The trace bits are
@@ -74,7 +74,7 @@ DESCRIPTION
 	traceprefix <object path>
 		string traceprefix(string prefix)
 
-		If the the traceprefix is set (i.e. not 0) 
+		If the the traceprefix is set (i.e. not 0)
 		tracing will only occur in objects
 		having a name with the set prefix.
 	call_out_info
@@ -84,14 +84,14 @@ DESCRIPTION
 		with the names of all objects in the inherit chain of
 		the parameter object.
 	load_average
-		returns a string showing how many commands that are 
-		executed per second and how many lines of code that are 
+		returns a string showing how many commands that are
+		executed per second and how many lines of code that are
 		compiled per second
 	shutdown
 		shut down the game immediately
 	object_info
 		takes 2 parameters, the first one an integer 0 or 1, the
-		second one an object. Returns a string of gamedriver 
+		second one an object. Returns a string of gamedriver
 		information about the object. If the first parameter is 0,
 		you get the object flags, pointers. If the parameter is 1,
 		program information is returned.
@@ -130,13 +130,13 @@ DESCRIPTION
 	destroy
 		takes an object parameter. It destructs the object.
 	update snoops
-		Updates the global snoops by reading in the snoop definition 
+		Updates the global snoops by reading in the snoop definition
 		file.
 	call_warnings
 		accepts the parameters "on" and "off"
 		"on" starts the logging of warnings for failed function calls.
 		The information is sent to stdout (which then probably is
-		redirected to a file, eg /lplog). 
+		redirected to a file, eg /lplog).
 	dump_objects
 		sends a list of all existing objects to the file /OBJECT_DUMP.
 	dump_alarms

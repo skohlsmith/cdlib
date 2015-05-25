@@ -19,7 +19,7 @@ create_npc()
 }
 
 nomask void
-create_creature() 
+create_creature()
 {
     if (!random(5))
 	add_leftover("/std/leftover", "tooth", random(5) + 1, 0, 1, 0);
@@ -57,7 +57,7 @@ create_creature()
 	add_leftover("/std/leftover", "intestine", 2, 0, 0, 1);
 
     MONEY_CONDENSE(this_object());
-    create_npc(); 
+    create_npc();
 }
 
 void
@@ -75,10 +75,10 @@ reset_creature()
 /*
  * Description:  Use the combat file for generic tools
  */
-public string 
-query_combat_file() 
+public string
+query_combat_file()
 {
-    return "/std/combat/ctool"; 
+    return "/std/combat/ctool";
 }
 
 /*

@@ -22,7 +22,7 @@ create_room()
     set_short("On trunk");
     set_long("You are halfway up the tree, you can climb up or down.\n");
 
-    add_item( ({ "tree", "big tree" }), 
+    add_item( ({ "tree", "big tree" }),
 	"This close it looks huge.\n");
 }
 
@@ -63,7 +63,7 @@ try_climb(string str)
 		random(this_player()->query_skill(SS_CLIMB)) < 10)
 	{
 	    /*
-	     * Oh, oh. The player tried to climb up but slipped. This time 
+	     * Oh, oh. The player tried to climb up but slipped. This time
 	     * he falls much longer but will still not die from it. (Yes he
 	     * will be able to die if he falls from the top....)
 	     */
@@ -84,7 +84,7 @@ try_climb(string str)
 	    /*
 	     * This time we have to move the player to the base of the tree.
 	     * We use the "M" as how because we have written all the messages
-	     * needed ourselves. If the leader falls we don't force the 
+	     * needed ourselves. If the leader falls we don't force the
 	     * players who choosed him as leader to fall too, aren't we nice?
 	     */
 	    this_player()->move_living("M", EX_ROOM + "at_tree", 1);

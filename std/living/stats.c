@@ -23,11 +23,11 @@ static int	*stat_extra;  /* Extra to add to the stats */
 static void
 ss_reset()
 {
-    stats = allocate(SS_NO_STATS); 
+    stats = allocate(SS_NO_STATS);
     delta_stat = allocate(SS_NO_STATS);
-    
-    learn_pref = allocate(SS_NO_STATS); 
-    acc_exp = allocate(SS_NO_STATS); 
+
+    learn_pref = allocate(SS_NO_STATS);
+    acc_exp = allocate(SS_NO_STATS);
     stat_extra = allocate(SS_NO_STATS);
 }
 
@@ -201,7 +201,7 @@ add_tmp_stat(int stat, int ds, int dt)
     int *end;
 
     tmp = query_stat(stat) - query_base_stat(stat);
-    
+
     if ((ds + tmp > 10 + query_base_stat(stat) / 10) ||
         (dt <= 0))
     {
@@ -355,13 +355,13 @@ update_last_stats()
 {
     int index;
     int *last_stats = allocate(SS_NO_EXP_STATS + 1);
-    
+
     for (index = 0; index < SS_NO_EXP_STATS; index++)
     {
         last_stats[index] = query_base_stat(index);
     }
     last_stats[SS_NO_EXP_STATS] = query_average_stat();
-    
+
     add_prop(PLAYER_AI_LAST_STATS, last_stats);
 }
 
@@ -378,13 +378,13 @@ check_last_stats()
     int *last_stats = query_prop(PLAYER_AI_LAST_STATS);
     int *new_stats = allocate(SS_NO_EXP_STATS + 1);
     string olddesc, newdesc;
-    
+
     if (sizeof(last_stats) != (SS_NO_EXP_STATS + 1))
     {
         update_last_stats();
         return;
     }
-    
+
     for (index = 0; index < SS_NO_EXP_STATS; index++)
     {
         new_stats[index] = query_base_stat(index);
@@ -428,7 +428,7 @@ check_last_stats()
             }
         }
     }
-  
+
     index = SS_NO_EXP_STATS;
     new_stats[index] = query_average_stat();
     if (new_stats[index] != last_stats[index])
@@ -442,7 +442,7 @@ check_last_stats()
                 "sufficiently experienced to call yourself " + newdesc + ".\n");
         }
     }
-    
+
     if (changed)
     {
         add_prop(PLAYER_AI_LAST_STATS, new_stats);

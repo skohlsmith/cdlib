@@ -30,7 +30,7 @@
 #define LD_SPELL_FAIL 		"Your spell fails.\n"
 #define LD_SPELL_CONC_BROKEN	"Your concentration is broken. " + 	\
   				"No spell will be cast.\n"
-  
+
 /* Day / Night things */
 #define LD_IS_NIGHT(o)		"It's Night.\n" + o->short() + ".\n"
 
@@ -101,7 +101,7 @@
 #define LD_STATUE_TURN(o)	"Suddenly, " + QTNAME(o) + " " +	\
 			        STATUE_TURNS_INTO + ".\n"
 #endif STATUE_WHEN_LINKDEAD
- 
+
 /* move.c */
 #define LD_ALIVE_MSGIN		F_ALIVE_MSGIN
 #define LD_ALIVE_MSGOUT		F_ALIVE_MSGOUT

@@ -1,6 +1,6 @@
 NAME
 	set_screen_width - set the width of the screen for user output
-	
+
 SYNOPSIS
 	void set_screen_width(int)
 

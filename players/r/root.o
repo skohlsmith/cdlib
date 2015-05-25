@@ -42,12 +42,12 @@ recover_list ({})
 saved_props ({70000,180000,0,20,70000,0,})
 bit_savelist ({})
 tot_value 0
-age_heart 1864
+age_heart 1894
 notify 0
 decay_time_acc 0
 restricted 0
-login_time 1432564658
-logout_time 1432564735
+login_time 1432572590
+logout_time 1432572651
 wiz_unmet 0
 m_remember_name ([])
 m_alias_list (["la":"look at",])

@@ -46,7 +46,7 @@ int support_q(mapping p)
 	    ((strlen(p["PARAM"]) &&
 	      !call_other(TO, "support_" + p["CMD"], p["PARAM"]))))
 	{
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 			 "@@@" + UDP_SUPPORTED_A +
 			 "||NAME:" + TO->query_my_name() +
 			 "||PORTUDP:" + TO->query_my_udpport() +
@@ -58,7 +58,7 @@ int support_q(mapping p)
 	}
 	else
 	{
-	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]), 
+	    TO->send_udp(p["HOSTADDRESS"], atoi(p["PORTUDP"]),
 			 "@@@" + UDP_SUPPORTED_A +
 			 "||NAME:" + TO->query_my_name() +
 			 "||PORTUDP:" + TO->query_my_udpport() +
@@ -110,7 +110,7 @@ cmd_support(string arg)
     int port;
     mapping p;
     int il;
-    
+
     args = explode(arg, " ");
     ix = TO->query_known_muds();
     notify_fail("What? Give <mud / host port> cmd [param]\n");
@@ -125,14 +125,14 @@ cmd_support(string arg)
 	    notify_fail(args[0] + " can not answer.\n");
 	    return 0;
 	}
-	send_support_q(p["HOSTADDRESS"], p["PORTUDP"], args[1], 
+	send_support_q(p["HOSTADDRESS"], p["PORTUDP"], args[1],
 		       (sizeof(args) > 2 ? args[2] : 0));
     }
-    else 
+    else
     {
 	if (sizeof(args) < 3)
 	    return 0;
-	send_support_q(args[0], args[1], args[2], 
+	send_support_q(args[0], args[1], args[2],
 		       (sizeof(args) > 3 ? args[3] : 0));
     }
 

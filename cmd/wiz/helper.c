@@ -109,7 +109,7 @@ query_cmdlist()
  * Description  : Tests whether a particular wizard may use a the command.
  *                Arches++ can use all. The function operates on
  *                this_interactive() and query_verb().
- * Returns      : int 1/0 - allowed/disallowed. 
+ * Returns      : int 1/0 - allowed/disallowed.
  */
 nomask int
 valid_user()
@@ -262,7 +262,7 @@ elog(string arg)
 	write_file(SECURITY->query_wiz_path(who) + "/private/ENTER_SEARCH", "Search started " + ctime(time()) + "\n");
 	break;
     }
-	
+
     write("Ok.\n");
     return 1;
 }
@@ -385,7 +385,7 @@ patch_second(int what, string who, string name)
     string file = PLAYER_FILE(who);
     mapping plmap;
     string query = this_interactive()->query_real_name();
-    
+
     if (!SECURITY->exist_player(who))
     {
         return;
@@ -502,7 +502,7 @@ msecond(string str)
 	    else
 		patch_second(1, args[1], slist[i]);
 	}
-	
+
 	write("Added second " + capitalize(args[1]) + " to " + COMPOSITE_WORDS(map(slist, capitalize)) + ".\n");
 	break;
 
@@ -548,7 +548,7 @@ msecond(string str)
 	    else
 		patch_second(0, args[1], slist[i]);
 	}
-	
+
 	write("Removed second " + capitalize(args[1]) + " from " + COMPOSITE_WORDS(map(slist, capitalize)) + ".\n");
 	break;
 

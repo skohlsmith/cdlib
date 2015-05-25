@@ -52,7 +52,7 @@ update_commands()
     cmdlist = query_cmdlist();
 }
 
-/* 
+/*
  * Function name: do_command
  * Description  : Perform the given command, if present.
  * Arguments    : string verb - the verb the player executes.
@@ -65,7 +65,7 @@ do_command(string verb, string arg)
     return call_other(this_object(), cmdlist[verb], arg);
 }
 
-/* 
+/*
  * Function name: exist_command
  * Description  : Check if a command exists.
  * Returns      : int - 1/0 depending on success.
@@ -127,7 +127,7 @@ query_prevent_shadow()
 {
     return 1;
 }
- 
+
 /*
  * Function name: query_alarms
  * Description:   This function gives all alarms set in this object.
@@ -136,5 +136,5 @@ query_prevent_shadow()
 mixed
 query_alarms()
 {
-    return get_all_alarms();    
+    return get_all_alarms();
 }

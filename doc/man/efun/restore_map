@@ -9,7 +9,7 @@ DESCRIPTION
 	by a save_object or a save_map. The indexes will be strings and
 	correspond to variable names in save/restore_object.
 	The filename gets a filetype ".o" appended and the format is:
-	
+
 		mapping_index	mapping_value
 
 		intvar		number

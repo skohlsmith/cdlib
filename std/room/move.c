@@ -1,4 +1,4 @@
-/* 
+/*
  * /std/room/move.c
  *
  * This is a sub-part of /std/room.c
@@ -21,7 +21,7 @@ load_room(int index)
     mixed droom;
     string err;
     object ob;
-    
+
     droom = check_call(room_exits[index]);
     if (objectp(droom))
     {
@@ -35,16 +35,16 @@ load_room(int index)
 	this_player()->move_living("X", query_link_master());
 	return 0;
     }
-    
+
     ob = find_object(droom);
     if (objectp(ob))
     {
 	return ob;
     }
-    
+
     if (err = LOAD_ERR(droom))
     {
-	SECURITY->log_loaderr(droom, environment(this_object()), 
+	SECURITY->log_loaderr(droom, environment(this_object()),
 			      room_exits[index + 1], this_object(), err);
 	write("Err in load:" + err + " <" + droom +
 	    ">\nPlease make a bugreport about this.\n");
@@ -57,7 +57,7 @@ load_room(int index)
  * Function name: query_dircmd
  * Description:   Gives the rest of the command given after move verb.
  *                This can be used in blocking functions (third arg add_exit)
- * Returns:       The movecommand as given. 
+ * Returns:       The movecommand as given.
  */
 public string
 query_dircmd()
@@ -165,7 +165,7 @@ unq_move(string str)
 	{
 	    return 1;
 	}
-	
+
         /* Remove the fatigue after the exit has been checked. */
         if (tired)
         {

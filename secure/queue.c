@@ -151,7 +151,7 @@ should_queue(string name)
 	    "queue this time.\n");
 	return 0;
     }
-   
+
     /* Begin by getting rid of idlers. This is done EVERY time anyone
      * tries to log in. Some can be idle longer than others.
      */
@@ -265,7 +265,7 @@ dequeue(object ob)
     int free;
 
     validate_queue();
-    
+
     /* If a player leaves the queue, we won't update the information of the
      * players in the queue to let them advance. No space was created in the
      * game, so no player can really enter anyway. However, we kick the
@@ -291,7 +291,7 @@ dequeue(object ob)
 	{
 	    q[index]->advance((index < free) ? 0 : (index - free + 1));
 	}
-	
+
 	q = ((size > free) ? q[free..] : ({ }) );
     }
 
@@ -391,7 +391,7 @@ set_vip(string v)
 	q[pos] = 0;
 
 	return 1;
-    }    
+    }
 
     vip += ({ v });
     return 1;

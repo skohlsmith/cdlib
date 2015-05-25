@@ -23,7 +23,7 @@ create_room()
 
 
     /* Since both monster inherit /d/Krynn/open/monster instead of
-     * /std/monster the teammates will attack you (90 % chance) if 
+     * /std/monster the teammates will attack you (90 % chance) if
      * you attack a team member. Note that they try to perform the noraml
      * kill command so if their dis is low perhaps they cannot attack you.
      *

@@ -76,7 +76,7 @@ article(string str)
 #endif
 
 string
-add_article(string str) 
+add_article(string str)
 {
     string s;
 
@@ -95,7 +95,7 @@ string
 word_number(int num)
 {
     int tmp;
-    
+
     if (num < 1) return "no";
     if (num < 20) return nums[num-1];
     if (num > 99)
@@ -212,7 +212,7 @@ number_ord_word(string str)
     if ((j = member_array(nt[0], numt)) == -1)
         return 0;
 
-    return (j+2)*10 + (i+1); 
+    return (j+2)*10 + (i+1);
 }
 
 /* lpc singular to plural converter
@@ -226,7 +226,7 @@ plural_word(string str)
 {
     string tmp, slask;
     int sl, ch;
-    
+
     if (!str) return 0;
 
     switch (str)
@@ -247,7 +247,7 @@ plural_word(string str)
 	return "dwarves";
     case "elf":
         return "elves";
-    }  
+    }
     sl = strlen(str) - 1;
     if (sl < 2)
 	return str;
@@ -280,10 +280,10 @@ plural_sentence(string str)
 {
     int  c;
     string *a;
-    
+
     if (!str)
 	return 0;
-    
+
     a = explode(str + " ", " ");
     if ((!a) || (sizeof(a) < 1))
 	return 0;
@@ -408,7 +408,7 @@ singular_form(string str)
 	return "elf";
     case "dwarves":
 	return "dwarf";
-    }  
+    }
 
     last = strlen(str);
     one  = extract(str, last - 1, last - 1);
@@ -574,10 +574,10 @@ get_num_desc(int value, int maximum, string *maindescs, string *subdescs = 0, in
         mainindex = (value * sizeof(maindescs)) / maximum;
         return maindescs[mainindex];
     }
-    
+
     /* Distribute the value of the range of main and sub-descriptions. */
     value = (value * sizeof(maindescs) * sizeof(subdescs)) / maximum;
-        
+
     /* Extract the main and sub-indices. */
     mainindex = value / sizeof(subdescs);
     subindex = value % sizeof(subdescs);

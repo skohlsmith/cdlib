@@ -344,7 +344,7 @@ recursive_rmdir(string path)
 	    }
 	}
 	return rmdir(path);
-    
+
     case -1:
 	return 0;
 
@@ -765,7 +765,7 @@ domainsanction(string str)
     }
 
     parts[1] = lower_case(parts[1]);
-    
+
     /* Clear all sanctions from the domain. */
     if ((parts[1] == "clear") ||
 	(parts[1] == "c"))
@@ -839,7 +839,7 @@ domainsanction(string str)
 		      domain + ".\n");
 		continue;
 	    }
-	    
+
 	    if (create_sanction(domain, str,
 				SANCTION_TOKEN_TO_FILE[parts[index]], path))
 	    {

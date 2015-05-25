@@ -39,10 +39,10 @@ create_book()
 /*
  * Function name: create_scroll
  * Description:   creates the general object
- * Arguments:	  
+ * Arguments:
  */
 nomask void
-create_scroll() 
+create_scroll()
 {
     add_name("book");
     book_is_closed = 1;
@@ -55,8 +55,8 @@ create_scroll()
 
 /*
  * Function name: init
- * Description:   initialise the commands 
- * Arguments:	  
+ * Description:   initialise the commands
+ * Arguments:
  */
 void
 init()
@@ -121,7 +121,7 @@ turn_me()
 
     gPage = previous_object()->query_gPage();
 
-    if (book_is_closed) 
+    if (book_is_closed)
     {
 	write("But the " + short(this_player()) + " is closed.\n");
 	return;
@@ -137,12 +137,12 @@ turn_me()
         return;
     }
 
-    if (gPage == "forward" || gPage == "") 
+    if (gPage == "forward" || gPage == "")
     {
-        if (maxm_page < what_page + 1) 
+        if (maxm_page < what_page + 1)
         {
             write("You have reached the last page of the " +
-			short(this_player()) + ".\n");    
+			short(this_player()) + ".\n");
             return;
 	}
         what_page += 1;
@@ -180,9 +180,9 @@ turn_me()
  * Arguments:	  how_many - how many pages ?
  */
 void
-set_max_pages(int how_many) 
-{ 
-    maxm_page = how_many; 
+set_max_pages(int how_many)
+{
+    maxm_page = how_many;
 }
 
 int query_max_pages() { return maxm_page; }
@@ -211,7 +211,7 @@ read_scroll(string str)
 	gPage = "forward";
 	what = "book";
     }
-    else if (parse_command(str, ({}), "'page' [to] %w", where)) 
+    else if (parse_command(str, ({}), "'page' [to] %w", where))
     {
 	gPage = where;
 	what = "book";
@@ -266,7 +266,7 @@ read_it(string verb)
  */
 varargs void
 read_book_at_page(int which, string verb)
-{ 
+{
     write("This is only a blafasel book with the same on every page.\n");
 }
 

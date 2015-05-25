@@ -1,6 +1,6 @@
 NAME
 	xpclear - Clear the xp counters for a domain
-	
+
 SYNOPSIS
 	xpclear Domain
 
@@ -11,11 +11,11 @@ DESCRIPTION
 
 OPTIONS
 	Domain		Name of the domain
-	
-	
+
+
 NOTA BENE
 	Only arches and keepers can do this.
-	
+
 SEE ALSO
 	ranking
 

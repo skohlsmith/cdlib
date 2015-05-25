@@ -172,7 +172,7 @@ input_to_more(string answer, string *lines, string filename,
 	MORE_PROMPT;
 	MORE_INPUT;
 	return;
-    }	
+    }
 
     if (lineno < (pagesize + first))
     {

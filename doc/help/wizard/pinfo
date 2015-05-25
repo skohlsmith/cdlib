@@ -22,7 +22,7 @@ DESCRIPTION
 	know whether a particular situation was handled before.
 
 	Each text you add is preceded with a time stamp and your name.
- 
+
 ARGUMENTS
 	<name>	The name of the player.
 	<text>	The text to add. If the text is longer than one line, it

@@ -23,14 +23,14 @@ create_creature() {
     if (!IS_CLONE)
 	return;
     set_name("spider");
-    set_race_name("spider"); 
+    set_race_name("spider");
     set_adj("dog-sized");
     add_adj("hairy");
 
     set_long("The spider looks creepy!\n");
 
     set_gender(G_NEUTER);
-    set_stats(({ 10 + random(3), 10 + random(3), 10 + random(3), 1, 1, 1})); 
+    set_stats(({ 10 + random(3), 10 + random(3), 10 + random(3), 1, 1, 1}));
                   /* str, dex, con, int, wis, dis */
 
     set_skill(SS_DEFENCE, 20);
@@ -51,8 +51,8 @@ create_creature() {
 /*
  * Function name: cr_did_hit
  * Description:   This function is called from the combat object to give
- *                appropriate messages.  We shall remain content to let 
- *                the default messages be sent, but we will give poison 
+ *                appropriate messages.  We shall remain content to let
+ *                the default messages be sent, but we will give poison
  *                to the hit creature.
  * Arguments:     aid:   The attack id
  *                hdesc: The hitlocation description.
@@ -74,7 +74,7 @@ cr_did_hit(int aid, string hdesc, int phurt, object enemy, int dt, int phit)
     if(aid==A_BITE) {
         write("Your fangs bite deep!\n");
         tell_object(enemy, "The spider's fangs bite deep!\n");
-        
+
         poison = clone_object("/std/poison_effect");
         if(poison) {
             poison->move(enemy);

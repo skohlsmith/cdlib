@@ -116,7 +116,7 @@ set_nsd_retrain(string player, int skill, int level)
 
     /* Retrieve the players file. */
     player = lower_case(player);
-    
+
     catch(file = restore_map(RETRAIN_FILE(player)));
     if (!mappingp(file) ||
     	!m_sizeof(file))

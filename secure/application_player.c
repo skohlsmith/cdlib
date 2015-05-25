@@ -1,6 +1,6 @@
 /*
  * application_player.c
- * 
+ *
  * Blocked site player application procedures.
  */
 
@@ -66,7 +66,7 @@ write_info()
 	    ip = query_ip_number(this_object());
 	    whom += "@" + (in == ip ? in : in + " (" + ip + ")");
 	    ob->new_msg(whom);
-	    result = "Application from " + whom + 
+	    result = "Application from " + whom +
 		" at " + ctime(time()) + "\n" + result + "\n";
 	    ob->done_editing(result);
 	    write_socket("\nYour application has been filed.\n");
@@ -177,7 +177,7 @@ get_sline(string str)
 	quit();
 	return;
     }
-    
+
     result += str + "\n";
     write_info();
 }

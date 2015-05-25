@@ -1,6 +1,6 @@
 NAME
 	lman -	display information on local source code
-	
+
 
 SYNOPSIS
 	lman -c
@@ -28,10 +28,10 @@ DESCRIPTION
 	'query_intoxicated()' if this is the first function that
 	will match the given keyword.
 
-	The keyword can not be a full regexp pattern. Only leading 
+	The keyword can not be a full regexp pattern. Only leading
 	and trailing '*'s are allowed.
 
-	If a subdir is specified, the command will store the array 
+	If a subdir is specified, the command will store the array
 	containing the possible matches for further quick reference
 	with the "lman #selection" command.
 
@@ -39,22 +39,22 @@ DESCRIPTION
 	the search. If your pwd is /doc/sman, the lman command will work
 	exactly like the sman command.
 
-OPTIONS	
+OPTIONS
 	[subdir] keyword
-		Display the information on the first function found that 
+		Display the information on the first function found that
 		matches the given keyword. If a subdir is specified,
 		store the selection array for further reference.
 
 	-c
 		List all available subdirs.
-	
+
 	-k [subdir] keyword
 		Display all matches of 'keyword'. If the subdir is specified
 		store the selection array for further reference.
 
 	lman -?
 		Display the stored selection array.
-	
+
 	lman #selection
 		Display the information on the specified preselected entry.
 

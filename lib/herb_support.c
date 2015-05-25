@@ -22,7 +22,7 @@ string poison_file;
 mixed *effects;
 mixed *poison_damage;
 
-/* 
+/*
  * Function name: do_tmp_stat
  * Description:   This function is called from the effects if the herb is
  *                stat-affecting. One stat is randomly increased
@@ -131,10 +131,10 @@ special_effect()
     write("You don't feel any effect.\n");
 }
 
-/* 
+/*
  * Function: do_herb_effects
  * Description: In this function the effect(s) of the herb are resolved.
- *              To define a standard effect, do 
+ *              To define a standard effect, do
  *              set_effect(herb_type, str, strength); in create_herb(),
  *              where herb_type is one of the herb-types in /sys/herb_types.h,
  *              str is a string for the affect type, and strength is an
@@ -164,8 +164,8 @@ do_herb_effects()
             res = 100 - tp->query_magic_res(MAGIC_I_RES_POISON);
             if (!type || type == "hp")
             {
-                if (strength < 0) 
-                { 
+                if (strength < 0)
+                {
                     tp->reduce_hit_point(res * random(-strength) / 100);
                     if (tp->query_hp() <= 0)
                     {
@@ -209,7 +209,7 @@ do_herb_effects()
             {
                 if (strength < 0)
                 {
-                    tp->set_fatigue(tp->query_fatigue() - res * 
+                    tp->set_fatigue(tp->query_fatigue() - res *
                        random(-strength) / 100);
                     write("You feel more tired.\n");
                 }
@@ -299,7 +299,7 @@ do_herb_effects()
                 poison->move(tp, 1);
                 poison->start_poison();
             }
-            else 
+            else
             {
                 poison = clone_object(POISON_OBJECT);
                 poison->set_strength(strength);

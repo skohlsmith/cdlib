@@ -10,7 +10,7 @@ DESCRIPTION
 	It can also be used to remove old ones and add new ones.
 
 	By writing "cmdsoul <path>" you add a soul with the given
-	path to the list of souls. 
+	path to the list of souls.
 
 	E.g., "cmdsoul /d/Genesis/cmd/soul_cmd_human".
 

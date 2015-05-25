@@ -14,7 +14,7 @@
  * Gives a composite path from a default and a given pathname
  *
  * If name starts with '/' then path is ignored.
- * 
+ *
  * Example: path = "/d/Genesis/wiz", name = "below/eastend.c"
  *          => "/d/Genesis/wiz/below/eastend.c"
  */

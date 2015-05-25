@@ -14,7 +14,7 @@ create_weapon()
     set_short("small knife"); set_pshort("small knives");
     set_adj("small");
     set_long("It is a very simple looking knife, quite deadly though.\n");
-    
+
     set_default_weapon();
 }
 

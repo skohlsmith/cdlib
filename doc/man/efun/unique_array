@@ -11,12 +11,12 @@ DESCRIPTION
 	in such a subarray 'uniqfunc' returned the same value.
 
 	If the 'del' argument is specified, elements that return a value that
-	is equal to 'del' from the 'uniqfunc' will not be included in the 
+	is equal to 'del' from the 'uniqfunc' will not be included in the
 	result. If the 'del' argument is unspecified, it will default to
 	integer 0.
 
  	Then an array on the below form is returned:
-   
+
 	   ({
 	   ({Same1:1, Same1:2, Same1:3, .... Same1:N }),
 	   ({Same2:1, Same2:2, Same2:3, .... Same2:N }),
@@ -25,9 +25,9 @@ DESCRIPTION
 	   ....
 	   ({SameM:1, SameM:2, SameM:3, .... SameM:N }),
 	   })
-   
+
 CAVEAT
 	All elements of the array that are not objectpointers are ignored.
 
 BUGS
-	
+

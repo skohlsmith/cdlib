@@ -3,7 +3,7 @@
  *
  * Version 2.0
  *
- * Handle manaul search requests in the /doc/man section of the 
+ * Handle manaul search requests in the /doc/man section of the
  * documentation.
  */
 
@@ -62,7 +62,7 @@ init_man()
  * Description:     Return all subjects in a given chapter
  * Arguments:	    chapter - The chapter to search in. (Optional)
  * Returns:         An array containing the list of found subjects in each
- *		    chapter. Each entry is on the form: 
+ *		    chapter. Each entry is on the form:
  *			({ "chapter", ({ "subject", "subject" ... }) })
  */
 public mixed *
@@ -75,12 +75,12 @@ get_index(string chapt)
     {
 	return ({ chapt, explode(chapt_index[chapt], "%%") });
     }
-    
+
     found_arr = ({});
     for (i = 0; i < sizeof(chapters); i++)
     {
 	tmp =  explode(chapt_index[chapters[i]], "%%");
-	
+
 	if (sizeof(tmp))
 	{
 	    found_arr += ({ ({ chapters[i], tmp }) });
@@ -95,12 +95,12 @@ static string * fix_subjlist(string *split, string keyw,int okbef, int okaft);
 
 /*
  * Function name:   get_keywords
- * Description:     Return all possible subject name array matches of a 
+ * Description:     Return all possible subject name array matches of a
  *		    given keyword in one or all chapters.
  * Arguments:	    chapter - The chapter to search in. (Optional)
  *		    keyword - The keyword to seach for.
  * Returns:         An array containing the list of found subjects in each
- *		    chapter. Each entry is on the form: 
+ *		    chapter. Each entry is on the form:
  *			({ "chapter", ({ "subject", "subject" ... }) })
  */
 public mixed *
@@ -109,8 +109,8 @@ get_keywords(string chapt, string keyword)
     mixed *found_arr, *tmp;
     int i, okbef, okaft;
     string st;
-    
-    okbef = 0; 
+
+    okbef = 0;
     okaft = 0;
 
     if (sscanf(keyword, "*%s", st) == 1)
@@ -135,7 +135,7 @@ get_keywords(string chapt, string keyword)
     {
 	return ({});
     }
-    
+
     found_arr = ({});
     for (i = 0; i < sizeof(chapters); i++)
     {
@@ -146,7 +146,7 @@ get_keywords(string chapt, string keyword)
 	    found_arr += ({ ({ chapters[i], tmp }) });
 	}
     }
-    
+
     return found_arr;
 }
 
@@ -157,13 +157,13 @@ get_keywords(string chapt, string keyword)
  *		    split on 'bb' will give:
  *			({ "%%hu", "a%%hu", "i%%bibi%%" })
  *		    The result should be:
- *			({ "hubba", "hubbi" })   
+ *			({ "hubba", "hubbi" })
  * Arguments:	    split: The subject list split on a keyword
  *		    keyw:  The keyword used to split the list.
  *		    okbef: True if letters before keyword is acceptable
  *		    okaft: True if letters after keyword is acceptable
  * Returns:         An array containing the matching subjects.
- *			
+ *
  */
 string *
 fix_subjlist(string *split, string keyw, int okbef, int okaft)

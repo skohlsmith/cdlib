@@ -19,7 +19,7 @@ create_monster()
       return;
 
    set_name("alchemist");
-   set_race_name("alchemist"); 
+   set_race_name("alchemist");
    set_living_name("_alchemist_");
    set_adj("town");
    set_long("@@my_long");

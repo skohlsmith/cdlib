@@ -7,7 +7,7 @@ SYNOPSIS
 DESCRIPTION
 	Sets a specific searchable name for a living object, ie an object
 	that has done enable_commands. By doing so the object can be found
-	by the function find_living. 
+	by the function find_living.
 
 NOTA BENE
 	This is normally used to allow finding of an npc globally in the

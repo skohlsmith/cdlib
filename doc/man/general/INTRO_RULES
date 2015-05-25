@@ -16,7 +16,7 @@ that now and you will have no trouble in the future. You are no
 longer a part of the ordinary quest for experience and should have
 no such contact with the game in the future. Should you ever decide
 that being a wizard is no longer your preference, your wizard
-character will be removed and the name _banished_. This is a 
+character will be removed and the name _banished_. This is a
 necessity caused by domain logging and the prevention of interaction
 of mortals with former wizards.
 
@@ -33,7 +33,7 @@ game must be respected.
 A wizard in a domain may not switch domains without the approval of
 an Archwizard and the current and future Lieges, so choose wisely
 if you are seeking a domain. Generally, this will be no problem, as
-we encourage people to code what they believe they will have the 
+we encourage people to code what they believe they will have the
 most fun with, but there are instances where it is undesirable for
 a wizard to "skip ship" so to speak.
 
@@ -45,7 +45,7 @@ should be a need for more than one test character, be certain to make
 him immediately identifiable as a testcharacter by his name. This
 testcharacter must be played as if he were a wizard, with the same
 rules applying to him. A wizard may not introduce a "test wizard".
-All test characters must be mortals. 
+All test characters must be mortals.
 
 You are supposed to use your test character to test out any code you
 produce before making it available to the mortals. On _NO_ account may
@@ -67,10 +67,10 @@ player the feeling of a medieval setting. There simply may not exist
 anything that even remotely sounds modern, not even in places where a
 mortal never may see it.
 
-An important final point: remember your creative responsibility. You are 
-the one immediately responsible for the code you create, although you will 
-also get your liege into trouble if you don't invest the necessary care 
-in your creations. In return for being granted your wizard powers, you 
+An important final point: remember your creative responsibility. You are
+the one immediately responsible for the code you create, although you will
+also get your liege into trouble if you don't invest the necessary care
+in your creations. In return for being granted your wizard powers, you
 are expected to:
 
           -  stay properly acquainted with the rules,
@@ -80,9 +80,9 @@ are expected to:
           -  periodically review code as your skills improve.
 
 Generally if you code as a long-term investment it will pay big dividends
-to you and the rest of the mud, not least because it will increase the 
-chances of your work standing the test of time and being kept in the game 
-after you are gone. 
+to you and the rest of the mud, not least because it will increase the
+chances of your work standing the test of time and being kept in the game
+after you are gone.
 
 Breaking of rules
 =================
@@ -96,7 +96,7 @@ If the offense is considered to have been sheer hooliganism you might
 be expelled from the game entirely. In case of such a drastic action,
 the Archwizards must also consider possible actions of revenge from
 you and they might deem it necessary to exclude your site entirely
-from the game. 
+from the game.
 
 Specific rules for the game
 ===========================
@@ -104,7 +104,7 @@ Specific rules for the game
 All rules concerning the game may be found in /doc/man/general/ and
 /doc/man/Genesis/. It's a very good idea to read through them all once
 just to get an idea of what is allowed and not. Later when you want to
-add things to the game you can read through the relevant files more 
+add things to the game you can read through the relevant files more
 carefully. Remember that not knowing about a rule is _no_ excuse for
 breaking it.
 

@@ -13,7 +13,7 @@ DESCRIPTION
 OPTIONS
         specification - a string that specifies what you want to search
 	                it can take many different forms
-		
+
         Some examples are:
         - "search desk" to search the desk in the room you are in.
         - "search here for herbs" to search for herbs in the room you are in.
