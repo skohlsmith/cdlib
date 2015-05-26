@@ -29,7 +29,7 @@ skillmap ([])
 name "root"
 password "sKcRWOqmbGLCA"
 player_file "/d/Standard/race/human_std"
-path "/d/Standard/obj"
+path "/std"
 mailaddr 0
 adj_desc ({"newborn",})
 default_start_location "/d/Standard/start/church"
@@ -42,12 +42,12 @@ recover_list ({})
 saved_props ({70000,180000,0,20,70000,0,})
 bit_savelist ({})
 tot_value 0
-age_heart 1894
+age_heart 2309
 notify 0
 decay_time_acc 0
 restricted 0
-login_time 1432572590
-logout_time 1432572651
+login_time 1432599820
+logout_time 1432600651
 wiz_unmet 0
 m_remember_name ([])
 m_alias_list (["la":"look at",])

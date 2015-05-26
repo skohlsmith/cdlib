@@ -919,6 +919,13 @@ save_player(string pl_name)
 
     pack_bits();
     seteuid(getuid(this_object()));
+
+    /* Make sure the directories are there */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(pl_name, 0, 0);	/* /players/t/ for example */
+    if(file_size(dir) == -1) { mkdir(dir); }
+
     save_object(PLAYER_FILE(pl_name));
     seteuid(getuid(this_object()));
 

@@ -199,6 +199,18 @@ cat(string file, ...)
 }
 #endif CFUN
 
+varargs mixed *
+filter_array(mixed arr, mixed func, mixed ob, mixed ex)
+{
+    return filter(arr, func, ob, ex);
+}
+
+varargs mixed *
+map_array(mixed arr, mixed func, mixed ob, mixed ex)
+{
+    return map(arr, func, ob, ex);
+}
+
 /*
  * Function name: exclude_array
  * Description:   Deletes a section of an array

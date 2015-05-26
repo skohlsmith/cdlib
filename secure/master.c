@@ -2643,6 +2643,13 @@ rename_playerfile(string oldname, string newname)
     /* The name should also be updated in the playerfile. */
     playerfile = restore_map(PLAYER_FILE(newname));
     playerfile["name"] = newname;
+
+    /* Make sure the directories exist for the new player name */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(newname, 0, 0);       /* /players/t/ for example */
+    if(file_size(dir) == -1) { mkdir(dir); }
+
     save_map(playerfile, PLAYER_FILE(newname));
     write("Player " + capitalize(oldname) + " succesfully renamed to " +
         capitalize(newname) + ".\n");

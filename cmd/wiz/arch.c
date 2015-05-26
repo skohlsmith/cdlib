@@ -533,6 +533,13 @@ newchar(string str)
     write_file("/syslog/log/NEWCHAR_LIST", args[1] + "#" + name + "#" +
         passwd + "\n");
 
+    /* Ensure that the directories already exist (particularly the first
+       letter of the player's name */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(name, 0, 0);       /* /players/t/ for example */
+    if(file_size(dir) == -1) { mkdir(dir); }
+
     save_map(tmp_char, PLAYER_FILE(name));
 
     write("The player '" + capitalize(name) + "' is created. Password: " +
