@@ -3133,15 +3133,16 @@ log_restrict(string verb, string arg)
     if (dom == "")
         dom = BASE_DOMAIN;
 
-    path = "/d/" + dom + "/domain";
-    if (file_size(path) == -1)
-        mkdir(path);
+    path = "/d";
+    if(file_size(path) == -1) { mkdir(path); }
+    path += "/" + dom;
+    if(file_size(path) == -1) { mkdir(path); }
+    path += "/domain";
+    if (file_size(path) == -1) { mkdir(path); }
     path += "/private";
-    if (file_size(path) == -1)
-        mkdir(path);
+    if (file_size(path) == -1) { mkdir(path); }
     path += "/restrictlog";
-    if (file_size(path) == -1)
-        mkdir(path);
+    if (file_size(path) == -1) { mkdir(path); }
 
     if (!stringp(verb))
         verb = "";
