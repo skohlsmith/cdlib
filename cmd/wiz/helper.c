@@ -630,6 +630,14 @@ pinfo_write_done(string text)
     /* Make sure we have the proper euid. */
     SECURITY->set_helper_soul_euid();
 
+    /* Make sure the directories leading to the file are there */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/pinfo";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(pinfo_edit[wname], 0, 0);
+    if(file_size(dir) == -1) { mkdir(dir); }
+
     write_file(pinfo_edit[wname], ctime(time()) + " " + capitalize(wname) +
 	       " (" + capitalize(WIZ_RANK_NAME(SECURITY->query_wiz_rank(wname))) +
 	       "):\n" + text + "\n");
@@ -668,6 +676,14 @@ pinfo_edit_done(string text)
 
     /* Make sure we have the proper euid. */
     SECURITY->set_helper_soul_euid();
+
+    /* Make sure the directories leading to the file are there */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/pinfo";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(pinfo_edit[wname], 0, 0);
+    if(file_size(dir) == -1) { mkdir(dir); }
 
     rm(pinfo_edit[wname]);
     write_file(pinfo_edit[wname], text + "\n" + ctime(time()) + " " +
@@ -840,6 +856,14 @@ pinfo(string str)
 	    {
 		text = break_string(text, 75);
 	    }
+
+            /* Make sure the directories leading to the file are there */
+            string dir = "/players";
+            if(file_size(dir) == -1) { mkdir(dir); }
+            dir += "/pinfo";
+            if(file_size(dir) == -1) { mkdir(dir); }
+            dir += "/" + extract(name, 0, 0);
+            if(file_size(dir) == -1) { mkdir(dir); }
 
 	    write_file(file, ctime(time()) + " " + capitalize(wname) + " (" +
 		       capitalize(WIZ_RANK_NAME(SECURITY->query_wiz_rank(wname))) +

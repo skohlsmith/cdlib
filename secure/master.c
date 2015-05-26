@@ -2583,6 +2583,14 @@ remove_playerfile(string player, string reason)
     file = PLAYER_FILE(player) + ".o";
     deleted = DELETED_FILE(player) + ".o";
 
+    /* Make sure the directories exist for the new player name */
+    string dir = "/players";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/deleted";
+    if(file_size(dir) == -1) { mkdir(dir); }
+    dir += "/" + extract(player, 0, 0);
+    if(file_size(dir) == -1) { mkdir(dir); }
+
     /* If there is a file, move it to the deleted dir. */
     if (file_size(file) < 0)
     {
@@ -3726,6 +3734,15 @@ banish(string name, int what)
             sprintf("%s: %-11s banishes   %s.\n", ctime(time()),
             capitalize(euid), capitalize(name)));
 #endif LOG_BANISH
+
+        /* Make sure the leading directories already exist */
+        string dir = "/players";
+        if(file_size(dir) == -1) { mkdir(dir); }
+        dir += "/banished";
+        if(file_size(dir) == -1) { mkdir(dir); }
+        dir += "/" + extract(name, 0, 0);
+        if(file_size(dir) == -1) { mkdir(dir); }
+
         write_file(file, euid);
         break;
 
