@@ -585,6 +585,7 @@ notify(object ob, int level)
     }
 
 #ifdef LOG_ENTER
+    if(file_size("/syslog/log") == -1) { mkdir("/syslog/log"); }
     /* Cycle the log with the same day number every month. */
     log = "/syslog/log/" + LOG_ENTER + "." + TIME2FORMAT(time(), "mmdd");
     if ((file_size(log) > 0) &&
