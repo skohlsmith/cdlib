@@ -10,4 +10,18 @@ original as I can, limiting changes to things required to make it work,
 particularly with the current CD driver (06.04), from
 https://github.com/cotillion/cd-gamedriver
 
+Installation
 
+- Have a base directory for the MUD, we'll use ~/mud
+- compile and install the gamedriver to ~/mud/bin
+- clone this cdlib repository to ~/mud/lib
+- cd ~mud/lib
+- run ./preparedirs.sh in order to create required empty subdirectories
+- mv config.std to config
+- mv d.new to d
+- Start the driver
+- The default Keeper-level player is named root and whose password is root
+  You'll probably want to change that.
+
+Any changes to make how your MUD is unique (weapon types, money types,
+races, etc) should all be in files under ~mud/lib/config/
