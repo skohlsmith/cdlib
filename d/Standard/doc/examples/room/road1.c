@@ -39,7 +39,7 @@ create_room()
 
     add_exit(EX_ROOM + "at_tree", "east");
     add_exit(EX_ROOM + "road2", "north");
-    add_exit(EX_ROOM + "roo1", "south", -3);
+    add_exit(EX_ROOM + "room1", "south", -3);
     add_exit(EX_PLAIN + "plain1", "west");
 
     /*
