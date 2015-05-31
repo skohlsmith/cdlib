@@ -54,7 +54,7 @@ init()
 
     add_action("try_climb", "climb");
     add_action("jump", "jump");
-    add_action("throw", "throw");
+    add_action("do_throw", "throw");
 }
 
 /*
@@ -102,7 +102,7 @@ jump(string str)
  * is falling.
  */
 int
-throw(string str)
+do_throw(string str)
 {
     object *arr;	/* Local variables, array of objects */
     int i;		/* Local variable, integer, used in the for-loop */

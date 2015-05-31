@@ -314,7 +314,7 @@ create_new(string *a)
 
     tmp = ob->query_race_name() + ob->query_gender_string();
     bodies[tmp]++;
-    tell_room(this_object(), "\You hear a ringing in your ears as your\n" +
+    tell_room(this_object(), "You hear a ringing in your ears as your\n" +
 	      "vision returns to normal. You see your old crippled\n" +
 	      "lying on the floor in front of the keyboard. Suddenly\n" +
 	      "a hatch in the floor opens and the body falls through it.\n" +

@@ -19,3 +19,5 @@
 #define MONEY_MOVE_CENT(num, from, to)     MONEY_MOVE("cent",     num, from, to)
 #define MONEY_MOVE_CREDIT(num, from, to)   MONEY_MOVE("credit",   num, from, to)
 #define MONEY_MOVE_MEGABUCK(num, from, to) MONEY_MOVE("megabuck", num, from, to)
+
+#define MONEY_LOG_LIMIT ([ "cent": 10000, "credit": 10000, "megabuck": 10000 ])
