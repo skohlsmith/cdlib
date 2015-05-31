@@ -41,6 +41,7 @@ replace_soul()
 	    "/cmd/live/things",
 	    "/cmd/live/social",
 	    "/cmd/live/state",
+	    "/cmd/live/items",
 	    "/cmd/live/info"
 	});
 }
