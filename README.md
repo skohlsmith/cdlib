@@ -21,7 +21,7 @@ https://github.com/cotillion/cd-gamedriver
 * Run ./preparedirs.sh in order to create required empty subdirectories
 * Start the driver
 * The default Keeper-level player is named root and whose password is root
-  ** You'll probably want to change that. **
+  **You'll probably want to change that.**
 
 Any changes to make how your MUD is unique (weapon types, money types,
 races, etc) should all be in files under ~mud/lib/config/
