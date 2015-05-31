@@ -3,7 +3,7 @@
 # This creates the directories which the MUD expects to be there,
 # but which are empty (and thus not tracked by git)
 #
-# RUN THIS FROM YOUR lib DIRECTORY
+# RUN THIS FROM YOUR BASE lib DIRECTORY (i.e. where this script is)
 #
 mkdir -p d/Standard/ateam
 mkdir -p d/Standard/log
