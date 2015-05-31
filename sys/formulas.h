@@ -106,8 +106,11 @@
 		(corr) > random(10 - (likely) / 4))
 #define F_WEAPON_CONDITION_DULL(hits, pen, lik)	((hits) > random(500) + \
 		10 * (30 - (lik)))
+/* no reference to a W_WEIGHTS_OFFSET array nor a W_WEIGHTS_FACTOR one
 #define F_WEIGHT_DEFAULT_WEAPON(wpen, wtype) \
 	(W_WEIGHTS_OFFSET[wtype] + W_WEIGHTS_FACTOR[wtype] * (wpen))
+*/
+#define F_WEIGHT_DEFAULT_WEAPON(wp, wt)         (1000 * ((wp) / 4))
 #define F_WEIGHT_FAULT_WEAPON(weight, wpen, wtype) \
 	((weight) < (F_WEIGHT_DEFAULT_WEAPON(wpen, wtype) * 4 / 5))
 
