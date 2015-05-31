@@ -16,9 +16,9 @@ https://github.com/cotillion/cd-gamedriver
 * Compile and install the gamedriver to ~/mud/bin
 * Clone this cdlib repository to ~/mud/lib
 * cd ~mud/lib
-* Run ./preparedirs.sh in order to create required empty subdirectories
 * mv config.std to config
 * mv d.new to d
+* Run ./preparedirs.sh in order to create required empty subdirectories
 * Start the driver
 * The default Keeper-level player is named root and whose password is root
   ** You'll probably want to change that. **
