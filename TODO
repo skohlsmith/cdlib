@@ -1,0 +1,6 @@
+The /std/map and /std/mapsquare stuff still doesn't work
+ - missing defines for OUT_NORTH -type directions (seems to want inverse
+   bitmaps of the defined (in config/sys/map_directions.h) NORTH,EAST,etc
+ - missing define for INVERTED_EXITS.  Would this be an OR of all fo the
+   OUT_* ones? -- wouldn't that just be an all-ones bitmap?
+ - mapsquare is looking for /sys/map.h, which I don't have a copy of
