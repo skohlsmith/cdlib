@@ -14,9 +14,5 @@ mkdir -p syslog/log/enter
 mkdir -p players/messages
 mkdir -p players/sanctions/Standard
 mkdir -p players/mail
-mkdir -p d.new/Standard/ateam
-mkdir -p d.new/Standard/log
-mkdir -p d.new/Standard/open
-mkdir -p d.new/Standard/domain/private
 mkdir -p w
 mkdir -p log
