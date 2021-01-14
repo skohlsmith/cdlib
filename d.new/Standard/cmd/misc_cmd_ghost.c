@@ -40,6 +40,7 @@ replace_soul()
 	    MASTER,
 	    "/cmd/live/things",
 	    "/cmd/live/social",
+	    "/cmd/live/speech",
 	    "/cmd/live/state",
 	    "/cmd/live/info"
 	});
